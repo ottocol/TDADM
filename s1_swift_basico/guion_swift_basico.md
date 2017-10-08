@@ -58,4 +58,14 @@
 - Se pueden definir parámetros con un nombre dentro de la función pero una etiqueta distinta, o sin etiqueta [Ejemplo](https://repl.it/MRF9/0)
 - Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
+## Opcionales
+
+- `nil` es como el `null` de Java, pero es aplicable también a `Int`, `Float`, ...
+- No obstante, una variable "normal" no puede valer `nil`. Para indicar que puede valer `nil`, debemos declararla como *opcional*, con un `?` en la declaración, después del tipo
+- Muchos métodos de la librería de Swift devuelven un opcional, con `nil` si fallan. Por ejemplo conversión de tipos `Int("hola")`
+- En un opcional el valor está "envuelto", por ejemplo `print(Int("1"))`. No se puede operar con él directamente: `print(Int("1")+1)` (¡crash!)
+- Podemos *desenvolver* el opcional con `!`, pero intentar desenvolver `nil` es un error
+- Patrón típico para desenvolver opcionales: `if let var = varOpcional { }`
+- Como el código de desenvolver es tedioso, se nos da la posibilidad de definir opcionales pero tratarlos como si no lo fueran: Implicitly unwrapped optionals, declarados con `tipo!`, por ejemplo: `var num:Int!`
+
 
