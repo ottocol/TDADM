@@ -1,5 +1,4 @@
-# Swift básico: Guión para clase
-
+# Swift básico:
 
 ## Variables y constantes
 
@@ -43,11 +42,20 @@
 ## Instrucciones de control de flujo
 
 - Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*: `for valor in 1...5 { }`, `for valor in 0...<limite`
+  * variable anónima para iteración, cuando no nos interesa en qué iteración estamos: `for _ in 1...5`
 - `if`, `while`:
   * La condición debe evaluarse a booleano (igual que en Java)
   * No hace falta paréntesis en la expresión (a diferencia de C)
 - `repeat ... while` es como el `do..while`
+- `switch` es similar a C/Java, pero
+  * no hace falta break 
+  * en los case se puede poner cualquier tipo de datos, varios valores, rangos, o condiciones. Un [Ejemplo](https://repl.it/MREg/0)
 
-## Funciones y clausuras
+## Funciones
+
+- definir función `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`
+- Los nombres de los parámetros se usan como etiquetas al llamar a la función: `nombre(par1:1, par2:"hola")`
+- Se pueden definir parámetros con un nombre dentro de la función pero una etiqueta distinta, o sin etiqueta [Ejemplo](https://repl.it/MRF9/0)
+- Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
 
