@@ -68,4 +68,14 @@
 - Patrón típico para desenvolver opcionales: `if let var = varOpcional { }`
 - Como el código de desenvolver es tedioso, se nos da la posibilidad de definir opcionales pero tratarlos como si no lo fueran: Implicitly unwrapped optionals, declarados con `tipo!`, por ejemplo: `var num:Int!`
 
+## Clases
 
+- Sintaxis similar a Java [Ejemplo](https://repl.it/MRLY/1). Algunas diferencias:
+    + No se pone `new` para instanciar un nuevo objeto
+    + En lugar de `this`, se pone `self`
+    + Los constructores, aquí llamados *inicializadores* se definen siempre como `init`
+- Propiedades computadas: son *getters*/*setters*, desde "fuera" parecen propiedades pero en realidad son métodos [Ejemplo](https://repl.it/MRS4/0)
+- Los objetos se pasan por referencia igual que en Java
+- Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en siguientes sesiones
+
+CUIDADO: en el REPL los modificadores de acceso no funcionan
