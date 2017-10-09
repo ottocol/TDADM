@@ -248,6 +248,68 @@ Podemos usar la "variante" `try!` cuando no queremos gestionar el error porque e
 
 ## Genéricos
 
+
+
 ## Protocolos
 
-patrón delegate
+El concepto de protocolo en Swift es similar al de _interface_ en Java. Un _protocolo_ es una plantilla de métodos, propiedades y otros requisitos que definen una tarea o funcionalidad particular.
+
+Un protocolo no proporciona ninguna implementación, sino que debe ser _adoptado_ por una clase, un _struct_ o una enumeración.
+
+Un protocolo proporciona un _tipo_ y se puede usar en muchos sitios donde se permiten usar tipos:
+  - Como el tipo de un parámetro o de un valor devuelto por una función, un método o un inicializador.
+  - Como el tipo de una constante, variable o propiedad.
+  - Como el tipo de los ítems de un array, diccionario u otros contenedores.
+
+Los protocolos se declaran con la palabra clave `protocol`. Dentro del protocolo especificamos las signaturas de los métodos y si las propiedades computadas son de lectura y/o escritura. Si un método modifica alguna propiedad del objeto debemos indicarlo con `mutating`
+
+```swift
+protocol ProtocoloEjemplo {
+    func saludar()->String
+    //Propiedad calculada: debemos decir si es gettable y/o settable
+    var descripcion: String {get set}
+    //si la función muta algún dato, debemos especificarlo
+    mutating func reggaetonizar()
+}
+```
+
+Para indicar que una clase adopta un protocolo usamos la misma notación que con la herencia
+
+```swift
+class MiClase : ProtocoloEjemplo {
+    var descripcion = "Mi Clase"
+    func saludar()->String {
+        return "Hola soy " + self.descripcion
+    }
+    func reggaetonizar() {
+        self.descripcion += " ya tú sabes"
+    }
+}
+
+let mc = MiClase()
+mc.reggaetonizar()
+mc.saludar()   //Hola, soy Mi Clase ya tú sabes
+```
+
+Al igual que en Java una clase solo puede heredar de una superclase, pero puede implementar uno o varios protocolos. En la primera línea de la clase, donde indicamos herencia-protocolos, hay que poner la superclase antes que los protocolos para evitar ambigüedades
+
+```swift
+class MiOtraClase: Superclase, ProtocoloUno, ProtocoloDos {
+   //Definición de la clase
+}
+```
+
+## El patrón de diseño "delegación"
+
+**Delegación** es un patrón de diseño que permite a una clase o estructura pasar (o *delegar*) alguna de sus responsabilidades a una instancia de otro tipo. Este patrón está relacionado con la idea de *composición*: cuando queremos que un objeto realice una tarea incluimos en él otro objeto capaz de realizarla.
+
+Este patrón es uno de los más comunes en los _frameworks_ del sistema en iOS/OSX, ya que permite que las clases del sistema hagan su trabajo apoyándose en código proporcionado por el programador. La idea es que la clase del sistema contendrá una referencia a un objeto proporcionado por el desarrollador y que implementa una serie de funcionalidades. Para que el compilador pueda chequear que efectivamente las implementa, este objeto debe adoptar un determinado protocolo.
+
+Por ejemplo, como veremos en la asignatura de interfaz de usuario, las tablas en iOS se implementan habitualmente con la clase del sistema `UITableView`. Nótese que cuando en iOS hablamos de tablas en realidad estamos hablando de *listas de datos* (o visto de otro modo, tablas de una única columna), que son omnipresentes en las interfaces de usuario de *apps* móviles.
+
+`UITableView` necesariamente es una clase genérica. Pero se tiene que "adaptar" a los datos concretos que queremos mostrar. Lo que se hace en iOS es usar el patrón delegación. Un `UITableView` tiene una propiedad `delegate` que debe ser un objeto que adopte el protocolo `UITableViewDelegate`. Este protocolo incluye por ejemplo un método que devuelve el contenido de una fila sabiendo su número. De este modo, cuando iOS quiere dibujar la tabla en pantalla lo que va haciendo es "pidiéndole" las filas una por una al `delegate`.
+
+Una alternativa que podría haber adoptado Apple es hacer que el desarrollador creara una clase que heredara de `UITableView` y que tuviera que implementar en ella los métodos apropiados, pero esta alternativa es más problemática, ya que como sabemos una clase solo puede heredar de otra, y si tuviéramos que heredar de `UITableView` para tener esta funcionalidad ya no podríamos heredar de otra clase.
+
+Este patrón no se usa únicamente con tablas sino que está "por todas partes" en los _frameworks_ del sistema en iOS. Ya vimos por ejemplo el `ApplicationDelegate` cuando creamos nuestra primera aplicación, pero hay muchos más ejemplos.
+
