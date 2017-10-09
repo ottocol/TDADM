@@ -24,11 +24,11 @@ cola.addOperation() {
 };
 ```
 
-NOTA: podemos ver el resultado del código anterior añadiéndolo por ejemplo a una aplicación iOS. Si usamos una aplicación de línea de comandos tendremos que añadir algo al código ya que si no el programa principal terminaría inmediatamente después del segundo `addOperation` y no se verían los mensajes en pantalla. Por ejemplo podemos añadir un `readLine()` para que el programa se espere hasta que pulsemos INTRO.
+NOTA: podemos ver el resultado del código anterior añadiéndolo por ejemplo a una aplicación iOS. Si usamos una aplicación de línea de comandos tendremos que añadir algo al código ya que si no el programa principal terminaría inmediatamente después del segundo `addOperation` y no se verían los mensajes en pantalla. Por ejemplo podemos llamar a `cola.waitUntilAllOperationsAreFinished()`  que como su propio nombre indica se espera hasta que todas las operaciones añadidas a la cola han terminado.
 
 Si ejecutamos el código anterior veremos que aunque el código de la primera clausura comienza a ejecutarse primero, aun así termina después, es decir, ambas "tareas" se están ejecutando en paralelo y no secuencialmente.
 
-En aplicaciones iOS cuando necesitemos ejecutar una operación especialmente costosa en tiempo no es recomendable bloquear la interfaz de usuario, por lo que se suele crear una cola de operaciones y ejecutar la operación en esta.
+En aplicaciones iOS cuando necesitemos ejecutar una operación especialmente costosa en tiempo no es recomendable bloquear la interfaz de usuario, por lo que se suele crear una cola de operaciones y ejecutar la operación en esta. La cola de operaciones de la interfaz de usuario no puede ejecutar operaciones concurrentes para evitar inconsistencias (si por ejemplo dos tareas estuvieran modificando simultáneamente el mismo elemento de la interfaz). 
 
 Un problema adicional es que normalmente esta operación costosa debe actualizar la interfaz de usuario al finalizar, pero ningún hilo de ejecución que no sea el principal debe actualizar la interfaz de usuario, ya que lo contrario podría producir resultados inconsistentes. Esto lo podemos resolver accediendo a la cola de operaciones principal con `OperationQueue.main`. Por ejemplo:
 
