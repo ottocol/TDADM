@@ -1,3 +1,16 @@
+# Comunicación modelo-controlador
+
+Ya hemos visto cómo se comunican bidireccionalmente el controlador y la vista:
+
+- Cuando la vista genera un evento (como por ejemplo un *tap* en un botón) llama a un método del controlador (un *action*)
+- El controlador puede acceder al estado actual de ciertos elementos de la vista y manipularlo a través de los *outlet*.
+
+También hemos visto que el controlador mantiene una referencia a las clases del modelo y que así podemos llamar a la lógica de negocio, pero nos falta la otra dirección: cómo avisa el modelo al controlador de que se ha producido un evento importante. Por ejemplo supongamos una aplicación de mensajería en la que las clases del modelo reciben un nuevo mensaje, y hay que pasárselo al controlador para que éste lo muestre en la vista.
+
+Una opción para comunicar eventos del modelo al controlador sería que el primero mantuviera una referencia al segundo y así pudiera llamar a cierto método o métodos. Pero esto acoplaría el código del modelo al controlador, y no nos permitiría reutilizar el modelo o partes sgnificativas de él en otras aplicaciones, o "protegerlo" de posibles cambios en el controlador.
+
+Vamos a ver aquí métodos "no invasivos" para que el modelo comunique con el controlador, sin necesidad de acoplar el código de ambos. Es inevitable que controlador tenga conocimiento del modelo, pero como veremos no es inevitable que el modelo tenga conocimiento del controlador.
+
 ## Notificaciones locales
 
 Son lo que en aplicaciones *enterprise* se llaman colas de mensajes. Implementan el patrón de diseño publicar/suscribir.
