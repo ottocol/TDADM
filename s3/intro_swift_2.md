@@ -67,7 +67,7 @@ let ord = nombres.sorted() {
 }
 ```
 
-## Estructuras vs objetos
+## Estructuras
 
 En Swift también existen `struct`s.
 
@@ -76,15 +76,83 @@ En lenguajes como C++, clases y `structs` son completamente diferentes. En swift
 - Ambas pueden contener **propiedades** y **métodos**
 - Definen **inicializadores** (== *constructores*)
 - Se instancian de forma muy parecida
-- Se definen como **conformes a protocolos** (parecidos a *interfaces* de Java)
+- Se pueden definir como **conformes a protocolos** (parecidos a *interfaces* de Java)
+
+```swift
+struct Punto2D {
+    var x,y : Double
+    var descripcion : String {
+        return "(\(x),\(y))"
+    }
+}
+
+var p1 = Punto2D(x: 1.0, y: 0.0)
+print(p1.descripcion)
+```
+
+Como vemos, en el código anterior no hemos definido ningún inicializador y sin embargo lo hemos llamado para construir un `Libro`. En *structs* el compilador define automáticamente un inicializador (llamado *memberwise initializer*) que acepta las variables miembro como parámetros. 
 
 Sin embargo, hay funcionalidades que tienen las clases pero no las estructuras:
 
 - Herencia
 - **Deinicializadores** (== destructores)
-- Varias variables pueden referenciar a la misma instancia
+- Varias variables pueden referenciar a la misma instancia. Es decir, como ahora veremos, los objetos se pasan por referencia y las estructuras por valor.
+
+### Valor vs. referencia
+
+Las estructuras se pasan por valor y los objetos por referencia. Eso quiere decir que si asignamos una estructura a otra variable o la pasamos como parámetro de una función estamos *haciendo una copia*, pero si asignamos objetos, son punteros que apuntan en realidad *al mismo objeto*.
+
+Por ejemplo con estructuras
+
+```swift
+struct Punto2D {
+    var x,y : Double
+    var descripcion : String {
+        return "(\(x),\(y))"
+    }
+}
+
+var p1 = Punto2D(x: 1.0, y: 0.0)
+var p2 = p1
+print(p1==p2)
+p1.x = -1.0;
+print(p2.descripcion)  //cambiar p1 no cambia el valor de p2
+```
+
+Si  `Punto2D` pasara de ser una estructura a una clase, pasarían dos cosas:
+
+- Ya no tendríamos automáticamente definido el *memberwise initializer*
+- Al asignar o pasar como parámetro estaríamos referenciando *la misma instancia*.
+
+```swift
+class Punto2D {
+    var x,y : Double
+    var descripcion : String {
+        return "(\(x),\(y))"
+    }
+}
+
+var p1 = Punto2D()
+p1.x = 1
+p1.y = 0
+var p2 = p1            //ahora p1 y p2 apuntan A LA MISMA INSTANCIA
+p1.x = -1.0;
+print(p2.descripcion)  //(-1.0, 0.0) 
+```
+
+### Escoger estructuras vs. clases
+
+Se recomienda usar estructuras cuando se cumplan estas condiciones:
+
+- La finalidad principal es simplemente encapsular unos cuantos datos
+- La copia por valor no va a causar problemas 
+- Las propiedades de la estructura son también valores y no referencias (o sea, la estructura no contiene objetos)
+- No necesitamos herencia
+
+En Swift, **muchos tipos de la librería estándar como los `String`, los *arrays* y los *diccionarios* se implementan como estructuras**, de modo que se pasan por valor y no por referencia. 
 
 ## Gestión de errores
+
 
 ## Genéricos
 
