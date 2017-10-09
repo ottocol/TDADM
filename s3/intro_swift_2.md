@@ -153,6 +153,97 @@ En Swift, **muchos tipos de la librería estándar como los `String`, los *array
 
 ## Gestión de errores
 
+En Swift representamos un error con cualquier elemento que sea conforme al protocolo `Error`. Los `enums` son especialmente apropiados para representar errores
+
+```swift
+enum ErrorImpresora : Error {
+    case sinPapel
+    case sinTinta(color: String)
+    case enLLamas
+}
+```
+
+Para señalar que se ha producido un error, lo lanzamos con `throw`
+
+```swift
+throw ErrorImpresora.sinTinta(color: "Rojo")
+```
+
+Ante un error tenemos cuatro opciones:
+
+- Propagarlo "hacia arriba"
+- Capturarlo con un `do..catch`
+- Manejarlo como un opcional
+- Suponer que todo va a ir bien
+
+### Propagar errores
+
+Podemos indicar que una función/método lanza errores marcándola con `throws`. El error llegará a la función/método que haya llamado a esta, que a su vez podría propagarlo hacia arriba.
+
+Nótese que si llamamos a un método marcado con `throws` debemos preceder la llamada de la palabra clave `try`
+
+Veamos un ejemplo, suponiendo el `enum ErrorImpresora` definido antes
+
+```swift
+class Impresora {
+    var temperatura=0.0
+    //Marcado con "throws" porque lanza un error "hacia arriba"
+    func verificarEstado() throws -> String {
+        if self.temperatura>80 {
+           throw ErrorImpresora.enLlamas
+        }
+        else
+           return "OK"
+    }
+}
+
+//Lanza un error "hacia arriba"
+func miFuncion() throws {
+  var miImpresora = Impresora()
+  miImpresora.temperatura = 100
+  //Para llamar a un método marcado con "throws" tenemos que usar "try"
+  try miImpresora.verificarEstado()
+}
+
+try miFuncion()
+```
+
+En el ejemplo anterior, el error acaba subiendo hasta el nivel superior y el programa abortaría.
+
+### Capturar errores
+
+Podemos capturar un error envolviendo la llamada a los métodos que los lanzan en un bloque `do...catch`, que es muy similar al `try...catch` de Java o de otros lenguajes
+
+```swift
+do {
+    var miImpresora = Impresora()
+    miImpresora.temperatura = 100
+    try miImpresora.verificarEstado()
+}
+catch ErrorImpresora.enLlamas {
+    print("SOCORROOOOOOOO!!!")
+}
+```
+
+### Manejar un error como opcional
+
+En lugar de usar `try` en la llamada a un método que puede generar un error podemos emplear la "variante" `try?`. Lo que hace esta forma es capturar el error y transformar el resultado del método en un opcional, que podemos tratar con el patrón habitual `if let ...`. Si ha habido un error el método nos devolverá `nil`
+
+```swift
+var miImpresora = Impresora()
+miImpresora.temperatura = 100
+if let estado = try? miImpresora.verificarEstado() {
+    print("Perfecto. El estado es \(estado)")
+}
+else {
+   print("Ha habido un error")
+}
+```
+
+### Ignorar los errores
+
+Podemos usar la "variante" `try!` cuando no queremos gestionar el error porque es crítico y si se da no tiene sentido continuar con el programa. Si el error se produjera se lanzaría inmediatamente una excepción en tiempo de ejecución y el programa abortaría.
+
 
 ## Genéricos
 
