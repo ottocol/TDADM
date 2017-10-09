@@ -56,6 +56,7 @@
 - definir función `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`
 - Los nombres de los parámetros se usan como etiquetas al llamar a la función: `nombre(par1:1, par2:"hola")`
 - Se pueden definir parámetros con un nombre dentro de la función pero una etiqueta distinta, o sin etiqueta [Ejemplo](https://repl.it/MRF9/0)
+- Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con `let`. Podemos cambiar esto marcando el parámetro con `inout`, que se pone antes del tipo: `func ejemplo(par : inout Int)`. Para llamar a la función hay que marcar explícitamente el parámetro con un `&`. `ejemplo(par:&valor)`.
 - Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
 ## Opcionales
