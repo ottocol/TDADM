@@ -8,7 +8,9 @@ Tanto iOS como OSX tienen varios APIs con distinto nivel de abstracción para tr
 
 - En el nivel más bajo estaría trabajar directamente con *threads*, representados por la clase del sistema `NSThread`. La mayoría de aplicaciones no necesitan la flexibilidad que nos proporciona trabajar a este nivel, o no merece la pena teniendo en cuenta lo complicado del código con respecto a las otras alternativas.
 - En un nivel intermedio tenemos un _framework_ de Apple llamado *grand central dispatch* o GCD. Tiene un nivel de abstracción razonable para la mayoría de aplicaciones, de hecho en Internet podéis encontrar multitud de tutoriales y ejemplos que lo usan (podéis verlo por la llamada a una función llamada `dispatch_async`, que pone en marcha código concurrente).
-- En el nivel más alto de abstracción están las *colas de operaciones* (aunque no es mucho mayor que GCD). Es el API que vamos a usar aquí.
+- En el nivel más alto de abstracción están las *colas de operaciones* (aunque no es mucho mayor que GCD). Es el API que vamos a usar aquí ya que es el más sencillo de usar.
+
+Cada API usa internamente los otros de más bajo nivel. Es decir, GCD usa internamente *threads* y las colas de operaciones usan internamente GCD.
 
 ## Colas de operaciones
 
