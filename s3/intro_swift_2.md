@@ -163,6 +163,8 @@ enum ErrorImpresora : Error {
 }
 ```
 
+NOTA: ya veremos qué son los protocolos, por el momento basta con saber que son como los *interfaces* en Java
+
 Para señalar que se ha producido un error, lo lanzamos con `throw`
 
 ```swift
@@ -244,8 +246,8 @@ else {
 
 Podemos usar la "variante" `try!` cuando no queremos gestionar el error porque es crítico y si se da no tiene sentido continuar con el programa. Si el error se produjera se lanzaría inmediatamente una excepción en tiempo de ejecución y el programa abortaría.
 
-
 ## Genéricos
 
 ## Protocolos
+
 patrón delegate
