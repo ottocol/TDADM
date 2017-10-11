@@ -78,5 +78,37 @@
 - Propiedades computadas: son *getters*/*setters*, desde "fuera" parecen propiedades pero en realidad son métodos [Ejemplo](https://repl.it/MRS4/0)
 - Los objetos se pasan por referencia igual que en Java
 - Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en siguientes sesiones
+- Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para sobreescribir un método, `override`
+- *casting*: algunas veces ciertos APIs devuelven resultados "sin tipo" (`Any`), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con `as`: `dato as Clase`. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.
 
-CUIDADO: en el REPL los modificadores de acceso no funcionan
+
+> CUIDADO: en el REPL los modificadores de acceso no funcionan
+
+
+## Enumerados
+
+```swift
+enum Direccion {
+    case norte, sur, este, oeste
+}
+```
+
+Pueden tener un valor "interno" (*raw*), cuyo tipo se indica como si el enumerado heredara de él. Cuando se pone `Int`, Swift asigna valores comenzando por 0. Accedemos a este valor con `rawValue`.
+
+```swift
+enum Direccion: Int {
+    case norte, sur, este, oeste
+}
+print (Direccion.norte.rawValue)  //0
+```
+
+Si indicamos `String` como tipo del `rawValue` Swift hace una "conversión automática" de los nombres a Strings
+
+```swift
+enum Direccion: String {
+    case norte, sur, este, oeste
+}
+print (Direccion.norte.rawValue)  //"norte"
+```
+
+- Los enum pueden tener métodos y ser conforme a protocolos
