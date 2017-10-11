@@ -18,104 +18,99 @@ En `XCTest` hay varios tipos distintos de pruebas unitarias:
 
 - **Tests de “lógica”**: lo que todo el mundo entiende habitualmente por pruebas unitarias, es decir pruebas en las que comprobamos si determinado método funciona o no correctamente.
 - **Tests de tiempo de respuesta**: en los que podemos ver estadísticas del tiempo que tarda en ejecutarse determinado bloque de código. Podemos fijar un *baseline* de tiempo de modo que el test se considerará que no pasa si está por encima del *baseline*
+- **Tests asíncronos**: con código asíncrono podemos tener el problema de que Xcode no sepa cuándo ha acabado de ejecutarse nuestro código y por tanto se puede dar por acabado el test. Por ejemplo si lanzamos una petición HTTP no podemos hacer las comprobaciones hasta que no llegue la respuesta. En este tipo de test podemos indicar a Xcode cuándo lo puede dar por terminado, o en caso de sobrepasar un *timeout* que lo de por fallido.
 
-### Escribir y ejecutar pruebas unitarias
+### Un ejemplo
 
 `XCTest` es muy similar a otros *frameworks* de pruebas unitarias como `JUnit`, así que es sencillo de usar para alguien que ya haya usado este último
 
-Por ejemplo, supongamos que tenemos un juego de tres en raya y aquí tenemos parte del modelo:
+Por ejemplo, supongamos que tenemos un juego de tres en raya y aquí tenemos parte del modelo (se omite el código interno de los métodos, para mayor brevedad)
 
-    typedef enum {
-      Casilla_Vacia,Casilla_X,Casilla_O
-    } Casilla;
-    
-    @interface TresEnRayaModelo : NSObject
-    - (id) init;
-    - (Casilla) getCasillaFila:(int)fila Columna:(int)columna;
-    - (void) setCasilla:(Casilla)valor Fila:(int)fila Columna:(int)columna;
-    @end
-    
+```swift
+enum Casilla {
+    case vacia, X, O
+}
 
- Vamos a comprobar varias cosas
+enum ErrorJuego : Error {
+    case casillaNoExiste
+}
+
+class Juego {
+    var tablero : [[Casilla]]
+    
+    func getCasilla(fila: Int, col: Int) throws -> Casilla {
+        ...
+    }
+    
+    func setCasilla(fila: Int, col: Int, valor: Casilla) throws {
+        ...
+    }
+    
+    init(filas:Int, cols: Int) {
+        ...
+    }   
+}
+```
+
+¿Cómo estar razonablemente seguros de que el código de los métodos es correcto?. Podemos comprobar varias cosas, por ejemplo
+
 - Que cuando se inicializa el tablero todas las casillas están vacías
-    - Que las casillas se pueden obtener/fijar correctamente a un valor dado
-    - Que cuando se intenta obtener/fijar una casilla que no existe se produce una excepción
+- Que las casillas se pueden obtener/fijar correctamente a un valor dado
+- Que cuando se intenta obtener/fijar una casilla que no existe se produce un error
 
-#### Estructura de una *suite* de pruebas
+Vamos a ver cómo podemos automatizar todas estas comprobaciones en una *suite* de pruebas.
 
-- Iríamos a la plantilla de clase de pruebas que ha creado Xcode e introduciríamos el siguiente código
+### Estructura de una *suite* de pruebas
 
-    @interface TresEnRayaTests : XCTestCase
+Podemos ver la estructura que tiene un conjunto o *suite* de pruebas en la plantilla de *tests* que crea Xcode. En el caso de nuestro ejemplo podría ser algo como lo siguiente (suponiendo que el proyecto se llama `TresEnRaya`)
+
+```swift
+import XCTest
+@testable import TresEnRaya
+
+class TresEnRayaTests: XCTestCase {
     
-    @end
-    
-    @implementation TresEnRayaTests {
-        TresEnRayaModelo *ter;
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    - (void)setUp {
-        [super setUp];
-        ter = [[TresEnRayaModelo alloc] init];
-    }
-    
-    - (void)tearDown {
+    override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        [super tearDown];
+        super.tearDown()
     }
+```
+
+donde hay que destacar:
+
+- El `import XCTest` incluye las librerías de *testing*
+- Con el `import TresEnRaya` evidentemente importamos el código del proyecto. El `@testable` de delante cambia implícitamente los modificadores de acceso de las propiedades de las clases del módulo, para que sean accesibles a los *test*
+- La clase que contiene la *suite* debe heredar de `XCTestCase`
+- Al igual que en *frameworks* de *testing* como JUnit hay un `setUp()` y `tearDown` que se ejecutan al inicio y al final de cada *test*, respectivamente. En el primero podemos colocar código que inicialice los valores necesarios antes de cada *test* y en el segundo "limpiar" lo que haya hecho el test si es necesario.
+- Las pruebas unitarias se deben implementar en métodos que no devuelvan nada y cuyo nombre debe comenzar por `test`. 
     
-    - (void)testInitDevuelveTableroVacio {
-        for (int fila=0;fila<3;fila++)
-            for(int col=0;col<3;col++) {
-                XCTAssertEqual(Casilla_Vacia, [ter getCasillaFila:fila Columna:col]);
-            }
-    }
-    
-    -(void)testCasillaIncorrectaGeneraExcepcion {
-        XCTAssertThrows([ter getCasillaFila:10 Columna:10], @"Debería lanzar excepción");
-        XCTAssertThrows([ter setCasilla:Casilla_X Fila:10 Columna:10], @"Debería lanzar excepción");
-    }
-    
-    @end
-- Hay varios puntos a destacar:
-    - Por defecto **la plantilla coloca el `@interface` y la `@implementation`** de la clase de la *suite* de tests **en el mismo archivo `.m`**. Esto es adecuado en la mayoría de los casos, ya que no vamos a referenciar la *suite* desde otras clases y no necesitamos por tanto un `@interface` separado
-    - Al igual que en `JUnit` hay dos métodos: `setup` y `teardown` que se ejecutan al inicio y al final de cada test, respectivamente.
-    - Las pruebas unitarias se implementan en métodos que deben devolver `void` y cuyo nombre debe comenzar por `test`. 
-    - Comprobamos el correcto funcionamiento de la lógica con los métodos `XCTAssert`
 
-#### Aserciones
-En todas las aserciones podemos poner como parámetro final un mensaje (Un `NSString`) que aparecerá si falla el test
+### Aserciones
 
-    XCTAssertTrue(NO, @"Esta prueba va a fallar seguro");
+Las aserciones son las cosas que queremos comprobar que son ciertas. Si lo son, entonces el código debe estar funcionando correctamente (al menos en el aspecto que estamos comprobando). Para hacer una aserción se usa la familia de métodos `XCTAssert`. Decimos familia porque podemos hacer diferentes tipos de comprobaciones, por ejemplo:
 
-Tenemos varios tipos de aserciones, por ejemplo: 
-- `XCTAssertTrue` y  `XCTAssertFalse` comprueban que algo es cierto o falso, respectivamente
-- `XCTAssertEqual` sirve para comprobar la igualdad de valores escalares. En el ejemplo lo hemos usado para comprobar el contenido de las casillas al ser este un `enum`. Tenemos también el contrario, `XCTAssertNotEqual`
-- `XCTAssertEqualObjects` es como el anterior, pero para comparar igualdad entre objetos. Internamente llama al `isEqual`.
-- `XCTAssertThrows`comprueba que una llamada a un método genera una excepción. Opcionalmente, podemos comprobar que además la excepción es de una clase específica.
-Se recomienda consultar la documentación de Apple para [más detalles sobre los distintos tipos de aserciones](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/testing_with_xcode/testing_3_writing_test_classes/testing_3_writing_test_classes.html#//apple_ref/doc/uid/TP40014132-CH4-SW34).
+-  **Comprobar que algo es cierto** con `XCTAssert` o `XCTAssertTrue`: por ejemplo comprobar que justo tras inicializar el tres en raya, la posición (0,0) del tablero contiene la casilla vacía.
+-  **Comprobar que algo es falso** con `XCTAssertFalse`. Una alternativa a la comprobación que decíamos antes sería comprobar que no es una X ni tampoco una O.
+-  **Comprobar que algo es igual a algo** con `XCTAssertEqual`, por ejemplo que tras fijar una casilla a un valor al obtener la casilla obtenemos ese valor. 
+-  **Comprobar que una operación genera un error** con `XCTAssertThrowsError`: por ejemplo si inicializamos un tablero de 3x3 y luego intentamos acceder a la casilla (5,5).
 
-#### Ejecutar las pruebas y ver el resultado
+Esto son algunas variantes de `XCTAssert` aplicables a nuestro ejemplo, pero hay bastantes más (comprobar que algo es menor, mayor que algo, o que una operación no lanza un error, o que algo es `nil`,...).
 
-- En el *Test navigator* podemos pulsar el pequeño botón de “play” que aparece al pasar el ratón por encima de cada test, para ejecutarlo individualmente o bien el que aparece en la *suite* completa para ejecutar todas sus pruebas.
-- Se pondrá en marcha el simulador de iOS con la aplicación, ejecutará las pruebas y terminará. En el *test navigator* y en el código fuente de la *suite* aparecerá un icono al lado de cada test indicando si ha pasado o no. Si no ha pasado aparecerá además un mensaje en el fuente indicándolo. También podemos ver los mensajes de error en el *Log Navigator*.
+En todas las aserciones podemos poner como parámetro final un mensaje (Un `String`) que aparecerá si falla el test
 
-#### Pruebas de tiempo de respuesta
+```swift
+XCTAssertTrue(false, "Esta prueba va a fallar seguro");
+```
 
-Con Xcode 6 se introduce un nuevo tipo de tests: los de tiempo de respuesta. Podemos ver estadísticas sobre el tiempo que tarda en ejecutarse un determinado bloque de código. Esto lo hacemos con el método `measureBlock`, que acepta el bloque a ejecutar como parámetro
+Para más detalles sobre los distintos tipos de aserciones se recomienda consultar el apartado "Test Assertions" de la documentación de [`XCTest`](https://developer.apple.com/documentation/xctest)
 
-    - (void) testInitTableroPerformance {
-        [self measureBlock:^{
-            for(int i=1;i<=100000;i++) {
-                TresEnRayaModelo *modelo = [[TresEnRayaModelo alloc] init];
-            }
-        }];
-    }
+### Ejecutar las pruebas y ver el resultado
 
-Cuando ejecutamos el test el bloque se ejecutará automáticamente 10 veces y nos aparecerán estadísticas sobre el tiempo medio y la desviación típica. Podemos usar estas estadísticas para fijar un *baseline*, un tiempo de referencia para la ejecución (se puede fijar un *baseline* por separado para cada hardware:iPhone 6/5, iPad Air, …)
-![](performance_test.png)
+En el *Test navigator* podemos pulsar el pequeño botón de “play” que aparece al pasar el ratón por encima de cada test, para ejecutarlo individualmente o bien el que aparece en la *suite* completa para ejecutar todas sus pruebas.
 
-
-
-## Referencias
-
-- [Guía de apple](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/testing_with_xcode/Introduction/Introduction.html#//apple_ref/doc/uid/TP40014132) sobre pruebas unitarias en Xcode 5 y posterior
+Se pondrá en marcha el simulador de iOS con la aplicación, ejecutará las pruebas y terminará. En el *test navigator* y en el código fuente de la *suite* aparecerá un icono al lado de cada test indicando si ha pasado o no. Si no ha pasado aparecerá además un mensaje en el fuente indicándolo. También podemos ver los mensajes de error en el *Report Navigator*.
