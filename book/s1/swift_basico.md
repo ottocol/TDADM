@@ -4,7 +4,7 @@ En un programa Swift no hay un "main" como en C sino que el código se empieza a
 
 Los ";" al final de las sentencias son opcionales.
 
-## <a name="vars">Variables y constantes</a>
+## Variables y constantes {#vars}
 
 - Swift tiene una serie de tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
 - Las **variables** se definen con `var` y las **constantes** con `let`. Si inicializamos su valor no es necesario especificar el tipo, ya que el compilador de Swift lo ***induce*** a partir del valor inicial.
@@ -38,7 +38,7 @@ var i : Int = Int(1.5)   //1
 - Podemos usar `Any` para indicar "cualquier tipo". Algunos APIs en los que no se puede saber por adelantado el tipo de retorno lo usan
 - Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
 
-## <a name="tipos">Tipos de datos básicos</a> (de la librería estándar)
+## Tipos de datos básicos (de la librería estándar) {#tipos} 
 
 ### String
 
