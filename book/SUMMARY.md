@@ -1,6 +1,7 @@
 # Contenidos
 
 * [Introducción a Swift](s1/swift_basico.md#intro)
+    * [Preliminares](s1/swift_basico.md#preliminares)
     * [Variables y constantes](s1/swift_basico.md#vars)
     * [Tipos de datos de la librería estándar](s1/swift_basico.md#tipos)
     * [Colecciones](s1/swift_basico.md#colecciones)
