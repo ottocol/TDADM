@@ -62,7 +62,7 @@ var mensaje = """
 """     
 ```
 
-### Colecciones: arrays, conjuntos y diccionarios
+### Colecciones: arrays, conjuntos y diccionarios {#colecciones}
 
 #### Arrays
 
@@ -141,7 +141,7 @@ for (nombre, instrumento) in grupo {
 ```
 
 
-## Instrucciones de control de flujo
+## Instrucciones de control de flujo {#flujo}
 
 Hay algunas instrucciones que son iguales a C/Java, como el `if` o el `while` con ciertas diferencias:
 
@@ -195,7 +195,7 @@ switch valorCarta {
 }
 ```
 
-## Funciones
+## Funciones {#funciones}
 
 - Para definir una función se usa la sintaxis `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`. Si una función no devuelve nada se omite el `->TipoRetorno`
 
@@ -228,7 +228,7 @@ saludarA("Pepe", el: "Martes")
 
 - Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
-## Opcionales
+## Opcionales {#opcionales}
 
 `nil` es como el `null` de Java, pero es aplicable también a `Int`, `Float`, ... No obstante, una variable "normal" no puede valer `nil`. 
 
@@ -290,7 +290,7 @@ valor = Int("1")
 print(valor)
 ```
 
-## Clases
+## Clases {#clases}
 
 La sintaxis es similar a Java con algunas diferencias:
   + No se pone `new` para instanciar un nuevo objeto
@@ -357,7 +357,7 @@ Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para s
 
 > CUIDADO: en el REPL los modificadores de acceso no funcionan
 
-## Extensiones
+## Extensiones {#extensiones}
 
 Nos permiten añadir nueva funcionalidad a clases ya existentes, incluso aun sin acceso al código fuente o en clases del sistema. Se pueden añadir por ejemplo nuevos métodos, inicializadores y propiedades computadas. Lo que no se puede hacer es sobreescribir los métodos o propiedades ya existentes.
 
@@ -376,7 +376,7 @@ print("mami".reggaetonizar())  //mami ya tú sabes
 ```
 
 
-## Enumerados
+## Enumerados {#enumerados}
 
 Se definen de forma similar a C pero no tienen nada que ver, son tipos "por derecho propio", no enteros
 
