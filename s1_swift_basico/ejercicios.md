@@ -23,10 +23,12 @@ Un `enum` para representar los cuatro palos de la baraja. Haz que sea internamen
 
 un conjunto de cartas
 
-- Propiedades: `cartas`, un array de `Carta`
+- Propiedades almacenadas: `cartas`, un array de `Carta`
+- Propiedades computadas: `tamaño`, la longitud del array (su propiedad `count`)
 - Métodos:
     + El inicializador de la clase debe inicializar `cartas` como un array vacío (también lo podéis hacer al definir la propiedad)
     + `addCarta`: se le pasa una carta y la añade a la mano
+    + `getCarta`: se le pasa una posición (empezando por 0) y devuelve la carta como un opcional. Si es menor que 0 o mayor o igual que el tamaño, debería devolver `nil`
 
 ### Clase `Baraja`
 
