@@ -357,6 +357,24 @@ Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para s
 
 > CUIDADO: en el REPL los modificadores de acceso no funcionan
 
+## Extensiones
+
+Nos permiten añadir nueva funcionalidad a clases ya existentes, incluso aun sin acceso al código fuente o en clases del sistema. Se pueden añadir por ejemplo nuevos métodos, inicializadores y propiedades computadas. Lo que no se puede hacer es sobreescribir los métodos o propiedades ya existentes.
+
+```swift
+extension String {
+    func reggaetonizar() -> String {
+        return self + " ya tú sabes"
+    }
+}
+```
+
+Podemos usar los métodos y propiedades de la extensión como usábamos los originales:
+
+```swift
+print("mami".reggaetonizar())  //mami ya tú sabes
+```
+
 
 ## Enumerados
 
@@ -400,5 +418,4 @@ enum Direccion: String {
 }
 
 print(Direccion.norte.inicial())   //"N"
-
 ```
