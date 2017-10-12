@@ -1,0 +1,1 @@
+En este capítulo vamos a ver una introducción a las características más básicas del lenguaje Swift.
