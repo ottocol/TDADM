@@ -1,4 +1,8 @@
-# Swift básico
+# Introducción básica a Swift {#intro}
+
+Swift es un lenguaje originalmente desarrollado por Apple para la programación de aplicaciones en las plataformas iOS y OSX. Pese a haber sido desarrollado con esta intención, Swift es un lenguaje de propósito general. Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo características de programación orientada a objetos sino también de programación funcional.
+
+## Preliminares {#preliminares}
 
 En un programa Swift no hay un "main" como en C sino que el código se empieza a ejecutar por la primera instrucción de "nivel superior", es decir las sentencias que no están dentro de funciones.
 
@@ -6,8 +10,9 @@ Los ";" al final de las sentencias son opcionales.
 
 ## Variables y constantes {#vars}
 
-- Swift tiene una serie de tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
-- Las **variables** se definen con `var` y las **constantes** con `let`. Si inicializamos su valor no es necesario especificar el tipo, ya que el compilador de Swift lo ***induce*** a partir del valor inicial.
+Swift tiene una serie de tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
+
+Las **variables** se definen con `var` y las **constantes** con `let`. Si inicializamos su valor no es necesario especificar el tipo, ya que el compilador de Swift lo ***induce*** a partir del valor inicial.
 
 ```swift
 var i = 1    //i es un Int
@@ -21,7 +26,7 @@ f = 1.5
 var f2 : Float = 1.5
 ```
 
-- **`type(of:)`** nos devuelve el tipo
+**`type(of:)`** nos devuelve el tipo
 
 ```swift
 var i = 1
@@ -29,21 +34,23 @@ print(type(of:i))       //Int
 type(of:i)==Float.self  //true
 ```
 
-- El lenguaje es **fuertemente tipado** y no hay conversión automática, no podemos asignar por ejemplo un valor 1.5 a una variable `Int`, el compilador no va a truncar el valor, pero sí podemos hacer un *cast*
+El lenguaje es **fuertemente tipado** y no hay conversión automática, no podemos asignar por ejemplo un valor 1.5 a una variable `Int`, el compilador no va a truncar el valor, pero sí podemos hacer un *cast*
 
 ```swift
 var i : Int = Int(1.5)   //1
 ```
 
-- Podemos usar `Any` para indicar "cualquier tipo". Algunos APIs en los que no se puede saber por adelantado el tipo de retorno lo usan
-- Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
+Podemos usar `Any` para indicar "cualquier tipo". Algunos APIs en los que no se puede saber por adelantado el tipo de retorno lo usan
+
+Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
 
 ## Tipos de datos básicos (de la librería estándar) {#tipos} 
 
 ### String
 
-- Se aplican la mayoría de convenciones habituales: delimitadas por dobles comillas, concatenadas con `+`,...
-- Se puede hacer interpolación de cadenas (expresiones dentro de cadenas) usando `\()`
+Se aplican la mayoría de convenciones habituales: delimitadas por dobles comillas, concatenadas con `+`,...
+
+Se puede hacer interpolación de cadenas (expresiones dentro de cadenas) usando `\()`
 
 ```swift
 var nombre = Pepe
@@ -51,7 +58,7 @@ var edad = 33
 print("\(nombre) tiene \(edad) años")
 ```
 
-- Se pueden definir cadenas multilínea delimitadas con tres `"`
+Se pueden definir cadenas multilínea delimitadas con tres `"`
 
 ```swift
 var mensaje = """
@@ -66,21 +73,21 @@ var mensaje = """
 
 #### Arrays
 
-- Se pueden declarar con `[tipo]` o `Array<tipo>`
+Se pueden declarar con `[tipo]` o `Array<tipo>`
 
 ```swift
 var lista_enteros : [Int]
 var lista_cadenas : Array<String>
 ```
 
-- Se pueden inicializar con una lista de valores literales `[   ]`. La notación para acceder a un elemento es la misma que en C
+Se pueden inicializar con una lista de valores literales `[   ]`. La notación para acceder a un elemento es la misma que en C
 
 ```swift
 var bizcocho = ["huevos", "leche", "harina"]
 bizcocho[2] = "harina con levadura"
 ```
  
-- Si lo inicializamos con `[tipo]()` tendremos un array vacío. Pero los arrays pueden cambiar de tamaño **dinámicamente** a diferencia de lenguajes más tradicionales como C++/Java
+Si lo inicializamos con `[tipo]()` tendremos un array vacío. Pero los arrays pueden cambiar de tamaño **dinámicamente** a diferencia de lenguajes más tradicionales como C++/Java
 
 ```swift
 var nums = [Int]()
@@ -89,8 +96,9 @@ nums.insert(1, at:0) //nums == [1,3]
 nums.remove(at:0)    //nums == [3]
 ```
 
-- Podemos concatenar arrays con `+`
-- Podemos iterar sobre un array (en general sobre una colección) con `for ... in`
+Podemos concatenar arrays con `+`
+
+Podemos iterar sobre un array (en general sobre una colección) con `for ... in`
 
 ```swift
 var bizcocho = ["huevos", "leche", "harina"]
@@ -101,21 +109,24 @@ for ingrediente in bizcocho {
 
 #### Conjuntos
 
-- Son listas de valores que no se pueden repetir
-- Si lo inicializamos con un valor literal, hay que especificar como tipo `Set`, si no Swift lo tomaría como un array
+Son listas de valores que no se pueden repetir.
+
+Si lo inicializamos con un valor literal, hay que especificar como tipo `Set`, si no Swift lo tomaría como un array
 
 ```swift
 var generos : Set = ["Rock", "Pop"]
 ```
 
-- Algunas operaciones: `insert(_)`, `remove(_)`, operaciones de conjuntos: `set1.union(set2)`,... 
-- Se puede iterar con `for ... in` como en los arrays
+Algunas operaciones: `insert(_)`, `remove(_)`, operaciones de conjuntos: `set1.union(set2)`,... 
+
+Se puede iterar con `for ... in` como en los arrays
 
 
 ### Diccionarios 
 
-- Son listas de pares clave/valor. Lo que en Java serían HashMaps o Maps en Javascript
-- Inicialización con valores literales
+Son listas de pares clave/valor. Lo que en Java serían HashMaps o Maps en Javascript
+
+Inicialización con valores literales:
 
 ```swift
  
@@ -124,14 +135,14 @@ horasTrabajadas["Lunes"]==7   //true
 horasTrabajadas["Jueves"]=5 
 ```
 
-- Se pueden declarar sin inicializar especificando el tipo de la clave y el tipo del valor
+Se pueden declarar sin inicializar especificando el tipo de la clave y el tipo del valor
 
 ```swift
 var horas = [String:Int]
 var masHoras = Dictionary<String:Int>
 ```
  
-- Se puede iterar por ellos con `for (clave,valor) in `
+Se puede iterar por ellos con `for (clave,valor) in `
 
 ```swift
 var grupo = ["Billy":"guitar", "James":"guitar", "Darcy":"bass", "Jimmy":"drums"]
@@ -156,7 +167,7 @@ if edad<18 {
 }
 ```
 
-- Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*:
+Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*:
 
 ```swift
 for i in 1...5 {
@@ -168,7 +179,7 @@ for i in 1...<3 { //rango semiabierto, llega solo hasta el 2
 }
 ```
 
-- Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la *variable anónima*, `_`
+Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la *variable anónima*, `_`
 
 ```swift
 for i in 1...3 {
@@ -176,8 +187,9 @@ for i in 1...3 {
 }
 ```
 
-- Existe una instrucción equivalente al `do...while` que es el `repeat ... while` (`do` es una palabra clave del lenguaje pero se usa en el manejo de errores)
-- `switch` es similar a C/Java, pero
+Existe una instrucción equivalente al `do...while` que es el `repeat ... while` (`do` es una palabra clave del lenguaje pero se usa en el manejo de errores)
+
+`switch` es similar a C/Java, pero
   * No hace falta `break` después de cada `case`. Por defecto cuando salimos de un `case` se sale del `switch` 
   * En los `case` se puede poner cualquier tipo de datos (Int, Float, String,...), varios valores, rangos, o condiciones.
   * Los `case` deben ser *exhaustivos*. Es decir deben cubrir todos los posibles valores de la variable (o si son infinitos, como en variables numéricas, al menos debe haber un `default`)
@@ -197,7 +209,7 @@ switch valorCarta {
 
 ## Funciones {#funciones}
 
-- Para definir una función se usa la sintaxis `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`. Si una función no devuelve nada se omite el `->TipoRetorno`
+Para definir una función se usa la sintaxis `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`. Si una función no devuelve nada se omite el `->TipoRetorno`
 
 ```swift
 func generarSaludo(nombre:String)->String {
@@ -209,7 +221,7 @@ func imprimirSaludo(nombre:String) {
 }
 ```
 
-- Los nombres de los parámetros no solo se usan dentro del código de la función, sino también como etiquetas al llamarla. Continuando con los ejemplos anteriores
+Los nombres de los parámetros no solo se usan dentro del código de la función, sino también como etiquetas al llamarla. Continuando con los ejemplos anteriores
 
 ```swift
 generarSaludo(nombre:"Pepe")
@@ -224,9 +236,9 @@ func saludarA(_ nombre: String, el dia: String) -> String {
 saludarA("Pepe", el: "Martes")
 ```
 
-- Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con `let`. Podemos cambiar esto marcando el parámetro con `inout`, que se pone antes del tipo: `func ejemplo(par : inout Int)`. Para llamar a la función hay que marcar explícitamente el parámetro con un `&`. `ejemplo(par:&valor)`.
+Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con `let`. Podemos cambiar esto marcando el parámetro con `inout`, que se pone antes del tipo: `func ejemplo(par : inout Int)`. Para llamar a la función hay que marcar explícitamente el parámetro con un `&`. `ejemplo(par:&valor)`.
 
-- Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
+Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
 ## Opcionales {#opcionales}
 
