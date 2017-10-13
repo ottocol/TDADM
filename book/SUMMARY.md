@@ -21,3 +21,6 @@
 * [Concurrencia básica en iOS](s3/concurrencia.md#concurrencia)
     * [APIs de concurrencia](s3/concurrencia.md#apis)
     * [Colas de operaciones](s3/concurrencia.md#colas)
+* [Comunicación modelo-controlador]
+    - [Key-Value Observing](s3/comunicacion.md#kvo)
+    - [Notificaciones locales](s3/comunicacion.md#notificaciones)
