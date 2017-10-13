@@ -1,7 +1,7 @@
 
-# Introducción a Swift, parte 2
+# Más sobre Swift {#swift2}
 
-## Clausuras
+## Clausuras {#clausuras}
 
 Una clausura es un bloque de **código** que puede ser tratado como un **objeto**. Es algo así como una *función anónima* con una sintaxis simplificada.
 
@@ -67,7 +67,7 @@ let ord = nombres.sorted() {
 }
 ```
 
-## Estructuras
+## Estructuras {#estructuras}
 
 En Swift también existen `struct`s.
 
@@ -151,7 +151,7 @@ Se recomienda usar estructuras cuando se cumplan estas condiciones:
 
 En Swift, **muchos tipos de la librería estándar como los `String`, los *arrays* y los *diccionarios* se implementan como estructuras**, de modo que se pasan por valor y no por referencia. 
 
-## Gestión de errores
+## Gestión de errores {#errores}
 
 En Swift representamos un error con cualquier elemento que sea conforme al protocolo `Error`. Los `enums` son especialmente apropiados para representar errores
 
@@ -246,11 +246,7 @@ else {
 
 Podemos usar la "variante" `try!` cuando no queremos gestionar el error porque es crítico y si se da no tiene sentido continuar con el programa. Si el error se produjera se lanzaría inmediatamente una excepción en tiempo de ejecución y el programa abortaría.
 
-## Genéricos
-
-
-
-## Protocolos
+## Protocolos {#protocolos}
 
 El concepto de protocolo en Swift es similar al de _interface_ en Java. Un _protocolo_ es una plantilla de métodos, propiedades y otros requisitos que definen una tarea o funcionalidad particular.
 
@@ -299,7 +295,7 @@ class MiOtraClase: Superclase, ProtocoloUno, ProtocoloDos {
 }
 ```
 
-## El patrón de diseño "delegación"
+## El patrón de diseño "delegación" {#delegacion}
 
 **Delegación** es un patrón de diseño que permite a una clase o estructura pasar (o *delegar*) alguna de sus responsabilidades a una instancia de otro tipo. Este patrón está relacionado con la idea de *composición*: cuando queremos que un objeto realice una tarea incluimos en él otro objeto capaz de realizarla.
 
