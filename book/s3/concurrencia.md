@@ -1,8 +1,8 @@
-# Concurrencia en iOS
+# Concurrencia en iOS {#concurrencia}
 
 En muchas aplicaciones iOS necesitaremos efectuar varias operaciones de modo concurrente. El caso más típico es cuando queremos hacer una operación costosa en tiempo pero no queremos que se paralice la interfaz de usuario hasta que termine la operación.
 
-## APIs de concurrencia
+## APIs de concurrencia {#apis}
 
 Tanto iOS como OSX tienen varios APIs con distinto nivel de abstracción para trabajar con operaciones concurrentes:
 
@@ -12,7 +12,7 @@ Tanto iOS como OSX tienen varios APIs con distinto nivel de abstracción para tr
 
 Cada API usa internamente los otros de más bajo nivel. Es decir, GCD usa internamente *threads* y las colas de operaciones usan internamente GCD.
 
-## Colas de operaciones
+## Colas de operaciones {#colas}
 
 En una *cola de operaciones* podemos añadir trabajos concurrentes. Manejarlas a nivel básico es muy sencillo. Son instancias de `OperationQueue` y para añadir un trabajo a una solo hay que llamar a `addOperation()`. Hay diversas formas de pasar el código a ejecutar. La más cómoda es en forma de *clausura*. Por ejemplo:
 
@@ -30,7 +30,7 @@ cola.addOperation() {
 };
 ```
 
-NOTA: podemos ver el resultado del código anterior añadiéndolo por ejemplo a una aplicación iOS. Si usamos una aplicación de línea de comandos tendremos que añadir algo al código ya que si no el programa principal terminaría inmediatamente después del segundo `addOperation` y no se verían los mensajes en pantalla. Por ejemplo podemos llamar a `cola.waitUntilAllOperationsAreFinished()`  que como su propio nombre indica se espera hasta que todas las operaciones añadidas a la cola han terminado.
+> NOTA: podemos ver el resultado del código anterior añadiéndolo por ejemplo a una aplicación iOS. Si usamos una aplicación de línea de comandos tendremos que añadir algo al código ya que si no el programa principal terminaría inmediatamente después del segundo `addOperation` y no se verían los mensajes en pantalla. Por ejemplo podemos llamar a `cola.waitUntilAllOperationsAreFinished()`  que como su propio nombre indica se espera hasta que todas las operaciones añadidas a la cola han terminado.
 
 Si ejecutamos el código anterior veremos que aunque el código de la primera clausura comienza a ejecutarse primero, aun así termina después, es decir, ambas "tareas" se están ejecutando en paralelo y no secuencialmente. Por defecto este es el comportamiento de las colas de operaciones, aunque podemos definir dependencias entre tareas, de modo que se ejecute una solo cuando ha acabado otra determinada. Incluso podemos limitar el número de operaciones concurrentes que se pueden ejecutar en una cola.
 
