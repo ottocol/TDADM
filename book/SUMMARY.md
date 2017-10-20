@@ -23,6 +23,7 @@
         * [Recibir eventos de la vista](s2/aplicaciones_ios.md#action)
         * [Llamar al modelo](s2/aplicaciones_ios.md#llamar_modelo)
         * [Modificar la vista](s2/aplicaciones_ios.md#outlet)
+    * [Ejercicios](s2/ejercicios.md)
 * [Más sobre Swift](s3/intro_swift_2.md#swift2)
     * [Clausuras](s3/intro_swift_2.md#clausuras)
     * [Estructuras](s3/intro_swift_2.md#estructuras)
