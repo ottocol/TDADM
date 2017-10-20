@@ -37,3 +37,6 @@
     - [Key-Value Observing](s4/comunicacion.md#kvo)
     - [Notificaciones locales](s4/comunicacion.md#notificaciones)
     - [Ejercicios](s4/ejercicios.md)
+* [*Testing*](s5/testing.md)
+    - [El navegador de *tests*](s5/testing.md#navegador)
+    - [Pruebas unitarias](s5/testing.md#unitarias)
