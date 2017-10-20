@@ -34,5 +34,5 @@
     * [APIs de concurrencia](s3/concurrencia.md#apis)
     * [Colas de operaciones](s3/concurrencia.md#colas)
 * [Comunicación modelo-controlador]
-    - [Key-Value Observing](s3/comunicacion.md#kvo)
-    - [Notificaciones locales](s3/comunicacion.md#notificaciones)
+    - [Key-Value Observing](s4/comunicacion.md#kvo)
+    - [Notificaciones locales](s4/comunicacion.md#notificaciones)
