@@ -36,3 +36,4 @@
 * [Comunicación modelo-controlador]
     - [Key-Value Observing](s4/comunicacion.md#kvo)
     - [Notificaciones locales](s4/comunicacion.md#notificaciones)
+    - [Ejercicios](s4/ejercicios.md)
