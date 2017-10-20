@@ -30,49 +30,16 @@ un conjunto de cartas
     + `addCarta`: se le pasa una carta y la añade a la mano
     + `getCarta`: se le pasa una posición (empezando por 0) y devuelve la carta como un opcional. Si es menor que 0 o mayor o igual que el tamaño, debería devolver `nil`
 
-## Clase `Baraja`
-
-todas las cartas de la baraja
-
-- Propiedades: `cartas`, un array de `Carta`
-- Métodos:
-    + El Inicializador debe rellenar el array de cartas con todas las cartas de la baraja
-    + `repartirCarta`: obtiene la última carta de la baraja y la elimina de ella. Podéis hacer esto por ejemplo con [`popLast()`](https://developer.apple.com/reference/swift/array/1539777-poplast) 
-    + `barajar`: debe cambiar al azar el orden de las cartas en el `Array`. Una forma de implementar esto es extender la clase `Array` añadiendo un método para intercambiar al azar el orden de sus componentes
-
-```swift
-extension Array {
-    /// Shuffle the elements of `self` in-place.
-    mutating func barajar() {
-        // empty and single-element collections don't shuffle
-        if count < 2 { return }
-
-        for i in indices.dropLast() {
-            let diff = distance(from: i, to: endIndex)
-            let j = index(i, offsetBy: numericCast(arc4random_uniform(numericCast(diff))))
-            swapAt(i, j)
-        }
-    }
-}
-```
-
-Esta extensión está tomada de [Stackoverflow](https://stackoverflow.com/questions/37843647/shuffle-array-swift-3). Podéis usarla o bien cualquier otra implementación que encontréis.
-
-La extensión la podéis almacenar en un fichero Swift cuyo nombre podéis elegir libremente, no hay una convención estándar.
 
 ## Programa principal
 
 Como "programa principal" para probar las clases anteriores puedes ejecutar este código
 
 ```swift
-var baraja = Baraja()
-baraja.barajar()
 var mano = Mano()
-for _ in 1...5 {
-    if let repartida = baraja.repartirCarta() {
-        mano.addCarta(nueva:repartida)
-    }
-}
+mano.addCarta(Carta(1, .oros))
+mano.addCarta(Carta(10, .espadas))
+mano.addCarta(Carta(7, .copas))
 print("Hay \(mano.tamaño) cartas")
 for num in 0..<mano.tamaño {
     if let carta = mano.getCarta(pos:num) {
@@ -81,7 +48,7 @@ for num in 0..<mano.tamaño {
 }
 ```
 
-Si todo es correcto debería aparecer en pantalla un mensaje indicando que la mano tiene 5 cartas y los nombres de las cinco. Al estar barajando antes de repartir, cada vez que ejecutes el programa debería imprimir unas cartas distintas.
+Si todo es correcto deberían aparecer en pantalla las tres cartas añadidas a la mano.
 
 ## Anexo: opciones para escribir y probar el código de este ejercicio
 
