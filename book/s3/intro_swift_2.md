@@ -114,7 +114,6 @@ struct Punto2D {
 
 var p1 = Punto2D(x: 1.0, y: 0.0)
 var p2 = p1
-print(p1==p2)
 p1.x = -1.0;
 print(p2.descripcion)  //cambiar p1 no cambia el valor de p2
 ```
