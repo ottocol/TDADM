@@ -5,7 +5,7 @@ Desarrolla una *app* llamada `iMoneda` con la que se pueda "lanzar" una "moneda 
 La interfaz de la *app* será muy sencilla y constará de:
 
 - Un `Button` que al ser pulsado "lanzará" la moneda.
-- Un `UImageView` para mostrar la imagen de la cara o de la cruz
+- Un `UIImageView` para mostrar la imagen de la cara o de la cruz
 - Un `Label` para mostrar el resultado en modo texto ("cara" o "cruz")
 
 ![](imag/iMoneda.png)
