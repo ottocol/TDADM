@@ -4,7 +4,7 @@ Vamos a realizar una pequeña aplicación para consultar el tiempo meteorológic
 
 ![](imag/app_tiempo.png)
 
-### A. Creación de la interfaz
+### A. Creación de la interfaz (0,5 puntos)
 
 Como se ve en la figura, la interfaz tiene 4 componentes, seleccionables mediante el panel de componentes gráficos de la esquina inferior derecha de Xcode:
 - Una imagen (*image view*), para mostrar un icono con el estado del tiempo. Inicialmente estará vacía
@@ -17,7 +17,7 @@ Como ya hiciste en la aplicación de UADivino, conecta los componentes de la int
 - **Outlets:** recuerda que son componentes de la interfaz a los que quieres acceder para consultar/modificar sus propiedades. Se crean con `Ctrl+arrastrar` desde el componente hasta el `ViewController.swift`. **Crea *outlets* para la imagen, la etiqueta y el campo de texto**
 - **Action:** recuerda que sirve para ejecutar tu código en respuesta a eventos sobre la interfaz. Se crean igual que los *outlets*. Cada *action* genera un método. **Crea un *action* para el botón de “consultar tiempo”**
 
-### B. Consulta del tiempo en la consola de depuración
+### B. Consulta del tiempo en la consola de depuración (0,5 puntos)
 
 El estado del tiempo nos lo da un servicio externo, [Openweathermap](https://openweathermap.org/), que además de la web ofrece la [API](https://openweathermap.org/api) que vamos a usar.
 
@@ -69,7 +69,7 @@ En el **action** asociado al botón de "consultar tiempo" debes obtener el texto
 
 Si pruebas la aplicación y todo ha ido bien, debería aparecer el estado del tiempo en la consola. Haz un commit con el comentario "Apartado B"
 
-### C. Mostrar el tiempo en la interfaz
+### C. Mostrar el tiempo en la interfaz (0,5 puntos)
 
 Añade código que muestre el tiempo en la interfaz del móvil. Lo primero que puedes hacer es mostrarle al usuario que se está haciendo una operación de red, esto lo puedes hacer con un *spinner* que puedes hacer aparecer automáticamente en la barra de *status* de la parte superior. Para poner el *spinner* harías:
 

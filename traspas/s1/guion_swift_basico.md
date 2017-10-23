@@ -86,6 +86,16 @@
 > CUIDADO: en el REPL los modificadores de acceso no funcionan
 
 
+## Extensiones
+
+```swift
+extension String {
+    func reggaetonizar() -> String {
+        return self + ", ya tú sabes"
+    }
+}
+```
+
 ## Enumerados
 
 ```swift
