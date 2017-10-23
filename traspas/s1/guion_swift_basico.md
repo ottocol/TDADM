@@ -42,7 +42,7 @@
 
 ## Instrucciones de control de flujo
 
-- Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*: `for valor in 1...5 { }`, `for valor in 0...<limite`
+- Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*: `for valor in 1...5 { }`, `for valor in 0..<limite`
   * variable anónima para iteración, cuando no nos interesa en qué iteración estamos: `for _ in 1...5`
 - `if`, `while`:
   * La condición debe evaluarse a booleano (igual que en Java)
