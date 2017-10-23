@@ -21,6 +21,7 @@
 - Arrays
  * Inicialización con valores literales `[   ]` o con `[tipo]()`
  * declaración con `[tipo]` o `Array<tipo>`
+ * Podemos hacer arrays "heterogéneos" con `Any`: `var lista: [Any] = ["hola",1]`
  * pueden cambiar de tamaño **dinámicamente**: `append`, `insert(_:, at:)`, `remove(at:)`
  * Podemos concatenar arrays con `+`
  * Iterar sobre un array con `for variable in array {  }`
