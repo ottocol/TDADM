@@ -37,9 +37,9 @@ Como "programa principal" para probar las clases anteriores puedes ejecutar este
 
 ```swift
 var mano = Mano()
-mano.addCarta(Carta(1, .oros))
-mano.addCarta(Carta(10, .espadas))
-mano.addCarta(Carta(7, .copas))
+mano.addCarta(Carta(1, .oros)!)
+mano.addCarta(Carta(10, .espadas)!)
+mano.addCarta(Carta(7, .copas)!)
 print("Hay \(mano.tamaño) cartas")
 for num in 0..<mano.tamaño {
     if let carta = mano.getCarta(pos:num) {
