@@ -182,7 +182,7 @@ for i in 1..<3 { //rango semiabierto, llega solo hasta el 2
 Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la *variable anónima*, `_`
 
 ```swift
-for i in 1...3 {
+for _ in 1...3 {
   print ("RA ")
 }
 ```
