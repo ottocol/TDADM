@@ -37,6 +37,10 @@
     - [Key-Value Observing](s4/comunicacion.md#kvo)
     - [Notificaciones locales](s4/comunicacion.md#notificaciones)
     - [Ejercicios](s4/ejercicios.md)
+* [Internacionalización de aplicaciones iOS]
+    - [Añadir soporte para i18n](s4/i18n.md#soporte)
+    - [Localizar la interfaz gráfica](s4/i18n.md#interfaz)
+    - [Localizar los mensajes en el código](s4/i18n.md#codigo)
 * [*Testing*](s5/testing.md)
     - [El navegador de *tests*](s5/testing.md#navegador)
     - [Pruebas unitarias](s5/testing.md#unitarias)
