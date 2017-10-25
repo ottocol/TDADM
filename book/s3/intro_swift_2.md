@@ -21,7 +21,7 @@ let ord = nombres.sorted(by:ascendente)
 La función `ascendente` se puede definir en forma de clausura como:
 
 ```swift
-(a:String,b:String)->Bool in return a<b}
+{(a:String,b:String)->Bool in return a<b}
 ```
 
 Con clausuras definimos el código *donde lo necesitamos*, no aparte, quedando más legible
