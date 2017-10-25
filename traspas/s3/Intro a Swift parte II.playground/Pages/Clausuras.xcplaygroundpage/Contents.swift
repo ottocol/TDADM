@@ -1,4 +1,4 @@
-//: ## Clausuras {#clausuras}
+//: ## Clausuras
 
 
 func ascendente(a:String, b:String)->Bool {
