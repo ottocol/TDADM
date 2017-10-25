@@ -33,11 +33,11 @@
 * [Concurrencia básica en iOS](s3/concurrencia.md#concurrencia)
     * [APIs de concurrencia](s3/concurrencia.md#apis)
     * [Colas de operaciones](s3/concurrencia.md#colas)
-* [Comunicación modelo-controlador]
+* [Comunicación modelo-controlador](s4/comunicacion.md)
     - [Key-Value Observing](s4/comunicacion.md#kvo)
     - [Notificaciones locales](s4/comunicacion.md#notificaciones)
     - [Ejercicios](s4/ejercicios.md)
-* [Internacionalización de aplicaciones iOS]
+* [Internacionalización de aplicaciones iOS](s4/i18n.md)
     - [Añadir soporte para i18n](s4/i18n.md#soporte)
     - [Localizar la interfaz gráfica](s4/i18n.md#interfaz)
     - [Localizar los mensajes en el código](s4/i18n.md#codigo)
