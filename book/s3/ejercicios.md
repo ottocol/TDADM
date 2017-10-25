@@ -4,6 +4,8 @@ Vamos a realizar una pequeña aplicación para consultar el tiempo meteorológic
 
 ![](imag/app_tiempo.png)
 
+Salvo que ya estés metiendo todos los ejercicios de la asignatura en un único repositorio git, asegúrate de que cuando creas el proyecto Xcode crea un repositorio de git para él (3ª pantalla del asistente), lo necesitarás para ir haciendo *commit* de los distintos apartados del ejercicio.
+
 ### A. Creación de la interfaz (0,5 puntos)
 
 Como se ve en la figura, la interfaz tiene 4 componentes, seleccionables mediante el panel de componentes gráficos de la esquina inferior derecha de Xcode:
@@ -21,25 +23,13 @@ Como ya hiciste en la aplicación de UADivino, conecta los componentes de la int
 
 El estado del tiempo nos lo da un servicio externo, [Openweathermap](https://openweathermap.org/), que además de la web ofrece la [API](https://openweathermap.org/api) que vamos a usar.
 
-Para obtener el tiempo en una localidad, con los mensajes traducidos a español y usando unidades del sistema métrico, hay que hacer una petición HTTP a la URL `http://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&app_id=<TU_API_KEY>&q=`concatenándole la localidad a buscar. El parámetro `app_id` debe contener nuestra API key (nuestra clave de desarrollador, podéis daros de alta para obtener la vuestra propia). Por ejemplo si clicas en [este enlace](http://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&appid=1adb13e22f23c3de1ca37f3be90763a9&q=Alicante) verás el tiempo para Alicante. El API devuelve los datos en formato JSON, que habrá que  analizar para extraer la información que nos interese.
-
-> IMPORTANTE: la última versión de iOS tiene una característica llamada “Application Transport Security”, que impide realizar peticiones HTTP desde el código. Solo se pueden hacer peticiones HTTPS. Para poder saltarnos esta restricción tenemos que modificar el archivo `info.plist` del proyecto:
-	> Pulsa con el botón derecho sobre dicho archivo y elige `Open As > Source Code`.
-	> Despúes de la etiqueta `<dict>` de la línea 4 inserta estas líneas:
-
-
-```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-   <key>NSAllowsArbitraryLoads</key><true/>
-</dict>
-```
+Para obtener el tiempo en una localidad, con los mensajes traducidos a español y usando unidades del sistema métrico, hay que hacer una petición HTTP a la URL `https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&app_id=<TU_API_KEY>&q=`concatenándole la localidad a buscar. El parámetro `app_id` debe contener nuestra API key (nuestra clave de desarrollador, podéis daros de alta para obtener la vuestra propia). Por ejemplo si clicas en [este enlace](https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&appid=1adb13e22f23c3de1ca37f3be90763a9&q=Alicante) verás el tiempo para Alicante. El API devuelve los datos en formato JSON, que habrá que  analizar para extraer la información que nos interese.
 
 Para hacer una petición HTTP en iOS podemos usar la clase `URLSession`. Copia el siguiente código en el `ViewController.swift`
 
 ```swift
-let OW_URL_BASE = "http://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&appid=1adb13e22f23c3de1ca37f3be90763a9&q="
-let OW_URL_BASE_ICON = "http://openweathermap.org/img/w/"
+let OW_URL_BASE = "https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&appid=1adb13e22f23c3de1ca37f3be90763a9&q="
+let OW_URL_BASE_ICON = "https://openweathermap.org/img/w/"
 
 func consultarTiempo(localidad:String) {
     let urlString = OW_URL_BASE+localidad
