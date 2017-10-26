@@ -77,12 +77,12 @@ Una vez solucionado el tema del *spinner* añade código para actualizar el `lab
 
 Haz un *commit* poniendo como comentario "Apartado C".
 
-### D. Gestión de errores en Swift
+### D. Gestión de errores en Swift (0,5)
 
 Verás que el código que has copiado y pegado tiene un par de llamadas con `try!`. Aquí lo que estamos diciendo es que estas funciones podrían fallar pero **Sabemos que no lo van a hacer**. Quita la admiración de los `try` y mira qué sucede. ¿Cómo podrías arreglar el código para que compile y funcione como antes sin volver a poner el `!`?. Hazlo y haz un *commit* poniendo como comentario "apartado D".
 
 
-### E. Delegates y protocols
+### E. Delegates y protocols (0,5)
 
 **Vamos a hacer que en el campo de texto no se puedan introducir caracteres numéricos**.
 

@@ -3,7 +3,7 @@
 
 Se propone implementar el conocido juego de cartas de "las 7 y media". Podéis implementar la versión "completa" en la que el usuario juega contra la máquina, ambos sacando cartas una a una y decidiendo si plantarse o seguir, o bien una versión simplificada en la que la máquina no pide cartas sino que obtiene una puntuación generada al azar.
 
-## Estructura de clases del modelo {#modelo}
+## Estructura de clases del modelo (1 punto) {#modelo}
 
 Ampliaremos el modelo que implementamos en la primera sesión. Ya tenemos el enum `Palo` y las clases `Carta` y `Mano`. Vamos a añadir las clases necesarias para el juego: la `Baraja` y el propio `Juego`
 
@@ -47,14 +47,14 @@ La estructura es libre ya que depende de vuestra implementación. No obstante, t
 - acabar el juego y calcular el resultado
 - ...
 
-##Pruebas unitarias {#pruebas}
+##Pruebas unitarias (0,5 puntos) {#pruebas}
 
 Debéis implementar al menos las siguientes pruebas unitarias:
 
 - Que al inicializar una `Carta`  tanto el palo como el valor se han guardado correctamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad `valor` nos da 3 y la propiedad `palo` nos da `copas`).
 - Que cuando se reparte una carta de la `Baraja` se ha eliminado de ella y el número de cartas de la baraja ha disminuido en 1
 
-##Interfaz gráfico simplificado {#interfaz_simplificado}
+##Interfaz gráfico simplificado (0,5 puntos) {#interfaz_simplificado}
 
 > Es normal que el `ViewController` conozca al modelo (o sea, que defináis una variable de tipo `JuegoSieteyMedia` dentro del código del `ViewController`). Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.
 
@@ -67,7 +67,7 @@ Además, para simplificar la mecánica del juego no es necesario que la máquina
 > **La versión anterior es solo una idea, podéis implementar cualquier variante que queráis**, o cualquier mejora, incluyendo que la máquina saque cartas una por una, apostar una cantidad,...
 
 
-##Completar la interfaz {#interfaz_completo}
+##Completar la interfaz (1 punto) {#interfaz_completo}
 
 En la interfaz completada deberían aparecer las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).
 
@@ -128,7 +128,7 @@ self.present(alert, animated: true, completion: nil)
 ```
 
 
-##Posibles mejoras {#mejoras}
+##Posibles mejoras (1 punto) {#mejoras}
 
 El proyecto está abierto a cualquier posible mejora o modificación que queráis hacer, por ejemplo:
 
