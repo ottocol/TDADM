@@ -10,7 +10,7 @@ El problema es que aunque el cálculo se hace con la cotización actual, **la et
 - El conversor está definido como una propiedad `conversor`  en `ViewController`
 - Cada 5 segundos se dispara un “timer” que llama al método `actualizarTipoDeCambio` del conversor. Este método a su vez cambia el valor de la propiedad `unEURenUSD`.
 
-**Implementar una primera versión usando KVO** (0,75 puntos), de modo que el View Controller se registre como observador de la propiedad `unEURenUSD`. Cada vez que cambie se debería actualizar la etiqueta para reflejar el tipo de cambio actual.
+A. **Implementar una primera versión usando KVO** (0,75 puntos), de modo que el View Controller se registre como observador de la propiedad `unEURenUSD`. Cada vez que cambie se debería actualizar la etiqueta para reflejar el tipo de cambio actual.
 
 - Cuando hagas que la clase `ConversorEUR_USD` herede de `NSObject` se generará un error de compilación porque el inicializador debe llamar al de la nueva clase base. Tendrá que quedar como:
 
@@ -35,9 +35,9 @@ override func viewDidLoad() {
         observador = conversor.observe(....
 ```
 
-**Implementar otra versión con notificaciones:** (0,75 puntos) 
+B. **Implementar otra versión con notificaciones:** (0,75 puntos) 
 
 - Primero comentad la línea del ejercicio anterior que actualiza la etiqueta en pantalla, ya que ahora la vamos a actualizarla con notificaciones
 - Desde el método `actualizarTipoDeCambio` se debe enviar una notificación (dadle el nombre que queráis) y el View Controller debería suscribirse a ellas para poder actualizar la etiqueta en pantalla. 
 
-**Internacionalización** (0,5 puntos): haz que la interfaz de la *app* se vea correctamente en español e inglés 
+C. **Internacionalización** (0,5 puntos): haz que la interfaz de la *app* se vea correctamente en español e inglés 
