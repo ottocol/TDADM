@@ -12,6 +12,29 @@ El problema es que aunque el cálculo se hace con la cotización actual, **la et
 
 **Implementar una primera versión usando KVO** (0,75 puntos), de modo que el View Controller se registre como observador de la propiedad `unEURenUSD`. Cada vez que cambie se debería actualizar la etiqueta para reflejar el tipo de cambio actual.
 
+- Cuando hagas que la clase `ConversorEUR_USD` herede de `NSObject` se generará un error de compilación porque el inicializador debe llamar al de la nueva clase base. Tendrá que quedar como:
+
+```swift
+override init() {
+        super.init()
+        ... //a partir de aquí, como estaba
+}
+```
+
+- Puedes llamar a `conversor.observe` en el `viewDidLoad` del controller. Este método devuelve una variable de la clase  `NSKeyValueObservation`. Define una propiedad de este tipo en el view controller, porque si la variable se sale del ámbito el KVO dejará de funcionar (desde iOS 11)
+
+```swift
+//propiedad del view controller
+var observador : NSKeyValueObservation!
+```
+
+```swift
+//en el view controller
+override func viewDidLoad() {
+        super.viewDidLoad()
+        observador = conversor.observe(....
+```
+
 **Implementar otra versión con notificaciones:** (0,75 puntos) 
 
 - Primero comentad la línea del ejercicio anterior que actualiza la etiqueta en pantalla, ya que ahora la vamos a actualizarla con notificaciones

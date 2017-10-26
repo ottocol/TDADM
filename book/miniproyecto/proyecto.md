@@ -75,6 +75,10 @@ En la interfaz completada deberían aparecer las cartas en pantalla conforme se 
 
 En lugar de dibujar las cartas directamente en su posición, podemos hacerlo fuera de la pantalla (es decir, con el origen del *frame* en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función dibuja una carta con el efecto descrito. La `posicion` es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...
 
+En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla.
+
+> Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en [http://iosres.com](http://iosres.com) 
+
 ```swift
 func repartirCarta(carta: Carta, enPosicion : Int) {
     let nombreImagen = String(carta.valor)+String(carta.palo.rawValue)
@@ -87,7 +91,7 @@ func repartirCarta(carta: Carta, enPosicion : Int) {
     //para que parezca más cercana
     //"frame" son los límites de la vista, definen pos y tamaño
     cartaView.frame = CGRect(x: -200, y: -200, width: 200, height: 300)
-    //La rotamos, para que luego al repartirla, gir
+    //La rotamos, para que al "repartirla" haga un efecto de giro
     cartaView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
     //La añadimos a la vista principal, si no no sería visible
     self.view.addSubview(cartaView)
@@ -101,6 +105,16 @@ func repartirCarta(carta: Carta, enPosicion : Int) {
         cartaView.transform = CGAffineTransform(rotationAngle:0);
     }
 }
+```
+
+### Adaptar los dibujos a la resolución de la pantalla (0,5 puntos)
+
+OPCIONALMENTE, en lugar de dibujar las cartas con un tamaño y unas posiciones "fijas", puedes usar un porcentaje o fracción del ancho y alto total de la pantalla. Puedes obtener el ancho y alto de la pantalla del siguiente modo:
+
+```swift
+let limitesPantalla = UIScreen.main.bounds
+let anchoPantalla = limitesPantalla.width
+let altoPantalla = limitesPantalla.height
 ```
 
 ###Cómo manipular los botones
@@ -128,12 +142,11 @@ self.present(alert, animated: true, completion: nil)
 ```
 
 
-##Posibles mejoras (1 punto) {#mejoras}
+##Posibles mejoras (hasta 1 punto) {#mejoras}
 
 El proyecto está abierto a cualquier posible mejora o modificación que queráis hacer, por ejemplo:
 
-- Contabilizar las partidas ganadas/perdidas
-- Que se pueda apostar una cantidad y vaya contabilizando la cantidad  hasta el momento
-- Que la máquina también vaya sacando cartas
-- Variantes del juego o implementación de otros juegos sencillos
+- Contabilizar y mostrar las partidas ganadas/perdidas (0,25)
+- Que se pueda apostar una cantidad y vaya contabilizando la cantidad  hasta el momento (0,5)
+- Que la máquina también vaya sacando cartas (1)
 - ...
