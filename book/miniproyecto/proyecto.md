@@ -57,6 +57,21 @@ Debéis implementar al menos las siguientes pruebas unitarias:
 - Que al inicializar una `Carta` con valores incorrectos devuelve `nil` (por ejemplo el -1 de bastos).
 - Que cuando se reparte una carta de la `Baraja` se ha eliminado de ella y el número de cartas de la baraja ha disminuido en 1
 
+Para comprobar si un array contiene un elemento puedes usar `contains`. A este método se le pasa una clausura a la que Swift a su vez va pasando uno a uno los elementos. Hay que devolver `true` si el elemento pasado cumple la condición deseada (en este caso ser igual a la carta buscada) y `false` en caso contrario. Algo como
+
+```swift
+let presente = baraja.cartas.contains() {
+        elemento in
+        if //el numero del elemento actual y el palo coinciden con los de la carta buscada {
+          return true
+        }
+        else {
+          return false;
+        }
+} 
+//presente valdrá true si algún elemento del array ha cumplido la condición
+```
+
 ##Interfaz gráfico simplificado (0,5 puntos) {#interfaz_simplificado}
 
 > Es normal que el `ViewController` conozca al modelo (o sea, que defináis una variable de tipo `Juego` dentro del código del `ViewController`). Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones. O podría observar con KVO cuándo cambia una propiedad del juego que sea el `estado` (turno usuario, turno máquina, gana usuario, gana máquina, ...).
