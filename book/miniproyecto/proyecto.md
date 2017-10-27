@@ -18,6 +18,8 @@ todas las cartas de la baraja
     + `barajar`: debe cambiar al azar el orden de las cartas en el `Array`. Una forma de implementar esto es extender la clase `Array` añadiendo un método para intercambiar al azar el orden de sus componentes
 
 ```swift
+import Foundation
+
 extension Array {
     /// Shuffle the elements of `self` in-place.
     mutating func barajar() {
@@ -51,7 +53,8 @@ La estructura es libre ya que depende de vuestra implementación. No obstante, t
 
 Debéis implementar al menos las siguientes pruebas unitarias:
 
-- Que al inicializar una `Carta`  tanto el palo como el valor se han guardado correctamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad `valor` nos da 3 y la propiedad `palo` nos da `copas`).
+- Que al inicializar una `Carta` con datod correctos  tanto el palo como el valor se han guardado adecuadamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad `valor` nos da 3 y la propiedad `palo` nos da `copas`).
+- Que al inicializar una `Carta` con valores incorrectos devuelve `nil` (por ejemplo el -1 de bastos).
 - Que cuando se reparte una carta de la `Baraja` se ha eliminado de ella y el número de cartas de la baraja ha disminuido en 1
 
 ##Interfaz gráfico simplificado (0,5 puntos) {#interfaz_simplificado}
@@ -107,7 +110,36 @@ func repartirCarta(carta: Carta, enPosicion : Int) {
 }
 ```
 
-### Adaptar los dibujos a la resolución de la pantalla (0,5 puntos)
+### Eliminar las cartas de la pantalla
+
+Una vez ha terminado la partida, o justo cuando comienza la siguiente, hay que borrar todas las cartas de la pantalla. Para ello iremos guardando los `UIImageView` en un array que declararemos en el *view controller*:
+
+```swift
+//propiedad de ViewController.swift
+var vistasCartas = [UIView]()
+```
+
+Cada vez que se reparta una carta, además de dibujarla en pantalla hay que añadirla a este array:
+
+```swift
+//Esta línea viene del ejemplo anterior
+let cartaView = UIImageView(image: imagenCarta)
+//Esta es nueva
+self.vistasCartas.append(cartaView)
+```
+
+Al final de la partida o justo cuando comience la siguiente hay que quitar las cartas de la pantalla. Vamos recorriendo el array y vamos eliminando las cartas de la pantalla
+
+```swift
+//Quitamos las cartas de la pantalla
+for vistaCarta in self.vistasCartas {
+    vistaCarta.removeFromSuperview()
+}
+//ya no tenemos cartas, ponemos el array a vacío
+self.vistasCartas=[]
+```
+
+### Adaptar los dibujos a la resolución de la pantalla (0,5 puntos ADICIONALES)
 
 OPCIONALMENTE, en lugar de dibujar las cartas con un tamaño y unas posiciones "fijas", puedes usar un porcentaje o fracción del ancho y alto total de la pantalla. Puedes obtener el ancho y alto de la pantalla del siguiente modo:
 
@@ -140,6 +172,8 @@ let action = UIAlertAction(
 alert.addAction(action)
 self.present(alert, animated: true, completion: nil)
 ```
+
+
 
 
 ##Posibles mejoras (hasta 1 punto) {#mejoras}
