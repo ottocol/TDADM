@@ -3,6 +3,8 @@
 
 Se propone implementar el conocido juego de cartas de "las 7 y media". Podéis implementar la versión "completa" en la que el usuario juega contra la máquina, ambos sacando cartas una a una y decidiendo si plantarse o seguir, o bien una versión simplificada en la que la máquina no pide cartas sino que obtiene una puntuación generada al azar.
 
+Para crear el proyecto, como siempre elige la plantilla de `single view app`. En la segunda pantalla del asistente dale como nombre `SieteyMedia` y marca la casilla de `Include Unit Tests` (no obstante aunque no marques esta última los *test* se pueden añadir luego) 
+
 ## Estructura de clases del modelo (1 punto) {#modelo}
 
 Ampliaremos el modelo que implementamos en la primera sesión. Ya tenemos el enum `Palo` y las clases `Carta` y `Mano`. Vamos a añadir las clases necesarias para el juego: la `Baraja` y el propio `Juego`
@@ -50,6 +52,8 @@ La estructura es libre ya que depende de vuestra implementación. No obstante, t
 - ...
 
 ##Pruebas unitarias (0,5 puntos) {#pruebas}
+
+> Si se te olvidó marcar la casilla `Include Unit Tests` al crear el proyecto debes crear ahora un conjunto de pruebas yendo a `File > New > Target...` y de entre las plantillas disponibles, elegir `iOS Unit Testing Bundle`.
 
 Debéis implementar al menos las siguientes pruebas unitarias:
 
