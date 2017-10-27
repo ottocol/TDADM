@@ -104,7 +104,7 @@ Esto son algunas variantes de `XCTAssert` aplicables a nuestro ejemplo, pero hay
 En todas las aserciones podemos poner como parámetro final un mensaje (Un `String`) que aparecerá si falla el test
 
 ```swift
-XCTAssertTrue(false, "Esta prueba va a fallar seguro");
+XCTAssertTrue(3>5, "Esta prueba va a fallar seguro");
 ```
 
 Para más detalles sobre los distintos tipos de aserciones se recomienda consultar el apartado "Test Assertions" de la documentación de [`XCTest`](https://developer.apple.com/documentation/xctest)
