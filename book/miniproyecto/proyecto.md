@@ -53,7 +53,7 @@ La estructura es libre ya que depende de vuestra implementación. No obstante, t
 
 Debéis implementar al menos las siguientes pruebas unitarias:
 
-- Que al inicializar una `Carta` con datod correctos  tanto el palo como el valor se han guardado adecuadamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad `valor` nos da 3 y la propiedad `palo` nos da `copas`).
+- Que al inicializar una `Carta` con datos correctos  tanto el palo como el valor se han guardado adecuadamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad `valor` nos da 3 y la propiedad `palo` nos da `copas`).
 - Que al inicializar una `Carta` con valores incorrectos devuelve `nil` (por ejemplo el -1 de bastos).
 - Que cuando se reparte una carta de la `Baraja` se ha eliminado de ella y el número de cartas de la baraja ha disminuido en 1
 
