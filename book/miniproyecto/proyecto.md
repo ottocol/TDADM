@@ -95,6 +95,13 @@ En la interfaz completada deberían aparecer las cartas en pantalla conforme se 
 
 ###Cómo dibujar las cartas
 
+Cada vez que dibujemos en pantalla una carta estamos añadiendo a la pantalla actual un `UIImageView`. Tenemos que guardar referencias a todas las imágenes añadidas para poder borrarlas cuando acabe la partida. Definiremos esta propiedad en el *view controller* para guardarlas
+
+```swift
+//propiedad de ViewController.swift
+var vistasCartas = [UIView]()
+```
+
 En lugar de dibujar las cartas directamente en su posición, podemos hacerlo fuera de la pantalla (es decir, con el origen del *frame* en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función dibuja una carta con el efecto descrito. La `posicion` es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...
 
 En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla.
@@ -117,7 +124,7 @@ func repartirCarta(carta: Carta, enPosicion : Int) {
     cartaView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
     //La añadimos a la vista principal, si no no sería visible
     self.view.addSubview(cartaView)
-    //guardamos la pista en el array, para luego poder eliminarla
+    //guardamos la vista en el array, para luego poder eliminarla
     self.vistasCartas.append(cartaView)
     //Animación de repartir carta
     UIView.animate(withDuration: 0.5){
@@ -131,30 +138,14 @@ func repartirCarta(carta: Carta, enPosicion : Int) {
 
 ### Eliminar las cartas de la pantalla
 
-Una vez ha terminado la partida, o justo cuando comienza la siguiente, hay que borrar todas las cartas de la pantalla. Para ello iremos guardando los `UIImageView` en un array que declararemos en el *view controller*:
-
-```swift
-//propiedad de ViewController.swift
-var vistasCartas = [UIView]()
-```
-
-Cada vez que se reparta una carta, además de dibujarla en pantalla hay que añadirla a este array:
-
-```swift
-//Esta línea viene del ejemplo anterior
-let cartaView = UIImageView(image: imagenCarta)
-//Esta es nueva
-self.vistasCartas.append(cartaView)
-```
-
-Al final de la partida o justo cuando comience la siguiente hay que quitar las cartas de la pantalla. Vamos recorriendo el array y vamos eliminando las cartas de la pantalla
+Una vez ha terminado la partida, o justo cuando comienza la siguiente, hay que borrar todas las cartas de la pantalla. Vamos recorriendo el array `self.vistasCartas` del *view controller* y vamos eliminando las cartas de la pantalla:
 
 ```swift
 //Quitamos las cartas de la pantalla
 for vistaCarta in self.vistasCartas {
     vistaCarta.removeFromSuperview()
 }
-//ya no tenemos cartas, ponemos el array a vacío
+//ya no tenemos imágenes de cartas en pantalla, ponemos el array a vacío
 self.vistasCartas=[]
 ```
 
@@ -174,7 +165,7 @@ let altoPantalla = limitesPantalla.height
 - Para que un botón aparezca inicialmente deshabilitado, en el "attributes inspector" de la parte derecha de Xcode desmarcar la casilla `enabled` dentro de `state` (está a mitad de panel)
 - Para que se vea gráficamente que un botón está deshabilitado podéis ponerle un color distinto según el estado. Teniendo seleccionado el botón, en el `Attributes inspector` de la parte derecha de la pantalla, seleccionar el estado que nos interese en el desplegable. Al elegir colores (*text*, *shadow*, ...) serán los fijados para ese estado. 
 
-![](estilos_boton.png)
+![](images/estilos_boton.gif)
 
 ### Cómo mostrar mensajes al usuario
 
