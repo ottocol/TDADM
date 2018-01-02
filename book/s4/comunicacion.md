@@ -136,5 +136,3 @@ var r = Receptor()
 r.suscribirse()
 e.enviar(mensaje:"holaaaa")
 ```
-
-Las notificaciones desacoplan todavía más el código del 
