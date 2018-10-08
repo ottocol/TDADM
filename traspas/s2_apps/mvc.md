@@ -1,5 +1,6 @@
-## Master en Desarrollo de Software para Dispositivos móviles
-# Sesión 2: Introducción a las aplicaciones iOS
+<!-- .slide: class="titulo" -->
+## Tecnologías de Desarrollo de Aplicaciones
+## iOS sesión 2: Introducción a las aplicaciones iOS
 
 ---
 

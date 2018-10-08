@@ -7,7 +7,7 @@
 }
 
 .reveal .backgrounds .titulo {
-  background-color: rgb(92,218,133);
+  background-image: url('../images/fondo_uamm.png');
 }
 
 .backgrounds .dim {
@@ -63,7 +63,6 @@ body {
 
 .reveal h1 {
   font-size: 2.5em; 
-  background-image: url('../images/logo.png');
   background-position: left center;
   background-repeat: no-repeat;
   padding: 80px 150px;  

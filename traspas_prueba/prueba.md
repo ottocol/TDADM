@@ -1,5 +1,8 @@
-# Titulo 1
 
+<!-- .slide: class="titulo" -->
+
+# Titulo 1
+## Título 2
 
 ---
 
@@ -18,5 +21,7 @@ func saludo() -> String {
 
 
 ---
+
+<!-- .slide: class="titulo" -->
 
 # ¿Alguna pregunta?
