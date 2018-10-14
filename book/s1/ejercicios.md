@@ -6,7 +6,7 @@ En esta sesión vamos a implementar el modelo para un juego cartas de las siete 
 
 A continuación se da la lista de clases y *enums* a crear. **Debéis respetar lo máximo posible los nombres de propiedades y métodos**
 
-> NOTA: el ejercicio está pensado para las cartas de la *baraja española*. Para los que no la conozcáis: hay 4 "palos" (bastos, copas, espadas y oros) y de cada palo hay 10 cartas, que son del 1 al 7 y del 10 al 12, ya que el 8 y 9 no se usan. El 1 se llama "as" igual que en la baraja francesa, el 10 es la sota (en la baraja francesa/inglesa es la J), el es 11 el caballo (Q o dama en la inglesa) y el 12 el rey.
+> NOTA: el ejercicio está pensado para las cartas de la *baraja española*. Para los que no la conozcáis: hay 4 "palos" (bastos, copas, espadas y oros) y de cada palo hay 10 cartas, que son del 1 al 7 y del 10 al 12, ya que el 8 y 9 no se usan. El 1 se llama "as" igual que en la baraja francesa, el 10 es la *sota* (en la baraja francesa/inglesa es la J), el es 11 el *caballo* (Q o dama en la inglesa) y el 12 el *rey*.
 
 ## Enumerado `Palo` (0,25 puntos)
 
@@ -60,6 +60,7 @@ Si todo es correcto deberían aparecer en pantalla las tres cartas añadidas a l
 - **Opción 2**: en un *playground* de Xcode:
     + Abre el programa Xcode, y crea un nuevo *playground* con `File > New >Playground`. Escribe aquí el código de todas las clases juntas, y también del programa principal. 
     + Como irás viendo, el *playground* se está compilando y ejecutando constantemente a medida que vas escribiendo código, pero si quieres forzar la ejecución puedes ir a `Editor > Execute playground`. Lo puedes usar una vez terminado todo, para ejecutar varias veces el programa principal.
-- **Opción 3**: en algún entorno *online* de programación en Swift, como por ejemplo el ["Swift Sandbox"](https://swift.sandbox.bluemix.net/#/repl) de IBM. Esto te puede ser útil si no tienes un Mac disponible o no puedes instalar el compilador en línea de comandos en tu sistema. Eso sí, tendrás que escribir todo el código junto al igual que lo haces en un *playground*
+- **Opción 3**: en algún entorno *online* de programación en Swift, como por ejemplo en [Repl.it](https://repl.it/languages/swift
+). Esto te puede ser útil si no tienes un Mac disponible o no puedes instalar el compilador en línea de comandos en tu sistema. Eso sí, tendrás que escribir todo el código junto al igual que lo haces en un *playground*
 
 >NOTA: estas alternativas las podemos usar porque de momento todavía no estamos haciendo aplicaciones con interfaz de usuario. A partir de la siguiente sesión sí haremos aplicaciones iOS con lo que nuestra única posibilidad va a ser trabajar en un Mac con un entorno tipo Xcode.
