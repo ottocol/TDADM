@@ -68,9 +68,9 @@ La interfaz de la aplicación va a tener el siguiente aspecto, con un "cartel" e
 
 ![](imag/UAdivino.png)
 
-Como hemos comentado, la interfaz está definida en el archivo **`Main.storyboard`. Ábrelo** y verás que en el centro aparece una pantalla de iPhone vacía. La flecha que le apunta desde la izquierda indica que es la pantalla inicial de la *app*. En la parte inferior del panel de la derecha de Xcode aparece la lista de componentes de interfaz de usuario que podemos añadir a la pantalla
+Como hemos comentado, la interfaz está definida en el archivo **`Main.storyboard`. Ábrelo** y verás que en el centro aparece una pantalla de iPhone vacía. La flecha que le apunta desde la izquierda indica que es la pantalla inicial de la *app*. En la parte superior derecha de la barra de botones de Xcode verás un botón con un cuadrado dentro de un círculo (el primer botón de esta zona). Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.
 
-![](imag/componentes_ui.png)
+> Nota: En versiones anteriores de Xcode (<=9), dicho panel era accesible en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.
 
 Primero vamos a hacer el "cartel" con el mensaje  de "Formula una pregunta en voz alta y UAdivino te dará la respuesta". En iOS este tipo de componente es un **`Label`. Búscalo en el panel de componentes y arrástralo a la pantalla** que estamos diseñando. Una vez colocada puedes hacer las operaciones habituales: moverla con el ratón, cambiar su tamaño arrastrando los puntos de las esquinas o editar el contenido con doble clic. **Cambia el texto del `Label`** por un mensaje como "Formula una pregunta en voz alta y UAdivino te dará la respuesta"
 
