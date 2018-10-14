@@ -2,11 +2,11 @@
 
 ## Variables y constantes
 
-- Tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
 - Las **variables** se definen con `var` y las **constantes** con `let`. Swift ***induce*** el tipo a partir del valor inicial. 
 - **`type(of:)`** nos devuelve el tipo
 - El lenguaje es **fuertemente tipado** y no hay conversión automática
 - Podemos **especificar nosotros el tipo** en la declaración
+- Tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
 - `Any` para indicar "cualquier tipo"
 - Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
 
@@ -39,6 +39,7 @@
  * leer, modificar con `diccionario[clave]`
  * Iterar con `for (clave,valor) in diccionario {  }`
 
+- `ClosedRange`: `1...5`, `Range`: `1..<5 útil por ejemplo en bucles. También se puede ver si contiene un valor, por ejemplo `(1...5).contains(4)==true`
 
 ## Instrucciones de control de flujo
 
@@ -50,7 +51,7 @@
 - `repeat ... while` es como el `do..while`
 - `switch` es similar a C/Java, pero
   * no hace falta break 
-  * en los case se puede poner cualquier tipo de datos, varios valores, rangos, o condiciones. Un [Ejemplo](https://repl.it/MREg/0)
+  * A diferencia de C, en los `case` se puede poner tipos de datos que no sean `Int`, varios valores, rangos, o condiciones. Un [Ejemplo](https://repl.it/MREg/0)
 
 ## Funciones
 
@@ -58,7 +59,7 @@
 - Los nombres de los parámetros se usan como etiquetas al llamar a la función: `nombre(par1:1, par2:"hola")`
 - Se pueden definir parámetros con un nombre dentro de la función pero una etiqueta distinta, o sin etiqueta [Ejemplo](https://repl.it/MRF9/0)
 - Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con `let`. Podemos cambiar esto marcando el parámetro con `inout`, que se pone antes del tipo: `func ejemplo(par : inout Int)`. Para llamar a la función hay que marcar explícitamente el parámetro con un `&`. `ejemplo(par:&valor)`.
-- Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
+- Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto por ejemplo se pueden pasar como parámetro y una función puede devolver otra función. Para definir el tipo de una función solo importa el tipo de los parámetros y el del valor de retorno, así al hacer `obj = funcion` podemos aplicarla con `obj(valor1, valor2,...)` olvidándonos de las etiquetas de los parámetros.
 
 ## Opcionales
 
@@ -81,7 +82,7 @@
 - Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en siguientes sesiones
 - Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para sobreescribir un método, `override`
 - *casting*: algunas veces ciertos APIs devuelven resultados "sin tipo" (`Any`), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con `as`: `dato as Clase`. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.
-
+- acceso por defecto: `internal`, acceso dentro de los archivos del mismo módulo
 
 > CUIDADO: en el REPL los modificadores de acceso no funcionan
 
