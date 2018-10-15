@@ -43,7 +43,7 @@ mano.addCarta(Carta(7, .copas)!)
 print("Hay \(mano.tamaño) cartas")
 for num in 0..<mano.tamaño {
     if let carta = mano.getCarta(pos:num) {
-        print(carta.descripcion)
+        print(carta.descripcion())
     }
 }
 ```
