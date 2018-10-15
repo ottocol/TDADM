@@ -1,4 +1,4 @@
-# Ejercicios de introducción a las aplicaciones iOS (1,5 puntos)
+## Ejercicios de introducción a las aplicaciones iOS (1,5 puntos)
 
 Desarrolla una *app* llamada `iMoneda` con la que se pueda "lanzar" una "moneda virtual" a ver si sale cara o cruz.
 
