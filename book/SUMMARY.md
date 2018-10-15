@@ -52,3 +52,4 @@
     - [Interfaz gráfico simplificado](miniproyecto/proyecto.md#interfaz_simplificado)
     - [Completar la interfaz](miniproyecto/proyecto.md#interfaz_completo)
     - [Posibles mejoras](miniproyecto/proyecto.md#mejoras)
+* [Apéndice: control de versiones con Xcode](apendices/control_versiones.md)
