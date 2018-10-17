@@ -1,4 +1,4 @@
-## Ejercicios
+## Ejercicios (2,5 puntos)
 
 Vamos a realizar una pequeña aplicación para consultar el tiempo meteorológico. La aplicación terminada tendrá el aspecto que se muestra en la figura
 

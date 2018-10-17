@@ -1,4 +1,4 @@
-# Ejercicios de comunicación entre objetos
+# Ejercicios de comunicación entre objetos (2 puntos)
 
 En las plantillas de la sesión hay un proyecto de Xcode llamado `Conversor`. Se trata de un conversor de moneda entre euros y dólares que actualiza el tipo de cambio en tiempo real (lo debería actualizar de la red, pero lo que hace es calcular un valor aleatorio cada 5 segundos).
 
