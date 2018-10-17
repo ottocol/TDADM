@@ -43,14 +43,13 @@ print("\(pepito.nombre) tiene \(pepito.edad) año/s")
 
 Supongamos que nos interesa enterarnos de cuándo cambia la edad de una persona, y ejecutar cierto código en respuesta a esto. Podemos hacerlo con KVO. Lo primero es cambiar ciertos elementos de la clase para que use el *runtime* de ObjectiveC:
 
-- Añadir a la clase la anotación `@objcMembers`, que hará compatible con KVO no solo a esta clase, sino también a las que hereden de ella
 - Hacer que la clase herede de la clase base `NSObject`, que es la raíz de la jerarquía de clases de ObjectiveC
-- "Marcar" las propiedades que nos interesa observar con la palabra clave `dynamic`
+- "Marcar" las propiedades que nos interesa observar con la anotación `@objc` y la palabra clave `dynamic` (en lugar de usar `@objc` podríamos marcar la clase entera con `@objcMembers`).
 
 ```swift
-@objcMembers class Persona : NSObject {
+class Persona : NSObject {
     var nombre : String
-    dynamic var edad : Int = 0
+    @objc dynamic var edad : Int = 0
     func cumplirAños() {
         self.edad += 1
     }
@@ -69,16 +68,21 @@ Ahora ya tenemos todos los elementos para indicar que en el ejemplo anterior que
 ```swift
 import Foundation 
 
-let obs = pepito.observe(\.edad) { obj, cambio in
+let observador = pepito.observe(\.edad) { obj, cambio in
     print("\(obj.nombre) ahora tiene \(obj.edad")
 } 
 ```
 
 - Nótese que en el *keypath* se puede omitir `Persona` al comienzo ya que claramente "edad" debe ser una propiedad de esta clase. 
 - La clausura con el código a ejecutar recibe dos parámetros: `obj`, que es el objeto que estamos observando, y `cambio`, que nos da más información sobre el cambio producido (luego veremos el uso de este último)
-- Podems guardar valor devuelto por `observe` para "anular" el KVO llamando a `invalidate` sobre el mismo, cuando ya no nos interese seguir observando. 
 
-La sintaxis del ejemplo es válida a partir de la versión 4 de Swift, y es una simplificación considerable de la existente anteriormente, que era mucho más tediosa de utilizar.
+Cuando ya no nos interese seguir observando podemos parar el KVO llamando a `invalidate` sobre el valor devuelto por `observe`:
+
+```swift
+observador.invalidate()
+```
+
+> Importante: las observaciones se seguirán realizando mientras el objeto  devuelto por `observe` siga definido. Cuando se "pierde" (por ejemplo era una variable local a una función y esta ya ha terminado) el KVO se para automáticamente. En versiones antiguas de iOS había que pararlo manualmente y se producía un error si se recibían nuevas observaciones cuando el observador ya no existía.
 
 En el ejemplo anterior solo nos interesaba el estado actual del objeto una vez producido el cambio. En algunos casos nos puede interesar más información, como saber además cuál era el valor anterior de la propiedad. Para ello se usa un parámetro de `observe` que antes hemos omitido, llamado `options`, de tipo `OptionSet`. Desde el punto de vista de su uso, un `OptionSet` es un array de constantes donde especificamos un conjunto de opciones que no son mutuamente excluyentes. En nuestro caso las opciones son constantes de la clase [`NSKeyValueObservingOptions`](https://developer.apple.com/documentation/foundation/nskeyvalueobservingoptions). Vamos a indicar por ejemplo que nos interesa que se nos informe explícitamente del valor actual y del antiguo:
 
