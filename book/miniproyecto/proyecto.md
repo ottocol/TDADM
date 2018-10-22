@@ -46,12 +46,12 @@ La extensión la podéis almacenar en un fichero Swift cuyo nombre podéis elegi
 La estructura es libre ya que depende de vuestra implementación. No obstante, tened en cuenta que vais a necesitar métodos para:
 
 - Sumar las cartas que hay en una mano, teniendo en cuenta que el 10,11 y 12 valen medio punto, y el resto su valor
-- Que el jugador pida una carta
+- Que el jugador saque una carta
 - Que el jugador se plante
 - acabar el juego y calcular el resultado
 - ...
 
-##Pruebas unitarias (0,5 puntos) {#pruebas}
+## Pruebas unitarias (0,5 puntos) {#pruebas}
 
 > Si se te olvidó marcar la casilla `Include Unit Tests` al crear el proyecto debes crear ahora un conjunto de pruebas yendo a `File > New > Target...` y de entre las plantillas disponibles, elegir `iOS Unit Testing Bundle`.
 
@@ -76,9 +76,11 @@ let presente = baraja.cartas.contains() {
 //presente valdrá true si algún elemento del array ha cumplido la condición
 ```
 
-##Interfaz gráfico simplificado (0,5 puntos) {#interfaz_simplificado}
+## Interfaz gráfico simplificado (0,5 puntos) {#interfaz_simplificado}
 
-> Es normal que el `ViewController` conozca al modelo (o sea, que defináis una variable de tipo `Juego` dentro del código del `ViewController`). Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones. O podría observar con KVO cuándo cambia una propiedad del juego que sea el `estado` (turno usuario, turno máquina, gana usuario, gana máquina, ...).
+El `ViewController` contendrá una instancia de la clase `Juego`.
+
+> Es normal que el `ViewController` tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones. O podría observar con KVO cuándo cambia una propiedad del juego que sea el `estado` (turno usuario, turno máquina, gana usuario, gana máquina, ...).
 
 En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con `print`.
 
@@ -109,7 +111,7 @@ En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el
 > Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en [http://iosres.com](http://iosres.com) 
 
 ```swift
-func repartirCarta(carta: Carta, enPosicion : Int) {
+func dibujarCarta(carta: Carta, enPosicion : Int) {
     let nombreImagen = String(carta.valor)+String(carta.palo.rawValue)
     //creamos un objeto imagen
     let imagenCarta = UIImage(named: nombreImagen)
