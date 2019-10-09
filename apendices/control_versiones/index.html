@@ -1,0 +1,478 @@
+
+
+
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar al portapapeles">
+      
+        <meta name="lang:clipboard.copied" content="Copiado al portapapeles">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No se encontraron documentos">
+      
+        <meta name="lang:search.result.one" content="1 documento encontrado">
+      
+        <meta name="lang:search.result.other" content="# documentos encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Control de versiones con Xcode - TPDAM-iOS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#control-de-versiones-con-xcode" tabindex="1" class="md-skip">
+        Saltar a contenido
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="TPDAM-iOS" class="md-header-nav__button md-logo">
+          
+            <img src="../../logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              TPDAM-iOS
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Control de versiones con Xcode
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Teclee para comenzar búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="TPDAM-iOS" class="md-nav__button md-logo">
+      
+        <img src="../../logo.png" width="48" height="48">
+      
+    </a>
+    TPDAM-iOS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s1/swift_basico/" title="Introducción básica a Swift" class="md-nav__link">
+      Introducción básica a Swift
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s1/ejercicios/" title="Ejercicios" class="md-nav__link">
+      Ejercicios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s2/aplicaciones_ios/" title="Introducción a las aplicaciones iOS" class="md-nav__link">
+      Introducción a las aplicaciones iOS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s2/ejercicios/" title="Ejercicios" class="md-nav__link">
+      Ejercicios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s3/intro_swift_2/" title="Más sobre Swift" class="md-nav__link">
+      Más sobre Swift
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s3/concurrencia/" title="Concurrencia en iOS" class="md-nav__link">
+      Concurrencia en iOS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s3/ejercicios/" title="Ejercicios" class="md-nav__link">
+      Ejercicios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s4/comunicacion/" title="Comunicación entre componentes" class="md-nav__link">
+      Comunicación entre componentes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s4/i18n/" title="Internacionalización de aplicaciones iOS" class="md-nav__link">
+      Internacionalización de aplicaciones iOS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s4/ejercicios/" title="Ejercicios" class="md-nav__link">
+      Ejercicios
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/s5/testing.md" title="Testing básico en Xcode" class="md-nav__link">
+      Testing básico en Xcode
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../miniproyecto/proyecto/" title="Miniproyecto. Juego de las siete y media" class="md-nav__link">
+      Miniproyecto. Juego de las siete y media
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Tabla de contenidos</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crear-un-repositorio-local-para-el-proyecto" class="md-nav__link">
+    Crear un repositorio local para el proyecto
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajar-con-un-repositorio-remoto" class="md-nav__link">
+    Trabajar con un repositorio remoto
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurar-la-cuenta-de-nuestro-proveedor" class="md-nav__link">
+    Configurar la cuenta de nuestro proveedor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vincular-con-el-repositorio-remoto" class="md-nav__link">
+    Vincular con el repositorio remoto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajar-con-el-control-de-versiones" class="md-nav__link">
+    Trabajar con el control de versiones
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="control-de-versiones-con-xcode">Control de versiones con Xcode<a class="headerlink" href="#control-de-versiones-con-xcode" title="Permanent link">&para;</a></h1>
+<h2 id="crear-un-repositorio-local-para-el-proyecto">Crear un repositorio local para el proyecto<a class="headerlink" href="#crear-un-repositorio-local-para-el-proyecto" title="Permanent link">&para;</a></h2>
+<p>En este apartado veremos cómo trabajar con un <strong>repositorio git local</strong>. Tenemos dos opciones: crear el repositorio git local al crear el proyecto o añadirlo con posterioridad.</p>
+<p>Para <strong>crear el repositorio git local al crear el proyecto</strong>: en la última pantalla del asistente (la misma donde se selecciona en qué carpeta guardar físicamente el proyecto) veremos una casilla de verificación que podemos marcar para crear un repositorio Git local (<code>Create Git repository on my Mac</code>)</p>
+<p>Para <strong>crear el repositorio git local una vez creado el proyecto</strong>: en cualquier momento, vamos al menú de <code>Source Control</code>, opción <code>Create git repositories...</code>. Nos pedirá que marquemos para qué proyectos de los que tenemos abiertos queremos crear un repositorio git.</p>
+<p>En los dos casos <strong>Xcode hará automáticamente un <em>commit</em> inicial</strong> del proyecto con el mensaje "initial commit" (recordad que cuando Xcode crea un proyecto iOS no está vacío sino que tiene algunos archivos, dependiendo de la plantilla elegida).</p>
+<p>Podemos ver más información sobre el repositorio git con el <code>Source Control Navigator</code>, que es el segundo icono del panel de la izquierda de Xcode.</p>
+<p><img alt="" src="../imag/s_c_nav.png" /></p>
+<h2 id="trabajar-con-un-repositorio-remoto">Trabajar con un repositorio remoto<a class="headerlink" href="#trabajar-con-un-repositorio-remoto" title="Permanent link">&para;</a></h2>
+<p>Usaremos bitbucket en los ejemplos ya que es el servidor que utilizamos en el curso, pero las instrucciones son prácticamente iguales para otros proveedores como por ejemplo Github.</p>
+<h3 id="configurar-la-cuenta-de-nuestro-proveedor">Configurar la cuenta de nuestro proveedor<a class="headerlink" href="#configurar-la-cuenta-de-nuestro-proveedor" title="Permanent link">&para;</a></h3>
+<p>Lo más cómodo es guardar primero los datos de nuestra cuenta en Bitbucket, para no tener que introducirlos cada vez que hagamos una operación con el repositorio remoto. Para ello nos vamos a las prerencias de Xcode (Menú <code>Xcode</code> &gt; <code>Preferences...</code>, o bien pulsar la tecla <code>Comando-,</code>) y en la barra de herramientas seleccionamos la opción <code>Accounts</code></p>
+<p><img alt="" src="../imag/accounts.png" /></p>
+<p>Desde esta opción podemos gestionar nuestra cuenta de desarrollador de Apple y también cuentas de terceros como Bitbucket, Github, etc. </p>
+<p>En la esquina inferior izquierda pulsamos sobre el <code>+</code> para añadir una cuenta, seleccionamos el tipo (en nuestro caso "Bitbucket Cloud") e introducimos usuario y contraseña.</p>
+<h3 id="vincular-con-el-repositorio-remoto">Vincular con el repositorio remoto<a class="headerlink" href="#vincular-con-el-repositorio-remoto" title="Permanent link">&para;</a></h3>
+<h4>Repositorio remoto ya creado</h4>
+<p>Si ya hemos creado el repositorio git remoto, solo necesitamos saber su URL. </p>
+<p>En Xcode, vamos al <code>Source Control Navigator</code>, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos <code>Add Existing Remote...</code></p>
+<p><img alt="" src="../imag/menu_add_remote.png" /></p>
+<p>En el cuadro de diálogo que aparecerá colocamos la URL del repositorio remoto en el campo <code>Location</code></p>
+<p><img alt="" src="../imag/location.png" /></p>
+<h4>Crear el repositorio remoto desde Xcode</h4>
+<blockquote>
+<p>Esta opción solo está disponible desde la versión 10 de Xcode.</p>
+</blockquote>
+<p>En el <code>Source Control Navigator</code>, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos <code>Create</code> (<em>nombre del proyecto</em>) <code>Remote...</code>. En el cuadro de diálogo que aparecerá podemos seleccionar la cuenta (en nuestro caso Bitbucket Cloud), el nombre que tendrá el repositorio, si va a ser público o privado, etc...</p>
+<p>Xcode hará un <em>push</em> automáticamente tras crear el repositorio remoto</p>
+<h2 id="trabajar-con-el-control-de-versiones">Trabajar con el control de versiones<a class="headerlink" href="#trabajar-con-el-control-de-versiones" title="Permanent link">&para;</a></h2>
+<p>Cuando el proyecto actual esté bajo el control de versiones verás que en el <code>Project Navigator</code> del panel de la izquierda (el modo por defecto de ver los archivos del proyecto) los archivos que se han añadido desde el último <em>commit</em> tienen una <code>A</code> a la derecha y los modificados una <code>M</code>.</p>
+<p><img alt="" src="../imag/estado_archivos.png" /></p>
+<blockquote>
+<p>Ten en cuenta que tras crear el proyecto, si has creado el repositorio local, Xcode hace automáticamente un <em>commit</em> inicial y por eso ningún archivo aparece inicialmente marcado con una <code>A</code>, solo lo verás cuando crees archivos nuevos o modifiques los de la plantilla.</p>
+</blockquote>
+<p>Las operaciones a realizar con el control de versiones están localizadas en el menú de <code>Source Control</code>. Desde aquí puedes hacer:</p>
+<ul>
+<li><code>commit</code>: aparecerá un cuadro de diálogo (bastante grande) con todos los archivos que han cambiado desde el último commit. Por defecto aparecerán seleccionados todos pero puedes seleccionar solo los que te interesen. En la parte inferior del cuadro de diálogo tendrás que escribir el mensaje asociado al <em>commit</em>.</li>
+<li><code>push</code>: aparecerá un pequeño cuadro de diálogo en el que puedes elegir el repositorio remoto al que subir los cambios. Normalmente solo tendremos un remoto vinculado, de modo que bastará con pulsar sobre <code>Push</code></li>
+<li><code>pull</code>: igual a lo anterior pero será para traerse los cambios desde el repositorio remoto.</li>
+<li><code>Discard all changes</code>: volverá a la versión local que teníamos en el último <em>commit</em>.</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
