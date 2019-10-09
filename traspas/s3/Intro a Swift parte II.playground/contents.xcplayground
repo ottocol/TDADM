@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='Clausuras'/>
+        <page name='structs'/>
+        <page name='valor vs referencia'/>
+        <page name='structs vs clases'/>
+        <page name='Gestión de errores'/>
+        <page name='Acciones frente a un error'/>
+        <page name='propagar el error'/>
+        <page name='capturar el error'/>
+        <page name='Manejar un error como opcional'/>
+        <page name='ignorar el error'/>
+        <page name='protocolos'/>
+        <page name='delegación'/>
+    </pages>
+</playground>

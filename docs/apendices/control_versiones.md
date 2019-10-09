@@ -1,0 +1,68 @@
+# Control de versiones con Xcode
+
+
+## Crear un repositorio local para el proyecto
+
+En este apartado veremos cómo trabajar con un **repositorio git local**. Tenemos dos opciones: crear el repositorio git local al crear el proyecto o añadirlo con posterioridad.
+
+Para **crear el repositorio git local al crear el proyecto**: en la última pantalla del asistente (la misma donde se selecciona en qué carpeta guardar físicamente el proyecto) veremos una casilla de verificación que podemos marcar para crear un repositorio Git local (`Create Git repository on my Mac`)
+
+Para **crear el repositorio git local una vez creado el proyecto**: en cualquier momento, vamos al menú de `Source Control`, opción `Create git repositories...`. Nos pedirá que marquemos para qué proyectos de los que tenemos abiertos queremos crear un repositorio git.
+
+En los dos casos **Xcode hará automáticamente un *commit* inicial** del proyecto con el mensaje "initial commit" (recordad que cuando Xcode crea un proyecto iOS no está vacío sino que tiene algunos archivos, dependiendo de la plantilla elegida).
+
+Podemos ver más información sobre el repositorio git con el `Source Control Navigator`, que es el segundo icono del panel de la izquierda de Xcode.
+
+![](imag/s_c_nav.png)
+
+## Trabajar con un repositorio remoto
+
+Usaremos bitbucket en los ejemplos ya que es el servidor que utilizamos en el curso, pero las instrucciones son prácticamente iguales para otros proveedores como por ejemplo Github.
+
+### Configurar la cuenta de nuestro proveedor
+
+Lo más cómodo es guardar primero los datos de nuestra cuenta en Bitbucket, para no tener que introducirlos cada vez que hagamos una operación con el repositorio remoto. Para ello nos vamos a las prerencias de Xcode (Menú `Xcode` > `Preferences...`, o bien pulsar la tecla `Comando-,`) y en la barra de herramientas seleccionamos la opción `Accounts`
+
+![](imag/accounts.png)
+
+Desde esta opción podemos gestionar nuestra cuenta de desarrollador de Apple y también cuentas de terceros como Bitbucket, Github, etc. 
+
+En la esquina inferior izquierda pulsamos sobre el `+` para añadir una cuenta, seleccionamos el tipo (en nuestro caso "Bitbucket Cloud") e introducimos usuario y contraseña.
+
+### Vincular con el repositorio remoto
+
+#### Repositorio remoto ya creado
+
+Si ya hemos creado el repositorio git remoto, solo necesitamos saber su URL. 
+
+En Xcode, vamos al `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos `Add Existing Remote...`
+
+![](imag/menu_add_remote.png)
+
+En el cuadro de diálogo que aparecerá colocamos la URL del repositorio remoto en el campo `Location`
+
+![](imag/location.png)
+
+#### Crear el repositorio remoto desde Xcode
+
+> Esta opción solo está disponible desde la versión 10 de Xcode.
+
+En el `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos `Create` (*nombre del proyecto*) ` Remote...`. En el cuadro de diálogo que aparecerá podemos seleccionar la cuenta (en nuestro caso Bitbucket Cloud), el nombre que tendrá el repositorio, si va a ser público o privado, etc...
+
+Xcode hará un *push* automáticamente tras crear el repositorio remoto
+
+## Trabajar con el control de versiones
+
+Cuando el proyecto actual esté bajo el control de versiones verás que en el `Project Navigator` del panel de la izquierda (el modo por defecto de ver los archivos del proyecto) los archivos que se han añadido desde el último *commit* tienen una `A` a la derecha y los modificados una `M`.
+
+![](imag/estado_archivos.png)
+
+> Ten en cuenta que tras crear el proyecto, si has creado el repositorio local, Xcode hace automáticamente un *commit* inicial y por eso ningún archivo aparece inicialmente marcado con una `A`, solo lo verás cuando crees archivos nuevos o modifiques los de la plantilla.
+
+Las operaciones a realizar con el control de versiones están localizadas en el menú de `Source Control`. Desde aquí puedes hacer:
+
+- `commit`: aparecerá un cuadro de diálogo (bastante grande) con todos los archivos que han cambiado desde el último commit. Por defecto aparecerán seleccionados todos pero puedes seleccionar solo los que te interesen. En la parte inferior del cuadro de diálogo tendrás que escribir el mensaje asociado al *commit*.
+- `push`: aparecerá un pequeño cuadro de diálogo en el que puedes elegir el repositorio remoto al que subir los cambios. Normalmente solo tendremos un remoto vinculado, de modo que bastará con pulsar sobre `Push`
+- `pull`: igual a lo anterior pero será para traerse los cambios desde el repositorio remoto.
+- `Discard all changes`: volverá a la versión local que teníamos en el último *commit*.
+ 
