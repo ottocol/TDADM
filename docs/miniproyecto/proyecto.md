@@ -5,7 +5,7 @@ Se propone implementar el conocido juego de cartas de "las 7 y media". Podéis i
 
 Para crear el proyecto, como siempre elige la plantilla de `single view app`. En la segunda pantalla del asistente dale como nombre `SieteyMedia` y marca la casilla de `Include Unit Tests` (no obstante aunque no marques esta última los *test* se pueden añadir luego) 
 
-## Estructura de clases del modelo (1 punto) {#modelo}
+## Estructura de clases del modelo (1 punto) 
 
 Ampliaremos el modelo que implementamos en la primera sesión. Ya tenemos el enum `Palo` y las clases `Carta` y `Mano`. Vamos a añadir las clases necesarias para el juego: la `Baraja` y el propio `Juego`
 
@@ -51,7 +51,7 @@ La estructura es libre ya que depende de vuestra implementación. No obstante, t
 - acabar el juego y calcular el resultado
 - ...
 
-## Pruebas unitarias (0,5 puntos) {#pruebas}
+## Pruebas unitarias (0,5 puntos) 
 
 > Si se te olvidó marcar la casilla `Include Unit Tests` al crear el proyecto debes crear ahora un conjunto de pruebas yendo a `File > New > Target...` y de entre las plantillas disponibles, elegir `iOS Unit Testing Bundle`.
 
@@ -76,7 +76,7 @@ let presente = baraja.cartas.contains() {
 //presente valdrá true si algún elemento del array ha cumplido la condición
 ```
 
-## Interfaz gráfico simplificado (0,5 puntos) {#interfaz_simplificado}
+## Interfaz gráfico simplificado (0,5 puntos) 
 
 El `ViewController` contendrá una instancia de la clase `Juego`.
 
@@ -91,7 +91,7 @@ Además, para simplificar la mecánica del juego no es necesario que la máquina
 > **La versión anterior es solo una idea, podéis implementar cualquier variante que queráis**, o cualquier mejora, incluyendo que la máquina saque cartas una por una, apostar una cantidad,...
 
 
-##Completar la interfaz (1 punto) {#interfaz_completo}
+##Completar la interfaz (1 punto) 
 
 En la interfaz completada deberían aparecer las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).
 
@@ -185,10 +185,7 @@ alert.addAction(action)
 self.present(alert, animated: true, completion: nil)
 ```
 
-
-
-
-##Posibles mejoras (hasta 1 punto) {#mejoras}
+##Posibles mejoras (hasta 1 punto) 
 
 El proyecto está abierto a cualquier posible mejora o modificación que queráis hacer, por ejemplo:
 

@@ -1,14 +1,14 @@
-# Introducción básica a Swift {#intro}
+# Introducción básica a Swift 
 
 Swift es un lenguaje originalmente desarrollado por Apple para la programación de aplicaciones en las plataformas iOS y OSX. Pese a haber sido desarrollado con esta intención, Swift es un lenguaje de propósito general. Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo características de programación orientada a objetos sino también de programación funcional.
 
-## Preliminares {#preliminares}
+## Preliminares 
 
 En un programa Swift no hay un "main" como en C sino que el código se empieza a ejecutar por la primera instrucción de "nivel superior", es decir las sentencias que no están dentro de funciones.
 
 Los ";" al final de las sentencias son opcionales.
 
-## Variables y constantes {#vars}
+## Variables y constantes 
 
 Swift tiene una serie de tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
 
@@ -44,7 +44,7 @@ Podemos usar `Any` para indicar "cualquier tipo". Algunos APIs en los que no se 
 
 Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
 
-## Tipos de datos básicos (de la librería estándar) {#tipos} 
+## Tipos de datos básicos (de la librería estándar)  
 
 ### String
 
@@ -69,7 +69,7 @@ var mensaje = """
 """     
 ```
 
-### Colecciones: arrays, conjuntos y diccionarios {#colecciones}
+### Colecciones: arrays, conjuntos y diccionarios 
 
 #### Arrays
 
@@ -152,7 +152,7 @@ for (nombre, instrumento) in grupo {
 ```
 
 
-## Instrucciones de control de flujo {#flujo}
+## Instrucciones de control de flujo 
 
 Hay algunas instrucciones que son iguales a C/Java, como el `if` o el `while` con ciertas diferencias:
 
@@ -207,7 +207,7 @@ switch valorCarta {
 }
 ```
 
-## Funciones {#funciones}
+## Funciones 
 
 Para definir una función se usa la sintaxis `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`. Si una función no devuelve nada se omite el `->TipoRetorno`
 
@@ -240,7 +240,7 @@ Los parámetros no son modificables dentro del cuerpo de la función, es decir, 
 
 Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
-## Opcionales {#opcionales}
+## Opcionales 
 
 `nil` es como el `null` de Java, pero es aplicable también a `Int`, `Float`, ... No obstante, una variable "normal" no puede valer `nil`. 
 
@@ -302,7 +302,7 @@ valor = Int("1")
 print(valor)
 ```
 
-## Clases {#clases}
+## Clases 
 
 La sintaxis es similar a Java con algunas diferencias:
   + No se pone `new` para instanciar un nuevo objeto
@@ -369,7 +369,7 @@ Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para s
 
 > CUIDADO: en el REPL los modificadores de acceso no funcionan
 
-## Extensiones {#extensiones}
+## Extensiones 
 
 Nos permiten añadir nueva funcionalidad a clases ya existentes, incluso aun sin acceso al código fuente o en clases del sistema. Se pueden añadir por ejemplo nuevos métodos, inicializadores y propiedades computadas. Lo que no se puede hacer es sobreescribir los métodos o propiedades ya existentes.
 
@@ -388,7 +388,7 @@ print("mami".reggaetonizar())  //mami ya tú sabes
 ```
 
 
-## Enumerados {#enumerados}
+## Enumerados 
 
 Se definen de forma similar a C pero no tienen nada que ver, son tipos "por derecho propio", no enteros
 

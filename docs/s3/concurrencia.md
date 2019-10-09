@@ -1,8 +1,8 @@
-## Concurrencia en iOS {#concurrencia}
+## Concurrencia en iOS 
 
 En muchas aplicaciones iOS necesitaremos efectuar varias operaciones de modo concurrente. El caso más típico es cuando queremos hacer una operación costosa en tiempo pero no queremos que se paralice la interfaz de usuario hasta que termine la operación.
 
-### APIs de concurrencia {#apis}
+### APIs de concurrencia 
 
 Tanto iOS como OSX tienen varios APIs con distinto nivel de abstracción para trabajar con operaciones concurrentes:
 
@@ -12,7 +12,7 @@ Tanto iOS como OSX tienen varios APIs con distinto nivel de abstracción para tr
 
 Cada API usa internamente los otros de más bajo nivel. Es decir, GCD usa internamente *threads* y las colas de operaciones usan internamente GCD.
 
-### Colas de operaciones {#colas}
+### Colas de operaciones 
 
 En una *cola de operaciones* podemos añadir trabajos concurrentes. Manejarlas a nivel básico es muy sencillo. Son instancias de `OperationQueue` y para añadir un trabajo a una solo hay que llamar a `addOperation()`. Hay diversas formas de pasar el código a ejecutar. La más cómoda es en forma de *clausura*. Por ejemplo:
 

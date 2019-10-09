@@ -1,0 +1,49 @@
+site_name: TPDAM-iOS
+
+
+nav:
+  - Introducción básica a Swift: 's1/swift_basico.md'
+  - Ejercicios: 's1/ejercicios.md'
+  - Introducción a las aplicaciones iOS: 's2/aplicaciones_ios.md'
+  - Ejercicios: 's2/ejercicios.md'
+  - Más sobre Swift: 's3/intro_swift_2.md'
+  - Concurrencia en iOS: 's3/concurrencia.md'
+  - Ejercicios: 's3/ejercicios.md'
+  - Comunicación entre componentes: 's4/comunicacion.md'
+  - Internacionalización de aplicaciones iOS: 's4/i18n.md'
+  - Ejercicios: 's4/ejercicios.md'
+  - Testing básico en Xcode: 'docs/s5/testing.md'
+  - Miniproyecto. Juego de las siete y media: 'miniproyecto/proyecto.md'
+
+theme:
+    language: es
+    name: 'material'
+    palette:
+        primary: 'Teal'
+        accent: 'Teal'
+    font:
+        text: 'Roboto'
+        code: 'Roboto Mono'
+    logo: 'logo.png'
+
+# Ponemos como idioma de búsqueda el inglés
+# para conseguir que busque correctamente
+# todas las palabras en castellano, sin eliminar
+# los excesivos derivados que se definen en
+# https://github.com/MihaiValentin/lunr-languages/blob/master/lunr.es.js
+
+extra:
+    search:
+        language: 'en'
+
+markdown_extensions:
+    - admonition
+    - codehilite:
+        linenums: true
+    - footnotes
+    - meta
+    - sane_lists
+    - toc:
+       permalink: true
+       toc_depth: 3
+    - pymdownx.superfences

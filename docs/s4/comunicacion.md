@@ -1,4 +1,4 @@
-# Comunicación modelo-controlador {#comunicacion}
+# Comunicación modelo-controlador 
 
 Ya hemos visto cómo se comunican bidireccionalmente el controlador y la vista:
 
@@ -17,7 +17,7 @@ En Foundation hay dos formas básicas de conseguir que dos objetos se comuniquen
 
 - **Notificaciones:** un objeto puede recibir notificaciones sobre eventos que le interesen. Asímismo otro objeto puede enviar notificaciones. El encargado de gestionar las notificaciones es un objeto intermediario denominado "centro de notificaciones". Podemos usar las notificaciones de modo que el modelo notifique que ha habido un cambio y el controlador reciba la notificación y actualice la vista. 
 
-## Key-Value Observing {#kvo}
+## Key-Value Observing 
 
 Gracias a Foundation, un objeto cualquiera puede *observar* cambios en las propiedades de otro. Especificamos un bloque de código (función o clausura) a ejecutar cuando se produzca este cambio. Esta funcionalidad se denomina **Key-Value Observing** o KVO.
 
@@ -95,7 +95,7 @@ let obs = pepito.observe(\.edad, options:[.new, .old]) { obj, cambio in
 
 En `options` hemos indicado qué información queremos y esta la tenemos disponible a través de propiedades del segundo parámetro de la clausura (nuestro parámetro `cambio`). Hay más opciones de KVO, por ejemplo con `.prior` indicaríamos que queremos recibir dos avisos, uno inmediatamente antes del cambio y otro inmediatamente después. Se recomienda consultar la documentación para ver más opciones.
 
-## Notificaciones locales {#notificaciones}
+## Notificaciones locales 
 
 Son algo similar a lo que en aplicaciones *enterprise* se llaman *colas de mensajes*. Implementan el patrón de diseño publicar/suscribir.
 

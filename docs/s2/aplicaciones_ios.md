@@ -1,8 +1,8 @@
-# Introducción a las aplicaciones iOS {#intro}
+# Introducción a las aplicaciones iOS 
 
 Una vez vistos los conceptos básicos del lenguaje de programación que vamos a usar, que es Swift, vamos a ver qué estructura tienen las aplicaciones en iOS. Como ahora mismo veremos, Apple utiliza mucho los patrones de diseño software en iOS. De hecho todas las *apps* de esta plataforma siguen el conocido patrón Modelo/Vista/Controlador. Por ello veremos primero en qué consiste, cómo se implementa en iOS y qué clases básicas forman la estructura de toda aplicación. Implementaremos nuestra primera aplicación iOS para poder entender mejor todos estos conceptos.
 
-## Patrón general para una aplicación iOS: MVC {#mvc}
+## Patrón general para una aplicación iOS: MVC 
 
 Como acabamos de comentar, las aplicaciones iOS siguen el archiconocido patrón de diseño "Modelo/Vista/Controlador", abreviado comúnmente como MVC. Aunque hay muchas variantes de este patrón y los detalles varían mucho entre ellas, en general en todas:
 
@@ -26,7 +26,7 @@ Y entre modelo y controlador:
 - El controlador guarda una referencia al modelo y a través de ella puede llamar a sus métodos.
 - Cuando se produce un cambio en el modelo, este "avisa" al controlador mediante métodos estándar en iOS para comunicación entre objetos, como son el KVO y las notificaciones locales.
 
-## Comenzando nuestra primera aplicación iOS {#comenzando}
+## Comenzando nuestra primera aplicación iOS 
 
 Vamos a implementar una aplicación muy sencilla a la que llamaremos "UAdivino". Es una versión del clásico juguete "[la bola 8 mágica](https://es.wikipedia.org/wiki/Magic_8-Ball)", a la que se le formula una pregunta y que supuestamente responde, dando en realidad respuestas genéricas: "sí", "¡claro que no!", "es muy posible",...
 
@@ -43,7 +43,7 @@ La siguiente figura, tomada de la "[App programming guide for iOS](https://devel
 
 ![](imag/app_structure.png)
 
-## La plantilla creada por Xcode {#plantilla}
+## La plantilla creada por Xcode 
 
 Para no tener que partir de cero, Xcode nos ha creado una plantilla con varias clases y archivos adicionales, que se corresponden con la estructura genérica de una aplicación que acabamos de ver:
 
@@ -62,7 +62,7 @@ Para no tener que partir de cero, Xcode nos ha creado una plantilla con varias c
     
 - Recursos: la carpeta `Assets.xcassets`, que es donde se colocan las imágenes y otros recursos de la aplicación
 
-## Creación de la interfaz (la vista) {#vista}
+## Creación de la interfaz (la vista) 
 
 La interfaz de la aplicación va a tener el siguiente aspecto, con un "cartel" explicando qué hace la *app*, un botón para solicitar la respuesta, y un campo en el que aparecerá dicha respuesta.
 
@@ -80,7 +80,7 @@ Las propiedades de cualquier componente también se pueden cambiar en el panel d
 
 **Arrastra los dos componentes** que faltan: un botón (`Button`) y otro `Label` que debes dejar con el texto vacío y donde aparecerá el mensaje del adivino.
 
-## Implementación del modelo {#modelo}
+## Implementación del modelo 
 
 En esta *app* el modelo lo único que debe hacer es generar respuestas al azar a demanda. Lo podemos implementar en una clase `Adivino` que tenga un método `obtenerRespuesta`
 
@@ -111,14 +111,14 @@ Podemos **insertar el código anterior en la clase `AppDelegate`, dentro del pri
 
 Para **ejecutar el proyecto** pulsa al botón con el símbolo de "Play" de la barra superior de Xcode, o bien selecciona la opción de menú `Build > Run`. Aparecerá el simulador de iOS con la pantalla del iPhone, y en la consola de Xcode deberían aparecer los mensajes generados por el "adivino". 
 
-## Implementación del controlador {#controlador}
+## Implementación del controlador 
 
 En el controlador es donde vamos a hacer la comunicación entre la vista y el modelo.
 
 - Cada vez que se pulse el botón, el modelo debe generar una respuesta
 - Esta respuesta se debe mostrar como texto del `Label` que ahora tenemos provisionalmente vacío.
 
-### Recibir eventos de la vista {#action}
+### Recibir eventos de la vista 
 
 Para recibir eventos de la vista, necesitamos crear un *action*. Esto es lo que en otros entornos de programación se conoce como *listener*, *event handler*, *callback*,... Es simplemente un método del *controller* al que el sistema llama cuando se produce un determinado evento sobre un componente de la interfaz.
 
@@ -132,7 +132,7 @@ Para **crear un *action* que vincule el botón y el controlador** hay que seguir
 
 Nótese que el método que se ha creado lleva una anotación especial, `@IBAction` que indica que es un *action*. Además a la izquierda del nombre sale un círculo "relleno" que indica que está conectado a un componente de la interfaz. Si pasamos el ratón por encima aparecerá destacado el componente en fondo azul. 
 
-### Llamar al modelo {#llamar_modelo}
+### Llamar al modelo 
 
 Ahora en el método del *action* `botonPulsado` tenemos que llamar al modelo. En nuestro caso es tan simple como llamar a `obtenerRespuesta()` pero para eso necesitamos declarar una instancia del modelo en el controlador. Por ello le añadimos una nueva propiedad:
 
@@ -156,7 +156,7 @@ Ahora tenemos que obtener una respuesta cuando se pulse el botón:
 
 pero todavía nos falta mostrarla en la interfaz. Para eso necesitamos conectar el *controller* con la vista
 
-### Modificar la vista {#outlet}
+### Modificar la vista 
 
 Por cada componente de la interfaz de usuario que queramos modificar desde el *controller* necesitamos definir un *outlet*, que no es más que una variable que referencia al componente. Pero la variable no la declaramos nosotros sino que se crea de forma parecida a como se crean los *action*: gráficamente, con el ratón.
 
