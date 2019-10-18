@@ -37,7 +37,7 @@ Para crear la aplicación arrancamos Xcode:
  3. Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino` 
  4. En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.
 
-## Estructura del código de una aplicación {#estructura}
+## Estructura del código de una aplicación 
 
 La siguiente figura, tomada de la "[App programming guide for iOS](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide)" de Apple, muestra los elementos básicos de cualquier aplicación iOS. Podemos distinguir la parte del modelo, la del controlador y la de la vista. Nótese que no hay un único controlador ni una única vista. En general, podríamos decir que por cada "pantalla" de nuestra aplicación tendremos un controlador "principal" que controla una vista. Esa vista a su vez está formada por una jerarquía de *subvistas* (paneles, botones, *sliders*,...). Esto no hay que tomarlo literalmente, ya que en una "pantalla" puede haber más de un controlador, pero es útil para hacerse una idea aproximada.
 
