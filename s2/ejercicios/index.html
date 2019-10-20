@@ -388,13 +388,8 @@
 <p><img alt="" src="../imag/iMoneda.png" /></p>
 <ol>
 <li>La <strong>vista</strong> (0,5 puntos): Crea la interfaz arrastrando los componentes y colocándolos donde creas conveniente.</li>
-<li>
-<p><strong>Añádele al proyecto las imágenes</strong> de la <a href="../imag/cara.png">cara</a> y de la <a href="../imag/cruz.png">cruz</a>. Abre la "carpeta" <code>Assets.xcassets</code> y déjalas allí, en la lista de recursos, justo debajo del que pone <code>AppIcon</code> (NO en el icono de la carpeta <em>assets</em>). Verás que aparecen con un nombre que es el mismo del archivo pero sin la extensión. Podemos usar este nombre para referenciarlas en el código, luego veremos cómo.</p>
-<p><img alt="" src="../imag/assets.gif" /></p>
-</li>
-<li>
-<p>El <strong>modelo</strong>(0,25 puntos): Crea:</p>
-<ul>
+<li><strong>Añádele al proyecto las</strong> <a href="../imagenes_moneda.zip">imágenes de la cara y cruz</a> de la moneda. Crea un <em>image set</em> en la carpeta <code>Assets.xcassets</code> llamado <em>cara</em> y otro llamado <em>cruz</em> y deja allí las imágenes correspondientes. Verás que están a @2x y @3x. </li>
+<li>El <strong>modelo</strong>(0,25 puntos): Crea:<ul>
 <li>Un enumerado <code>Tirada</code> con los valores de <code>cara</code> y <code>cruz</code> que se pueda convertir a <code>String</code> </li>
 <li>Una clase <code>Moneda</code> con un único método <code>lanzar()</code> que devuelva una <code>Tirada</code> al azar </li>
 </ul>
