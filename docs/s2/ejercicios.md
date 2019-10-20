@@ -12,14 +12,11 @@ La interfaz de la *app* será muy sencilla y constará de:
 ![](imag/iMoneda.png)
 
 1. La **vista** (0,5 puntos): Crea la interfaz arrastrando los componentes y colocándolos donde creas conveniente.
-2. **Añádele al proyecto las imágenes** de la [cara](imag/cara.png) y de la [cruz](imag/cruz.png). Abre la "carpeta" `Assets.xcassets` y déjalas allí, en la lista de recursos, justo debajo del que pone `AppIcon` (NO en el icono de la carpeta *assets*). Verás que aparecen con un nombre que es el mismo del archivo pero sin la extensión. Podemos usar este nombre para referenciarlas en el código, luego veremos cómo.
-
-    ![](imag/assets.gif)
-
-2. El **modelo**(0,25 puntos): Crea:
+2. **Añádele al proyecto las** [imágenes de la cara y cruz](imagenes_moneda.zip) de la moneda. Crea un *image set* en la carpeta `Assets.xcassets` llamado *cara* y otro llamado *cruz* y deja allí las imágenes correspondientes. Verás que están a @2x y @3x. 
+3. El **modelo**(0,25 puntos): Crea:
     -  Un enumerado `Tirada` con los valores de `cara` y `cruz` que se pueda convertir a `String` 
     -  Una clase `Moneda` con un único método `lanzar()` que devuelva una `Tirada` al azar 
-3. El **controlador** (0,75 puntos): 
+4. El **controlador** (0,75 puntos): 
     - Define en él una propiedad del tipo `Moneda`
     - Crea dos *outlet*, uno para acceder al componente `UIImageView` y otro para el `Label`
     - Crea un *action* que vincule el botón con algún método del `ViewController`
