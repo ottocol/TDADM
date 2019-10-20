@@ -32,10 +32,13 @@ Vamos a implementar una aplicación muy sencilla a la que llamaremos "UAdivino".
 
 Para crear la aplicación arrancamos Xcode:
 
- 1. en las opciones de la izquierda seleccionamos "Create a new Xcode project". 
- 2. En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". 
- 3. Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino` 
- 4. En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.
+ - En las opciones de la izquierda seleccionamos "Create a new Xcode project". 
+ - En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". 
+ - Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino`. Hay que asegurarse que en el desplegable de `User Interface` se selecciona `Storyboard`
+
+> SwiftUI, la otra opción de la interfaz, es un *framework* introducido por Apple en junio de 2019 como alternativa a la estructura clásica de las aplicaciones iOS. De momento no la usaremos en el curso. 
+
+ - En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.
 
 ## Estructura del código de una aplicación 
 
