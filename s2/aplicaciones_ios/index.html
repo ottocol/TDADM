@@ -585,12 +585,17 @@
 <h2 id="comenzando-nuestra-primera-aplicacion-ios">Comenzando nuestra primera aplicación iOS<a class="headerlink" href="#comenzando-nuestra-primera-aplicacion-ios" title="Permanent link">&para;</a></h2>
 <p>Vamos a implementar una aplicación muy sencilla a la que llamaremos "UAdivino". Es una versión del clásico juguete "<a href="https://es.wikipedia.org/wiki/Magic_8-Ball">la bola 8 mágica</a>", a la que se le formula una pregunta y que supuestamente responde, dando en realidad respuestas genéricas: "sí", "¡claro que no!", "es muy posible",...</p>
 <p>Para crear la aplicación arrancamos Xcode:</p>
-<ol>
-<li>en las opciones de la izquierda seleccionamos "Create a new Xcode project". </li>
+<ul>
+<li>En las opciones de la izquierda seleccionamos "Create a new Xcode project". </li>
 <li>En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". </li>
-<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code> </li>
+<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code>. Hay que asegurarse que en el desplegable de <code>User Interface</code> se selecciona <code>Storyboard</code></li>
+</ul>
+<blockquote>
+<p>SwiftUI, la otra opción de la interfaz, es un <em>framework</em> introducido por Apple en junio de 2019 como alternativa a la estructura clásica de las aplicaciones iOS. De momento no la usaremos en el curso. </p>
+</blockquote>
+<ul>
 <li>En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.</li>
-</ol>
+</ul>
 <h2 id="estructura-del-codigo-de-una-aplicacion">Estructura del código de una aplicación<a class="headerlink" href="#estructura-del-codigo-de-una-aplicacion" title="Permanent link">&para;</a></h2>
 <p>La siguiente figura, tomada de la "<a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide">App programming guide for iOS</a>" de Apple, muestra los elementos básicos de cualquier aplicación iOS. Podemos distinguir la parte del modelo, la del controlador y la de la vista. Nótese que no hay un único controlador ni una única vista. En general, podríamos decir que por cada "pantalla" de nuestra aplicación tendremos un controlador "principal" que controla una vista. Esa vista a su vez está formada por una jerarquía de <em>subvistas</em> (paneles, botones, <em>sliders</em>,...). Esto no hay que tomarlo literalmente, ya que en una "pantalla" puede haber más de un controlador, pero es útil para hacerse una idea aproximada.</p>
 <p><img alt="" src="../imag/app_structure.png" /></p>
