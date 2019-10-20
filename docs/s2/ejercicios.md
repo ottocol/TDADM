@@ -1,5 +1,5 @@
 
-# Ejercicios de introducción a las aplicaciones iOS (1,5 puntos)
+# Ejercicios de introducción a las aplicaciones iOS (1,75 puntos)
 
 Desarrolla una *app* llamada `iMoneda` con la que se pueda "lanzar" una "moneda virtual" a ver si sale cara o cruz.
 
@@ -40,5 +40,10 @@ let imagenCara = UIImage(named:"cara")
 //SUPONIENDO que el outlet que representa al UIImageView es imageView
 self.imageView.image = imagenCara
 ```
+
+(0,25 puntos) Finalmente añádele un icono a la *app* y una *launch screen* con los elementos que consideres.
+
+- Puedes descargar iconos por ejemplo de [icons8.com/icons](https://icons8.com/icons/)
+- Puedes cambiar el tamaño del icono con `Vista Previa` del Mac (Herramientas>Ajustar Tamaño...) o bien  puedes generar automáticamente los tamaños necesarios con la ayuda de una web como por ejemplo [appicon.co](https://appicon.co/)
 
 
