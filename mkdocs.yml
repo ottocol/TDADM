@@ -15,6 +15,7 @@ nav:
   - Ejercicios: 's4/ejercicios.md'
   - Testing básico en Xcode: 's5/testing.md'
   - Miniproyecto. Juego de las siete y media: 'miniproyecto/proyecto.md'
+  - Apéndice. Control de versiones en Xcode: 'apendices/control_versiones.md'
 
 theme:
     language: es

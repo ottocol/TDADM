@@ -17,17 +17,17 @@ Podemos ver más información sobre el repositorio git con el `Source Control Na
 
 ## Trabajar con un repositorio remoto
 
-Usaremos bitbucket en los ejemplos ya que es el servidor que utilizamos en el curso, pero las instrucciones son prácticamente iguales para otros proveedores como por ejemplo Github.
+Usaremos github en los ejemplos ya que es el servidor que empleamos en el curso, pero las instrucciones son prácticamente iguales para otros proveedores como Bitbucket o Gitlab.
 
 ### Configurar la cuenta de nuestro proveedor
 
-Lo más cómodo es guardar primero los datos de nuestra cuenta en Bitbucket, para no tener que introducirlos cada vez que hagamos una operación con el repositorio remoto. Para ello nos vamos a las prerencias de Xcode (Menú `Xcode` > `Preferences...`, o bien pulsar la tecla `Comando-,`) y en la barra de herramientas seleccionamos la opción `Accounts`
+Lo más cómodo es guardar primero los datos de nuestra cuenta en Github, para no tener que introducirlos cada vez que hagamos una operación con el repositorio remoto. Para ello nos vamos a las prerencias de Xcode (Menú `Xcode` > `Preferences...`, o bien pulsar la tecla `Command-,` - cmd y una coma) y en la barra de herramientas seleccionamos la opción `Accounts`
 
 ![](imag/accounts.png)
 
-Desde esta opción podemos gestionar nuestra cuenta de desarrollador de Apple y también cuentas de terceros como Bitbucket, Github, etc. 
+Desde esta opción podemos gestionar nuestra cuenta de desarrollador de Apple y también cuentas de terceros como Github, Bitbucket, etc. 
 
-En la esquina inferior izquierda pulsamos sobre el `+` para añadir una cuenta, seleccionamos el tipo (en nuestro caso "Bitbucket Cloud") e introducimos usuario y contraseña.
+En la esquina inferior izquierda pulsamos sobre el `+` para añadir una cuenta, seleccionamos el tipo (en nuestro caso "Github") e introducimos usuario y contraseña.
 
 ### Vincular con el repositorio remoto
 
@@ -47,7 +47,7 @@ En el cuadro de diálogo que aparecerá colocamos la URL del repositorio remoto 
 
 > Esta opción solo está disponible desde la versión 10 de Xcode.
 
-En el `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos `Create` (*nombre del proyecto*) ` Remote...`. En el cuadro de diálogo que aparecerá podemos seleccionar la cuenta (en nuestro caso Bitbucket Cloud), el nombre que tendrá el repositorio, si va a ser público o privado, etc...
+En el `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos `Create` (*nombre del proyecto*) ` Remote...`. En el cuadro de diálogo que aparecerá podemos seleccionar la cuenta (en nuestro caso Github), el nombre que tendrá el repositorio, si va a ser público o privado, etc...
 
 Xcode hará un *push* automáticamente tras crear el repositorio remoto
 
@@ -59,7 +59,7 @@ Cuando el proyecto actual esté bajo el control de versiones verás que en el `P
 
 > Ten en cuenta que tras crear el proyecto, si has creado el repositorio local, Xcode hace automáticamente un *commit* inicial y por eso ningún archivo aparece inicialmente marcado con una `A`, solo lo verás cuando crees archivos nuevos o modifiques los de la plantilla.
 
-Las operaciones a realizar con el control de versiones están localizadas en el menú de `Source Control`. Desde aquí puedes hacer:
+Las operaciones a realizar con el control de versiones están localizadas en el menú de `Source Control`. Las opciones más habituales son:
 
 - `commit`: aparecerá un cuadro de diálogo (bastante grande) con todos los archivos que han cambiado desde el último commit. Por defecto aparecerán seleccionados todos pero puedes seleccionar solo los que te interesen. En la parte inferior del cuadro de diálogo tendrás que escribir el mensaje asociado al *commit*.
 - `push`: aparecerá un pequeño cuadro de diálogo en el que puedes elegir el repositorio remoto al que subir los cambios. Normalmente solo tendremos un remoto vinculado, de modo que bastará con pulsar sobre `Push`
