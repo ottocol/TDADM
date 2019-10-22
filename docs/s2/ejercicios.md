@@ -21,7 +21,7 @@ La interfaz de la *app* será muy sencilla y constará de:
     - Crea dos *outlet*, uno para acceder al componente `UIImageView` y otro para el `Label`
     - Crea un *action* que vincule el botón con algún método del `ViewController`
     - En el código del *action*:
-        + Usa la propiedad del tipo `Moneda` del controlador para obtener una tirada
+        + Usa el método `lanzar()` de la `Moneda` para obtener una tirada
         + Muestra el resultado en modo texto en el `Label`, ("cara", "cruz")
         + Muestra la imagen apropiada
 
