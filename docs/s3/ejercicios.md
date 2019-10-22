@@ -88,10 +88,11 @@ Verás que el código que has copiado y pegado tiene un par de llamadas con `try
 
 En iOS los campos de texto pueden tener un objeto *delegate* al que el campo de texto le va "avisando" de las cosas que ocurren en su "ciclo de vida" (se ha empezado a escribir, se ha terminado de escribir, se ha insertado texto ...). Este objeto debe ser conforme al protocolo `UITextFieldDelegate`. Aprovecharemos cuando el campo nos avise de que el usuario está escribiendo texto para rechazarlo si es numérico.
 
-Vamos a convertir el `ViewController.swift` en *delegate* del campo de texto, para ello hay que:
+Vamos a crear una clase el `TextoDelegate.swift` que actúe *delegate* del campo de texto, para ello hay que:
 
-- Especificar en la cabecera de `ViewController` que es una clase conforme al protocolo `UITextFieldDelegate`. Mira las transparencias para ver cómo se pone esto
-- En el método `viewDidLoad` le decimos al campo de texto que somos su *delegate* (fijamos su propiedad `delegate` a `self`)
+- Crear la clase con `File > New > File`, elegir como tipo `Swift File`
+- Escribir en este fichero la clase `TextoDelegate` indicando que es una clase conforme al protocolo `UITextFieldDelegate` (recuerda que se pone como si fuera herencia, con dos puntos)
+- En el método `viewDidLoad` del `ViewController` le decimos al campo de texto quién es su *delegate* (fijamos su propiedad `delegate` a una nueva instancia de `TextoDelegate`)
 - El campo de texto nos avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a un método
 
 ```swift
@@ -100,7 +101,20 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 }
 ```
 
-Tendremos que definir este método y escribir su código, teniendo en cuenta que el parámetro `string` es el nuevo texto que el usuario pretende insertar. Y que si devolvemos `true` dejamos que el texto se inserte, pero si devolvemos `false` no lo permitimos. Comprueba si se puede convertir el parámetro `string` a entero y si se puede devuelve `false` (no dejamos escribir). En caso contrario, devuelve `true`.
+Tendremos que definir este método en `TextoDelegate` y escribir su código, teniendo en cuenta que el parámetro `string` es el nuevo texto que el usuario pretende insertar. Y que si devolvemos `true` dejamos que el texto se inserte, pero si devolvemos `false` no lo permitimos. 
+
+Puedes intentar comprobar si se puede convertir el parámetro `string` a entero y si se puede devuelve `false` (no dejamos escribir). En caso contrario, devuelve `true`. Algo como:
+
+```swift
+var valor = Int(string)
+//Si se ha podido convertir es que era numérico
+if let valor = valor {
+  return false
+}
+//si al convertir da nil es que no era numérico
+else {
+  return true
+}
+```
 
 Una vez hecho y comprobado que funciona, haz un *commit* con el comentario "Apartado E"
-
