@@ -584,10 +584,11 @@
 <h3 id="e-delegates-y-protocols-05">E. Delegates y protocols (0,5)<a class="headerlink" href="#e-delegates-y-protocols-05" title="Permanent link">&para;</a></h3>
 <p><strong>Vamos a hacer que en el campo de texto no se puedan introducir caracteres numéricos</strong>.</p>
 <p>En iOS los campos de texto pueden tener un objeto <em>delegate</em> al que el campo de texto le va "avisando" de las cosas que ocurren en su "ciclo de vida" (se ha empezado a escribir, se ha terminado de escribir, se ha insertado texto ...). Este objeto debe ser conforme al protocolo <code>UITextFieldDelegate</code>. Aprovecharemos cuando el campo nos avise de que el usuario está escribiendo texto para rechazarlo si es numérico.</p>
-<p>Vamos a convertir el <code>ViewController.swift</code> en <em>delegate</em> del campo de texto, para ello hay que:</p>
+<p>Vamos a crear una clase el <code>TextoDelegate.swift</code> que actúe <em>delegate</em> del campo de texto, para ello hay que:</p>
 <ul>
-<li>Especificar en la cabecera de <code>ViewController</code> que es una clase conforme al protocolo <code>UITextFieldDelegate</code>. Mira las transparencias para ver cómo se pone esto</li>
-<li>En el método <code>viewDidLoad</code> le decimos al campo de texto que somos su <em>delegate</em> (fijamos su propiedad <code>delegate</code> a <code>self</code>)</li>
+<li>Crear la clase con <code>File &gt; New &gt; File</code>, elegir como tipo <code>Swift File</code></li>
+<li>Escribir en este fichero la clase <code>TextoDelegate</code> indicando que es una clase conforme al protocolo <code>UITextFieldDelegate</code> (recuerda que se pone como si fuera herencia, con dos puntos)</li>
+<li>En el método <code>viewDidLoad</code> del <code>ViewController</code> le decimos al campo de texto quién es su <em>delegate</em> (fijamos su propiedad <code>delegate</code> a una nueva instancia de <code>TextoDelegate</code>)</li>
 <li>El campo de texto nos avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a un método</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -598,7 +599,28 @@
 </pre></div>
 </td></tr></table>
 
-<p>Tendremos que definir este método y escribir su código, teniendo en cuenta que el parámetro <code>string</code> es el nuevo texto que el usuario pretende insertar. Y que si devolvemos <code>true</code> dejamos que el texto se inserte, pero si devolvemos <code>false</code> no lo permitimos. Comprueba si se puede convertir el parámetro <code>string</code> a entero y si se puede devuelve <code>false</code> (no dejamos escribir). En caso contrario, devuelve <code>true</code>.</p>
+<p>Tendremos que definir este método en <code>TextoDelegate</code> y escribir su código, teniendo en cuenta que el parámetro <code>string</code> es el nuevo texto que el usuario pretende insertar. Y que si devolvemos <code>true</code> dejamos que el texto se inserte, pero si devolvemos <code>false</code> no lo permitimos. </p>
+<p>Puedes intentar comprobar si se puede convertir el parámetro <code>string</code> a entero y si se puede devuelve <code>false</code> (no dejamos escribir). En caso contrario, devuelve <code>true</code>. Algo como:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">valor</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="c1">//Si se ha podido convertir es que era numérico</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">valor</span> <span class="p">=</span> <span class="n">valor</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">false</span>
+<span class="p">}</span>
+<span class="c1">//si al convertir da nil es que no era numérico</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
 <p>Una vez hecho y comprobado que funciona, haz un <em>commit</em> con el comentario "Apartado E"</p>
                 
                   
