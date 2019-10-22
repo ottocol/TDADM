@@ -80,8 +80,6 @@ Vamos a añadir los componentes de la interfaz. Si estás en Xcode 10, en la par
 
 Primero vamos a hacer el "cartel" con el mensaje  de "Formula una pregunta en voz alta y UAdivino te dará la respuesta". En iOS este tipo de componente es un **`Label`. Búscalo en el panel de componentes y arrástralo a la pantalla** que estamos diseñando. Una vez colocada puedes hacer las operaciones habituales: moverla con el ratón, cambiar su tamaño arrastrando los puntos de las esquinas o editar el contenido con doble clic. **Cambia el texto del `Label`** por un mensaje como "Formula una pregunta en voz alta y UAdivino te dará la respuesta"
 
-> De momento
-
 Las propiedades de cualquier componente también se pueden cambiar en el panel de la derecha estando seleccionado el componente. Este panel está dividido en varias secciones, por las que se navega con los iconos de la parte superior. La que más nos interesa por el momento es la cuarta, denominada "property inspector". **Cambia el número de líneas a 2** para que el texto quepa en la pantalla. Cambia también la alineación del texto a centrado para que quede mejor. 
 
 ![](imag/propiedades_label.gif)
