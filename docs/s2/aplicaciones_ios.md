@@ -34,10 +34,7 @@ Para crear la aplicación arrancamos Xcode:
 
  - En las opciones de la izquierda seleccionamos "Create a new Xcode project". 
  - En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". 
- - Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino`. Hay que asegurarse que en el desplegable de `User Interface` se selecciona `Storyboard`
-
-> SwiftUI, la otra opción de la interfaz, es un *framework* introducido por Apple en junio de 2019 como alternativa a la estructura clásica de las aplicaciones iOS. De momento no la usaremos en el curso. 
-
+ - Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino`. Si estamos usando Xcode 11 hay que asegurarse que en el desplegable de `User Interface` se selecciona `Storyboard` (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). 
  - En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.
 
 ## Estructura del código de una aplicación 
@@ -71,11 +68,19 @@ La interfaz de la aplicación va a tener el siguiente aspecto, con un "cartel" e
 
 ![](imag/UAdivino.png)
 
-Como hemos comentado, la interfaz está definida en el archivo **`Main.storyboard`. Ábrelo** y verás que en el centro aparece una pantalla de iPhone vacía. La flecha que le apunta desde la izquierda indica que es la pantalla inicial de la *app*. En la parte superior derecha de la barra de botones de Xcode verás un botón con un cuadrado dentro de un círculo (el primer botón de esta zona). Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.
+Como hemos comentado, la interfaz está definida en el archivo **`Main.storyboard`. Ábrelo** y verás que en el editor aparece una pantalla de iPhone vacía. La flecha que apunta desde la izquierda indica que es la pantalla inicial de la *app*. 
 
-> Nota: En versiones anteriores de Xcode (<=9), dicho panel era accesible en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.
+En la parte inferior del editor aparece un mensaje de `View as: iPhone ...` y el modelo que tengas seleccionado en ese momento. Pulsando sobre él puedes cambiar el dispositivo y/o la orientación. 
+
+> Debido a la distinta resolución de cada dispositivo, el diseño de pantalla que hagas aquí en principio *solo se va a ver bien en un dispositivo y una orientación concretas*. Para hacer interfaces que se adapten al dispositivo necesitas *autolayout* y *traits* que se verán con posterioridad en el curso.
+
+Vamos a añadir los componentes de la interfaz. Si estás en Xcode 10, en la parte superior derecha de la barra de botones  verás un botón con un cuadrado dentro de un círculo (el primer botón de esta zona). Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.
+
+> Este botón ha cambiado en las últimas versiones de Xcode. En la 11 tiene un símbolo de un `+`. En la 9 e inferiores no existía, el panel de componentes se veía en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.
 
 Primero vamos a hacer el "cartel" con el mensaje  de "Formula una pregunta en voz alta y UAdivino te dará la respuesta". En iOS este tipo de componente es un **`Label`. Búscalo en el panel de componentes y arrástralo a la pantalla** que estamos diseñando. Una vez colocada puedes hacer las operaciones habituales: moverla con el ratón, cambiar su tamaño arrastrando los puntos de las esquinas o editar el contenido con doble clic. **Cambia el texto del `Label`** por un mensaje como "Formula una pregunta en voz alta y UAdivino te dará la respuesta"
+
+> De momento
 
 Las propiedades de cualquier componente también se pueden cambiar en el panel de la derecha estando seleccionado el componente. Este panel está dividido en varias secciones, por las que se navega con los iconos de la parte superior. La que más nos interesa por el momento es la cuarta, denominada "property inspector". **Cambia el número de líneas a 2** para que el texto quepa en la pantalla. Cambia también la alineación del texto a centrado para que quede mejor. 
 
