@@ -588,12 +588,7 @@
 <ul>
 <li>En las opciones de la izquierda seleccionamos "Create a new Xcode project". </li>
 <li>En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". </li>
-<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code>. Hay que asegurarse que en el desplegable de <code>User Interface</code> se selecciona <code>Storyboard</code></li>
-</ul>
-<blockquote>
-<p>SwiftUI, la otra opción de la interfaz, es un <em>framework</em> introducido por Apple en junio de 2019 como alternativa a la estructura clásica de las aplicaciones iOS. De momento no la usaremos en el curso. </p>
-</blockquote>
-<ul>
+<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code>. Si estamos usando Xcode 11 hay que asegurarse que en el desplegable de <code>User Interface</code> se selecciona <code>Storyboard</code> (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). </li>
 <li>En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.</li>
 </ul>
 <h2 id="estructura-del-codigo-de-una-aplicacion">Estructura del código de una aplicación<a class="headerlink" href="#estructura-del-codigo-de-una-aplicacion" title="Permanent link">&para;</a></h2>
@@ -630,9 +625,14 @@
 <h2 id="creacion-de-la-interfaz-la-vista">Creación de la interfaz (la vista)<a class="headerlink" href="#creacion-de-la-interfaz-la-vista" title="Permanent link">&para;</a></h2>
 <p>La interfaz de la aplicación va a tener el siguiente aspecto, con un "cartel" explicando qué hace la <em>app</em>, un botón para solicitar la respuesta, y un campo en el que aparecerá dicha respuesta.</p>
 <p><img alt="" src="../imag/UAdivino.png" /></p>
-<p>Como hemos comentado, la interfaz está definida en el archivo <strong><code>Main.storyboard</code>. Ábrelo</strong> y verás que en el centro aparece una pantalla de iPhone vacía. La flecha que le apunta desde la izquierda indica que es la pantalla inicial de la <em>app</em>. En la parte superior derecha de la barra de botones de Xcode verás un botón con un cuadrado dentro de un círculo (el primer botón de esta zona). Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.</p>
+<p>Como hemos comentado, la interfaz está definida en el archivo <strong><code>Main.storyboard</code>. Ábrelo</strong> y verás que en el editor aparece una pantalla de iPhone vacía. La flecha que apunta desde la izquierda indica que es la pantalla inicial de la <em>app</em>. </p>
+<p>En la parte inferior del editor aparece un mensaje de <code>View as: iPhone ...</code> y el modelo que tengas seleccionado en ese momento. Pulsando sobre él puedes cambiar el dispositivo y/o la orientación. </p>
 <blockquote>
-<p>Nota: En versiones anteriores de Xcode (&lt;=9), dicho panel era accesible en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.</p>
+<p>Debido a la distinta resolución de cada dispositivo, el diseño de pantalla que hagas aquí en principio <em>solo se va a ver bien en un dispositivo y una orientación concretas</em>. Para hacer interfaces que se adapten al dispositivo necesitas <em>autolayout</em> y <em>traits</em> que se verán con posterioridad en el curso.</p>
+</blockquote>
+<p>Vamos a añadir los componentes de la interfaz. Si estás en Xcode 10, en la parte superior derecha de la barra de botones  verás un botón con un cuadrado dentro de un círculo (el primer botón de esta zona). Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.</p>
+<blockquote>
+<p>Este botón ha cambiado en las últimas versiones de Xcode. En la 11 tiene un símbolo de un <code>+</code>. En la 9 e inferiores no existía, el panel de componentes se veía en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.</p>
 </blockquote>
 <p>Primero vamos a hacer el "cartel" con el mensaje  de "Formula una pregunta en voz alta y UAdivino te dará la respuesta". En iOS este tipo de componente es un <strong><code>Label</code>. Búscalo en el panel de componentes y arrástralo a la pantalla</strong> que estamos diseñando. Una vez colocada puedes hacer las operaciones habituales: moverla con el ratón, cambiar su tamaño arrastrando los puntos de las esquinas o editar el contenido con doble clic. <strong>Cambia el texto del <code>Label</code></strong> por un mensaje como "Formula una pregunta en voz alta y UAdivino te dará la respuesta"</p>
 <p>Las propiedades de cualquier componente también se pueden cambiar en el panel de la derecha estando seleccionado el componente. Este panel está dividido en varias secciones, por las que se navega con los iconos de la parte superior. La que más nos interesa por el momento es la cuarta, denominada "property inspector". <strong>Cambia el número de líneas a 2</strong> para que el texto quepa en la pantalla. Cambia también la alineación del texto a centrado para que quede mejor. </p>
