@@ -61,7 +61,7 @@ Si pruebas la aplicación y todo ha ido bien, debería aparecer el estado del ti
 
 ### C. Mostrar el tiempo en la interfaz (0,5 puntos)
 
-Añade código que muestre el tiempo en la interfaz del móvil. Lo primero que puedes hacer es mostrarle al usuario que se está haciendo una operación de red, esto lo puedes hacer con un *spinner* que puedes hacer aparecer automáticamente en la barra de *status* de la parte superior. Para poner el *spinner* harías:
+Añade código que muestre el tiempo en la interfaz del móvil. Lo primero que puedes hacer es mostrarle al usuario que se está haciendo una operación de red, esto lo puedes hacer con un *spinner* que puedes hacer aparecer automáticamente en la barra de *status* de la parte superior  Para poner el *spinner* harías:
 
 ```swift
 UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -69,9 +69,11 @@ UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
 y para quitarlo, idem pero asignándole `false`
 
+> ATENCION: el *spinner* no aparecerá en grande sino en "pequeñito" y solo en la barra superior, en sesiones posteriores veremos cómo poner un *spinner* más grande en la parte de la pantalla que queramos.
+
 **Pon en marcha el *spinner* justo antes del `dataTask.resume()` y luego páralo una vez se haya cargado el icono del tiempo** (la línea `let imagenIcono = UIImage(data: datosIcono)`). Pero recuerda que **La interfaz solo se puede "tocar" desde la cola de operaciones principal. La llamada a `dataTask.resume()` está en esta cola, pero el código que parsea los datos del tiempo está en *background*, como hemos dicho. Tendrás que acceder desde allí a la cola principal para parar el *spinner*.
 
-Si el *spinner* no se ve porque la respuesta del servidor llega demasiado rápido, puedes probar a poner un `sleep(segundos)` con el número de segundos que quieras, para parar artificialmente la ejecución.
+> Si el *spinner* no se llega a ver porque la respuesta del servidor llega demasiado rápido, puedes probar a poner un `sleep(segundos)` con el número de segundos que quieras, para parar artificialmente la ejecución y comprobar si aparece el *spinner*. ¡Una vez comprobado, quita el `sleep`!
 
 Una vez solucionado el tema del *spinner* añade código para actualizar el `label` y la `image`. De nuevo recuerda que estas operaciones debes hacerlas desde la cola principal.
 
@@ -79,7 +81,7 @@ Haz un *commit* poniendo como comentario "Apartado C".
 
 ### D. Gestión de errores en Swift (0,5)
 
-Verás que el código que has copiado y pegado tiene un par de llamadas con `try!`. Aquí lo que estamos diciendo es que estas funciones podrían fallar pero **Sabemos que no lo van a hacer**. Quita la admiración de los `try` y mira qué sucede. ¿Cómo podrías arreglar el código para que compile y funcione como antes sin volver a poner el `!`?. Hazlo y haz un *commit* poniendo como comentario "apartado D".
+Verás que el código que has copiado y pegado tiene un par de llamadas con `try!`. Aquí lo que estamos diciendo es que estas funciones podrían fallar pero Sabemos que no lo van a hacer (lo que no es muy realista que digamos). Quita la admiración de los `try` y mira qué sucede. ¿Cómo podrías arreglar el código para que compile y funcione como antes sin volver a poner el `!`?. Hazlo y haz un *commit* poniendo como comentario "apartado D".
 
 
 ### E. Delegates y protocols (0,5)
