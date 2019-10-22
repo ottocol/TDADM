@@ -569,18 +569,23 @@
 <p>En el <strong>action</strong> asociado al botón de "consultar tiempo" debes obtener el texto del campo de texto (propiedad <code>text</code>) y llamar a la función <code>consultarTiempo</code> que acabas de copiar y pegar, pasándole este dato.</p>
 <p>Si pruebas la aplicación y todo ha ido bien, debería aparecer el estado del tiempo en la consola. Haz un commit con el comentario "Apartado B"</p>
 <h3 id="c-mostrar-el-tiempo-en-la-interfaz-05-puntos">C. Mostrar el tiempo en la interfaz (0,5 puntos)<a class="headerlink" href="#c-mostrar-el-tiempo-en-la-interfaz-05-puntos" title="Permanent link">&para;</a></h3>
-<p>Añade código que muestre el tiempo en la interfaz del móvil. Lo primero que puedes hacer es mostrarle al usuario que se está haciendo una operación de red, esto lo puedes hacer con un <em>spinner</em> que puedes hacer aparecer automáticamente en la barra de <em>status</em> de la parte superior. Para poner el <em>spinner</em> harías:</p>
+<p>Añade código que muestre el tiempo en la interfaz del móvil. Lo primero que puedes hacer es mostrarle al usuario que se está haciendo una operación de red, esto lo puedes hacer con un <em>spinner</em> que puedes hacer aparecer automáticamente en la barra de <em>status</em> de la parte superior  Para poner el <em>spinner</em> harías:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="bp">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">isNetworkActivityIndicatorVisible</span> <span class="p">=</span> <span class="kc">true</span>
 </pre></div>
 </td></tr></table>
 
 <p>y para quitarlo, idem pero asignándole <code>false</code></p>
+<blockquote>
+<p>ATENCION: el <em>spinner</em> no aparecerá en grande sino en "pequeñito" y solo en la barra superior, en sesiones posteriores veremos cómo poner un <em>spinner</em> más grande en la parte de la pantalla que queramos.</p>
+</blockquote>
 <p><strong>Pon en marcha el <em>spinner</em> justo antes del <code>dataTask.resume()</code> y luego páralo una vez se haya cargado el icono del tiempo</strong> (la línea <code>let imagenIcono = UIImage(data: datosIcono)</code>). Pero recuerda que <em><em>La interfaz solo se puede "tocar" desde la cola de operaciones principal. La llamada a <code>dataTask.resume()</code> está en esta cola, pero el código que parsea los datos del tiempo está en </em>background</em>, como hemos dicho. Tendrás que acceder desde allí a la cola principal para parar el <em>spinner</em>.</p>
-<p>Si el <em>spinner</em> no se ve porque la respuesta del servidor llega demasiado rápido, puedes probar a poner un <code>sleep(segundos)</code> con el número de segundos que quieras, para parar artificialmente la ejecución.</p>
+<blockquote>
+<p>Si el <em>spinner</em> no se llega a ver porque la respuesta del servidor llega demasiado rápido, puedes probar a poner un <code>sleep(segundos)</code> con el número de segundos que quieras, para parar artificialmente la ejecución y comprobar si aparece el <em>spinner</em>. ¡Una vez comprobado, quita el <code>sleep</code>!</p>
+</blockquote>
 <p>Una vez solucionado el tema del <em>spinner</em> añade código para actualizar el <code>label</code> y la <code>image</code>. De nuevo recuerda que estas operaciones debes hacerlas desde la cola principal.</p>
 <p>Haz un <em>commit</em> poniendo como comentario "Apartado C".</p>
 <h3 id="d-gestion-de-errores-en-swift-05">D. Gestión de errores en Swift (0,5)<a class="headerlink" href="#d-gestion-de-errores-en-swift-05" title="Permanent link">&para;</a></h3>
-<p>Verás que el código que has copiado y pegado tiene un par de llamadas con <code>try!</code>. Aquí lo que estamos diciendo es que estas funciones podrían fallar pero <strong>Sabemos que no lo van a hacer</strong>. Quita la admiración de los <code>try</code> y mira qué sucede. ¿Cómo podrías arreglar el código para que compile y funcione como antes sin volver a poner el <code>!</code>?. Hazlo y haz un <em>commit</em> poniendo como comentario "apartado D".</p>
+<p>Verás que el código que has copiado y pegado tiene un par de llamadas con <code>try!</code>. Aquí lo que estamos diciendo es que estas funciones podrían fallar pero Sabemos que no lo van a hacer (lo que no es muy realista que digamos). Quita la admiración de los <code>try</code> y mira qué sucede. ¿Cómo podrías arreglar el código para que compile y funcione como antes sin volver a poner el <code>!</code>?. Hazlo y haz un <em>commit</em> poniendo como comentario "apartado D".</p>
 <h3 id="e-delegates-y-protocols-05">E. Delegates y protocols (0,5)<a class="headerlink" href="#e-delegates-y-protocols-05" title="Permanent link">&para;</a></h3>
 <p><strong>Vamos a hacer que en el campo de texto no se puedan introducir caracteres numéricos</strong>.</p>
 <p>En iOS los campos de texto pueden tener un objeto <em>delegate</em> al que el campo de texto le va "avisando" de las cosas que ocurren en su "ciclo de vida" (se ha empezado a escribir, se ha terminado de escribir, se ha insertado texto ...). Este objeto debe ser conforme al protocolo <code>UITextFieldDelegate</code>. Aprovecharemos cuando el campo nos avise de que el usuario está escribiendo texto para rechazarlo si es numérico.</p>
