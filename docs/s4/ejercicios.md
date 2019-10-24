@@ -17,4 +17,4 @@ Estructura del código:
 **Desde el método `actualizarTipoDeCambio` se debe enviar una notificación (dadle el nombre que queráis) y el View Controller debería suscribirse a ellas** para poder actualizar la etiqueta en pantalla.
 
 
-C. **Internacionalización** (0,5 puntos): haz que la interfaz de la *app* se vea correctamente en español e inglés. Como el idioma base de desarrollo debería ser el inglés primero tendrás que cambiar los textos de los componentes a este idioma.
+B. **Internacionalización** (0,5 puntos): haz que la interfaz de la *app* se vea correctamente en español e inglés. Como el idioma base de desarrollo debería ser el inglés primero tendrás que cambiar los textos de los componentes a este idioma.
