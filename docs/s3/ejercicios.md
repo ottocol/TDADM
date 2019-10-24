@@ -93,7 +93,13 @@ En iOS los campos de texto pueden tener un objeto *delegate* al que el campo de 
 Vamos a crear una clase el `TextoDelegate.swift` que actúe *delegate* del campo de texto, para ello hay que:
 
 - Crear la clase con `File > New > File`, elegir como tipo `Swift File`
-- Escribir en este fichero la clase `TextoDelegate` indicando que es una clase conforme al protocolo `UITextFieldDelegate` (recuerda que se pone como si fuera herencia, con dos puntos)
+- Escribir en este fichero la clase `TextoDelegate` indicando que es una clase conforme al protocolo `UITextFieldDelegate` (recuerda que se pone como si fuera herencia, con dos puntos). Además debe ser conforme al protocolo de `NSObjectProtocol`, pero lo más sencillo para conseguir esto es heredando de `NSObject`. En resumen, la cabecera de nuestra clase será algo como:
+
+```swift
+class TextoDelegate : NSObject, UITextFieldDelegate {
+
+}
+```
 - En el método `viewDidLoad` del `ViewController` le decimos al campo de texto quién es su *delegate* (fijamos su propiedad `delegate` a una nueva instancia de `TextoDelegate`)
 - El campo de texto nos avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a un método
 
