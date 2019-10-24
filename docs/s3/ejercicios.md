@@ -101,7 +101,7 @@ class TextoDelegate : NSObject, UITextFieldDelegate {
 }
 ```
 
-- En el `ViewController` declara unas variable miembro `textoDelegate` y asígnale una nueva instancia de `TextoDelegate`
+- En el `ViewController` declara una variable miembro `textoDelegate` y asígnale una nueva instancia de `TextoDelegate`
 
 ```swift
 var textoDelegate = TextoDelegate()
