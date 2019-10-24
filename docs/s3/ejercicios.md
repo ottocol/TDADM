@@ -100,8 +100,25 @@ class TextoDelegate : NSObject, UITextFieldDelegate {
 
 }
 ```
+
+- En el `ViewController` declara unas variable miembro `textoDelegate` y asígnale una nueva instancia de `TextoDelegate`
+
+```swift
+var textoDelegate = TextoDelegate()
+```
+
 - En el método `viewDidLoad` del `ViewController` le decimos al campo de texto quién es su *delegate* (fijamos su propiedad `delegate` a una nueva instancia de `TextoDelegate`)
-- El campo de texto nos avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a un método
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    //AQUI ESTOY SUPONIENDO QUE EL OUTLET DEL CAMPO TEXTO SE LLAMA ciudad
+    //CAMBIALO POR EL NOMBRE DEL TUYO
+    self.ciudad.delegate = textoDelegate
+}
+```
+
+- Finalmente tenemos que escribir los métodos de la clase `TextoDelegate` (bastará con uno). El campo de texto la avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a su método
 
 ```swift
 func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
