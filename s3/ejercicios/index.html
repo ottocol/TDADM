@@ -592,10 +592,17 @@
 <p>Vamos a crear una clase el <code>TextoDelegate.swift</code> que actúe <em>delegate</em> del campo de texto, para ello hay que:</p>
 <ul>
 <li>Crear la clase con <code>File &gt; New &gt; File</code>, elegir como tipo <code>Swift File</code></li>
-<li>Escribir en este fichero la clase <code>TextoDelegate</code> indicando que es una clase conforme al protocolo <code>UITextFieldDelegate</code> (recuerda que se pone como si fuera herencia, con dos puntos)</li>
-<li>En el método <code>viewDidLoad</code> del <code>ViewController</code> le decimos al campo de texto quién es su <em>delegate</em> (fijamos su propiedad <code>delegate</code> a una nueva instancia de <code>TextoDelegate</code>)</li>
-<li>El campo de texto nos avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a un método</li>
+<li>Escribir en este fichero la clase <code>TextoDelegate</code> indicando que es una clase conforme al protocolo <code>UITextFieldDelegate</code> (recuerda que se pone como si fuera herencia, con dos puntos). Además debe ser conforme al protocolo de <code>NSObjectProtocol</code>, pero lo más sencillo para conseguir esto es heredando de <code>NSObject</code>. En resumen, la cabecera de nuestra clase será algo como:</li>
 </ul>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">TextoDelegate</span> <span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="bp">UITextFieldDelegate</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+- En el método <code>viewDidLoad</code> del <code>ViewController</code> le decimos al campo de texto quién es su <em>delegate</em> (fijamos su propiedad <code>delegate</code> a una nueva instancia de <code>TextoDelegate</code>)
+- El campo de texto nos avisará de que el usuario ha escrito un carácter nuevo (o ha borrado uno), llamando a un método</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nf">textField</span><span class="p">(</span><span class="kc">_</span> <span class="n">textField</span><span class="p">:</span> <span class="bp">UITextField</span><span class="p">,</span> <span class="n">shouldChangeCharactersIn</span> <span class="n">range</span><span class="p">:</span> <span class="n">NSRange</span><span class="p">,</span> <span class="n">replacementString</span> <span class="n">string</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
