@@ -496,7 +496,8 @@
 <p>En lugar de dibujar las cartas directamente en su posición, podemos hacerlo fuera de la pantalla (es decir, con el origen del <em>frame</em> en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función dibuja una carta con el efecto descrito. La <code>posicion</code> es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...</p>
 <p>En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla.</p>
 <blockquote>
-<p>Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en <a href="http://iosres.com">http://iosres.com</a> </p>
+<p>Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en <a href="http://iosres.com">http://iosres.com</a> 
+IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerado <code>Palo</code> debe tener un valor "interno" de tipo <code>String</code>. Esto lo puedes conseguir simplemente poniendo <code>enum Palo : String</code> en la definición del tipo.</p>
 </blockquote>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
