@@ -93,7 +93,13 @@ Además, para simplificar la mecánica del juego no es necesario que la máquina
 
 ##Completar la interfaz (1 punto) 
 
-En la interfaz completada deberían aparecer las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).
+En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).
+
+### Añadir las imágenes de las cartas al proyecto
+
+Descomprime el .zip de Moodle con las imágenes de las cartas en png, selecciona todos los archivos y "déjalos caer" dentro de la carpeta de recursos (`Assets.xcassets`). 
+
+Por cada imagen en png creará un *image set* con el nombre del archivo ( al estilo `1oros`, `3copas`, ...). Por desgracia solo disponemos de las imágenes de las cartas en baja resolución (@1x).
 
 ###Cómo dibujar las cartas
 
@@ -101,7 +107,7 @@ Cada vez que dibujemos en pantalla una carta estamos añadiendo a la pantalla ac
 
 ```swift
 //propiedad de ViewController.swift
-var vistasCartas = [UIView]()
+var vistasCartas = [UIImageView]()
 ```
 
 En lugar de dibujar las cartas directamente en su posición, podemos hacerlo fuera de la pantalla (es decir, con el origen del *frame* en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función dibuja una carta con el efecto descrito. La `posicion` es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...
