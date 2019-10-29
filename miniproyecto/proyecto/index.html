@@ -484,12 +484,15 @@
 <p><strong>La versión anterior es solo una idea, podéis implementar cualquier variante que queráis</strong>, o cualquier mejora, incluyendo que la máquina saque cartas una por una, apostar una cantidad,...</p>
 </blockquote>
 <h2 id="completar-la-interfaz-1-punto">Completar la interfaz (1 punto)<a class="headerlink" href="#completar-la-interfaz-1-punto" title="Permanent link">&para;</a></h2>
-<p>En la interfaz completada deberían aparecer las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).</p>
+<p>En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).</p>
+<h3 id="anadir-las-imagenes-de-las-cartas-al-proyecto">Añadir las imágenes de las cartas al proyecto<a class="headerlink" href="#anadir-las-imagenes-de-las-cartas-al-proyecto" title="Permanent link">&para;</a></h3>
+<p>Descomprime el .zip de Moodle con las imágenes de las cartas en png, selecciona todos los archivos y "déjalos caer" dentro de la carpeta de recursos (<code>Assets.xcassets</code>). </p>
+<p>Por cada imagen en png creará un <em>image set</em> con el nombre del archivo ( al estilo <code>1oros</code>, <code>3copas</code>, ...). Por desgracia solo disponemos de las imágenes de las cartas en baja resolución (@1x).</p>
 <h3 id="como-dibujar-las-cartas">Cómo dibujar las cartas<a class="headerlink" href="#como-dibujar-las-cartas" title="Permanent link">&para;</a></h3>
 <p>Cada vez que dibujemos en pantalla una carta estamos añadiendo a la pantalla actual un <code>UIImageView</code>. Tenemos que guardar referencias a todas las imágenes añadidas para poder borrarlas cuando acabe la partida. Definiremos esta propiedad en el <em>view controller</em> para guardarlas</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//propiedad de ViewController.swift</span>
-<span class="kd">var</span> <span class="nv">vistasCartas</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIView</span><span class="p">]()</span>
+<span class="kd">var</span> <span class="nv">vistasCartas</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIImageView</span><span class="p">]()</span>
 </pre></div>
 </td></tr></table>
 
