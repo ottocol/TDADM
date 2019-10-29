@@ -109,6 +109,7 @@ En lugar de dibujar las cartas directamente en su posición, podemos hacerlo fue
 En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla.
 
 > Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en [http://iosres.com](http://iosres.com) 
+> IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerado `Palo` debe tener un valor "interno" de tipo `String`. Esto lo puedes conseguir simplemente poniendo `enum Palo : String ` en la definición del tipo.
 
 ```swift
 func dibujarCarta(carta: Carta, enPosicion : Int) {
