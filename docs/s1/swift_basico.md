@@ -372,9 +372,6 @@ Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para s
 
 *casting*: algunas veces ciertos APIs devuelven resultados "sin tipo" (`Any`), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con `as`: `dato as Clase`. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.
 
-
-> CUIDADO: en el REPL los modificadores de acceso no funcionan
-
 ## Extensiones 
 
 Nos permiten añadir nueva funcionalidad a clases ya existentes, incluso aun sin acceso al código fuente o en clases del sistema. Se pueden añadir por ejemplo nuevos métodos, inicializadores y propiedades computadas. Lo que no se puede hacer es sobreescribir los métodos o propiedades ya existentes.
