@@ -98,7 +98,7 @@ import Foundation
 class Adivino {
     func obtenerRespuesta() -> String {
         let respuestas = ["Si", "No", "Ni de casualidad", "¡Por supuesto!"]
-        let indice = Int(arc4random_uniform(UInt32(respuestas.count)))
+        let indice = Int.random(in: 0..<respuestas.count)
         return respuestas[indice]
     }
 }
