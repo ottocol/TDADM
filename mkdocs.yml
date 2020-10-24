@@ -3,19 +3,19 @@ site_name: TPDAM-iOS
 
 nav:
   - Introducción básica a Swift: 's1/swift_basico.md'
-  - Ejercicios: 's1/ejercicios.md'
+  - Ejercicios de Swift básico: 's1/ejercicios.md'
   - Introducción a las aplicaciones iOS: 's2/aplicaciones_ios.md'
   - Recursos en aplicaciones iOS: 's2/recursos.md'
-  - Ejercicios: 's2/ejercicios.md'
+  - Ejercicios sobre aplicaciones iOS: 's2/ejercicios.md'
   - Más sobre Swift: 's3/intro_swift_2.md'
   - Concurrencia en iOS: 's3/concurrencia.md'
-  - Ejercicios: 's3/ejercicios.md'
   - Comunicación entre componentes: 's4/comunicacion.md'
   - Internacionalización de aplicaciones iOS: 's4/i18n.md'
-  - Ejercicios: 's4/ejercicios.md'
-  - Testing básico en Xcode: 's5/testing.md'
+  - Ejercicio de i18n: 's4/ejercicio_i18n.md'
   - Miniproyecto. Juego de las siete y media: 'miniproyecto/proyecto.md'
-  - Apéndice. Control de versiones en Xcode: 'apendices/control_versiones.md'
+  - Apéndice 1. Control de versiones en Xcode: 'apendices/control_versiones.md'
+  - Apéndice 2. Testing en Xcode: 's5/testing.md'
+  
 
 theme:
     language: es

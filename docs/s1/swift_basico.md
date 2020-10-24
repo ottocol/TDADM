@@ -1,6 +1,10 @@
 # Introducción básica a Swift 
 
-Swift es un lenguaje originalmente desarrollado por Apple para la programación de aplicaciones en las plataformas iOS y OSX. Pese a haber sido desarrollado con esta intención, Swift es un lenguaje de propósito general. Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo características de programación orientada a objetos sino también de programación funcional.
+Swift es un lenguaje originalmente desarrollado por Apple para la programación de aplicaciones en las plataformas iOS y OSX. 
+
+Pese a haber sido desarrollado con esta intención, el lenguaje en sí no está limitado a *apps* móviles o de Mac sino que es un lenguaje de propósito general. 
+
+Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo elementos de programación orientada a objetos sino también de programación funcional.
 
 ## Preliminares 
 
@@ -305,9 +309,11 @@ print(valor)
 ## Clases 
 
 La sintaxis es similar a Java con algunas diferencias:
-  + No se pone `new` para instanciar un nuevo objeto
+
+  + No se pone `new` para instanciar un nuevo objeto, sino solo el nombre del constructor
   + En lugar de `this`, se pone `self`
-  + Los constructores, aquí llamados *inicializadores* se definen siempre como `init`
+  + Los constructores, aquí llamados *inicializadores* se definen en el código de la clase con el nombre `init`
+  
 por ejemplo:
 
 ```swift

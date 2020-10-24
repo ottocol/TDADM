@@ -1,9 +1,11 @@
-# MiniProyecto de iOS de Tecnologías de Desarrollo
-# Juego de las siete y media
+# MiniProyecto de iOS (4 puntos)
+# Juego de las siete y media 
 
-Se propone implementar el conocido juego de cartas de "las 7 y media". Podéis implementar la versión "completa" en la que el usuario juega contra la máquina, ambos sacando cartas una a una y decidiendo si plantarse o seguir, o bien una versión simplificada en la que la máquina no pide cartas sino que obtiene una puntuación generada al azar.
+Se propone implementar el conocido juego de cartas de "[las 7 y media](https://es.wikipedia.org/wiki/Siete_y_media)". 
 
-Para crear el proyecto, como siempre elige la plantilla de `single view app`. En la segunda pantalla del asistente dale como nombre `SieteyMedia` y marca la casilla de `Include Unit Tests` (no obstante aunque no marques esta última los *test* se pueden añadir luego) 
+Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que hace de banca. El usuario va pidiendo cartas una a una hasta que se pasa de 7 y medio o decide plantarse. La máquina no va sacando cartas una a una sino que obtiene una puntuación generada al azar.
+
+Para crear el proyecto, como siempre elige la plantilla de `single view app`. En la segunda pantalla del asistente dale como nombre `SieteyMedia` . 
 
 ## Estructura de clases del modelo (1 punto) 
 
@@ -17,29 +19,7 @@ todas las cartas de la baraja
 - Métodos:
     + El Inicializador debe rellenar el array de cartas con todas las cartas de la baraja
     + `repartirCarta`: obtiene la última carta de la baraja y la elimina de ella. Podéis hacer esto por ejemplo con [`popLast()`](https://developer.apple.com/reference/swift/array/1539777-poplast) 
-    + `barajar`: debe cambiar al azar el orden de las cartas en el `Array`. Una forma de implementar esto es extender la clase `Array` añadiendo un método para intercambiar al azar el orden de sus componentes
-
-```swift
-import Foundation
-
-extension Array {
-    /// Shuffle the elements of `self` in-place.
-    mutating func barajar() {
-        // empty and single-element collections don't shuffle
-        if count < 2 { return }
-
-        for i in indices.dropLast() {
-            let diff = distance(from: i, to: endIndex)
-            let j = index(i, offsetBy: numericCast(arc4random_uniform(numericCast(diff))))
-            swapAt(i, j)
-        }
-    }
-}
-```
-
-Esta extensión está tomada de [Stackoverflow](https://stackoverflow.com/questions/37843647/shuffle-array-swift-3). Podéis usarla o bien cualquier otra implementación que encontréis.
-
-La extensión la podéis almacenar en un fichero Swift cuyo nombre podéis elegir libremente, no hay una convención estándar.
+    + `barajar`: debe cambiar al azar el orden de las cartas en el `Array`. Una forma de implementar esto es usar el método `shuffle()` del `Array`.
 
 ### Clase `Juego`
 
@@ -51,36 +31,12 @@ La estructura es libre ya que depende de vuestra implementación. No obstante, t
 - acabar el juego y calcular el resultado
 - ...
 
-## Pruebas unitarias (0,5 puntos) 
 
-> Si se te olvidó marcar la casilla `Include Unit Tests` al crear el proyecto debes crear ahora un conjunto de pruebas yendo a `File > New > Target...` y de entre las plantillas disponibles, elegir `iOS Unit Testing Bundle`.
-
-Debéis implementar al menos las siguientes pruebas unitarias:
-
-- Que al inicializar una `Carta` con datos correctos  tanto el palo como el valor se han guardado adecuadamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad `valor` nos da 3 y la propiedad `palo` nos da `copas`).
-- Que al inicializar una `Carta` con valores incorrectos devuelve `nil` (por ejemplo el -1 de bastos).
-- Que cuando se reparte una carta de la `Baraja` se ha eliminado de ella y el número de cartas de la baraja ha disminuido en 1
-
-Para comprobar si un array contiene un elemento puedes usar `contains`. A este método se le pasa una clausura a la que Swift a su vez va pasando uno a uno los elementos. Hay que devolver `true` si el elemento pasado cumple la condición deseada (en este caso ser igual a la carta buscada) y `false` en caso contrario. Algo como
-
-```swift
-let presente = baraja.cartas.contains() {
-        elemento in
-        if //el numero del elemento actual y el palo coinciden con los de la carta buscada {
-          return true
-        }
-        else {
-          return false;
-        }
-} 
-//presente valdrá true si algún elemento del array ha cumplido la condición
-```
-
-## Interfaz gráfico simplificado (0,5 puntos) 
+## Interfaz gráfico simplificado (1 punto) 
 
 El `ViewController` contendrá una instancia de la clase `Juego`.
 
-> Es normal que el `ViewController` tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones. O podría observar con KVO cuándo cambia una propiedad del juego que sea el `estado` (turno usuario, turno máquina, gana usuario, gana máquina, ...).
+> Es normal que el `ViewController` tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.
 
 En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con `print`.
 

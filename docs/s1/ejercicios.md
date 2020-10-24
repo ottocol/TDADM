@@ -1,8 +1,7 @@
-# Ejercicios de Swift Básico
-# Miniproyecto: Juego de las Siete y Media, parte I (1,5 puntos)
+# Ejercicios de Swift Básico (2 puntos)
 
 
-En esta sesión vamos a implementar el modelo para un juego cartas de las siete y media, que terminaremos en las últimas sesiones de la asignatura. Por el momento no vamos a tener interfaz, solo la lógica más básica y las estructuras de datos.
+En esta sesión vamos a implementar las clases básicas necesarias para un juego de cartas, que terminaremos en las últimas sesiones de la asignatura. Por el momento no vamos a tener interfaz, solo la lógica más básica y las estructuras de datos.
 
 A continuación se da la lista de clases y *enums* a crear. **Debéis respetar lo máximo posible los nombres de propiedades y métodos**
 
@@ -12,14 +11,14 @@ A continuación se da la lista de clases y *enums* a crear. **Debéis respetar l
 
 Un `enum` para representar los cuatro palos de la baraja. Haz que sea internamente un `String` (`: String`), así su propiedad `.rawValue` será una cadena y podrás mostrar el nombre del palo
 
-## clase `Carta` (0,5 puntos)
+## clase `Carta` (0,75 puntos)
 
 - Propiedades: `valor` entero y  `palo`, de tipo `Palo`
 - Métodos
     + Inicializador: se le pasa un valor y un palo. Podría fallar si el `valor` que se le pasa no es correcto. Esto es lo que se llama en Swift un [*failable initializer*](https://developer.apple.com/swift/blog/?id=17), que devuelve un opcional, ya que podría ser `nil`. Para definirlo, poner `init?` en lugar de `init` y en caso de error devolver `nil` (si no hay error no es necesario devolver nada). Recordad que **el 8 y el 9 no se usan** y que evidentemente no valen cartas menores que 1 ni mayores que 12.
     + `descripcion`: devuelve un `String` con el nombre de la carta: `el 1 de oros`, `el 10 de bastos`,...
   
-## Clase `Mano` (0,75 puntos)
+## Clase `Mano` (1 punto)
 
 un conjunto de cartas
 

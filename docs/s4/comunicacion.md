@@ -13,9 +13,55 @@ Vamos a ver aquí métodos "no invasivos" para que el modelo comunique con el co
 
 En Foundation hay dos formas básicas de conseguir que dos objetos se comuniquen acoplando el código de ambos lo menos posible:
 
+- **Notificaciones:** un objeto puede recibir notificaciones sobre eventos que le interesen. Asímismo otro objeto puede enviar notificaciones. El encargado de gestionar las notificaciones es un objeto intermediario denominado "centro de notificaciones". Podemos usar las notificaciones de modo que el modelo notifique que ha habido un cambio y el controlador reciba la notificación y actualice la vista. 
+
 - **Key-Value observing** o KVO: un objeto puede "vigilar" el cambio en el valor de las propiedades de otro. Cuando se produzca un cambio, se llamará a una función o clausura que actúa de *callback*. Podemos usar este mecanismo para hacer que el controlador observe las propiedades del modelo que nos interesa actualizar dinámicamente en la vista.
 
-- **Notificaciones:** un objeto puede recibir notificaciones sobre eventos que le interesen. Asímismo otro objeto puede enviar notificaciones. El encargado de gestionar las notificaciones es un objeto intermediario denominado "centro de notificaciones". Podemos usar las notificaciones de modo que el modelo notifique que ha habido un cambio y el controlador reciba la notificación y actualice la vista. 
+## Notificaciones locales 
+
+Son algo similar a lo que en aplicaciones *enterprise* se llaman *colas de mensajes*. Implementan el patrón de diseño publicar/suscribir.
+
+Cuando un objeto quiere avisar al resto del sistema, publica una notificación asignándole un nombre, y opcionalmente un *payload* (datos asociados). Los objetos que quieren recibir la notificación indican el nombre de la que le interesa, y qué método o clausura ejecutar cuando se reciba.
+
+El encargado de gestionar las notificaciones es el `NotificationCenter`. Hay uno por defecto ya inicializado en cada aplicación (`NotificationCenter.default`). Se pueden crear más, pero en la mayoría de aplicaciones nos bastará con uno. A este centro de notificaciones es a quien le decimos que envíe las notificaciones (publicar) o que queremos recibir las de un determinado tipo (suscribir).
+
+```swift
+import Foundation
+
+class Emisor {
+    func enviar(mensaje:String) {
+        //Obtenemos el centro de notificaciones por defecto
+        //Las notificaciones tienen un nombre, un objeto que las envía (si lo ponemos a nil no queda constancia de quién) y datos adicionales, un diccionario con los datos que queramos
+        let nc = NotificationCenter.default
+        nc.post(name: NSNotification.Name(rawValue: "saludo"), object: nil, userInfo: ["valor":1, "mensaje":mensaje])
+    }
+}
+
+class Receptor {
+    func suscribirse() {
+        let nc = NotificationCenter.default
+        //primer parámetro: añadimos como observador a nosotros (self)
+        //selector: al recibir la notificación se llama al método recibir
+        //name: nombre de la notificación que nos interesa
+        //object: objeto del que nos interesa recibir notificaciones. nil == cualquiera
+        nc.addObserver(self, selector:#selector(self.recibir), name:NSNotification.Name(rawValue:"saludo"), object: nil)
+        
+    }
+    
+    @objc func recibir(notificacion:Notification) {
+        print("recibido!!")
+        if let userInfo = notificacion.userInfo {
+            let mensaje = userInfo["mensaje"] as! String
+            print("dice: \(mensaje)")
+        }
+    }
+}
+
+var e = Emisor()
+var r = Receptor()
+r.suscribirse()
+e.enviar(mensaje:"holaaaa")
+```
 
 ## Key-Value Observing 
 
@@ -94,49 +140,3 @@ let obs = pepito.observe(\.edad, options:[.new, .old]) { obj, cambio in
 ```
 
 En `options` hemos indicado qué información queremos y esta la tenemos disponible a través de propiedades del segundo parámetro de la clausura (nuestro parámetro `cambio`). Hay más opciones de KVO, por ejemplo con `.prior` indicaríamos que queremos recibir dos avisos, uno inmediatamente antes del cambio y otro inmediatamente después. Se recomienda consultar la documentación para ver más opciones.
-
-## Notificaciones locales 
-
-Son algo similar a lo que en aplicaciones *enterprise* se llaman *colas de mensajes*. Implementan el patrón de diseño publicar/suscribir.
-
-Cuando un objeto quiere avisar al resto del sistema, publica una notificación asignándole un nombre, y opcionalmente un *payload* (datos asociados). Los objetos que quieren recibir la notificación indican el nombre de la que le interesa, y qué método o clausura ejecutar cuando se reciba.
-
-El encargado de gestionar las notificaciones es el `NotificationCenter`. Hay uno por defecto ya inicializado en cada aplicación (`NotificationCenter.default`). Se pueden crear más, pero en la mayoría de aplicaciones nos bastará con uno. A este centro de notificaciones es a quien le decimos que envíe las notificaciones (publicar) o que queremos recibir las de un determinado tipo (suscribir).
-
-```swift
-import Foundation
-
-class Emisor {
-    func enviar(mensaje:String) {
-        //Obtenemos el centro de notificaciones por defecto
-        //Las notificaciones tienen un nombre, un objeto que las envía (si lo ponemos a nil no queda constancia de quién) y datos adicionales, un diccionario con los datos que queramos
-        let nc = NotificationCenter.default
-        nc.post(name: NSNotification.Name(rawValue: "saludo"), object: nil, userInfo: ["valor":1, "mensaje":mensaje])
-    }
-}
-
-class Receptor {
-    func suscribirse() {
-        let nc = NotificationCenter.default
-        //primer parámetro: añadimos como observador a nosotros (self)
-        //selector: al recibir la notificación se llama al método recibir
-        //name: nombre de la notificación que nos interesa
-        //object: objeto del que nos interesa recibir notificaciones. nil == cualquiera
-        nc.addObserver(self, selector:#selector(self.recibir), name:NSNotification.Name(rawValue:"saludo"), object: nil)
-        
-    }
-    
-    @objc func recibir(notificacion:Notification) {
-        print("recibido!!")
-        if let userInfo = notificacion.userInfo {
-            let mensaje = userInfo["mensaje"] as! String
-            print("dice: \(mensaje)")
-        }
-    }
-}
-
-var e = Emisor()
-var r = Receptor()
-r.suscribirse()
-e.enviar(mensaje:"holaaaa")
-```
