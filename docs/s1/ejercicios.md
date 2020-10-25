@@ -5,7 +5,7 @@ En esta sesión vamos a implementar las clases básicas necesarias para un juego
 
 A continuación se da la lista de clases y *enums* a crear. **Debéis respetar lo máximo posible los nombres de propiedades y métodos**
 
-> NOTA: el ejercicio está pensado para las cartas de la *baraja española*. Para los que no la conozcáis: hay 4 "palos" (bastos, copas, espadas y oros) y de cada palo hay 10 cartas, que son del 1 al 7 y del 10 al 12, ya que el 8 y 9 no se usan. El 1 se llama "as" igual que en la baraja francesa, el 10 es la *sota* (en la baraja francesa/inglesa es la J), el es 11 el *caballo* (Q o dama en la inglesa) y el 12 el *rey*.
+> NOTA: el ejercicio está pensado para las cartas de la *baraja española*. Para los que no la conozcáis: hay 4 "palos" (bastos, copas, espadas y oros) y de cada palo hay 10 cartas, que son del 1 al 7 y del 10 al 12, ya que el 8 y 9 no se usan. El 1 se llama "as" igual que en la baraja francesa, el 10 es la *sota* (en la baraja francesa/inglesa es la J), el es 11 el *caballo* (Q o dama en la francesa) y el 12 el *rey*.
 
 ## Enumerado `Palo` (0,25 puntos)
 
@@ -15,8 +15,8 @@ Un `enum` para representar los cuatro palos de la baraja. Haz que sea internamen
 
 - Propiedades: `valor` entero y  `palo`, de tipo `Palo`
 - Métodos
-    + Inicializador: se le pasa un valor y un palo. Podría fallar si el `valor` que se le pasa no es correcto. Esto es lo que se llama en Swift un [*failable initializer*](https://developer.apple.com/swift/blog/?id=17), que devuelve un opcional, ya que podría ser `nil`. Para definirlo, poner `init?` en lugar de `init` y en caso de error devolver `nil` (si no hay error no es necesario devolver nada). Recordad que **el 8 y el 9 no se usan** y que evidentemente no valen cartas menores que 1 ni mayores que 12.
-    + `descripcion`: devuelve un `String` con el nombre de la carta: `el 1 de oros`, `el 10 de bastos`,...
+    + Inicializador: se le pasa un valor y un palo. Podría fallar si el `valor` que se le pasa no es correcto (recordad que **el 8 y el 9 no se usan** y que evidentemente no valen cartas menores que 1 ni mayores que 12). Por tanto necesitamos un *failable initializer*.
+    + `descripcion`: debe devolver un `String` con el nombre de la carta: `el 1 de oros`, `el 10 de bastos`,...
   
 ## Clase `Mano` (1 punto)
 
@@ -27,7 +27,7 @@ un conjunto de cartas
 - Métodos:
     + El inicializador de la clase debe inicializar `cartas` como un array vacío (también lo podéis hacer al definir la propiedad)
     + `addCarta`: se le pasa una carta y la añade a la mano
-    + `getCarta`: se le pasa una posición (empezando por 0) y devuelve la carta como un opcional. Si es menor que 0 o mayor o igual que el tamaño, debería devolver `nil`
+    + `getCarta`: se le pasa una posición (empezando por 0) y devuelve la carta como un opcional. Si la posición es menor que 0 o mayor o igual que el tamaño, debería devolver `nil`
 
 
 ## Programa principal
