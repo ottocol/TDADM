@@ -1,4 +1,4 @@
-# Ejercicios de Swift Básico (2 puntos)
+# Ejercicios adicionales de Swift Básico (2 puntos)
 
 
 En esta sesión vamos a implementar las clases básicas necesarias para un juego de cartas, que terminaremos en las últimas sesiones de la asignatura. Por el momento no vamos a tener interfaz, solo la lógica más básica y las estructuras de datos.

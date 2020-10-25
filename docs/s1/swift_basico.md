@@ -1,10 +1,15 @@
-# Introducción básica a Swift 
+# Introducción básica a Swift (Ejercicios: 1 punto)
 
 Swift es un lenguaje originalmente desarrollado por Apple para la programación de aplicaciones en las plataformas iOS y OSX. 
 
 Pese a haber sido desarrollado con esta intención, el lenguaje en sí no está limitado a *apps* móviles o de Mac sino que es un lenguaje de propósito general. 
 
 Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo elementos de programación orientada a objetos sino también de programación funcional.
+
+
+!!! info "Importante"
+
+    En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale **1 punto** de la nota total del módulo de iOS.
 
 ## Preliminares 
 
@@ -38,15 +43,21 @@ print(type(of:i))       //Int
 type(of:i)==Float.self  //true
 ```
 
+Por supuesto a una **constante** no le podemos cambiar el valor una vez asignado:
+
+```swift
+let c = 1
+c = 2 //Error!
+```
+
 El lenguaje es **fuertemente tipado** y no hay conversión automática, no podemos asignar por ejemplo un valor 1.5 a una variable `Int`, el compilador no va a truncar el valor, pero sí podemos hacer un *cast*
 
 ```swift
 var i : Int = Int(1.5)   //1
 ```
 
-Podemos usar `Any` para indicar "cualquier tipo". Algunos APIs en los que no se puede saber por adelantado el tipo de retorno lo usan
-
-Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
+!!! note "Ejercicio"
+    Al igual que `Int()` convierte al tipo entero, `Bool()` puede convertir a booleano, por ejemplo a partir de las cadenas "true" y "false". Supongamos que tienes una variable `valor="true"`. Declara una variable `b` como de tipo booleano y asígnale `valor` pero convertida a booleano. 
 
 ## Opcionales 
 
@@ -116,6 +127,9 @@ var v = opcional ?? 0
 
 En el ejemplo anterior, si "opcional" contiene un valor se desenvolverá automáticamente y asignará a `v` y si no, a `v` se le asignará 0.
 
+!!! note "Ejercicio"
+    Declara una variable "mensaje" como un `String` opcional. Usando el `if let` escribe código que haga que si es distinta a `nil` la imprima, pero si es `nil` imprima "está vacía". Ten en cuenta que en Swift las llaves son obligatorias siempre en los condicionales aunque solo haya una instrucción.
+
 ### Opcionales "desenvueltos implícitamente"
 
 También tenemos la posibilidad de definir opcionales pero tratarlos como si no lo fueran, ya que no hace falta desenvolverlos: son los denominados *Implicitly unwrapped optionals*, declarados con `tipo!`, por ejemplo: 
@@ -127,6 +141,68 @@ print(valor)
 ```
 
 Esto es útil para variables que la mayor parte del tiempo sabemos que van a tener un valor no `nil` pero puede haber cierto momento en el flujo de ejecución del programa en que sean `nil`. Por ejemplo, en iOS cuando se ejecuta nuestro código en respuesta a eventos de usuario (pe.j *tap*), los componentes de UI ya están inicializados, pero hay ciertos puntos de la aplicación donde todavía no se han creado. 
+
+## Instrucciones de control de flujo 
+
+Hay algunas instrucciones que son muy similares a C/Java, como el `if` o el `while` con ciertas diferencias:
+
+- Las condiciones no es necesario ponerlas entre paréntesis
+- Aunque un bloque de sentencias tenga una única instrucción **siempre** hay que poner llaves, por ejemplo:
+
+```swift
+if edad<18 {
+  print("Lo siento, no puedes entrar a este sitio")
+} else {
+  print("Bienvenido")
+}
+```
+
+El bucle `for` más básico es distinto al de C/Java, se usa la sintaxis `for _variable_ in _rango_`.:
+
+```swift
+for i in 1...5 { //desde el 1 hasta el 5, incluidos ambos
+  print(i)  // 1 2 3 4 5 
+}
+
+for i in 1..<3 { //rango semiabierto, llega solo hasta el 2
+  print(i) // 1 2 3 4 
+}
+
+//Si no queremos ir de 1 en 1 podemos usar stride(from:lim_inf,to:lim_sup,by:incremento)
+//"to" no incluye el límite superior, para incluirlo usar "through" en su lugar
+for i in stride(from: 1, to: 5, by: 2) {
+    print(i)  //1 3
+}
+```
+
+Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la *variable anónima*, `_`
+
+```swift
+for _ in 1...3 {
+  print ("RA ")
+}
+```
+
+Existe una instrucción equivalente al `do...while` que es el `repeat ... while` (`do` es una palabra clave del lenguaje pero en lugar de en bucles se usa en el manejo de errores)
+
+`switch` es similar a C/Java, pero
+
+  * No hace falta `break` después de cada `case`. Por defecto cuando salimos de un `case` se sale del `switch` 
+  * En los `case` se puede poner cualquier tipo de datos (Int, Float, String,...), varios valores, rangos, o condiciones.
+  * Los `case` deben ser *exhaustivos*. Es decir deben cubrir todos los posibles valores de la variable (o si son infinitos, como en variables numéricas, al menos debe haber un `default`)
+
+```swift
+let valorCarta = -1
+switch valorCarta {
+  case 1...7: print("Es un \(valorCarta)")
+  case 8,9: print("Normalmente no se usan 8 y 9")
+  case 10: print("Sota")
+  case 11: print("Caballo")
+  case 12: print("Rey")
+  case let x where x<0: print("WTF! ¿Una carta negativa?")
+  default: print("Carta no válida")
+}
+```
 
 ## Tipos de datos básicos (de la librería estándar)  
 
@@ -182,7 +258,7 @@ nums.remove(at:0)    //nums == [3]
 
 Podemos concatenar arrays con `+`
 
-Podemos iterar sobre un array (en general sobre una colección) con `for ... in`
+Podemos iterar sobre un array (en general sobre una colección) con `for ... in` sin necesidad de usar los índices, iterando directamente por los elementos.
 
 ```swift
 var bizcocho = ["huevos", "leche", "harina"]
@@ -190,6 +266,9 @@ for ingrediente in bizcocho {
   print(ingrediente)
 }
 ```
+
+!!! Ejercicio
+    Cambia este ejemplo por un bucle `for` en el que se itere usando una variable `i` con la posición del elemento en la lista, `lista[i]`. El número de elementos de la lista lo puedes obtener en su propiedad `count`
 
 #### Conjuntos
 
@@ -235,62 +314,6 @@ for (nombre, instrumento) in grupo {
 }
 ```
 
-
-## Instrucciones de control de flujo 
-
-Hay algunas instrucciones que son iguales a C/Java, como el `if` o el `while` con ciertas diferencias:
-
-- Las condiciones no es necesario ponerlas entre paréntesis
-- Aunque un bloque de sentencias tenga una única instrucción **siempre** hay que poner llaves, por ejemplo:
-
-```swift
-if edad<18 {
-  print("Lo siento, no puedes entrar a este sitio")
-} else {
-  print("Bienvenido")
-}
-```
-
-Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*:
-
-```swift
-for i in 1...5 {
-  print(i)
-}
-
-for i in 1..<3 { //rango semiabierto, llega solo hasta el 2
-  print(i)
-}
-```
-
-Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la *variable anónima*, `_`
-
-```swift
-for _ in 1...3 {
-  print ("RA ")
-}
-```
-
-Existe una instrucción equivalente al `do...while` que es el `repeat ... while` (`do` es una palabra clave del lenguaje pero se usa en el manejo de errores)
-
-`switch` es similar a C/Java, pero
-  * No hace falta `break` después de cada `case`. Por defecto cuando salimos de un `case` se sale del `switch` 
-  * En los `case` se puede poner cualquier tipo de datos (Int, Float, String,...), varios valores, rangos, o condiciones.
-  * Los `case` deben ser *exhaustivos*. Es decir deben cubrir todos los posibles valores de la variable (o si son infinitos, como en variables numéricas, al menos debe haber un `default`)
-
-```swift
-let valorCarta = -1
-switch valorCarta {
-  case 1...7: print("Es un \(valorCarta)")
-  case 8,9: print("Normalmente no se usan 8 y 9")
-  case 10: print("Sota")
-  case 11: print("Caballo")
-  case 12: print("Rey")
-  case let x where x<0: print("WTF! ¿Una carta negativa?")
-  default: print("Carta no válida")
-}
-```
-
 ## Funciones 
 
 Para definir una función se usa la sintaxis `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`. Si una función no devuelve nada se omite el `->TipoRetorno`
@@ -320,9 +343,18 @@ func saludarA(_ nombre: String, el dia: String) -> String {
 saludarA("Pepe", el: "Martes")
 ```
 
-Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con `let`. Podemos cambiar esto marcando el parámetro con `inout`, que se pone antes del tipo: `func ejemplo(par : inout Int)`. Para llamar a la función hay que marcar explícitamente el parámetro con un `&`. `ejemplo(par:&valor)`.
+Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con `let`. Podemos cambiar esto [marcando el parámetro con `inout`](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID173).
 
 Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
+
+!!! Ejercicio
+    Implementa una función  `filtrar` a la que le pases una lista de valores `Int` y un valor máximo y devuelva una nueva lista con todos los valores que no superan este máximo. El primer parámetro no debe tener etiqueta y el segundo `max`. Por ejemplo esto devolvería la lista `[4 5]` (cuidado, swift tiene una función **filter** que hace esto, pero evidentemente no puedes usarla para este ejercicio)
+
+    ```swift
+    var lista = [10, 4, 5, 7]
+    var f = filtrar(lista, max:5) 
+    print(f) //[4,5]
+    ```
 
 
 ## Clases 
@@ -389,6 +421,17 @@ Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en 
 
 Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para sobreescribir un método, `override`
 
+
+!!! Ejercicio
+    Crea una clase `Persona` con un `nombre`, una `edad` y una propiedad computable booleana `adulto` que indique si tiene 18 años o más. Comprueba que el siguiente código funciona con tu clase:
+
+    ```swift
+    var p = Persona(nombre:"Pepe", edad:20)
+    if p.adulto {
+      print("ADULTO!")
+    } 
+    ``
+
 ### Failable initializers
 
 Cualquier método,  incluyendo un inicializador, puede devolver un valor opcional. En este último caso, estamos indicando que si algo no es correcto no vamos a devolver una nueva instancia, sino `nil`. Estos inicializadores se denominan *failable initializers* y se denotan con `init?`. Por ejemplo supongamos que nos damos cuenta que no tienen sentido las figuras con número de lados <=2:
@@ -445,9 +488,13 @@ Se definen de forma similar a C pero no tienen nada que ver, son tipos "por dere
 enum Direccion {
     case norte, sur, este, oeste
 }
+
+var d = Direccion.norte
+//si el compilador ya "sabe" el tipo no hace falta poner el "prefijo" del enumerado (Direccion)
+var d2 : Direccion = .norte  
 ```
 
-Pueden tener un valor "interno" (*raw*), cuyo tipo se indica como si el enumerado heredara de él. Cuando se pone `Int`, Swift asigna valores comenzando por 0. Accedemos a este valor con `rawValue`.
+Los enumerados pueden tener un valor "interno" (*raw*), cuyo tipo se indica como si el enumerado heredara de él. Cuando se pone `Int`, Swift asigna valores comenzando por 0. Accedemos a este valor con `rawValue`.
 
 ```swift
 enum Direccion: Int {
@@ -480,3 +527,13 @@ enum Direccion: String {
 
 print(Direccion.norte.inicial())   //"N"
 ```
+
+!!! Ejercicio
+    Crea un tipo enumerado `DiaSemana` para los días de la semana (lunes, martes,...). Su `rawValue` será `Int`. Añádele un método `cuantoFalta` que devuelva el número de días que faltan para el fin de semana o bien 0 si es sábado o domingo. Al probarlo debería ser algo de este estilo:
+
+    ```swift
+    var dia = DiaSemana.lunes
+    print(dia.rawValue) //0
+    dia = .viernes
+    print(dia.cuantoFalta()) //1
+    ```
