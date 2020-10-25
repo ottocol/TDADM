@@ -389,7 +389,34 @@ Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en 
 
 Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para sobreescribir un método, `override`
 
-*casting*: algunas veces ciertos APIs devuelven resultados "sin tipo" (`Any`), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con `as`: `dato as Clase`. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.
+### Failable initializers
+
+Cualquier método,  incluyendo un inicializador, puede devolver un valor opcional. En este último caso, estamos indicando que si algo no es correcto no vamos a devolver una nueva instancia, sino `nil`. Estos inicializadores se denominan *failable initializers* y se denotan con `init?`. Por ejemplo supongamos que nos damos cuenta que no tienen sentido las figuras con número de lados <=2:
+
+```swift
+class Figura {
+    private var numeroDeLados : Int
+    init?(lados:Int) {
+      if lados>2 {
+        self.numeroDeLados = lados
+      }
+      else {
+        return nil
+      }
+    }
+    ...
+}
+```
+
+Como vemos, el *failable initializer* devuelve *nil* cuando no queremos devolver una instancia de la clase.
+
+### Casting de clases
+
+Algunas veces ciertos APIs devuelven resultados "sin tipo" (en Swift se pone como`Any`), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con `as`: `dato as Clase`. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.
+
+```swift
+var t = miFigura as Triangulo
+```
 
 ## Extensiones 
 
