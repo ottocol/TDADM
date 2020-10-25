@@ -36,7 +36,7 @@
     
     
       
-        <title>Ejercicios - TPDAM-iOS</title>
+        <title>Ejercicios sobre aplicaciones iOS - TPDAM-iOS</title>
       
     
     
@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ejercicios-de-introduccion-a-las-aplicaciones-ios-175-puntos" tabindex="1" class="md-skip">
+      <a href="#ejercicios-de-introduccion-a-las-aplicaciones-ios-2-puntos" tabindex="1" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -109,7 +109,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Ejercicios
+                Ejercicios sobre aplicaciones iOS
               
             </span>
           
@@ -190,8 +190,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s1/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
+    <a href="../../s1/ejercicios/" title="Ejercicios de Swift básico" class="md-nav__link">
+      Ejercicios de Swift básico
     </a>
   </li>
 
@@ -234,8 +234,8 @@
       
     
     
-    <a href="./" title="Ejercicios" class="md-nav__link md-nav__link--active">
-      Ejercicios
+    <a href="./" title="Ejercicios sobre aplicaciones iOS" class="md-nav__link md-nav__link--active">
+      Ejercicios sobre aplicaciones iOS
     </a>
     
   </li>
@@ -271,18 +271,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s3/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
     <a href="../../s4/comunicacion/" title="Comunicación entre componentes" class="md-nav__link">
       Comunicación entre componentes
     </a>
@@ -307,20 +295,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s4/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../s5/testing/" title="Testing básico en Xcode" class="md-nav__link">
-      Testing básico en Xcode
+    <a href="../../s4/ejercicio_i18n/" title="Ejercicio de i18n" class="md-nav__link">
+      Ejercicio de i18n
     </a>
   </li>
 
@@ -343,8 +319,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../apendices/control_versiones/" title="Apéndice. Control de versiones en Xcode" class="md-nav__link">
-      Apéndice. Control de versiones en Xcode
+    <a href="../../apendices/control_versiones/" title="Apéndice 1. Control de versiones en Xcode" class="md-nav__link">
+      Apéndice 1. Control de versiones en Xcode
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s5/testing/" title="Apéndice 2. Testing en Xcode" class="md-nav__link">
+      Apéndice 2. Testing en Xcode
     </a>
   </li>
 
@@ -377,7 +365,7 @@
               
                 
                 
-                <h1 id="ejercicios-de-introduccion-a-las-aplicaciones-ios-175-puntos">Ejercicios de introducción a las aplicaciones iOS (1,75 puntos)<a class="headerlink" href="#ejercicios-de-introduccion-a-las-aplicaciones-ios-175-puntos" title="Permanent link">&para;</a></h1>
+                <h1 id="ejercicios-de-introduccion-a-las-aplicaciones-ios-2-puntos">Ejercicios de introducción a las aplicaciones iOS (2 puntos)<a class="headerlink" href="#ejercicios-de-introduccion-a-las-aplicaciones-ios-2-puntos" title="Permanent link">&para;</a></h1>
 <p>Desarrolla una <em>app</em> llamada <code>iMoneda</code> con la que se pueda "lanzar" una "moneda virtual" a ver si sale cara o cruz.</p>
 <p>La interfaz de la <em>app</em> será muy sencilla y constará de:</p>
 <ul>
@@ -387,14 +375,14 @@
 </ul>
 <p><img alt="" src="../imag/iMoneda.png" /></p>
 <ol>
-<li>La <strong>vista</strong> (0,5 puntos): Crea la interfaz arrastrando los componentes y colocándolos donde creas conveniente.</li>
+<li>La <strong>vista</strong> (0,75 puntos): Crea la interfaz arrastrando los componentes y colocándolos donde creas conveniente.</li>
 <li><strong>Añádele al proyecto las</strong> <a href="../imagenes_moneda.zip">imágenes de la cara y cruz</a> de la moneda. Crea un <em>image set</em> en la carpeta <code>Assets.xcassets</code> llamado <em>cara</em> y otro llamado <em>cruz</em> y deja allí las imágenes correspondientes. Verás que están a @2x y @3x. </li>
-<li>El <strong>modelo</strong>(0,25 puntos): Crea:<ul>
+<li>El <strong>modelo</strong>(0,75 puntos): Crea:<ul>
 <li>Un enumerado <code>Tirada</code> con los valores de <code>cara</code> y <code>cruz</code>  </li>
 <li>Una clase <code>Moneda</code> con un único método <code>lanzar()</code> que devuelva una <code>Tirada</code> al azar </li>
 </ul>
 </li>
-<li>El <strong>controlador</strong> (0,75 puntos): <ul>
+<li>El <strong>controlador</strong> (1 punto): <ul>
 <li>Define en él una propiedad del tipo <code>Moneda</code></li>
 <li>Crea dos <em>outlet</em>, uno para acceder al componente <code>UIImageView</code> y otro para el <code>Label</code></li>
 <li>Crea un <em>action</em> que vincule el botón con algún método del <code>ViewController</code></li>
@@ -426,7 +414,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>(0,25 puntos) Finalmente añádele un icono a la <em>app</em> y una <em>launch screen</em> con los elementos que consideres.</p>
+<p>(0,5 puntos) Finalmente añádele un icono a la <em>app</em> y una <em>launch screen</em> con los elementos que consideres.</p>
 <ul>
 <li>Puedes descargar iconos por ejemplo de <a href="https://icons8.com/icons/">icons8.com/icons</a></li>
 <li>Puedes cambiar el tamaño del icono con <code>Vista Previa</code> del Mac (Herramientas&gt;Ajustar Tamaño...) o bien  puedes generar automáticamente los tamaños necesarios con la ayuda de una web como por ejemplo <a href="https://appicon.co/">appicon.co</a></li>

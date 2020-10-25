@@ -190,8 +190,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s1/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
+    <a href="../../s1/ejercicios/" title="Ejercicios de Swift básico" class="md-nav__link">
+      Ejercicios de Swift básico
     </a>
   </li>
 
@@ -226,8 +226,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s2/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
+    <a href="../../s2/ejercicios/" title="Ejercicios sobre aplicaciones iOS" class="md-nav__link">
+      Ejercicios sobre aplicaciones iOS
     </a>
   </li>
 
@@ -252,18 +252,6 @@
   <li class="md-nav__item">
     <a href="../../s3/concurrencia/" title="Concurrencia en iOS" class="md-nav__link">
       Concurrencia en iOS
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../s3/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
     </a>
   </li>
 
@@ -301,15 +289,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-value-observing" class="md-nav__link">
-    Key-Value Observing
+  <a href="#notificaciones-locales" class="md-nav__link">
+    Notificaciones locales
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#notificaciones-locales" class="md-nav__link">
-    Notificaciones locales
+  <a href="#key-value-observing" class="md-nav__link">
+    Key-Value Observing
   </a>
   
 </li>
@@ -343,20 +331,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../s5/testing/" title="Testing básico en Xcode" class="md-nav__link">
-      Testing básico en Xcode
+    <a href="../ejercicio_i18n/" title="Ejercicio de i18n" class="md-nav__link">
+      Ejercicio de i18n
     </a>
   </li>
 
@@ -379,8 +355,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../apendices/control_versiones/" title="Apéndice. Control de versiones en Xcode" class="md-nav__link">
-      Apéndice. Control de versiones en Xcode
+    <a href="../../apendices/control_versiones/" title="Apéndice 1. Control de versiones en Xcode" class="md-nav__link">
+      Apéndice 1. Control de versiones en Xcode
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s5/testing/" title="Apéndice 2. Testing en Xcode" class="md-nav__link">
+      Apéndice 2. Testing en Xcode
     </a>
   </li>
 
@@ -406,15 +394,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-value-observing" class="md-nav__link">
-    Key-Value Observing
+  <a href="#notificaciones-locales" class="md-nav__link">
+    Notificaciones locales
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#notificaciones-locales" class="md-nav__link">
-    Notificaciones locales
+  <a href="#key-value-observing" class="md-nav__link">
+    Key-Value Observing
   </a>
   
 </li>
@@ -448,12 +436,88 @@
 <p>En Foundation hay dos formas básicas de conseguir que dos objetos se comuniquen acoplando el código de ambos lo menos posible:</p>
 <ul>
 <li>
-<p><strong>Key-Value observing</strong> o KVO: un objeto puede "vigilar" el cambio en el valor de las propiedades de otro. Cuando se produzca un cambio, se llamará a una función o clausura que actúa de <em>callback</em>. Podemos usar este mecanismo para hacer que el controlador observe las propiedades del modelo que nos interesa actualizar dinámicamente en la vista.</p>
-</li>
-<li>
 <p><strong>Notificaciones:</strong> un objeto puede recibir notificaciones sobre eventos que le interesen. Asímismo otro objeto puede enviar notificaciones. El encargado de gestionar las notificaciones es un objeto intermediario denominado "centro de notificaciones". Podemos usar las notificaciones de modo que el modelo notifique que ha habido un cambio y el controlador reciba la notificación y actualice la vista. </p>
 </li>
+<li>
+<p><strong>Key-Value observing</strong> o KVO: un objeto puede "vigilar" el cambio en el valor de las propiedades de otro. Cuando se produzca un cambio, se llamará a una función o clausura que actúa de <em>callback</em>. Podemos usar este mecanismo para hacer que el controlador observe las propiedades del modelo que nos interesa actualizar dinámicamente en la vista.</p>
+</li>
 </ul>
+<h2 id="notificaciones-locales">Notificaciones locales<a class="headerlink" href="#notificaciones-locales" title="Permanent link">&para;</a></h2>
+<p>Son algo similar a lo que en aplicaciones <em>enterprise</em> se llaman <em>colas de mensajes</em>. Implementan el patrón de diseño publicar/suscribir.</p>
+<p>Cuando un objeto quiere avisar al resto del sistema, publica una notificación asignándole un nombre, y opcionalmente un <em>payload</em> (datos asociados). Los objetos que quieren recibir la notificación indican el nombre de la que le interesa, y qué método o clausura ejecutar cuando se reciba.</p>
+<p>El encargado de gestionar las notificaciones es el <code>NotificationCenter</code>. Hay uno por defecto ya inicializado en cada aplicación (<code>NotificationCenter.default</code>). Se pueden crear más, pero en la mayoría de aplicaciones nos bastará con uno. A este centro de notificaciones es a quien le decimos que envíe las notificaciones (publicar) o que queremos recibir las de un determinado tipo (suscribir).</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">import</span> <span class="nc">Foundation</span>
+
+<span class="kd">class</span> <span class="nc">Emisor</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">enviar</span><span class="p">(</span><span class="n">mensaje</span><span class="p">:</span><span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Obtenemos el centro de notificaciones por defecto</span>
+        <span class="c1">//Las notificaciones tienen un nombre, un objeto que las envía (si lo ponemos a nil no queda constancia de quién) y datos adicionales, un diccionario con los datos que queramos</span>
+        <span class="kd">let</span> <span class="nv">nc</span> <span class="p">=</span> <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span>
+        <span class="n">nc</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;valor&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;mensaje&quot;</span><span class="p">:</span><span class="n">mensaje</span><span class="p">])</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Receptor</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">suscribirse</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">nc</span> <span class="p">=</span> <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span>
+        <span class="c1">//primer parámetro: añadimos como observador a nosotros (self)</span>
+        <span class="c1">//selector: al recibir la notificación se llama al método recibir</span>
+        <span class="c1">//name: nombre de la notificación que nos interesa</span>
+        <span class="c1">//object: objeto del que nos interesa recibir notificaciones. nil == cualquiera</span>
+        <span class="n">nc</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="k">#selector</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">recibir</span><span class="p">),</span> <span class="n">name</span><span class="p">:</span><span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span><span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+
+    <span class="p">}</span>
+
+    <span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">recibir</span><span class="p">(</span><span class="n">notificacion</span><span class="p">:</span><span class="n">Notification</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;recibido!!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">userInfo</span> <span class="p">=</span> <span class="n">notificacion</span><span class="p">.</span><span class="n">userInfo</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">mensaje</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&quot;mensaje&quot;</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="nb">String</span>
+            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;dice: </span><span class="si">\(</span><span class="n">mensaje</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nv">e</span> <span class="p">=</span> <span class="n">Emisor</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nv">r</span> <span class="p">=</span> <span class="n">Receptor</span><span class="p">()</span>
+<span class="n">r</span><span class="p">.</span><span class="n">suscribirse</span><span class="p">()</span>
+<span class="n">e</span><span class="p">.</span><span class="n">enviar</span><span class="p">(</span><span class="n">mensaje</span><span class="p">:</span><span class="s">&quot;holaaaa&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="key-value-observing">Key-Value Observing<a class="headerlink" href="#key-value-observing" title="Permanent link">&para;</a></h2>
 <p>Gracias a Foundation, un objeto cualquiera puede <em>observar</em> cambios en las propiedades de otro. Especificamos un bloque de código (función o clausura) a ejecutar cuando se produzca este cambio. Esta funcionalidad se denomina <strong>Key-Value Observing</strong> o KVO.</p>
 <p>Nótese que para que esto pueda funcionar el <em>runtime</em> tiene que "interceptar" de algún modo los cambios en las propiedades. Estas funcionalidades están integradas en el <em>runtime</em> de Objective-C, el "antiguo" lenguaje de desarrollo de Apple, y Swift todavía no las incorpora de forma totalmente nativa. Así, para que KVO funcione con nuestras clases Swift vamos a tener que usar algunas anotaciones y palabras clave especiales que referencian a Objective-C</p>
@@ -552,81 +616,6 @@
 </td></tr></table>
 
 <p>En <code>options</code> hemos indicado qué información queremos y esta la tenemos disponible a través de propiedades del segundo parámetro de la clausura (nuestro parámetro <code>cambio</code>). Hay más opciones de KVO, por ejemplo con <code>.prior</code> indicaríamos que queremos recibir dos avisos, uno inmediatamente antes del cambio y otro inmediatamente después. Se recomienda consultar la documentación para ver más opciones.</p>
-<h2 id="notificaciones-locales">Notificaciones locales<a class="headerlink" href="#notificaciones-locales" title="Permanent link">&para;</a></h2>
-<p>Son algo similar a lo que en aplicaciones <em>enterprise</em> se llaman <em>colas de mensajes</em>. Implementan el patrón de diseño publicar/suscribir.</p>
-<p>Cuando un objeto quiere avisar al resto del sistema, publica una notificación asignándole un nombre, y opcionalmente un <em>payload</em> (datos asociados). Los objetos que quieren recibir la notificación indican el nombre de la que le interesa, y qué método o clausura ejecutar cuando se reciba.</p>
-<p>El encargado de gestionar las notificaciones es el <code>NotificationCenter</code>. Hay uno por defecto ya inicializado en cada aplicación (<code>NotificationCenter.default</code>). Se pueden crear más, pero en la mayoría de aplicaciones nos bastará con uno. A este centro de notificaciones es a quien le decimos que envíe las notificaciones (publicar) o que queremos recibir las de un determinado tipo (suscribir).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">import</span> <span class="nc">Foundation</span>
-
-<span class="kd">class</span> <span class="nc">Emisor</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">enviar</span><span class="p">(</span><span class="n">mensaje</span><span class="p">:</span><span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//Obtenemos el centro de notificaciones por defecto</span>
-        <span class="c1">//Las notificaciones tienen un nombre, un objeto que las envía (si lo ponemos a nil no queda constancia de quién) y datos adicionales, un diccionario con los datos que queramos</span>
-        <span class="kd">let</span> <span class="nv">nc</span> <span class="p">=</span> <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span>
-        <span class="n">nc</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;valor&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;mensaje&quot;</span><span class="p">:</span><span class="n">mensaje</span><span class="p">])</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Receptor</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">suscribirse</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">nc</span> <span class="p">=</span> <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span>
-        <span class="c1">//primer parámetro: añadimos como observador a nosotros (self)</span>
-        <span class="c1">//selector: al recibir la notificación se llama al método recibir</span>
-        <span class="c1">//name: nombre de la notificación que nos interesa</span>
-        <span class="c1">//object: objeto del que nos interesa recibir notificaciones. nil == cualquiera</span>
-        <span class="n">nc</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="k">#selector</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">recibir</span><span class="p">),</span> <span class="n">name</span><span class="p">:</span><span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span><span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
-
-    <span class="p">}</span>
-
-    <span class="kr">@objc</span> <span class="kd">func</span> <span class="nf">recibir</span><span class="p">(</span><span class="n">notificacion</span><span class="p">:</span><span class="n">Notification</span><span class="p">)</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;recibido!!&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="kd">let</span> <span class="nv">userInfo</span> <span class="p">=</span> <span class="n">notificacion</span><span class="p">.</span><span class="n">userInfo</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nv">mensaje</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&quot;mensaje&quot;</span><span class="p">]</span> <span class="k">as</span><span class="p">!</span> <span class="nb">String</span>
-            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;dice: </span><span class="si">\(</span><span class="n">mensaje</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">var</span> <span class="nv">e</span> <span class="p">=</span> <span class="n">Emisor</span><span class="p">()</span>
-<span class="kd">var</span> <span class="nv">r</span> <span class="p">=</span> <span class="n">Receptor</span><span class="p">()</span>
-<span class="n">r</span><span class="p">.</span><span class="n">suscribirse</span><span class="p">()</span>
-<span class="n">e</span><span class="p">.</span><span class="n">enviar</span><span class="p">(</span><span class="n">mensaje</span><span class="p">:</span><span class="s">&quot;holaaaa&quot;</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
                 
                   
                 
@@ -647,7 +636,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../s3/ejercicios/" title="Ejercicios" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../s3/concurrencia/" title="Concurrencia en iOS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -656,7 +645,7 @@
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
-                Ejercicios
+                Concurrencia en iOS
               </span>
             </div>
           </a>

@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#miniproyecto-de-ios-de-tecnologias-de-desarrollo" tabindex="1" class="md-skip">
+      <a href="#miniproyecto-de-ios-4-puntos" tabindex="1" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -190,8 +190,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s1/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
+    <a href="../../s1/ejercicios/" title="Ejercicios de Swift básico" class="md-nav__link">
+      Ejercicios de Swift básico
     </a>
   </li>
 
@@ -226,8 +226,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s2/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
+    <a href="../../s2/ejercicios/" title="Ejercicios sobre aplicaciones iOS" class="md-nav__link">
+      Ejercicios sobre aplicaciones iOS
     </a>
   </li>
 
@@ -262,18 +262,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s3/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
     <a href="../../s4/comunicacion/" title="Comunicación entre componentes" class="md-nav__link">
       Comunicación entre componentes
     </a>
@@ -298,20 +286,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../s4/ejercicios/" title="Ejercicios" class="md-nav__link">
-      Ejercicios
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../s5/testing/" title="Testing básico en Xcode" class="md-nav__link">
-      Testing básico en Xcode
+    <a href="../../s4/ejercicio_i18n/" title="Ejercicio de i18n" class="md-nav__link">
+      Ejercicio de i18n
     </a>
   </li>
 
@@ -343,8 +319,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../apendices/control_versiones/" title="Apéndice. Control de versiones en Xcode" class="md-nav__link">
-      Apéndice. Control de versiones en Xcode
+    <a href="../../apendices/control_versiones/" title="Apéndice 1. Control de versiones en Xcode" class="md-nav__link">
+      Apéndice 1. Control de versiones en Xcode
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../s5/testing/" title="Apéndice 2. Testing en Xcode" class="md-nav__link">
+      Apéndice 2. Testing en Xcode
     </a>
   </li>
 
@@ -377,10 +365,11 @@
               
                 
                 
-                <h1 id="miniproyecto-de-ios-de-tecnologias-de-desarrollo">MiniProyecto de iOS de Tecnologías de Desarrollo<a class="headerlink" href="#miniproyecto-de-ios-de-tecnologias-de-desarrollo" title="Permanent link">&para;</a></h1>
+                <h1 id="miniproyecto-de-ios-4-puntos">MiniProyecto de iOS (4 puntos)<a class="headerlink" href="#miniproyecto-de-ios-4-puntos" title="Permanent link">&para;</a></h1>
 <h1 id="juego-de-las-siete-y-media">Juego de las siete y media<a class="headerlink" href="#juego-de-las-siete-y-media" title="Permanent link">&para;</a></h1>
-<p>Se propone implementar el conocido juego de cartas de "las 7 y media". Podéis implementar la versión "completa" en la que el usuario juega contra la máquina, ambos sacando cartas una a una y decidiendo si plantarse o seguir, o bien una versión simplificada en la que la máquina no pide cartas sino que obtiene una puntuación generada al azar.</p>
-<p>Para crear el proyecto, como siempre elige la plantilla de <code>single view app</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> y marca la casilla de <code>Include Unit Tests</code> (no obstante aunque no marques esta última los <em>test</em> se pueden añadir luego) </p>
+<p>Se propone implementar el conocido juego de cartas de "<a href="https://es.wikipedia.org/wiki/Siete_y_media">las 7 y media</a>". </p>
+<p>Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que hace de banca. El usuario va pidiendo cartas una a una hasta que se pasa de 7 y medio o decide plantarse. La máquina no va sacando cartas una a una sino que obtiene una puntuación generada al azar.</p>
+<p>Para crear el proyecto, como siempre elige la plantilla de <code>single view app</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> . </p>
 <h2 id="estructura-de-clases-del-modelo-1-punto">Estructura de clases del modelo (1 punto)<a class="headerlink" href="#estructura-de-clases-del-modelo-1-punto" title="Permanent link">&para;</a></h2>
 <p>Ampliaremos el modelo que implementamos en la primera sesión. Ya tenemos el enum <code>Palo</code> y las clases <code>Carta</code> y <code>Mano</code>. Vamos a añadir las clases necesarias para el juego: la <code>Baraja</code> y el propio <code>Juego</code></p>
 <h2 id="clase-baraja">Clase <code>Baraja</code><a class="headerlink" href="#clase-baraja" title="Permanent link">&para;</a></h2>
@@ -390,44 +379,10 @@
 <li>Métodos:<ul>
 <li>El Inicializador debe rellenar el array de cartas con todas las cartas de la baraja</li>
 <li><code>repartirCarta</code>: obtiene la última carta de la baraja y la elimina de ella. Podéis hacer esto por ejemplo con <a href="https://developer.apple.com/reference/swift/array/1539777-poplast"><code>popLast()</code></a> </li>
-<li><code>barajar</code>: debe cambiar al azar el orden de las cartas en el <code>Array</code>. Una forma de implementar esto es extender la clase <code>Array</code> añadiendo un método para intercambiar al azar el orden de sus componentes</li>
+<li><code>barajar</code>: debe cambiar al azar el orden de las cartas en el <code>Array</code>. Una forma de implementar esto es usar el método <code>shuffle()</code> del <code>Array</code>.</li>
 </ul>
 </li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">import</span> <span class="nc">Foundation</span>
-
-<span class="kd">extension</span> <span class="nc">Array</span> <span class="p">{</span>
-    <span class="c1">/// Shuffle the elements of `self` in-place.</span>
-    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">barajar</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// empty and single-element collections don&#39;t shuffle</span>
-        <span class="k">if</span> <span class="bp">count</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-
-        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="bp">indices</span><span class="p">.</span><span class="bp">dropLast</span><span class="p">()</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nv">diff</span> <span class="p">=</span> <span class="bp">distance</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">endIndex</span><span class="p">)</span>
-            <span class="kd">let</span> <span class="nv">j</span> <span class="p">=</span> <span class="n">index</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="bp">numericCast</span><span class="p">(</span><span class="n">arc4random_uniform</span><span class="p">(</span><span class="bp">numericCast</span><span class="p">(</span><span class="n">diff</span><span class="p">))))</span>
-            <span class="n">swapAt</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
-
-<p>Esta extensión está tomada de <a href="https://stackoverflow.com/questions/37843647/shuffle-array-swift-3">Stackoverflow</a>. Podéis usarla o bien cualquier otra implementación que encontréis.</p>
-<p>La extensión la podéis almacenar en un fichero Swift cuyo nombre podéis elegir libremente, no hay una convención estándar.</p>
 <h3 id="clase-juego">Clase <code>Juego</code><a class="headerlink" href="#clase-juego" title="Permanent link">&para;</a></h3>
 <p>La estructura es libre ya que depende de vuestra implementación. No obstante, tened en cuenta que vais a necesitar métodos para:</p>
 <ul>
@@ -437,43 +392,10 @@
 <li>acabar el juego y calcular el resultado</li>
 <li>...</li>
 </ul>
-<h2 id="pruebas-unitarias-05-puntos">Pruebas unitarias (0,5 puntos)<a class="headerlink" href="#pruebas-unitarias-05-puntos" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Si se te olvidó marcar la casilla <code>Include Unit Tests</code> al crear el proyecto debes crear ahora un conjunto de pruebas yendo a <code>File &gt; New &gt; Target...</code> y de entre las plantillas disponibles, elegir <code>iOS Unit Testing Bundle</code>.</p>
-</blockquote>
-<p>Debéis implementar al menos las siguientes pruebas unitarias:</p>
-<ul>
-<li>Que al inicializar una <code>Carta</code> con datos correctos  tanto el palo como el valor se han guardado adecuadamente (por ejemplo que al inicializar una carta como el 3 de copas si después obtenemos la propiedad <code>valor</code> nos da 3 y la propiedad <code>palo</code> nos da <code>copas</code>).</li>
-<li>Que al inicializar una <code>Carta</code> con valores incorrectos devuelve <code>nil</code> (por ejemplo el -1 de bastos).</li>
-<li>Que cuando se reparte una carta de la <code>Baraja</code> se ha eliminado de ella y el número de cartas de la baraja ha disminuido en 1</li>
-</ul>
-<p>Para comprobar si un array contiene un elemento puedes usar <code>contains</code>. A este método se le pasa una clausura a la que Swift a su vez va pasando uno a uno los elementos. Hay que devolver <code>true</code> si el elemento pasado cumple la condición deseada (en este caso ser igual a la carta buscada) y <code>false</code> en caso contrario. Algo como</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">presente</span> <span class="p">=</span> <span class="n">baraja</span><span class="p">.</span><span class="n">cartas</span><span class="p">.</span><span class="bp">contains</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">elemento</span> <span class="k">in</span>
-        <span class="k">if</span> <span class="c1">//el numero del elemento actual y el palo coinciden con los de la carta buscada {</span>
-          <span class="k">return</span> <span class="kc">true</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
-<span class="p">}</span> 
-<span class="c1">//presente valdrá true si algún elemento del array ha cumplido la condición</span>
-</pre></div>
-</td></tr></table>
-
-<h2 id="interfaz-grafico-simplificado-05-puntos">Interfaz gráfico simplificado (0,5 puntos)<a class="headerlink" href="#interfaz-grafico-simplificado-05-puntos" title="Permanent link">&para;</a></h2>
+<h2 id="interfaz-grafico-simplificado-1-punto">Interfaz gráfico simplificado (1 punto)<a class="headerlink" href="#interfaz-grafico-simplificado-1-punto" title="Permanent link">&para;</a></h2>
 <p>El <code>ViewController</code> contendrá una instancia de la clase <code>Juego</code>.</p>
 <blockquote>
-<p>Es normal que el <code>ViewController</code> tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al <em>controller</em>, para poder reutilizarlo independientemente de la interfaz gráfica. El <em>controller</em> puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones. O podría observar con KVO cuándo cambia una propiedad del juego que sea el <code>estado</code> (turno usuario, turno máquina, gana usuario, gana máquina, ...).</p>
+<p>Es normal que el <code>ViewController</code> tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al <em>controller</em>, para poder reutilizarlo independientemente de la interfaz gráfica. El <em>controller</em> puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.</p>
 </blockquote>
 <p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code>.</p>
 <blockquote>
@@ -637,7 +559,7 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../s5/testing/" title="Testing básico en Xcode" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../s4/ejercicio_i18n/" title="Ejercicio de i18n" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -646,19 +568,19 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
-                Testing básico en Xcode
+                Ejercicio de i18n
               </span>
             </div>
           </a>
         
         
-          <a href="../../apendices/control_versiones/" title="Apéndice. Control de versiones en Xcode" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../apendices/control_versiones/" title="Apéndice 1. Control de versiones en Xcode" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Siguiente
                 </span>
-                Apéndice. Control de versiones en Xcode
+                Apéndice 1. Control de versiones en Xcode
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
