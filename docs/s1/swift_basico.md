@@ -48,6 +48,86 @@ Podemos usar `Any` para indicar "cualquier tipo". Algunos APIs en los que no se 
 
 Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
 
+## Opcionales 
+
+> Los opcionales son prácticamente el mismo concepto que los *nullables* en Kotlin, compartiendo algunos elementos de sintaxis, aunque también con algunas diferencias prácticas
+
+En Swift, `nil` es como el `null` de Java, pero es aplicable también a `Int`, `Float`, ... No obstante, una variable "normal" no puede valer `nil`. 
+
+```swift
+var valor : Int = nil //esto no va a compilar
+```
+
+Para indicar que una variable puede valer `nil`, debemos declararla como *opcional*, con un `?` en la declaración, después del tipo, por ejemplo `Int?`
+
+```swift
+var valor : Int? = nil //esto sí es OK
+```
+
+Muchos métodos de la librería de Swift devuelven un valor opcional, con `nil` si fallan. Por ejemplo los métodos que hacen conversión de tipos. 
+
+```swift
+//como es lógico esta conversión falla, y por tanto devuelve nil
+let num = Int("hola")
+```
+
+### "Desenvolver" opcionales
+
+En una variable opcional el valor no está accesible directamente sino que está "envuelto" (*wrapped*). No se puede operar con él directamente, antes hay que *desenvolverlo*, ahora veremos cómo.
+
+```swift
+let valor = Int("1")   //esta conversión es OK, pero devuelve un 1 "envuelto"
+print(valor)   //no es 1, sino que pone Optional(1)
+print(valor+1) //CRASH! esto no es válido
+```
+
+Podemos *desenvolver* el opcional con `!`, pero hay que llevar cuidado, ya que intentar desenvolver `nil` es un error
+
+```swift
+let valor = Int("1")
+print(valor!+1)
+```
+
+El patrón típico para desenvolver opcionales de forma *segura* es usar  `if let`, que es una especie de condicional que solo se cumple si el valor desenvuelto es distinto de `nil`, y "de paso" le asigna el valor desenvuelto a la variable que ponemos en el `let`
+
+```swift
+let valor = Int("1")
+if let valorDesenvuelto = valor {
+  print("¡Es un número!: \(valorDesenvuelto)")
+}
+```
+
+Aunque en muchos ejemplos de `if..let` se usa una nueva variable para el valor desenvuelto podemos usar la misma del valor original, así evitamos tener que crear una variable nueva solo para desenvolver
+
+```swift
+let valor = Int("1")
+if let valor = valor {
+  print("¡Es un número!: \(valor)")
+}
+```
+
+Otra forma de desenvolver valores es con el operador de *coalescencia* (*nil-coalescing*). Este operador, `??`, nos permite desenvolver automáticamente un valor o devolver un valor por defecto si el opcional era `nil`.
+
+```swift
+var opcional : Int?
+...
+var v = opcional ?? 0 
+```
+
+En el ejemplo anterior, si "opcional" contiene un valor se desenvolverá automáticamente y asignará a `v` y si no, a `v` se le asignará 0.
+
+### Opcionales "desenvueltos implícitamente"
+
+También tenemos la posibilidad de definir opcionales pero tratarlos como si no lo fueran, ya que no hace falta desenvolverlos: son los denominados *Implicitly unwrapped optionals*, declarados con `tipo!`, por ejemplo: 
+
+```swift
+let valor : Int!
+valor = Int("1")
+print(valor)
+```
+
+Esto es útil para variables que la mayor parte del tiempo sabemos que van a tener un valor no `nil` pero puede haber cierto momento en el flujo de ejecución del programa en que sean `nil`. Por ejemplo, en iOS cuando se ejecuta nuestro código en respuesta a eventos de usuario (pe.j *tap*), los componentes de UI ya están inicializados, pero hay ciertos puntos de la aplicación donde todavía no se han creado. 
+
 ## Tipos de datos básicos (de la librería estándar)  
 
 ### String
@@ -244,67 +324,6 @@ Los parámetros no son modificables dentro del cuerpo de la función, es decir, 
 
 Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
-## Opcionales 
-
-`nil` es como el `null` de Java, pero es aplicable también a `Int`, `Float`, ... No obstante, una variable "normal" no puede valer `nil`. 
-
-```swift
-var valor : Int = nil //esto no va a compilar
-```
-
-Para indicar que una variable puede valer `nil`, debemos declararla como *opcional*, con un `?` en la declaración, después del tipo, por ejemplo `Int?`
-
-```swift
-var valor : Int? = nil //esto sí es OK
-```
-
-Muchos métodos de la librería de Swift devuelven un valor opcional, con `nil` si fallan. Por ejemplo los métodos que hacen conversión de tipos. 
-
-```swift
-//como es lógico esta conversión falla, y por tanto devuelve nil
-let num = Int("hola")
-```
-
-En una variable opcional el valor no está accesible directamente sino que está "envuelto" (*wrapped*). No se puede operar con él directamente, antes hay que *desenvolverlo*, ahora veremos cómo.
-
-```swift
-let valor = Int("1")   //esta conversión es OK, pero devuelve un 1 "envuelto"
-print(valor)   //no es 1, sino que pone Optional(1)
-print(valor+1) //CRASH! esto no es válido
-```
-
-Podemos *desenvolver* el opcional con `!`, pero hay que llevar cuidado, ya que intentar desenvolver `nil` es un error
-
-```swift
-let valor = Int("1")
-print(valor!+1)
-```
-
-El patrón típico para desenvolver opcionales de forma *segura* es usar  `if let`, que es una especie de condicional que solo se cumple si el valor desenvuelto es distinto de `nil`, y "de paso" le asigna el valor desenvuelto a la variable que ponemos en el `let`
-
-```swift
-let valor = Int("1")
-if let valorDesenvuelto = valor {
-  print("¡Es un número!: \(valorDesenvuelto)")
-}
-```
-
-Aunque en muchos ejemplos de `if..let` se usa una nueva variable para el valor desenvuelto podemos usar la misma del valor original, así evitamos tener que crear una variable nueva solo para desenvolver
-
-```swift
-let valor = Int("1")
-if let valor = valor {
-  print("¡Es un número!: \(valor)")
-}
-```
-
-Como el código para desenvolver valores es tedioso, se nos da la posibilidad de definir opcionales pero tratarlos como si no lo fueran, ya que no hace falta desenvolverlos: son los denominados *Implicitly unwrapped optionals*, declarados con `tipo!`, por ejemplo: 
-
-```swift
-let valor : Int!
-valor = Int("1")
-print(valor)
-```
 
 ## Clases 
 
