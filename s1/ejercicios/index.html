@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ejercicios-de-swift-basico-2-puntos" tabindex="1" class="md-skip">
+      <a href="#ejercicios-adicionales-de-swift-basico-2-puntos" tabindex="1" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -466,11 +466,11 @@
               
                 
                 
-                <h1 id="ejercicios-de-swift-basico-2-puntos">Ejercicios de Swift Básico (2 puntos)<a class="headerlink" href="#ejercicios-de-swift-basico-2-puntos" title="Permanent link">&para;</a></h1>
+                <h1 id="ejercicios-adicionales-de-swift-basico-2-puntos">Ejercicios adicionales de Swift Básico (2 puntos)<a class="headerlink" href="#ejercicios-adicionales-de-swift-basico-2-puntos" title="Permanent link">&para;</a></h1>
 <p>En esta sesión vamos a implementar las clases básicas necesarias para un juego de cartas, que terminaremos en las últimas sesiones de la asignatura. Por el momento no vamos a tener interfaz, solo la lógica más básica y las estructuras de datos.</p>
 <p>A continuación se da la lista de clases y <em>enums</em> a crear. <strong>Debéis respetar lo máximo posible los nombres de propiedades y métodos</strong></p>
 <blockquote>
-<p>NOTA: el ejercicio está pensado para las cartas de la <em>baraja española</em>. Para los que no la conozcáis: hay 4 "palos" (bastos, copas, espadas y oros) y de cada palo hay 10 cartas, que son del 1 al 7 y del 10 al 12, ya que el 8 y 9 no se usan. El 1 se llama "as" igual que en la baraja francesa, el 10 es la <em>sota</em> (en la baraja francesa/inglesa es la J), el es 11 el <em>caballo</em> (Q o dama en la inglesa) y el 12 el <em>rey</em>.</p>
+<p>NOTA: el ejercicio está pensado para las cartas de la <em>baraja española</em>. Para los que no la conozcáis: hay 4 "palos" (bastos, copas, espadas y oros) y de cada palo hay 10 cartas, que son del 1 al 7 y del 10 al 12, ya que el 8 y 9 no se usan. El 1 se llama "as" igual que en la baraja francesa, el 10 es la <em>sota</em> (en la baraja francesa/inglesa es la J), el es 11 el <em>caballo</em> (Q o dama en la francesa) y el 12 el <em>rey</em>.</p>
 </blockquote>
 <h2 id="enumerado-palo-025-puntos">Enumerado <code>Palo</code> (0,25 puntos)<a class="headerlink" href="#enumerado-palo-025-puntos" title="Permanent link">&para;</a></h2>
 <p>Un <code>enum</code> para representar los cuatro palos de la baraja. Haz que sea internamente un <code>String</code> (<code>: String</code>), así su propiedad <code>.rawValue</code> será una cadena y podrás mostrar el nombre del palo</p>
@@ -478,8 +478,8 @@
 <ul>
 <li>Propiedades: <code>valor</code> entero y  <code>palo</code>, de tipo <code>Palo</code></li>
 <li>Métodos<ul>
-<li>Inicializador: se le pasa un valor y un palo. Podría fallar si el <code>valor</code> que se le pasa no es correcto. Esto es lo que se llama en Swift un <a href="https://developer.apple.com/swift/blog/?id=17"><em>failable initializer</em></a>, que devuelve un opcional, ya que podría ser <code>nil</code>. Para definirlo, poner <code>init?</code> en lugar de <code>init</code> y en caso de error devolver <code>nil</code> (si no hay error no es necesario devolver nada). Recordad que <strong>el 8 y el 9 no se usan</strong> y que evidentemente no valen cartas menores que 1 ni mayores que 12.</li>
-<li><code>descripcion</code>: devuelve un <code>String</code> con el nombre de la carta: <code>el 1 de oros</code>, <code>el 10 de bastos</code>,...</li>
+<li>Inicializador: se le pasa un valor y un palo. Podría fallar si el <code>valor</code> que se le pasa no es correcto (recordad que <strong>el 8 y el 9 no se usan</strong> y que evidentemente no valen cartas menores que 1 ni mayores que 12). Por tanto necesitamos un <em>failable initializer</em>.</li>
+<li><code>descripcion</code>: debe devolver un <code>String</code> con el nombre de la carta: <code>el 1 de oros</code>, <code>el 10 de bastos</code>,...</li>
 </ul>
 </li>
 </ul>
@@ -491,7 +491,7 @@
 <li>Métodos:<ul>
 <li>El inicializador de la clase debe inicializar <code>cartas</code> como un array vacío (también lo podéis hacer al definir la propiedad)</li>
 <li><code>addCarta</code>: se le pasa una carta y la añade a la mano</li>
-<li><code>getCarta</code>: se le pasa una posición (empezando por 0) y devuelve la carta como un opcional. Si es menor que 0 o mayor o igual que el tamaño, debería devolver <code>nil</code></li>
+<li><code>getCarta</code>: se le pasa una posición (empezando por 0) y devuelve la carta como un opcional. Si la posición es menor que 0 o mayor o igual que el tamaño, debería devolver <code>nil</code></li>
 </ul>
 </li>
 </ul>

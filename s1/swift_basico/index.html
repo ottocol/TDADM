@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#introduccion-basica-a-swift" tabindex="1" class="md-skip">
+      <a href="#introduccion-basica-a-swift-ejercicios-1-punto" tabindex="1" class="md-skip">
         Saltar a contenido
       </a>
     
@@ -246,6 +246,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#instrucciones-de-control-de-flujo" class="md-nav__link">
+    Instrucciones de control de flujo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tipos-de-datos-basicos-de-la-libreria-estandar" class="md-nav__link">
     Tipos de datos básicos (de la librería estándar)
   </a>
@@ -280,13 +287,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instrucciones-de-control-de-flujo" class="md-nav__link">
-    Instrucciones de control de flujo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#funciones" class="md-nav__link">
     Funciones
   </a>
@@ -297,6 +297,26 @@
   <a href="#clases" class="md-nav__link">
     Clases
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failable-initializers" class="md-nav__link">
+    Failable initializers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casting-de-clases" class="md-nav__link">
+    Casting de clases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -531,6 +551,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#instrucciones-de-control-de-flujo" class="md-nav__link">
+    Instrucciones de control de flujo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tipos-de-datos-basicos-de-la-libreria-estandar" class="md-nav__link">
     Tipos de datos básicos (de la librería estándar)
   </a>
@@ -565,13 +592,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instrucciones-de-control-de-flujo" class="md-nav__link">
-    Instrucciones de control de flujo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#funciones" class="md-nav__link">
     Funciones
   </a>
@@ -582,6 +602,26 @@
   <a href="#clases" class="md-nav__link">
     Clases
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failable-initializers" class="md-nav__link">
+    Failable initializers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casting-de-clases" class="md-nav__link">
+    Casting de clases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -616,10 +656,14 @@
               
                 
                 
-                <h1 id="introduccion-basica-a-swift">Introducción básica a Swift<a class="headerlink" href="#introduccion-basica-a-swift" title="Permanent link">&para;</a></h1>
+                <h1 id="introduccion-basica-a-swift-ejercicios-1-punto">Introducción básica a Swift (Ejercicios: 1 punto)<a class="headerlink" href="#introduccion-basica-a-swift-ejercicios-1-punto" title="Permanent link">&para;</a></h1>
 <p>Swift es un lenguaje originalmente desarrollado por Apple para la programación de aplicaciones en las plataformas iOS y OSX. </p>
 <p>Pese a haber sido desarrollado con esta intención, el lenguaje en sí no está limitado a <em>apps</em> móviles o de Mac sino que es un lenguaje de propósito general. </p>
 <p>Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo elementos de programación orientada a objetos sino también de programación funcional.</p>
+<div class="admonition info">
+<p class="admonition-title">Importante</p>
+<p>En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale <strong>1 punto</strong> de la nota total del módulo de iOS.</p>
+</div>
 <h2 id="preliminares">Preliminares<a class="headerlink" href="#preliminares" title="Permanent link">&para;</a></h2>
 <p>En un programa Swift no hay un "main" como en C sino que el código se empieza a ejecutar por la primera instrucción de "nivel superior", es decir las sentencias que no están dentro de funciones.</p>
 <p>Los ";" al final de las sentencias son opcionales.</p>
@@ -655,13 +699,22 @@
 </pre></div>
 </td></tr></table>
 
+<p>Por supuesto a una <strong>constante</strong> no le podemos cambiar el valor una vez asignado:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">c</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="p">=</span> <span class="mi">2</span> <span class="c1">//Error!</span>
+</pre></div>
+</td></tr></table>
+
 <p>El lenguaje es <strong>fuertemente tipado</strong> y no hay conversión automática, no podemos asignar por ejemplo un valor 1.5 a una variable <code>Int</code>, el compilador no va a truncar el valor, pero sí podemos hacer un <em>cast</em></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">i</span> <span class="p">:</span> <span class="nb">Int</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>   <span class="c1">//1</span>
 </pre></div>
 </td></tr></table>
 
-<p>Podemos usar <code>Any</code> para indicar "cualquier tipo". Algunos APIs en los que no se puede saber por adelantado el tipo de retorno lo usan</p>
-<p>Si declaramos una <strong>variable sin inicializar</strong> y la intentamos usar, es un <strong>error</strong> de compilación</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Al igual que <code>Int()</code> convierte al tipo entero, <code>Bool()</code> puede convertir a booleano, por ejemplo a partir de las cadenas "true" y "false". Supongamos que tienes una variable <code>valor="true"</code>. Declara una variable <code>b</code> como de tipo booleano y asígnale <code>valor</code> pero convertida a booleano. </p>
+</div>
 <h2 id="opcionales">Opcionales<a class="headerlink" href="#opcionales" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Los opcionales son prácticamente el mismo concepto que los <em>nullables</em> en Kotlin, compartiendo algunos elementos de sintaxis, aunque también con algunas diferencias prácticas</p>
@@ -732,6 +785,10 @@
 </td></tr></table>
 
 <p>En el ejemplo anterior, si "opcional" contiene un valor se desenvolverá automáticamente y asignará a <code>v</code> y si no, a <code>v</code> se le asignará 0.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Declara una variable "mensaje" como un <code>String</code> opcional. Usando el <code>if let</code> escribe código que haga que si es distinta a <code>nil</code> la imprima, pero si es <code>nil</code> imprima "está vacía". Ten en cuenta que en Swift las llaves son obligatorias siempre en los condicionales aunque solo haya una instrucción.</p>
+</div>
 <h3 id="opcionales-desenvueltos-implicitamente">Opcionales "desenvueltos implícitamente"<a class="headerlink" href="#opcionales-desenvueltos-implicitamente" title="Permanent link">&para;</a></h3>
 <p>También tenemos la posibilidad de definir opcionales pero tratarlos como si no lo fueran, ya que no hace falta desenvolverlos: son los denominados <em>Implicitly unwrapped optionals</em>, declarados con <code>tipo!</code>, por ejemplo: </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -743,6 +800,91 @@
 </td></tr></table>
 
 <p>Esto es útil para variables que la mayor parte del tiempo sabemos que van a tener un valor no <code>nil</code> pero puede haber cierto momento en el flujo de ejecución del programa en que sean <code>nil</code>. Por ejemplo, en iOS cuando se ejecuta nuestro código en respuesta a eventos de usuario (pe.j <em>tap</em>), los componentes de UI ya están inicializados, pero hay ciertos puntos de la aplicación donde todavía no se han creado. </p>
+<h2 id="instrucciones-de-control-de-flujo">Instrucciones de control de flujo<a class="headerlink" href="#instrucciones-de-control-de-flujo" title="Permanent link">&para;</a></h2>
+<p>Hay algunas instrucciones que son muy similares a C/Java, como el <code>if</code> o el <code>while</code> con ciertas diferencias:</p>
+<ul>
+<li>Las condiciones no es necesario ponerlas entre paréntesis</li>
+<li>Aunque un bloque de sentencias tenga una única instrucción <strong>siempre</strong> hay que poner llaves, por ejemplo:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">edad</span><span class="p">&lt;</span><span class="mi">18</span> <span class="p">{</span>
+  <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Lo siento, no puedes entrar a este sitio&quot;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Bienvenido&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>El bucle <code>for</code> más básico es distinto al de C/Java, se usa la sintaxis <code>for _variable_ in _rango_</code>.:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">5</span> <span class="p">{</span> <span class="c1">//desde el 1 hasta el 5, incluidos ambos</span>
+  <span class="bp">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1">// 1 2 3 4 5 </span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">.&lt;</span><span class="mi">3</span> <span class="p">{</span> <span class="c1">//rango semiabierto, llega solo hasta el 2</span>
+  <span class="bp">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">// 1 2 3 4 </span>
+<span class="p">}</span>
+
+<span class="c1">//Si no queremos ir de 1 en 1 podemos usar stride(from:lim_inf,to:lim_sup,by:incremento)</span>
+<span class="c1">//&quot;to&quot; no incluye el límite superior, para incluirlo usar &quot;through&quot; en su lugar</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="bp">stride</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1">//1 3</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la <em>variable anónima</em>, <code>_</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">3</span> <span class="p">{</span>
+  <span class="bp">print</span> <span class="p">(</span><span class="s">&quot;RA &quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Existe una instrucción equivalente al <code>do...while</code> que es el <code>repeat ... while</code> (<code>do</code> es una palabra clave del lenguaje pero en lugar de en bucles se usa en el manejo de errores)</p>
+<p><code>switch</code> es similar a C/Java, pero</p>
+<ul>
+<li>No hace falta <code>break</code> después de cada <code>case</code>. Por defecto cuando salimos de un <code>case</code> se sale del <code>switch</code> </li>
+<li>En los <code>case</code> se puede poner cualquier tipo de datos (Int, Float, String,...), varios valores, rangos, o condiciones.</li>
+<li>Los <code>case</code> deben ser <em>exhaustivos</em>. Es decir deben cubrir todos los posibles valores de la variable (o si son infinitos, como en variables numéricas, al menos debe haber un <code>default</code>)</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">valorCarta</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">switch</span> <span class="n">valorCarta</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">7</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Es un </span><span class="si">\(</span><span class="n">valorCarta</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+  <span class="k">case</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Normalmente no se usan 8 y 9&quot;</span><span class="p">)</span>
+  <span class="k">case</span> <span class="mi">10</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Sota&quot;</span><span class="p">)</span>
+  <span class="k">case</span> <span class="mi">11</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Caballo&quot;</span><span class="p">)</span>
+  <span class="k">case</span> <span class="mi">12</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Rey&quot;</span><span class="p">)</span>
+  <span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">&lt;</span><span class="mi">0</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;WTF! ¿Una carta negativa?&quot;</span><span class="p">)</span>
+  <span class="k">default</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Carta no válida&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="tipos-de-datos-basicos-de-la-libreria-estandar">Tipos de datos básicos (de la librería estándar)<a class="headerlink" href="#tipos-de-datos-basicos-de-la-libreria-estandar" title="Permanent link">&para;</a></h2>
 <h3 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
 <p>Se aplican la mayoría de convenciones habituales: delimitadas por dobles comillas, concatenadas con <code>+</code>,...</p>
@@ -798,7 +940,7 @@
 </td></tr></table>
 
 <p>Podemos concatenar arrays con <code>+</code></p>
-<p>Podemos iterar sobre un array (en general sobre una colección) con <code>for ... in</code></p>
+<p>Podemos iterar sobre un array (en general sobre una colección) con <code>for ... in</code> sin necesidad de usar los índices, iterando directamente por los elementos.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -809,6 +951,10 @@
 </pre></div>
 </td></tr></table>
 
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Cambia este ejemplo por un bucle <code>for</code> en el que se itere usando una variable <code>i</code> con la posición del elemento en la lista, <code>lista[i]</code>. El número de elementos de la lista lo puedes obtener en su propiedad <code>count</code></p>
+</div>
 <h4>Conjuntos</h4>
 <p>Son listas de valores que no se pueden repetir.</p>
 <p>Si lo inicializamos con un valor literal, hay que especificar como tipo <code>Set</code>, si no Swift lo tomaría como un array</p>
@@ -847,77 +993,6 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="instrucciones-de-control-de-flujo">Instrucciones de control de flujo<a class="headerlink" href="#instrucciones-de-control-de-flujo" title="Permanent link">&para;</a></h2>
-<p>Hay algunas instrucciones que son iguales a C/Java, como el <code>if</code> o el <code>while</code> con ciertas diferencias:</p>
-<ul>
-<li>Las condiciones no es necesario ponerlas entre paréntesis</li>
-<li>Aunque un bloque de sentencias tenga una única instrucción <strong>siempre</strong> hay que poner llaves, por ejemplo:</li>
-</ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">edad</span><span class="p">&lt;</span><span class="mi">18</span> <span class="p">{</span>
-  <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Lo siento, no puedes entrar a este sitio&quot;</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Bienvenido&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
-
-<p>Ya hemos visto <code>for ... in</code> con colecciones. También se puede aplicar a <em>rangos</em>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">5</span> <span class="p">{</span>
-  <span class="bp">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">.&lt;</span><span class="mi">3</span> <span class="p">{</span> <span class="c1">//rango semiabierto, llega solo hasta el 2</span>
-  <span class="bp">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
-
-<p>Si solo nos interesa realizar un determinado número de iteraciones y no en cuál estamos,  podemos usar la <em>variable anónima</em>, <code>_</code></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">3</span> <span class="p">{</span>
-  <span class="bp">print</span> <span class="p">(</span><span class="s">&quot;RA &quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
-
-<p>Existe una instrucción equivalente al <code>do...while</code> que es el <code>repeat ... while</code> (<code>do</code> es una palabra clave del lenguaje pero se usa en el manejo de errores)</p>
-<p><code>switch</code> es similar a C/Java, pero
-  * No hace falta <code>break</code> después de cada <code>case</code>. Por defecto cuando salimos de un <code>case</code> se sale del <code>switch</code> 
-  * En los <code>case</code> se puede poner cualquier tipo de datos (Int, Float, String,...), varios valores, rangos, o condiciones.
-  * Los <code>case</code> deben ser <em>exhaustivos</em>. Es decir deben cubrir todos los posibles valores de la variable (o si son infinitos, como en variables numéricas, al menos debe haber un <code>default</code>)</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">valorCarta</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="k">switch</span> <span class="n">valorCarta</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">7</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Es un </span><span class="si">\(</span><span class="n">valorCarta</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-  <span class="k">case</span> <span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Normalmente no se usan 8 y 9&quot;</span><span class="p">)</span>
-  <span class="k">case</span> <span class="mi">10</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Sota&quot;</span><span class="p">)</span>
-  <span class="k">case</span> <span class="mi">11</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Caballo&quot;</span><span class="p">)</span>
-  <span class="k">case</span> <span class="mi">12</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Rey&quot;</span><span class="p">)</span>
-  <span class="k">case</span> <span class="kd">let</span> <span class="nv">x</span> <span class="k">where</span> <span class="n">x</span><span class="p">&lt;</span><span class="mi">0</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;WTF! ¿Una carta negativa?&quot;</span><span class="p">)</span>
-  <span class="k">default</span><span class="p">:</span> <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Carta no válida&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table>
-
 <h2 id="funciones">Funciones<a class="headerlink" href="#funciones" title="Permanent link">&para;</a></h2>
 <p>Para definir una función se usa la sintaxis <code>func nombre(par1:tipo1, par2:tipo2)-&gt;TipoRetorno</code>. Si una función no devuelve nada se omite el <code>-&gt;TipoRetorno</code></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -952,8 +1027,20 @@
 </pre></div>
 </td></tr></table>
 
-<p>Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con <code>let</code>. Podemos cambiar esto marcando el parámetro con <code>inout</code>, que se pone antes del tipo: <code>func ejemplo(par : inout Int)</code>. Para llamar a la función hay que marcar explícitamente el parámetro con un <code>&amp;</code>. <code>ejemplo(par:&amp;valor)</code>.</p>
+<p>Los parámetros no son modificables dentro del cuerpo de la función, es decir, dentro del cuerpo se tratan como si fueran constantes definidas con <code>let</code>. Podemos cambiar esto <a href="https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID173">marcando el parámetro con <code>inout</code></a>.</p>
 <p>Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Implementa una función  <code>filtrar</code> a la que le pases una lista de valores <code>Int</code> y un valor máximo y devuelva una nueva lista con todos los valores que no superan este máximo. El primer parámetro no debe tener etiqueta y el segundo <code>max</code>. Por ejemplo esto devolvería la lista <code>[4 5]</code> (cuidado, swift tiene una función <strong>filter</strong> que hace esto, pero evidentemente no puedes usarla para este ejercicio)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">lista</span> <span class="p">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="kd">var</span> <span class="nv">f</span> <span class="p">=</span> <span class="n">filtrar</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="bp">max</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> 
+<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">//[4,5]</span>
+</pre></div>
+</td></tr></table>
+
+</div>
 <h2 id="clases">Clases<a class="headerlink" href="#clases" title="Permanent link">&para;</a></h2>
 <p>La sintaxis es similar a Java con algunas diferencias:</p>
 <ul>
@@ -1046,7 +1133,50 @@
 
 <p>Las <code>struct</code> se parecen mucho a las clases, mucho más que en C, las veremos en siguientes sesiones</p>
 <p>Para la herencia se usa la notación <code>class ClaseHeredada : ClaseBase</code>, y para sobreescribir un método, <code>override</code></p>
-<p><em>casting</em>: algunas veces ciertos APIs devuelven resultados "sin tipo" (<code>Any</code>), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con <code>as</code>: <code>dato as Clase</code>. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Crea una clase <code>Persona</code> con un <code>nombre</code>, una <code>edad</code> y una propiedad computable booleana <code>adulto</code> que indique si tiene 18 años o más. Comprueba que el siguiente código funciona con tu clase:</p>
+<p><code>`swift
+var p = Persona(nombre:"Pepe", edad:20)
+if p.adulto {
+  print("ADULTO!")
+}</code></p>
+</div>
+<h3 id="failable-initializers">Failable initializers<a class="headerlink" href="#failable-initializers" title="Permanent link">&para;</a></h3>
+<p>Cualquier método,  incluyendo un inicializador, puede devolver un valor opcional. En este último caso, estamos indicando que si algo no es correcto no vamos a devolver una nueva instancia, sino <code>nil</code>. Estos inicializadores se denominan <em>failable initializers</em> y se denotan con <code>init?</code>. Por ejemplo supongamos que nos damos cuenta que no tienen sentido las figuras con número de lados &lt;=2:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Figura</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">numeroDeLados</span> <span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">init</span><span class="p">?(</span><span class="n">lados</span><span class="p">:</span><span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="n">lados</span><span class="p">&gt;</span><span class="mi">2</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">numeroDeLados</span> <span class="p">=</span> <span class="n">lados</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Como vemos, el <em>failable initializer</em> devuelve <em>nil</em> cuando no queremos devolver una instancia de la clase.</p>
+<h3 id="casting-de-clases">Casting de clases<a class="headerlink" href="#casting-de-clases" title="Permanent link">&para;</a></h3>
+<p>Algunas veces ciertos APIs devuelven resultados "sin tipo" (en Swift se pone como<code>Any</code>), pero es posible que nosotros sepamos que una variable es de una determinada clase. Podemos forzar esa conversión con <code>as</code>: <code>dato as Clase</code>. También podemos hacer esto si tenemos una variable de una clase base pero nosotros sabemos que en realidad es una instancia de una clase derivada.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">t</span> <span class="p">=</span> <span class="n">miFigura</span> <span class="k">as</span> <span class="n">Triangulo</span>
+</pre></div>
+</td></tr></table>
+
 <h2 id="extensiones">Extensiones<a class="headerlink" href="#extensiones" title="Permanent link">&para;</a></h2>
 <p>Nos permiten añadir nueva funcionalidad a clases ya existentes, incluso aun sin acceso al código fuente o en clases del sistema. Se pueden añadir por ejemplo nuevos métodos, inicializadores y propiedades computadas. Lo que no se puede hacer es sobreescribir los métodos o propiedades ya existentes.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1070,13 +1200,21 @@
 <p>Se definen de forma similar a C pero no tienen nada que ver, son tipos "por derecho propio", no enteros</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="nc">Direccion</span> <span class="p">{</span>
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="nc">Direccion</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">norte</span><span class="p">,</span> <span class="n">sur</span><span class="p">,</span> <span class="n">este</span><span class="p">,</span> <span class="n">oeste</span>
 <span class="p">}</span>
+
+<span class="kd">var</span> <span class="nv">d</span> <span class="p">=</span> <span class="n">Direccion</span><span class="p">.</span><span class="n">norte</span>
+<span class="c1">//si el compilador ya &quot;sabe&quot; el tipo no hace falta poner el &quot;prefijo&quot; del enumerado (Direccion)</span>
+<span class="kd">var</span> <span class="nv">d2</span> <span class="p">:</span> <span class="n">Direccion</span> <span class="p">=</span> <span class="p">.</span><span class="n">norte</span>  
 </pre></div>
 </td></tr></table>
 
-<p>Pueden tener un valor "interno" (<em>raw</em>), cuyo tipo se indica como si el enumerado heredara de él. Cuando se pone <code>Int</code>, Swift asigna valores comenzando por 0. Accedemos a este valor con <code>rawValue</code>.</p>
+<p>Los enumerados pueden tener un valor "interno" (<em>raw</em>), cuyo tipo se indica como si el enumerado heredara de él. Cuando se pone <code>Int</code>, Swift asigna valores comenzando por 0. Accedemos a este valor con <code>rawValue</code>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -1122,6 +1260,21 @@
 <span class="bp">print</span><span class="p">(</span><span class="n">Direccion</span><span class="p">.</span><span class="n">norte</span><span class="p">.</span><span class="n">inicial</span><span class="p">())</span>   <span class="c1">//&quot;N&quot;</span>
 </pre></div>
 </td></tr></table>
+
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Crea un tipo enumerado <code>DiaSemana</code> para los días de la semana (lunes, martes,...). Su <code>rawValue</code> será <code>Int</code>. Añádele un método <code>cuantoFalta</code> que devuelva el número de días que faltan para el fin de semana o bien 0 si es sábado o domingo. Al probarlo debería ser algo de este estilo:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">dia</span> <span class="p">=</span> <span class="n">DiaSemana</span><span class="p">.</span><span class="n">lunes</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">dia</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span> <span class="c1">//0</span>
+<span class="n">dia</span> <span class="p">=</span> <span class="p">.</span><span class="n">viernes</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">dia</span><span class="p">.</span><span class="n">cuantoFalta</span><span class="p">())</span> <span class="c1">//1</span>
+</pre></div>
+</td></tr></table>
+
+</div>
                 
                   
                 

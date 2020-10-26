@@ -575,8 +575,8 @@
 <p>Para crear la aplicación arrancamos Xcode:</p>
 <ul>
 <li>En las opciones de la izquierda seleccionamos "Create a new Xcode project". </li>
-<li>En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". </li>
-<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code>. Si estamos usando Xcode 11 hay que asegurarse que en el desplegable de <code>User Interface</code> se selecciona <code>Storyboard</code> (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). </li>
+<li>En el siguiente paso elegimos la plantilla "App" (o Single View App" en Xcode &lt;=11), que es la plantilla para apps sencillas de una sola pantalla. </li>
+<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code>. Si estamos usando Xcode &gt;=11 hay que asegurarse que en el desplegable de <code>Interface</code> se selecciona <code>Storyboard</code> (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). </li>
 <li>En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.</li>
 </ul>
 <h2 id="estructura-del-codigo-de-una-aplicacion">Estructura del código de una aplicación<a class="headerlink" href="#estructura-del-codigo-de-una-aplicacion" title="Permanent link">&para;</a></h2>
@@ -591,6 +591,7 @@
 <ul>
 <li><code>AppDelegate</code>: es la clase que gestiona lo que hacer ante los diferentes eventos del ciclo de vida de la aplicación: cuando acaba de arrancar, cuando va a pasar a segundo plano, ...</li>
 <li><code>ViewController</code> es el controlador "inicial" de la aplicación, el que "entra en acción" cuando esta arranca. En nuestro caso además es el único controlador ya que nuestra aplicación solo tiene una pantalla.</li>
+<li><code>SceneDelegate</code>: podríamos tener una aplicación "multiescena" que sería algo así como "multiventana" (aunque no exactamente). Nosotros no usaremos estas funcionalidades así que ignoraremos esta clase por el momento.</li>
 </ul>
 </li>
 <li>
