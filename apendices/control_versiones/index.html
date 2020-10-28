@@ -492,7 +492,10 @@
 <p>Lo más cómodo es guardar primero los datos de nuestra cuenta en Github, para no tener que introducirlos cada vez que hagamos una operación con el repositorio remoto. Para ello nos vamos a las prerencias de Xcode (Menú <code>Xcode</code> &gt; <code>Preferences...</code>, o bien pulsar la tecla <code>Command-,</code> - cmd y una coma) y en la barra de herramientas seleccionamos la opción <code>Accounts</code></p>
 <p><img alt="" src="../imag/accounts.png" /></p>
 <p>Desde esta opción podemos gestionar nuestra cuenta de desarrollador de Apple y también cuentas de terceros como Github, Bitbucket, etc. </p>
-<p>En la esquina inferior izquierda pulsamos sobre el <code>+</code> para añadir una cuenta, seleccionamos el tipo (en nuestro caso "Github") e introducimos usuario y contraseña.</p>
+<p>En la esquina inferior izquierda pulsamos sobre el <code>+</code> para añadir una cuenta y seleccionamos el tipo (en nuestro caso "Github"). Xcode nos pedirá que introduzcamos el usuario de Github y un <em>personal access token</em>, que sustituye a la contraseña de Github para autentificarse a través del API (Xcode usa el API de Github para interactuar con los repositorios)</p>
+<blockquote>
+<p>Desde hace algún tiempo la autentificación en el API de Github mediante contraseña se puede usar todavía pero está <em>deprecated</em>. En su lugar hay que usar un <em>token</em> que <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token">se puede generar</a> desde la página de Github. A partir del 13 de noviembre de 2020 se prevé que la contraseña deje de funcionar para autenticarse en herramientas de terceros (Por supuesto seguirá funcionando en la web de Guthub)</p>
+</blockquote>
 <h3 id="vincular-con-el-repositorio-remoto">Vincular con el repositorio remoto<a class="headerlink" href="#vincular-con-el-repositorio-remoto" title="Permanent link">&para;</a></h3>
 <h4>Repositorio remoto ya creado</h4>
 <p>Si ya hemos creado el repositorio git remoto, solo necesitamos saber su URL. </p>
