@@ -75,9 +75,9 @@ En la parte inferior del editor aparece un mensaje de `View as: iPhone ...` y el
 
 > Debido a la distinta resolución de cada dispositivo, el diseño de pantalla que hagas aquí en principio *solo se va a ver bien en un dispositivo y una orientación concretas*. Para hacer interfaces que se adapten al dispositivo necesitas *autolayout* y *traits* que se verán con posterioridad en el curso.
 
-Vamos a añadir los componentes de la interfaz. Si estás en Xcode 10, en la parte superior derecha de la barra de botones  verás un botón con un cuadrado dentro de un círculo (el primer botón de esta zona). Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.
+Vamos a añadir los componentes de la interfaz. En la parte superior derecha de la barra de botones  verás un botón con un símbolo de un '+'. Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.
 
-> Este botón ha cambiado en las últimas versiones de Xcode. En la 11 tiene un símbolo de un `+`. En la 9 e inferiores no existía, el panel de componentes se veía en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.
+> Este botón ha cambiado en las últimas versiones de Xcode. En la 10 tenía un símbolo de un cuadrado dentro de un círculo. En la 9 e inferiores no existía, el panel de componentes se veía en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.
 
 Primero vamos a hacer el "cartel" con el mensaje  de "Formula una pregunta en voz alta y UAdivino te dará la respuesta". En iOS este tipo de componente es un **`Label`. Búscalo en el panel de componentes y arrástralo a la pantalla** que estamos diseñando. Una vez colocada puedes hacer las operaciones habituales: moverla con el ratón, cambiar su tamaño arrastrando los puntos de las esquinas o editar el contenido con doble clic. **Cambia el texto del `Label`** por un mensaje como "Formula una pregunta en voz alta y UAdivino te dará la respuesta"
 
@@ -109,8 +109,8 @@ Podemos comprobar provisionalmente que el modelo funciona instanciando un `Adivi
 
 ```swift
 let adivino = Adivino()
-for _ in 1..5 {
-    print(obtenerRespuesta())
+for _ in 1...5 {
+    print(adivino.obtenerRespuesta())
 }
 ```
 
@@ -132,7 +132,7 @@ Para recibir eventos de la vista, necesitamos crear un *action*. Esto es lo que 
 Para **crear un *action* que vincule el botón y el controlador** hay que seguir estos pasos en Xcode:
 
 1. Tener abierto el *storyboard* con la pantalla donde está el componente a vincular (en nuestro caso el botón)
-2. Pasar a editar en modo *asistente*, en el que se ve tanto la interfaz como el código. En la esquina superior derecha hay dos grupos de tres botones. El primer grupo cambia el modo de edición. Nos interesa el segundo de los botones, con un icono de "aros entrelazados". Al pulsarlo, el editor se dividirá para mostrar no solo la interfaz sino también el código fuente del controller asociado.
+2. Pasar a editar en modo *asistente*, en el que se ve tanto la interfaz como el código. En la esquina superior derecha hay un icono de unas líneas. Si lño pulsamos aparecerá un menú desplegable con varias opciones, hay que elegir la segunda, "Assistant". El editor se dividirá para mostrar no solo la interfaz sino también el código fuente del controller asociado.
 3. En el código fuente del `ViewController` buscamos un "hueco" donde se pueda crear un método que será el llamado cuando se genere el evento.
 3. Finalmente, para vincular, hacer clic con el ratón sobre el `Button` pero manteniendo pulsada también la tecla `Ctrl`. Sin soltar el ratón, "conectamos" con el código fuente del controller al punto del código del `ViewController`que hemos decidido antes.
 4. Al soltar el botón del ratón nos dará a elegir el tipo de conexión (`Connection`). Seleccionamos `Action`, escribimos el nombre que tendrá el método (por ejemplo `botonPulsado`) y pulsamos el botón `Connect`.
