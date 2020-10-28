@@ -33,8 +33,8 @@ Vamos a implementar una aplicación muy sencilla a la que llamaremos "UAdivino".
 Para crear la aplicación arrancamos Xcode:
 
  - En las opciones de la izquierda seleccionamos "Create a new Xcode project". 
- - En el siguiente paso elegimos la plantilla "Single View App", ya que nuestra aplicación tiene una única "pantalla". 
- - Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino`. Si estamos usando Xcode 11 hay que asegurarse que en el desplegable de `User Interface` se selecciona `Storyboard` (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). 
+ - En el siguiente paso elegimos la plantilla "App" (o Single View App" en Xcode <=11), que es la plantilla para apps sencillas de una sola pantalla. 
+ - Tras darle a `Next`, escribimos el nombre del proyecto, `UAdivino`. Si estamos usando Xcode >=11 hay que asegurarse que en el desplegable de `Interface` se selecciona `Storyboard` (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). 
  - En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.
 
 ## Estructura del código de una aplicación 
@@ -52,6 +52,7 @@ Para no tener que partir de cero, Xcode nos ha creado una plantilla con varias c
 - Clases:
     - `AppDelegate`: es la clase que gestiona lo que hacer ante los diferentes eventos del ciclo de vida de la aplicación: cuando acaba de arrancar, cuando va a pasar a segundo plano, ...
     - `ViewController` es el controlador "inicial" de la aplicación, el que "entra en acción" cuando esta arranca. En nuestro caso además es el único controlador ya que nuestra aplicación solo tiene una pantalla.
+    - `SceneDelegate`: podríamos tener una aplicación "multiescena" que sería algo así como "multiventana" (aunque no exactamente). Nosotros no usaremos estas funcionalidades así que ignoraremos esta clase por el momento.
 
 - Archivos de interfaz de usuario: los `.storyboard`, que constituyen el interfaz gráfico de la aplicación
     + `Main.storyboard`: el interfaz en sí de la *app*, que luego editaremos
