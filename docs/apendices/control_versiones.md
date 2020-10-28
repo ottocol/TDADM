@@ -29,7 +29,7 @@ Desde esta opción podemos gestionar nuestra cuenta de desarrollador de Apple y 
 
 En la esquina inferior izquierda pulsamos sobre el `+` para añadir una cuenta y seleccionamos el tipo (en nuestro caso "Github"). Xcode nos pedirá que introduzcamos el usuario de Github y un *personal access token*, que sustituye a la contraseña de Github para autentificarse a través del API (Xcode usa el API de Github para interactuar con los repositorios)
 
-> Desde hace algún tiempo la autentificación en el API de Github mediante contraseña se puede usar todavía pero está *deprecated*. En su lugar hay que usar un *token* que [se puede generar](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) desde la página de Github. A partir del 13 de noviembre de 2020 se prevé que la contraseña deje de funcionar para autenticarse en herramientas de terceros (Por supuesto seguirá funcionando en la web de Guthub)
+> Desde hace algún tiempo la autentificación en el API de Github mediante contraseña se puede usar todavía pero está *deprecated*. En su lugar hay que usar un *token* que [se puede generar](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) desde la página de Github. A partir del 13 de noviembre de 2020 se prevé que la contraseña deje de funcionar para autenticarse en herramientas de terceros (Por supuesto seguirá funcionando en la web de Github).
 
 ### Vincular con el repositorio remoto
 
