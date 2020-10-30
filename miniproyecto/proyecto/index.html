@@ -369,42 +369,250 @@
 <h1 id="juego-de-las-siete-y-media">Juego de las siete y media<a class="headerlink" href="#juego-de-las-siete-y-media" title="Permanent link">&para;</a></h1>
 <p>Se propone implementar el conocido juego de cartas de "<a href="https://es.wikipedia.org/wiki/Siete_y_media">las 7 y media</a>". </p>
 <p>Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que hace de banca. El usuario va pidiendo cartas una a una hasta que se pasa de 7 y medio o decide plantarse. La máquina no va sacando cartas una a una sino que obtiene una puntuación generada al azar.</p>
-<p>Para crear el proyecto, como siempre elige la plantilla de <code>single view app</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> . </p>
+<p>Para crear el proyecto, como siempre hacemos, elige la plantilla de <code>App</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> y asegúrate que en el interface pone <code>Storyboard</code> (como todas las apps que hemos hecho hasta ahora lo usan ya debería salir por defecto).</p>
 <h2 id="estructura-de-clases-del-modelo-1-punto">Estructura de clases del modelo (1 punto)<a class="headerlink" href="#estructura-de-clases-del-modelo-1-punto" title="Permanent link">&para;</a></h2>
-<p>Ampliaremos el modelo que implementamos en la primera sesión. Ya tenemos el enum <code>Palo</code> y las clases <code>Carta</code> y <code>Mano</code>. Vamos a añadir las clases necesarias para el juego: la <code>Baraja</code> y el propio <code>Juego</code></p>
+<p>Necesitáis implementar primero <strong>el enum <code>Palo</code> y las clases <code>Carta</code> y <code>Mano</code></strong>. Estos <a href="../../s1/ejercicios/">se proponían como ejercicio</a> el primer día de clase, aunque es muy posible que no os haya dado tiempo a hacerlos, podéis hacerlos ahora. </p>
+<p>Además hay que añadir dos clases necesarias para poder jugar: la <code>Baraja</code> y el propio <code>Juego</code></p>
 <h2 id="clase-baraja">Clase <code>Baraja</code><a class="headerlink" href="#clase-baraja" title="Permanent link">&para;</a></h2>
-<p>todas las cartas de la baraja</p>
+<p>Todas las cartas de la baraja. Del 1 al 12 de los cuatro palos, menos 8 y 9</p>
 <ul>
 <li>Propiedades: <code>cartas</code>, un array de <code>Carta</code></li>
-<li>Métodos:<ul>
-<li>El Inicializador debe rellenar el array de cartas con todas las cartas de la baraja</li>
-<li><code>repartirCarta</code>: obtiene la última carta de la baraja y la elimina de ella. Podéis hacer esto por ejemplo con <a href="https://developer.apple.com/reference/swift/array/1539777-poplast"><code>popLast()</code></a> </li>
-<li><code>barajar</code>: debe cambiar al azar el orden de las cartas en el <code>Array</code>. Una forma de implementar esto es usar el método <code>shuffle()</code> del <code>Array</code>.</li>
+<li>
+<p>Métodos:</p>
+<ul>
+<li>El <code>init()</code> debe rellenar el array de cartas con todas las cartas de la baraja. Podéis ir generando todos los números de todos los palos con un bucle doble de este estilo:</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">palo</span> <span class="k">in</span> <span class="p">[</span><span class="n">Palo</span><span class="p">.</span><span class="n">bastos</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">espadas</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">copas</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">oros</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">valor</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">12</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">valor</span> <span class="o">!=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">valor</span> <span class="o">!=</span> <span class="mi">9</span> <span class="p">{</span>  <span class="c1">//El 8 y el 9 no se suelen usar</span>
+            <span class="c1">//Aquí crearíais la nueva carta y la añadiríais al array &quot;cartas&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>repartirCarta()</code>: devuelve la última carta de la baraja y la elimina de ella. Es lo que hace exactamente el método de la clase Array <a href="https://developer.apple.com/reference/swift/array/1539777-poplast"><code>popLast()</code></a>, devolver el último valor de un array y eliminarlo de él. </li>
+<li><code>barajar()</code>: debe cambiar al azar el orden de las cartas en el <code>Array</code>. Esto lo hace directamente el método <code>shuffle()</code> del <code>Array</code>.</li>
 </ul>
 </li>
 </ul>
 <h3 id="clase-juego">Clase <code>Juego</code><a class="headerlink" href="#clase-juego" title="Permanent link">&para;</a></h3>
-<p>La estructura es libre ya que depende de vuestra implementación. No obstante, tened en cuenta que vais a necesitar métodos para:</p>
-<ul>
-<li>Sumar las cartas que hay en una mano, teniendo en cuenta que el 10,11 y 12 valen medio punto, y el resto su valor</li>
-<li>Que el jugador saque una carta</li>
-<li>Que el jugador se plante</li>
-<li>acabar el juego y calcular el resultado</li>
-<li>...</li>
-</ul>
+<p>Es la clase que implementa las reglas del juego de las siete y media. Os dejo aquí una implementación que podéis usar para no gastar demasiado tiempo haciendo la vuestra propia. No obstante, como veremos luego, tendréis que añadirle alguna cosa.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//Esto de momento no se usa, pero luego sí, ya que necesitaremos notificaciones</span>
+<span class="kd">import</span> <span class="nc">Foundation</span>
+
+
+<span class="kd">enum</span> <span class="nc">EstadoJuego</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">turnoJugador</span><span class="p">,</span> <span class="n">ganaJugador</span><span class="p">,</span> <span class="n">pierdeJugador</span><span class="p">,</span> <span class="n">empate</span><span class="p">,</span> <span class="n">noIniciado</span>
+<span class="p">}</span>
+
+<span class="c1">//Versión simplificada de las 7 y media en la que la máquina no saca cartas una a una</span>
+<span class="c1">//sino que simula la jugada generando un valor al azar entre 1 y 7.5 (no se pasa nunca!)</span>
+<span class="kd">class</span> <span class="nc">Juego</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">baraja</span> <span class="p">:</span> <span class="n">Baraja</span><span class="p">!</span>
+    <span class="kd">var</span> <span class="nv">manoJugador</span> <span class="p">:</span> <span class="n">Mano</span><span class="p">!</span>
+    <span class="kd">var</span> <span class="nv">estado</span> <span class="p">:</span> <span class="n">EstadoJuego</span>
+    <span class="kd">var</span> <span class="nv">jugadaMaquina</span> <span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mf">0.0</span>
+
+    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="n">EstadoJuego</span><span class="p">.</span><span class="n">noIniciado</span>
+    <span class="p">}</span>
+
+    <span class="c1">//LLamar a este método cuando se pulse el botón de &quot;comenzar partida&quot;</span>
+    <span class="kd">func</span> <span class="nf">comenzarPartida</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">baraja</span> <span class="p">=</span> <span class="n">Baraja</span><span class="p">()</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">baraja</span><span class="p">.</span><span class="n">barajar</span><span class="p">()</span>
+
+        <span class="kc">self</span><span class="p">.</span><span class="n">manoJugador</span> <span class="p">=</span> <span class="n">Mano</span><span class="p">()</span>
+        <span class="c1">//generamos un valor al azar entre 1 y 7.5. La máquina nunca se pasa</span>
+        <span class="c1">//primero generamos un valor entre 1 y 7</span>
+        <span class="n">jugadaMaquina</span> <span class="p">=</span> <span class="nb">Double</span><span class="p">(</span><span class="nb">Int</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">7</span><span class="p">))</span>
+        <span class="c1">//y luego el 50% de las veces le sumamos 0.5</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">Bool</span><span class="p">.</span><span class="n">random</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">jugadaMaquina</span> <span class="o">+=</span> <span class="mf">0.5</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//LLamar a este método cuando se pulse el botón de &quot;Pedir carta&quot;</span>
+    <span class="kd">func</span> <span class="nf">jugadorPideCarta</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="kd">let</span> <span class="nv">pedida</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">baraja</span><span class="p">.</span><span class="n">repartirCarta</span><span class="p">()</span> <span class="p">{</span>
+            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Sacas </span><span class="si">\(</span><span class="n">pedida</span><span class="p">.</span><span class="n">descripcion</span><span class="si">())</span><span class="s">&quot;</span><span class="p">)</span>
+            <span class="kc">self</span><span class="p">.</span><span class="n">manoJugador</span><span class="p">.</span><span class="n">addCarta</span><span class="p">(</span><span class="n">pedida</span><span class="p">)</span>
+            <span class="kd">let</span> <span class="nv">valorMano</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sumarManoJugador</span><span class="p">()</span>
+            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Llevas </span><span class="si">\(</span><span class="n">valorMano</span><span class="si">)</span><span class="s"> puntos&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&gt;</span><span class="mf">7.5</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">acabarPartida</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//LLamar a este método cuando se pulse el botón de &quot;Plantarse&quot;</span>
+    <span class="kd">func</span> <span class="nf">jugadorSePlanta</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">acabarPartida</span><span class="p">()</span>
+    <span class="p">}</span>
+
+
+    <span class="c1">//Métodos para uso interno de la clase, no es necesario llamarlos desde fuera</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">acabarPartida</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">valorMano</span> <span class="p">=</span> <span class="n">sumarManoJugador</span><span class="p">()</span>
+        <span class="kd">var</span> <span class="nv">mensaje</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&gt;</span><span class="mf">7.5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Te has pasado!!!, la máquina tenía </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">jugadaMaquina</span><span class="si">)</span><span class="s">&quot;</span>
+            <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">pierdeJugador</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&gt;</span><span class="n">jugadaMaquina</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Ganas!!!, la máquina tiene </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">jugadaMaquina</span><span class="si">)</span><span class="s">&quot;</span>
+                <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">ganaJugador</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&lt;</span><span class="n">jugadaMaquina</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Pierdes!!!, la máquina tiene </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">jugadaMaquina</span><span class="si">)</span><span class="s">&quot;</span>
+                <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">pierdeJugador</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Empate!!!&quot;</span>
+                <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">empate</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="bp">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+
+        <span class="c1">//TO-DO: FALTA enviar notificación indicando que la partida ha terminado,</span>
+        <span class="c1">//para que el ViewController se entere y muestre el resultado gráficamente (con UIAlertController)</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">sumarManoJugador</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">total</span> <span class="p">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">carta</span> <span class="k">in</span> <span class="kc">self</span><span class="p">.</span><span class="n">manoJugador</span><span class="p">.</span><span class="n">cartas</span> <span class="p">{</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">valor</span><span class="p">(</span><span class="n">de</span><span class="p">:</span><span class="n">carta</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">total</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">valor</span><span class="p">(</span><span class="n">de</span> <span class="n">carta</span><span class="p">:</span><span class="n">Carta</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">valor</span><span class="p">&gt;=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+           <span class="k">return</span> <span class="mf">0.5</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+           <span class="k">return</span> <span class="nb">Double</span><span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">valor</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Para simplificar el juego, en esta implementación la máquina no saca cartas de verdad, una a una. Se genera una puntuación al azar entre 1 y 7.5 y se informa al usuario de la puntuación que ha sacado. Para que el juego así tenga sentido, primero juega el jugador humano y luego la máquina.</p>
 <h2 id="interfaz-grafico-simplificado-1-punto">Interfaz gráfico simplificado (1 punto)<a class="headerlink" href="#interfaz-grafico-simplificado-1-punto" title="Permanent link">&para;</a></h2>
 <p>El <code>ViewController</code> contendrá una instancia de la clase <code>Juego</code>.</p>
 <blockquote>
 <p>Es normal que el <code>ViewController</code> tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al <em>controller</em>, para poder reutilizarlo independientemente de la interfaz gráfica. El <em>controller</em> puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.</p>
 </blockquote>
 <p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code>.</p>
-<blockquote>
-<p>En esta versión simplificada no es necesario habilitar/deshabilitar los botones según la situación del juego (por ejemplo no hace falta deshabilitar "pedir carta" cuando la partida se ha terminado). No pasa nada si pulsar los botones de forma inconsistente da errores, ya que luego los deshabilitaremos.</p>
-</blockquote>
-<p>Además, para simplificar la mecánica del juego no es necesario que la máquina "saque cartas de verdad". Basta con generar una puntuación al azar e informar al usuario de la puntuación que ha sacado. Para que el juego tenga sentido así primero debería jugar el jugador humano y luego la máquina.</p>
-<blockquote>
-<p><strong>La versión anterior es solo una idea, podéis implementar cualquier variante que queráis</strong>, o cualquier mejora, incluyendo que la máquina saque cartas una por una, apostar una cantidad,...</p>
-</blockquote>
 <h2 id="completar-la-interfaz-1-punto">Completar la interfaz (1 punto)<a class="headerlink" href="#completar-la-interfaz-1-punto" title="Permanent link">&para;</a></h2>
 <p>En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).</p>
 <h3 id="anadir-las-imagenes-de-las-cartas-al-proyecto">Añadir las imágenes de las cartas al proyecto<a class="headerlink" href="#anadir-las-imagenes-de-las-cartas-al-proyecto" title="Permanent link">&para;</a></h3>
@@ -414,14 +622,13 @@
 <p>Cada vez que dibujemos en pantalla una carta estamos añadiendo a la pantalla actual un <code>UIImageView</code>. Tenemos que guardar referencias a todas las imágenes añadidas para poder borrarlas cuando acabe la partida. Definiremos esta propiedad en el <em>view controller</em> para guardarlas</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//propiedad de ViewController.swift</span>
-<span class="kd">var</span> <span class="nv">vistasCartas</span> <span class="p">=</span> <span class="p">[</span><span class="bp">UIImageView</span><span class="p">]()</span>
+<span class="kd">var</span> <span class="nv">vistasCartas</span> <span class="p">:</span> <span class="p">[</span><span class="bp">UIImageView</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span> 
 </pre></div>
 </td></tr></table>
 
-<p>En lugar de dibujar las cartas directamente en su posición, podemos hacerlo fuera de la pantalla (es decir, con el origen del <em>frame</em> en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función dibuja una carta con el efecto descrito. La <code>posicion</code> es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...</p>
-<p>En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla.</p>
+<p>En lugar de dibujar las cartas directamente en su posición final, podemos hacerlo fuera de la pantalla (es decir, con el origen del <em>frame</em> en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función <code>dibujarCarta(carta: Carta, posicion : Int)</code> dibuja una carta con el efecto descrito. La <code>posicion</code> es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...</p>
 <blockquote>
-<p>Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en <a href="http://iosres.com">http://iosres.com</a> 
+<p>En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla. Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en <a href="http://iosres.com">http://iosres.com</a> 
 IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerado <code>Palo</code> debe tener un valor "interno" de tipo <code>String</code>. Esto lo puedes conseguir simplemente poniendo <code>enum Palo : String</code> en la definición del tipo.</p>
 </blockquote>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -448,7 +655,7 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
 22
 23
 24
-25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nf">dibujarCarta</span><span class="p">(</span><span class="n">carta</span><span class="p">:</span> <span class="n">Carta</span><span class="p">,</span> <span class="n">enPosicion</span> <span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">func</span> <span class="nf">dibujarCarta</span><span class="p">(</span><span class="n">carta</span><span class="p">:</span> <span class="n">Carta</span><span class="p">,</span> <span class="n">posicion</span> <span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nv">nombreImagen</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">valor</span><span class="p">)</span><span class="o">+</span><span class="nb">String</span><span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">palo</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span>
     <span class="c1">//creamos un objeto imagen</span>
     <span class="kd">let</span> <span class="nv">imagenCarta</span> <span class="p">=</span> <span class="bp">UIImage</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="n">nombreImagen</span><span class="p">)</span>
@@ -468,7 +675,7 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
     <span class="c1">//Animación de repartir carta</span>
     <span class="bp">UIView</span><span class="p">.</span><span class="n">animate</span><span class="p">(</span><span class="n">withDuration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">){</span>
         <span class="c1">//&quot;efecto caida&quot;: la llevamos a la posición final</span>
-        <span class="n">cartaView</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="bp">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="mi">50</span><span class="o">+</span><span class="mi">70</span><span class="o">*</span><span class="p">(</span><span class="n">enPosicion</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="mi">100</span><span class="p">);</span>
+        <span class="n">cartaView</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="bp">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="mi">50</span><span class="o">+</span><span class="mi">70</span><span class="o">*</span><span class="p">(</span><span class="n">posicion</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="mi">100</span><span class="p">);</span>
         <span class="c1">//0 como ángulo &quot;destino&quot;, para que rote mientras &quot;cae&quot;</span>
         <span class="n">cartaView</span><span class="p">.</span><span class="n">transform</span> <span class="p">=</span> <span class="bp">CGAffineTransform</span><span class="p">(</span><span class="n">rotationAngle</span><span class="p">:</span><span class="mi">0</span><span class="p">);</span>
     <span class="p">}</span>
@@ -509,6 +716,11 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
 <li>Para que se vea gráficamente que un botón está deshabilitado podéis ponerle un color distinto según el estado. Teniendo seleccionado el botón, en el <code>Attributes inspector</code> de la parte derecha de la pantalla, seleccionar el estado que nos interese en el desplegable. Al elegir colores (<em>text</em>, <em>shadow</em>, ...) serán los fijados para ese estado. </li>
 </ul>
 <p><img alt="" src="../images/estilos_boton.gif" /></p>
+<p>Un problema es cómo enterarnos en el ViewController de que la partida ha acabado para habilitar y deshabilitar los correspondientes botones, y para mostrar el resultado con un cuadro de diálogo. Podemos hacerlo con notificaciones:</p>
+<ul>
+<li>Añadir código Swift a la función <code>acabarPartida()</code> de la clase <code>Juego</code> para que se envíe una notificación con el nombre y contenido que queráis (como contenido debería tener como mínimo una frase resumiendo el resultado del juego para que podáis mostrarlo).</li>
+<li>Añadir código Swift al <code>ViewController</code> para que si se recibe la notificación se ejecute un método de éste que habilite/deshabilite botones y muestre el resultado</li>
+</ul>
 <h3 id="como-mostrar-mensajes-al-usuario">Cómo mostrar mensajes al usuario<a class="headerlink" href="#como-mostrar-mensajes-al-usuario" title="Permanent link">&para;</a></h3>
 <p>Podéis mostrar el resultado del juego ("has ganado", "te has pasado",...) con un <code>UIAlertController</code>, que hará aparecer el típico cuadro de diálogo modal. El siguiente código muestra un cuadro que pone "¡¡Has perdido!!", con el título "Fin del juego", y con un único botón de "OK" que no hace nada especial, más que quitar el cuadro de diálogo. </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
