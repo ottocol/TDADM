@@ -9,7 +9,10 @@ Es un lenguaje bastante completo y con muchas funcionalidades, pero también pen
 
 !!! info "Importante"
 
-    En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale **1 punto** de la nota total del módulo de iOS.
+    En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale **1 punto** de la nota total del módulo de iOS. Para escribir el código de estos ejercicios tienes dos opciones (escoge la que prefieras):
+
+    - Lo más recomendable es usar un *playground* de Xcode (aqui tienes un [mini-tutorial](https://www.youtube.com/watch?v=bOXr2uEfRYw) de cómo abrirlo y usarlo). Luego tendrás que entregar el archivo `.playground` que hayas creado. 
+    - Otra opción es probar el código en un [compilador online](https://replit.com/languages/swift) y luego copiar y pegar el código en un archivo de texto para entregarlo.
 
 ## Preliminares
 
