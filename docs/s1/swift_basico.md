@@ -11,13 +11,13 @@ Es un lenguaje bastante completo y con muchas funcionalidades, pero también pen
 
     En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale **1 punto** de la nota total del módulo de iOS.
 
-## Preliminares 
+## Preliminares
 
 En un programa Swift no hay un "main" como en C sino que el código se empieza a ejecutar por la primera instrucción de "nivel superior", es decir las sentencias que no están dentro de funciones.
 
 Los ";" al final de las sentencias son opcionales.
 
-## Variables y constantes 
+## Variables y constantes
 
 Swift tiene una serie de tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
 
@@ -39,8 +39,8 @@ var f2 : Float = 1.5
 
 ```swift
 var i = 1
-print(type(of:i))       //Int
-type(of:i)==Float.self  //true
+print(type(of:i))     //Int
+type(of:i)==Int.self  //true. Para representar un tipo en el código se pone con .self
 ```
 
 Por supuesto a una **constante** no le podemos cambiar el valor una vez asignado:
@@ -56,10 +56,10 @@ El lenguaje es **fuertemente tipado** y no hay conversión automática, no podem
 var i : Int = Int(1.5)   //1
 ```
 
-!!! note "Ejercicio"
-    Al igual que `Int()` convierte al tipo entero, `Bool()` puede convertir a booleano, por ejemplo a partir de las cadenas "true" y "false". Supongamos que tienes una variable `valor="true"`. Declara una variable `b` como de tipo booleano y asígnale `valor` pero convertida a booleano. 
+!!! note "Ejercicio 1"
+    Al igual que `Int()` convierte al tipo entero, `Bool()` puede convertir a booleano, por ejemplo a partir de las cadenas "true" y "false". Supongamos que tienes una constante `let valor="true"`. Declara una variable `b` como de tipo booleano y asígnale `valor` pero convertida a booleano. 
 
-## Opcionales 
+## Opcionales
 
 > Los opcionales son prácticamente el mismo concepto que los *nullables* en Kotlin, compartiendo algunos elementos de sintaxis, aunque también con algunas diferencias prácticas
 
@@ -127,7 +127,7 @@ var v = opcional ?? 0
 
 En el ejemplo anterior, si "opcional" contiene un valor se desenvolverá automáticamente y asignará a `v` y si no, a `v` se le asignará 0.
 
-!!! note "Ejercicio"
+!!! note "Ejercicio 2"
     Declara una variable "mensaje" como un `String` opcional. Usando el `if let` escribe código que haga que si es distinta a `nil` la imprima, pero si es `nil` imprima "está vacía". Ten en cuenta que en Swift las llaves son obligatorias siempre en los condicionales aunque solo haya una instrucción.
 
 ### Opcionales "desenvueltos implícitamente"
@@ -142,7 +142,7 @@ print(valor)
 
 Esto es útil para variables que la mayor parte del tiempo sabemos que van a tener un valor no `nil` pero puede haber cierto momento en el flujo de ejecución del programa en que sean `nil`. Por ejemplo, en iOS cuando se ejecuta nuestro código en respuesta a eventos de usuario (pe.j *tap*), los componentes de UI ya están inicializados, pero hay ciertos puntos de la aplicación donde todavía no se han creado. 
 
-## Instrucciones de control de flujo 
+## Instrucciones de control de flujo
 
 Hay algunas instrucciones que son muy similares a C/Java, como el `if` o el `while` con ciertas diferencias:
 
@@ -204,7 +204,7 @@ switch valorCarta {
 }
 ```
 
-## Tipos de datos básicos (de la librería estándar)  
+## Tipos de datos básicos (de la librería estándar)
 
 ### String
 
@@ -229,7 +229,7 @@ var mensaje = """
 """     
 ```
 
-### Colecciones: arrays, conjuntos y diccionarios 
+### Colecciones: arrays, conjuntos y diccionarios
 
 #### Arrays
 
@@ -267,7 +267,7 @@ for ingrediente in bizcocho {
 }
 ```
 
-!!! Ejercicio
+!!! note "Ejercicio 3"
     Cambia este ejemplo por un bucle `for` en el que se itere usando una variable `i` con la posición del elemento en la lista, `lista[i]`. El número de elementos de la lista lo puedes obtener en su propiedad `count`
 
 #### Conjuntos
@@ -285,7 +285,7 @@ Algunas operaciones: `insert(_)`, `remove(_)`, operaciones de conjuntos: `set1.u
 Se puede iterar con `for ... in` como en los arrays
 
 
-### Diccionarios 
+### Diccionarios
 
 Son listas de pares clave/valor. Lo que en Java serían HashMaps o Maps en Javascript
 
@@ -314,7 +314,7 @@ for (nombre, instrumento) in grupo {
 }
 ```
 
-## Funciones 
+## Funciones
 
 Para definir una función se usa la sintaxis `func nombre(par1:tipo1, par2:tipo2)->TipoRetorno`. Si una función no devuelve nada se omite el `->TipoRetorno`
 
@@ -347,7 +347,7 @@ Los parámetros no son modificables dentro del cuerpo de la función, es decir, 
 
 Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto se pueden pasar como parámetro y una función puede devolver otra función
 
-!!! Ejercicio
+!!! note "Ejercicio 4"
     Implementa una función  `filtrar` a la que le pases una lista de valores `Int` y un valor máximo y devuelva una nueva lista con todos los valores que no superan este máximo. El primer parámetro no debe tener etiqueta y el segundo `max`. Por ejemplo esto devolvería la lista `[4 5]` (cuidado, swift tiene una función **filter** que hace esto, pero evidentemente no puedes usarla para este ejercicio)
 
     ```swift
@@ -357,7 +357,9 @@ Las funciones son "ciudadanos de primera clase", al igual que cualquier objeto s
     ```
 
 
-## Clases 
+## Clases
+
+### Sintaxis básica
 
 La sintaxis es similar a Java con algunas diferencias:
 
@@ -381,7 +383,9 @@ let hexagono = Figura(lados:6);
 print (hexagono.descripcion())
 ```
 
-Propiedades computadas: son *getters*/*setters*, desde "fuera" parecen propiedades pero en realidad son métodos
+### Propiedades computadas
+
+Son *getters*/*setters*, desde "fuera" parecen propiedades pero en realidad son métodos
 
 ```swift
 class Figura {
@@ -411,27 +415,29 @@ Los objetos se pasan por referencia igual que en Java
 
 ```swift
 let h1 = Figura(lados:6)
-//no es copia, sino referencia. h2 y h2 "apuntan" al mismo objeto
-let h2 = h1
+let h2 = h1  //no es copia, sino referencia. h1 y h2 "apuntan" al mismo objeto
 h2.lados = 5
 print(h1.descripcion)  //Una figura con 5 lados  (!!)
 ```
 
-Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en siguientes sesiones
+Las `struct` se parecen mucho a las clases, mucho más que en C, las veremos en siguientes sesiones.
 
-Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para sobreescribir un método, `override`
-
-
-!!! Ejercicio
+!!! note "Ejercicio 5"
     Crea una clase `Persona` con un `nombre`, una `edad` y una propiedad computable booleana `adulto` que indique si tiene 18 años o más. Comprueba que el siguiente código funciona con tu clase:
 
     ```swift
     var p = Persona(nombre:"Pepe", edad:20)
+    //debería imprimir ADULTO! ya que la edad de la persona es >= 18
     if p.adulto {
       print("ADULTO!")
     } 
-    ``
+    ```
 
+### Herencia
+
+Para la herencia se usa la notación `class ClaseHeredada : ClaseBase`, y para sobreescribir un método, `override`
+
+`
 ### Failable initializers
 
 Cualquier método,  incluyendo un inicializador, puede devolver un valor opcional. En este último caso, estamos indicando que si algo no es correcto no vamos a devolver una nueva instancia, sino `nil`. Estos inicializadores se denominan *failable initializers* y se denotan con `init?`. Por ejemplo supongamos que nos damos cuenta que no tienen sentido las figuras con número de lados <=2:
@@ -461,7 +467,7 @@ Algunas veces ciertos APIs devuelven resultados "sin tipo" (en Swift se pone com
 var t = miFigura as Triangulo
 ```
 
-## Extensiones 
+## Extensiones
 
 Nos permiten añadir nueva funcionalidad a clases ya existentes, incluso aun sin acceso al código fuente o en clases del sistema. Se pueden añadir por ejemplo nuevos métodos, inicializadores y propiedades computadas. Lo que no se puede hacer es sobreescribir los métodos o propiedades ya existentes.
 
@@ -480,7 +486,7 @@ print("mami".reggaetonizar())  //mami ya tú sabes
 ```
 
 
-## Enumerados 
+## Enumerados
 
 Se definen de forma similar a C pero no tienen nada que ver, son tipos "por derecho propio", no enteros
 
@@ -528,7 +534,7 @@ enum Direccion: String {
 print(Direccion.norte.inicial())   //"N"
 ```
 
-!!! Ejercicio
+!!! note "Ejercicio 6"
     Crea un tipo enumerado `DiaSemana` para los días de la semana (lunes, martes,...). Su `rawValue` será `Int`. Añádele un método `cuantoFalta` que devuelva el número de días que faltan para el fin de semana o bien 0 si es sábado o domingo. Al probarlo debería ser algo de este estilo:
 
     ```swift
