@@ -13,7 +13,7 @@ nav:
   - Internacionalización de aplicaciones iOS: 's4/i18n.md'
   # - Ejercicio de i18n: 's4/ejercicio_i18n.md'
   # - Miniproyecto. Juego de las siete y media: 'miniproyecto/proyecto.md'
-    - Apéndice 1. Control de versiones en Xcode: 'apendices/control_versiones.md'
+  - Apéndice 1. Control de versiones en Xcode: 'apendices/control_versiones.md'
   # - Apéndice 2. Testing en Xcode: 's5/testing.md'
   
 
