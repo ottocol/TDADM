@@ -204,6 +204,205 @@
   
 
     
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introducción a las aplicaciones iOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Introducción a las aplicaciones iOS
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#patron-general-para-una-aplicacion-ios-mvc" class="md-nav__link">
+    Patrón general para una aplicación iOS: MVC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comenzando-nuestra-primera-aplicacion-ios" class="md-nav__link">
+    Comenzando nuestra primera aplicación iOS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-del-codigo-de-una-aplicacion" class="md-nav__link">
+    Estructura del código de una aplicación
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-plantilla-creada-por-xcode" class="md-nav__link">
+    La plantilla creada por Xcode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-la-interfaz-la-vista" class="md-nav__link">
+    Creación de la interfaz (la vista)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-del-modelo" class="md-nav__link">
+    Implementación del modelo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-del-controlador" class="md-nav__link">
+    Implementación del controlador
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementación del controlador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recibir-eventos-de-la-vista" class="md-nav__link">
+    Recibir eventos de la vista
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llamar-al-modelo" class="md-nav__link">
+    Llamar al modelo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificar-la-vista" class="md-nav__link">
+    Modificar la vista
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursos/" class="md-nav__link">
+        Recursos en aplicaciones iOS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejercicios/" class="md-nav__link">
+        Ejercicios sobre aplicaciones iOS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s3/intro_swift_2/" class="md-nav__link">
+        Más sobre Swift
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s4/i18n/" class="md-nav__link">
+        Internacionalización de aplicaciones iOS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apendices/control_versiones/" class="md-nav__link">
+        Apéndice 1. Control de versiones en Xcode
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -342,13 +541,17 @@
 </ul>
 <h2 id="comenzando-nuestra-primera-aplicacion-ios">Comenzando nuestra primera aplicación iOS<a class="headerlink" href="#comenzando-nuestra-primera-aplicacion-ios" title="Permanent link">&para;</a></h2>
 <p>Vamos a implementar una aplicación muy sencilla a la que llamaremos "UAdivino". Es una versión del clásico juguete "<a href="https://es.wikipedia.org/wiki/Magic_8-Ball">la bola 8 mágica</a>", a la que se le formula una pregunta y que supuestamente responde, dando en realidad respuestas genéricas: "sí", "¡claro que no!", "es muy posible",...</p>
-<p>Para crear la aplicación arrancamos Xcode:</p>
+<p>Para crear la aplicación arrancamos Xcode, aparecerá el asistente inicial, que es un cuadro de diálogo titulado "Welcome to Xcode"</p>
 <ul>
 <li>En las opciones de la izquierda seleccionamos "Create a new Xcode project". </li>
-<li>En el siguiente paso elegimos la plantilla "App" (o Single View App" en Xcode &lt;=11), que es la plantilla para apps sencillas de una sola pantalla. </li>
-<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto, <code>UAdivino</code>. Si estamos usando Xcode &gt;=11 hay que asegurarse que en el desplegable de <code>Interface</code> se selecciona <code>Storyboard</code> (SwiftUI, la otra opción de la interfaz, no la usaremos de momento). </li>
-<li>En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos.</li>
+<li>En el siguiente paso elegimos la plantilla "App" asegurándonos que en el menú de opciones está marcado "iOS" y no "multiplatform" como aparece por defecto la primera vez</li>
+<li>Tras darle a <code>Next</code>, escribimos el nombre del proyecto o "product name", en nuestro caso <code>UAdivino</code>. <strong>Hay que asegurarse que en el desplegable de <code>Interface</code> se selecciona <code>Storyboard</code></strong> (SwiftUI no lo usaremos de momento). También podemos desmarcar la casilla "Include Tests" ya que tampoco los usaremos todavía.</li>
+<li>En la última pantalla del asistente podemos seleccionar la carpeta donde guardar el proyecto. Elegimos la que queramos. Además <strong>marcad "Create git repository on my Mac"</strong> para crear un repositorio git para el proyecto</li>
+<li>Finalmente pulsad el botón "Create" y aparecerá la plantilla básica creada por Xcode, cuya estructura veremos a continuación.</li>
 </ul>
+<blockquote>
+<p>Si es el primer proyecto Xcode que creas con repositorio git asociado aparecerá un cuadro de diálogo diciendo que no hay información de autor para el control de versiones. Dándole a <code>Fix...</code> aparecerá un diálogo donde podremos poner el nombre y email del usuario que aparecerá como autor de los commits.</p>
+</blockquote>
 <h2 id="estructura-del-codigo-de-una-aplicacion">Estructura del código de una aplicación<a class="headerlink" href="#estructura-del-codigo-de-una-aplicacion" title="Permanent link">&para;</a></h2>
 <p>La siguiente figura, tomada de la "<a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide">App programming guide for iOS</a>" de Apple, muestra los elementos básicos de cualquier aplicación iOS. Podemos distinguir la parte del modelo, la del controlador y la de la vista. Nótese que no hay un único controlador ni una única vista. En general, podríamos decir que por cada "pantalla" de nuestra aplicación tendremos un controlador "principal" que controla una vista. Esa vista a su vez está formada por una jerarquía de <em>subvistas</em> (paneles, botones, <em>sliders</em>,...). Esto no hay que tomarlo literalmente, ya que en una "pantalla" puede haber más de un controlador, pero es útil para hacerse una idea aproximada.</p>
 <p><img alt="" src="../imag/app_structure.png" /></p>
@@ -480,6 +683,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../../s1/ejercicios/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Ejercicios de Swift básico" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Ejercicios de Swift básico
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../recursos/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Recursos en aplicaciones iOS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Recursos en aplicaciones iOS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
