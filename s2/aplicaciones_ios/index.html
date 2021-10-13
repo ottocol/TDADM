@@ -603,9 +603,7 @@
 <h2 id="implementacion-del-modelo">Implementación del modelo<a class="headerlink" href="#implementacion-del-modelo" title="Permanent link">&para;</a></h2>
 <p>En esta <em>app</em> el modelo lo único que debe hacer es generar respuestas al azar a demanda. Lo podemos implementar en una clase <code>Adivino</code> que tenga un método <code>obtenerRespuesta</code></p>
 <p>Para colocar el código de la clase debemos crear un archivo Swift: en Xcode, <code>File &gt; New &gt; File...</code> y en el asistente seleccionamos la plantilla "Swift File". Lo guardamos en la misma carpeta <code>UAdivino</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">Foundation</span>
-
-<span class="kd">class</span> <span class="nc">Adivino</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Adivino</span> <span class="p">{</span>
     <span class="kd">func</span> <span class="nf">obtenerRespuesta</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nv">respuestas</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Si&quot;</span><span class="p">,</span> <span class="s">&quot;No&quot;</span><span class="p">,</span> <span class="s">&quot;Ni de casualidad&quot;</span><span class="p">,</span> <span class="s">&quot;¡Por supuesto!&quot;</span><span class="p">]</span>
         <span class="kd">let</span> <span class="nv">indice</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">respuestas</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
@@ -620,7 +618,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Podemos <strong>insertar el código anterior en la clase <code>AppDelegate</code>, dentro del primero de sus métodos</strong>: <code>application(_ application:, didFinishLaunchingWithOptions:)</code>, que es el que se ejecuta al terminar de arrancar la aplicación. </p>
-<p>Para <strong>ejecutar el proyecto</strong> pulsa al botón con el símbolo de "Play" de la barra superior de Xcode, o bien selecciona la opción de menú <code>Build &gt; Run</code>. Aparecerá el simulador de iOS con la pantalla del iPhone, y en la consola de Xcode deberían aparecer los mensajes generados por el "adivino". </p>
+<p>Para <strong>ejecutar el proyecto</strong> pulsa al botón con el símbolo de "Play" de la barra superior de Xcode, o bien selecciona la opción de menú <code>Product &gt; Run</code>. Aparecerá el simulador de iOS con la pantalla del iPhone, y en la consola de Xcode deberían aparecer los mensajes generados por el "adivino". </p>
 <h2 id="implementacion-del-controlador">Implementación del controlador<a class="headerlink" href="#implementacion-del-controlador" title="Permanent link">&para;</a></h2>
 <p>En el controlador es donde vamos a hacer la comunicación entre la vista y el modelo.</p>
 <ul>
@@ -632,7 +630,7 @@
 <p>Para <strong>crear un <em>action</em> que vincule el botón y el controlador</strong> hay que seguir estos pasos en Xcode:</p>
 <ol>
 <li>Tener abierto el <em>storyboard</em> con la pantalla donde está el componente a vincular (en nuestro caso el botón)</li>
-<li>Pasar a editar en modo <em>asistente</em>, en el que se ve tanto la interfaz como el código. En la esquina superior derecha hay un icono de unas líneas. Si lño pulsamos aparecerá un menú desplegable con varias opciones, hay que elegir la segunda, "Assistant". El editor se dividirá para mostrar no solo la interfaz sino también el código fuente del controller asociado.</li>
+<li>Pasar a editar en modo <em>asistente</em>, en el que se ve tanto la interfaz como el código. En la esquina superior derecha hay un icono de unas líneas. Si lo pulsamos aparecerá un menú desplegable con varias opciones, hay que elegir la segunda, "Assistant". El editor se dividirá para mostrar no solo la interfaz sino también el código fuente del controller asociado.</li>
 <li>En el código fuente del <code>ViewController</code> buscamos un "hueco" donde se pueda crear un método que será el llamado cuando se genere el evento.</li>
 <li>Finalmente, para vincular, hacer clic con el ratón sobre el <code>Button</code> pero manteniendo pulsada también la tecla <code>Ctrl</code>. Sin soltar el ratón, "conectamos" con el código fuente del controller al punto del código del <code>ViewController</code>que hemos decidido antes.</li>
 <li>Al soltar el botón del ratón nos dará a elegir el tipo de conexión (<code>Connection</code>). Seleccionamos <code>Action</code>, escribimos el nombre que tendrá el método (por ejemplo <code>botonPulsado</code>) y pulsamos el botón <code>Connect</code>.</li>
