@@ -9,7 +9,7 @@ En la documentación de Apple podemos consultar el [uso del editor del *asset ca
 
 ## Resoluciones en dispositivos iOS
 
-Antes de ver cómo añadir imágenes o iconos necesitamos discutir un poco el tema de la resolución. El "parque" de dispositivos iOS en funcionamiento tiene resoluciones de pantalla muy distintas entre sí, bien por la diferencia de antigüedad o bien por tener la pantalla de un tamaño muy distinto. En dispositivos más o menos actuales van desde los 640x1136 del iPhone SE hasta los 2048x2732 pixeles del iPad Pro de 12.9 pulgadas ([fuente](https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html), también podéis consultarlo en [iOSRes](http://iosres.com)). Y eso sin contar los dispositivos antiguos de la época pre-"retina display".
+Antes de ver cómo añadir imágenes o iconos necesitamos discutir un poco el tema de la resolución. El "parque" de dispositivos iOS en funcionamiento tiene resoluciones de pantalla muy distintas entre sí, bien por la diferencia de antigüedad o bien por tener la pantalla de un tamaño muy distinto. En dispositivos más o menos actuales van desde los 640x1136 del iPhone SE hasta los 2048x2732 pixeles del iPad Pro de 12.9 pulgadas (podéis consultarlo por ejemplo en [iOS Resolution](https://www.ios-resolution.com/)).
 
 Si nuestra aplicación usa imágenes es normal que las que en un dispositivo de resolución "baja" se ven bien se vean demasiado pequeñas en uno de "alta" o bien que si iOS las escala para que ocupen el mismo porcentaje de pantalla se vean pixeladas en dispositivos de alta resolución. Por eso deberíamos añadir cada imagen que use nuestra app a distintas resoluciones.
 
