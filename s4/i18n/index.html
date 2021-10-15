@@ -270,6 +270,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../comunicacion/" class="md-nav__link">
+        Comunicación entre componentes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -305,26 +320,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anadir-soporte-para-i18n" class="md-nav__link">
-    Añadir soporte para i18n
+  <a href="#configurar-el-soporte-para-los-idiomas-deseados" class="md-nav__link">
+    Configurar el soporte para los idiomas deseados
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#localizar-la-interfaz-grafica" class="md-nav__link">
-    Localizar la interfaz gráfica
+  <a href="#localizar-los-storyboards" class="md-nav__link">
+    Localizar los storyboards
   </a>
   
-    <nav class="md-nav" aria-label="Localizar la interfaz gráfica">
+    <nav class="md-nav" aria-label="Localizar los storyboards">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anadir-idiomas" class="md-nav__link">
-    Añadir idiomas
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#los-archivos-strings" class="md-nav__link">
@@ -375,9 +383,71 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apendices/control_versiones/" class="md-nav__link">
-        Apéndice 1. Control de versiones en Xcode
+      <a href="../../miniproyecto/proyecto/" class="md-nav__link">
+        Miniproyecto. Juego de las siete y media
       </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Material complementario
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Material complementario
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apendices/control_versiones/" class="md-nav__link">
+        Control de versiones en Xcode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s5/testing/" class="md-nav__link">
+        Testing en Xcode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -408,26 +478,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anadir-soporte-para-i18n" class="md-nav__link">
-    Añadir soporte para i18n
+  <a href="#configurar-el-soporte-para-los-idiomas-deseados" class="md-nav__link">
+    Configurar el soporte para los idiomas deseados
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#localizar-la-interfaz-grafica" class="md-nav__link">
-    Localizar la interfaz gráfica
+  <a href="#localizar-los-storyboards" class="md-nav__link">
+    Localizar los storyboards
   </a>
   
-    <nav class="md-nav" aria-label="Localizar la interfaz gráfica">
+    <nav class="md-nav" aria-label="Localizar los storyboards">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anadir-idiomas" class="md-nav__link">
-    Añadir idiomas
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#los-archivos-strings" class="md-nav__link">
@@ -478,21 +541,23 @@
                 <h1 id="internacionalizacion-de-aplicaciones-ios">Internacionalización de aplicaciones iOS<a class="headerlink" href="#internacionalizacion-de-aplicaciones-ios" title="Permanent link">&para;</a></h1>
 <p>En un mercado global hay que tener previsto desde el principio la adaptación de los mensajes y textos mostrados por la <em>app</em> al idioma local, y también de otras convenciones (unidades de medida, formatos de números y fechas,...). Al proceso de preparación de la <em>app</em> para soportar distintos idiomas se le denomina <em>internacionalización</em> (o i18n, por el número de letras existentes entre la "i" inicial y la "n" final de la palabra completa). A la adaptación para un idioma concreto se la denomina <em>localización</em>. </p>
 <p>Vamos a ver aquí una introducción a las funcionalidades básicas que nos da la plataforma iOS para internacionalizar y localizar nuestras aplicaciones.</p>
-<h2 id="anadir-soporte-para-i18n">Añadir soporte para i18n<a class="headerlink" href="#anadir-soporte-para-i18n" title="Permanent link">&para;</a></h2>
-<p>En la versión actual de Xcode <strong>los proyectos ya incluyen por defecto soporte para i18n</strong>. Si en un proyecto Xcode seleccionamos el icono del proyecto en el <em>project navigator</em>, al final de las propiedades podemos comprobar que aparece marcada una casilla denominada <code>Use base internationalization</code>. Si el proyecto ha sido desarrollado con una versión antigua de Xcode, la marcaremos.</p>
-<p>El idioma de desarrollo o <em>development language</em> es el que se va a usar por defecto para desarrollar la interfaz. Además de este podemos añadir otros idiomas. En la versión actual de Xcode solo está previsto el inglés como <em>development language</em> y no se puede cambiar desde el IDE. Podríamos cambiarlo <a href="https://www.ralfebert.de/snippets/ios/xcode-change-development-language/">editando manualmente el archivo <code>.pbxproj</code></a> del proyecto, aunque aquí vamos a usar el inglés como idioma base.</p>
-<h2 id="localizar-la-interfaz-grafica">Localizar la interfaz gráfica<a class="headerlink" href="#localizar-la-interfaz-grafica" title="Permanent link">&para;</a></h2>
-<p>Al diseñar la interfaz hay que recordar que debemos usar el <em>development language</em> en los textos de los componentes. Por tanto por defecto pondremos los textos de los botones, <code>Label</code>, etc en <strong>inglés</strong>.</p>
-<p>Para que sea más fácil probar las funcionalidades se recomienda terminar primero la interfaz y luego seguir el proceso descrito. Más tarde veremos qué sucede si se añaden nuevos elementos a la interfaz.</p>
-<h3 id="anadir-idiomas">Añadir idiomas<a class="headerlink" href="#anadir-idiomas" title="Permanent link">&para;</a></h3>
-<p>Supongamos que ya hemos terminado de desarrollar la interfaz en inglés, que es el idioma base por defecto y queremos traducirla. Podemos añadir idiomas a la <em>app</em> en la sección <em>Localizations</em>. Para añadir un idioma basta pulsar <code>+</code></p>
+<h2 id="configurar-el-soporte-para-los-idiomas-deseados">Configurar el soporte para los idiomas deseados<a class="headerlink" href="#configurar-el-soporte-para-los-idiomas-deseados" title="Permanent link">&para;</a></h2>
+<p>En la versión actual de Xcode <strong>los proyectos ya incluyen por defecto soporte para i18n</strong>. Lo que tenemos que hacer es añadir los idiomas para los que queramos localizar la <em>app</em>.</p>
+<blockquote>
+<p>Como veremos, este paso es conveniente hacerlo una vez hayamos terminado el diseño de la interfaz, ya que los componentes de UI que añadamos después no estarán localizados por defecto y tendremos que hacerlo manualmente</p>
+</blockquote>
+<p>En el <em>Project Navigator</em> de la izquierda de la pantalla debemos seleccionar el icono del proyecto. Una vez hecho esto, en la parte central hay que asegurarse de seleccionar el "project" y no el "target". En el apartado <code>Info</code>, al final de las propiedades veremos un apartado llamado <code>Localizations</code>.</p>
+<p><img alt="" src="../images/select_project_i18n.gif" /></p>
+<p>El idioma de desarrollo o <em>development language</em> es el que se va a usar por defecto para desarrollar la interfaz. Además de este podemos añadir otros idiomas. En la versión actual de Xcode solo está previsto el inglés como <em>development language</em> y no se puede cambiar desde el IDE (solo podríamos cambiarlo <a href="https://www.ralfebert.de/snippets/ios/xcode-change-development-language/">editando manualmente el archivo <code>.pbxproj</code></a> del proyecto).</p>
+<p>Para añadir un idioma basta pulsar <code>+</code></p>
 <p><img alt="" src="../images/add_language.gif" /></p>
-<p>Fíjate en que cuando añadimos un idioma aparece un cuadro de diálogo que nos dice qué archivos de la interfaz se van a internacionalizar, lo habitual será seleccionarlos todos pero podemos escoger los que nos interesen. Además podemos elegir el método usado. Por defecto es <code>Localizable strings</code>, pero hay otro método llamado  <code>Interface builder storyboard</code>:</p>
+<p>Fíjate en que cuando añadimos un idioma aparece un cuadro de diálogo que nos dice qué <em>storyboards</em> se van a internacionalizar, lo habitual será seleccionarlos todos pero podemos escoger los que nos interesen. Además podemos elegir el método usado. Por defecto es <code>Localizable strings</code>, pero hay otro método llamado  <code>Interface builder storyboard</code>:</p>
 <ul>
 <li><code>Localizable strings</code>: por cada idioma hay un archivo de texto <code>Strings</code> en el que se almacena la traducción de los textos de cada botón, label, etc. El <em>storyboard</em> es único para todos los idiomas, y lo que se hace es cambiar solamente el texto.</li>
 <li><code>Interface builder storyboard</code>: tenemos una copia del <em>storyboard</em> por cada idioma, y la editamos por separado.</li>
 </ul>
 <p>Aquí vamos a describir cómo usar los <code>Localizable strings</code>, ya que es el método más común.</p>
+<h2 id="localizar-los-storyboards">Localizar los <em>storyboards</em><a class="headerlink" href="#localizar-los-storyboards" title="Permanent link">&para;</a></h2>
 <h3 id="los-archivos-strings">Los archivos <code>.strings</code><a class="headerlink" href="#los-archivos-strings" title="Permanent link">&para;</a></h3>
 <p>Si hemos añadido idiomas adicionales veremos que en el <em>project navigator</em> los iconos de <em>storyboard</em> aparecen con una flecha a la izquierda indicando que en realidad son varios archivos. Al desplegarlo veremos que es el <em>storyboard</em> en sí más un archivo <code>.strings</code> por cada idioma añadido.</p>
 <p><img alt="" src="../images/storyboard.gif" /></p>
@@ -501,8 +566,7 @@
 </code></pre></div>
 <p>Lo único que tenemos que hacer es <em>cambiar el texto al idioma correspondiente</em>. El identificador del componente es un tanto críptico ya que es autogenerado por Xcode,y se corresponde con el <code>Object Id</code> que podemos ver en el <code>Identity inspector</code>, aunque casi siempre es fácil saber de qué componente se trata simplemente por el texto mostrado.</p>
 <h3 id="probar-la-interfaz">Probar la interfaz<a class="headerlink" href="#probar-la-interfaz" title="Permanent link">&para;</a></h3>
-<p>Podemos previsualizar cómo quedará la interfaz en los distintos idiomas sin necesidad de ejecutar la <em>app</em>. En el <em>assistant editor</em>, clicamos en la barra superior del editor,  seleccionamos <code>Preview</code>, y el <em>storyboard</em> que queremos ver. Se mostrará el <em>storyboard</em> en el idioma base. Este idioma aparecerá en la esquina inferior derecha, pulsando sobre él podemos cambiarlo.</p>
-<p><img alt="" src="../images/preview_language.gif" /></p>
+<p>Podemos previsualizar cómo quedará la interfaz en los distintos idiomas sin necesidad de ejecutar la <em>app</em>. En el editor del <em>storyboard</em> clicamos sobre el botón <img alt="" src="../images/editor_options_button.png" /> de la barra superior y seleccionamos la opción <code>Preview</code>. Se mostrará el <em>storyboard</em> en el idioma base. Este idioma aparecerá en la esquina inferior derecha, pulsando sobre él podemos cambiarlo.</p>
 <p>También podemos probar la <em>app</em> en el simulador y cambiar aquí el idioma del sistema. Habrá que salir de la <em>app</em>, ir al icono de <em>settings</em> (o <em>configuración</em> en la versión en español) y en el apartado <code>General</code> cambiar el <code>Language &amp; Region</code>. El proceso es un poco más tedioso que la simple previsualización porque hay que salir y volver a entrar en la <em>app</em> y además el simulador tarda unos segundos en aplicar el nuevo idioma.</p>
 <h3 id="anadir-elementos-a-la-interfaz-tras-internacionalizar">Añadir elementos a la interfaz tras internacionalizar<a class="headerlink" href="#anadir-elementos-a-la-interfaz-tras-internacionalizar" title="Permanent link">&para;</a></h3>
 <p>Hay un problema con el proceso descrito en los apartados anteriores y es que cuando se añaden nuevos elementos a la interfaz de usuario, <strong>Xcode no actualiza automáticamente los archivos <code>.Strings</code></strong>. </p>
@@ -591,7 +655,7 @@ let mensaje = String(format: NSLocalizedString(&quot;saludo&quot;, comment: &quo
     <nav class="md-footer__inner md-grid" aria-label="Pie">
       
         
-        <a href="../../s3/intro_swift_2/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Más sobre Swift" rel="prev">
+        <a href="../comunicacion/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Comunicación entre componentes" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -600,20 +664,20 @@ let mensaje = String(format: NSLocalizedString(&quot;saludo&quot;, comment: &quo
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Más sobre Swift
+              Comunicación entre componentes
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../apendices/control_versiones/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Apéndice 1. Control de versiones en Xcode" rel="next">
+        <a href="../../miniproyecto/proyecto/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Miniproyecto. Juego de las siete y media" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Siguiente
               </span>
-              Apéndice 1. Control de versiones en Xcode
+              Miniproyecto. Juego de las siete y media
             </div>
           </div>
           <div class="md-footer__button md-icon">

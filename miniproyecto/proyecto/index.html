@@ -14,7 +14,7 @@
     
     
       
-        <title>MiniProyecto de iOS (4 puntos) - TPDAM-iOS</title>
+        <title>Miniproyecto. Juego de las siete y media - TPDAM-iOS</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#miniproyecto-de-ios-4-puntos" class="md-skip">
+        <a href="#miniproyecto-de-ios-6-puntos-en-total" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MiniProyecto de iOS (4 puntos)
+              Miniproyecto. Juego de las siete y media
             
           </span>
         </div>
@@ -272,8 +272,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../s4/i18n/" class="md-nav__link">
-        Internacionalización de aplicaciones iOS
+      <a href="../../s4/comunicacion/" class="md-nav__link">
+        Comunicación entre componentes
       </a>
     </li>
   
@@ -287,9 +287,96 @@
   
   
     <li class="md-nav__item">
-      <a href="../../apendices/control_versiones/" class="md-nav__link">
-        Apéndice 1. Control de versiones en Xcode
+      <a href="../../s4/i18n/" class="md-nav__link">
+        Internacionalización de aplicaciones iOS
       </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Miniproyecto. Juego de las siete y media
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Material complementario
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Material complementario
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apendices/control_versiones/" class="md-nav__link">
+        Control de versiones en Xcode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s5/testing/" class="md-nav__link">
+        Testing en Xcode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -324,13 +411,13 @@
               
                 
                 
-                <h1 id="miniproyecto-de-ios-4-puntos">MiniProyecto de iOS (4 puntos)<a class="headerlink" href="#miniproyecto-de-ios-4-puntos" title="Permanent link">&para;</a></h1>
+                <h1 id="miniproyecto-de-ios-6-puntos-en-total">MiniProyecto de iOS (6 puntos en total)<a class="headerlink" href="#miniproyecto-de-ios-6-puntos-en-total" title="Permanent link">&para;</a></h1>
 <h1 id="juego-de-las-siete-y-media">Juego de las siete y media<a class="headerlink" href="#juego-de-las-siete-y-media" title="Permanent link">&para;</a></h1>
 <p>Se propone implementar el conocido juego de cartas de "<a href="https://es.wikipedia.org/wiki/Siete_y_media">las 7 y media</a>". </p>
 <p>Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que hace de banca. El usuario va pidiendo cartas una a una hasta que se pasa de 7 y medio o decide plantarse. La máquina no va sacando cartas una a una sino que obtiene una puntuación generada al azar.</p>
 <p>Para crear el proyecto, como siempre hacemos, elige la plantilla de <code>App</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> y asegúrate que en el interface pone <code>Storyboard</code> (como todas las apps que hemos hecho hasta ahora lo usan ya debería salir por defecto).</p>
-<h2 id="estructura-de-clases-del-modelo-1-punto">Estructura de clases del modelo (1 punto)<a class="headerlink" href="#estructura-de-clases-del-modelo-1-punto" title="Permanent link">&para;</a></h2>
-<p>Necesitáis implementar primero <strong>el enum <code>Palo</code> y las clases <code>Carta</code> y <code>Mano</code></strong>. Estos <a href="../../s1/ejercicios/">se proponían como ejercicio</a> el primer día de clase, aunque es muy posible que no os haya dado tiempo a hacerlos, podéis hacerlos ahora. </p>
+<h2 id="estructura-de-clases-del-modelo-2-puntos">Estructura de clases del modelo (2 puntos)<a class="headerlink" href="#estructura-de-clases-del-modelo-2-puntos" title="Permanent link">&para;</a></h2>
+<p>Necesitáis implementar primero <strong>el enum <code>Palo</code> y las clases <code>Carta</code> y <code>Mano</code></strong>. Estos <a href="../../s1/ejercicios/">se proponían como ejercicio</a> el primer día de clase, aunque es posible que no os haya dado tiempo a hacerlos, podéis hacerlos ahora. </p>
 <p>Además hay que añadir dos clases necesarias para poder jugar: la <code>Baraja</code> y el propio <code>Juego</code></p>
 <h2 id="clase-baraja">Clase <code>Baraja</code><a class="headerlink" href="#clase-baraja" title="Permanent link">&para;</a></h2>
 <p>Todas las cartas de la baraja. Del 1 al 12 de los cuatro palos, menos 8 y 9</p>
@@ -356,7 +443,8 @@
 </li>
 </ul>
 <h3 id="clase-juego">Clase <code>Juego</code><a class="headerlink" href="#clase-juego" title="Permanent link">&para;</a></h3>
-<p>Es la clase que implementa las reglas del juego de las siete y media. Os dejo aquí una implementación que podéis usar para no gastar demasiado tiempo haciendo la vuestra propia. No obstante, como veremos luego, tendréis que añadirle alguna cosa.</p>
+<p>Es la clase que implementa las reglas del juego de las siete y media. Os dejo aquí una implementación que podéis usar para no gastar demasiado tiempo haciendo la vuestra propia desde cero. No obstante no está completa, tenéis que implementar el método <code>acabarPartida()</code>.</p>
+<p>Para simplificar el juego, en esta implementación la máquina no saca cartas de verdad, una a una. Se genera una puntuación al azar entre 1 y 7.5 y se informa al usuario de la puntuación que ha sacado. Para que el juego así tenga sentido, primero juega el jugador humano y luego la máquina.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//Esto de momento no se usa, pero luego sí, ya que necesitaremos notificaciones</span>
 <span class="kd">import</span> <span class="nc">Foundation</span>
 
@@ -412,59 +500,25 @@
 
 
     <span class="c1">//Métodos para uso interno de la clase, no es necesario llamarlos desde fuera</span>
+    <span class="c1">//Calcula quién gana, cambia el estado del juego y lo muestra en la consola con print</span>
     <span class="kd">private</span> <span class="kd">func</span> <span class="nf">acabarPartida</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">valorMano</span> <span class="p">=</span> <span class="n">sumarManoJugador</span><span class="p">()</span>
-        <span class="kd">var</span> <span class="nv">mensaje</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&gt;</span><span class="mf">7.5</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Te has pasado!!!, la máquina tenía </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">jugadaMaquina</span><span class="si">)</span><span class="s">&quot;</span>
-            <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">pierdeJugador</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&gt;</span><span class="n">jugadaMaquina</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Ganas!!!, la máquina tiene </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">jugadaMaquina</span><span class="si">)</span><span class="s">&quot;</span>
-                <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">ganaJugador</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&lt;</span><span class="n">jugadaMaquina</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Pierdes!!!, la máquina tiene </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">jugadaMaquina</span><span class="si">)</span><span class="s">&quot;</span>
-                <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">pierdeJugador</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span>
-                <span class="n">mensaje</span> <span class="p">=</span> <span class="s">&quot;Empate!!!&quot;</span>
-                <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="p">.</span><span class="n">empate</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="bp">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> sumar el valor de las cartas del jugador</span>
+        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> calcular quién gana, en función de esta suma y la jugada de la máquina</span>
+        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> cambiar el estado del juego al valor apropiado e imprimir un mensaje </span>
 
-        <span class="c1">//TO-DO: FALTA enviar notificación indicando que la partida ha terminado,</span>
-        <span class="c1">//para que el ViewController se entere y muestre el resultado gráficamente (con UIAlertController)</span>
+        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> en la interfaz completa, enviar notificación al ViewController indicando que la partida ha terminado,</span>
+        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> para que este habilite/deshabilite botones y muestre con un &quot;alert&quot; el resultado</span>
     <span class="p">}</span>
 
-    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">sumarManoJugador</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nv">total</span> <span class="p">=</span> <span class="mf">0.0</span>
-        <span class="k">for</span> <span class="n">carta</span> <span class="k">in</span> <span class="kc">self</span><span class="p">.</span><span class="n">manoJugador</span><span class="p">.</span><span class="n">cartas</span> <span class="p">{</span>
-            <span class="n">total</span> <span class="o">+=</span> <span class="n">valor</span><span class="p">(</span><span class="n">de</span><span class="p">:</span><span class="n">carta</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">total</span>
-    <span class="p">}</span>
-
-    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">valor</span><span class="p">(</span><span class="n">de</span> <span class="n">carta</span><span class="p">:</span><span class="n">Carta</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Double</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">valor</span><span class="p">&gt;=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-           <span class="k">return</span> <span class="mf">0.5</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-           <span class="k">return</span> <span class="nb">Double</span><span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">valor</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Para simplificar el juego, en esta implementación la máquina no saca cartas de verdad, una a una. Se genera una puntuación al azar entre 1 y 7.5 y se informa al usuario de la puntuación que ha sacado. Para que el juego así tenga sentido, primero juega el jugador humano y luego la máquina.</p>
-<h2 id="interfaz-grafico-simplificado-1-punto">Interfaz gráfico simplificado (1 punto)<a class="headerlink" href="#interfaz-grafico-simplificado-1-punto" title="Permanent link">&para;</a></h2>
+<h2 id="interfaz-simplificada-1-punto">Interfaz simplificada (1 punto)<a class="headerlink" href="#interfaz-simplificada-1-punto" title="Permanent link">&para;</a></h2>
 <p>El <code>ViewController</code> contendrá una instancia de la clase <code>Juego</code>.</p>
 <blockquote>
 <p>Es normal que el <code>ViewController</code> tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al <em>controller</em>, para poder reutilizarlo independientemente de la interfaz gráfica. El <em>controller</em> puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.</p>
 </blockquote>
 <p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code>.</p>
-<h2 id="completar-la-interfaz-1-punto">Completar la interfaz (1 punto)<a class="headerlink" href="#completar-la-interfaz-1-punto" title="Permanent link">&para;</a></h2>
+<h2 id="interfaz-completa-15-puntos">Interfaz completa (1.5 puntos)<a class="headerlink" href="#interfaz-completa-15-puntos" title="Permanent link">&para;</a></h2>
 <p>En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).</p>
 <h3 id="anadir-las-imagenes-de-las-cartas-al-proyecto">Añadir las imágenes de las cartas al proyecto<a class="headerlink" href="#anadir-las-imagenes-de-las-cartas-al-proyecto" title="Permanent link">&para;</a></h3>
 <p>Descomprime el .zip de Moodle con las imágenes de las cartas en png, selecciona todos los archivos y "déjalos caer" dentro de la carpeta de recursos (<code>Assets.xcassets</code>). </p>
@@ -514,7 +568,7 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
 <span class="c1">//ya no tenemos imágenes de cartas en pantalla, ponemos el array a vacío</span>
 <span class="kc">self</span><span class="p">.</span><span class="n">vistasCartas</span><span class="p">=[]</span>
 </code></pre></div>
-<h3 id="adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-05-puntos-adicionales">Adaptar los dibujos a la resolución de la pantalla (0,5 puntos ADICIONALES)<a class="headerlink" href="#adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-05-puntos-adicionales" title="Permanent link">&para;</a></h3>
+<h3 id="adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-05-puntos-adicionales">Adaptar los dibujos a la resolución de la pantalla (0.5 puntos ADICIONALES)<a class="headerlink" href="#adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-05-puntos-adicionales" title="Permanent link">&para;</a></h3>
 <p>OPCIONALMENTE, en lugar de dibujar las cartas con un tamaño y unas posiciones "fijas", puedes usar un porcentaje o fracción del ancho y alto total de la pantalla. Puedes obtener el ancho y alto de la pantalla del siguiente modo:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">limitesPantalla</span> <span class="p">=</span> <span class="bp">UIScreen</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">bounds</span>
 <span class="kd">let</span> <span class="nv">anchoPantalla</span> <span class="p">=</span> <span class="n">limitesPantalla</span><span class="p">.</span><span class="n">width</span>
@@ -544,14 +598,8 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
 <span class="n">alert</span><span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
 <span class="kc">self</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">alert</span><span class="p">,</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="n">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="posibles-mejoras-hasta-1-punto">Posibles mejoras (hasta 1 punto)<a class="headerlink" href="#posibles-mejoras-hasta-1-punto" title="Permanent link">&para;</a></h2>
-<p>El proyecto está abierto a cualquier posible mejora o modificación que queráis hacer, por ejemplo:</p>
-<ul>
-<li>Contabilizar y mostrar las partidas ganadas/perdidas (0,25)</li>
-<li>Que se pueda apostar una cantidad y vaya contabilizando la cantidad  hasta el momento (0,5)</li>
-<li>Que la máquina también vaya sacando cartas (1)</li>
-<li>...</li>
-</ul>
+<h2 id="i18n-15-puntos">i18n (1.5 puntos)<a class="headerlink" href="#i18n-15-puntos" title="Permanent link">&para;</a></h2>
+<p>Internacionaliza la aplicación para que esté localizada al menos en dos idiomas, los que tú prefieras</p>
                 
               
               
@@ -567,6 +615,41 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../../s4/i18n/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Internacionalización de aplicaciones iOS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Internacionalización de aplicaciones iOS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../apendices/control_versiones/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Control de versiones en Xcode" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Control de versiones en Xcode
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
