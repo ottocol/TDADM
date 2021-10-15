@@ -514,10 +514,17 @@
 </code></pre></div>
 <h2 id="interfaz-simplificada-1-punto">Interfaz simplificada (1 punto)<a class="headerlink" href="#interfaz-simplificada-1-punto" title="Permanent link">&para;</a></h2>
 <p>El <code>ViewController</code> contendrá una instancia de la clase <code>Juego</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ViewController</span> <span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">juego</span> <span class="p">=</span> <span class="n">Juego</span><span class="p">()</span>
+    <span class="p">...</span>
+
+<span class="p">}</span> 
+</code></pre></div>
+<p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code>. </p>
+<p>Tendrás que conectar con <em>action</em> (gráficamente) los botones del juego con funciones del <em>view controller</em> que a su vez llamen a los métodos del objeto <code>juego</code>.</p>
 <blockquote>
-<p>Es normal que el <code>ViewController</code> tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al <em>controller</em>, para poder reutilizarlo independientemente de la interfaz gráfica. El <em>controller</em> puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.</p>
+<p>Aunque al principio solo debería poder pulsarse el botón "nueva partida" y una vez comenzada solo los otros dos, etc... de momento no nos preocuparemos de esto y dejaremos que se pueda pulsar cualquier botón, asumiendo que el usuario nunca pulsará un botón que no debería 🙄</p>
 </blockquote>
-<p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code>.</p>
 <h2 id="interfaz-completa-15-puntos">Interfaz completa (1.5 puntos)<a class="headerlink" href="#interfaz-completa-15-puntos" title="Permanent link">&para;</a></h2>
 <p>En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).</p>
 <h3 id="anadir-las-imagenes-de-las-cartas-al-proyecto">Añadir las imágenes de las cartas al proyecto<a class="headerlink" href="#anadir-las-imagenes-de-las-cartas-al-proyecto" title="Permanent link">&para;</a></h3>
