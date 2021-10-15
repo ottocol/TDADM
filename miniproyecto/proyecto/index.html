@@ -584,10 +584,8 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
 <h3 id="como-manipular-los-botones">Cómo manipular los botones<a class="headerlink" href="#como-manipular-los-botones" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Podéis habilitar/deshabilitar los botones por código poniendo su propiedad <code>isEnabled</code> a <code>true</code> o <code>false</code> respectivamente.</li>
-<li>Para que un botón aparezca inicialmente deshabilitado, en el "attributes inspector" de la parte derecha de Xcode desmarcar la casilla <code>enabled</code> dentro de <code>state</code> (está a mitad de panel)</li>
-<li>Para que se vea gráficamente que un botón está deshabilitado podéis ponerle un color distinto según el estado. Teniendo seleccionado el botón, en el <code>Attributes inspector</code> de la parte derecha de la pantalla, seleccionar el estado que nos interese en el desplegable. Al elegir colores (<em>text</em>, <em>shadow</em>, ...) serán los fijados para ese estado. </li>
+<li>Para que un botón aparezca inicialmente deshabilitado, en el "attributes inspector" de la parte derecha de Xcode desmarcar la casilla <code>enabled</code> dentro de <code>state</code> (está a mitad de panel).</li>
 </ul>
-<p><img alt="" src="../images/estilos_boton.gif" /></p>
 <p>Un problema es cómo enterarnos en el ViewController de que la partida ha acabado para habilitar y deshabilitar los correspondientes botones, y para mostrar el resultado con un cuadro de diálogo. Podemos hacerlo con notificaciones:</p>
 <ul>
 <li>Añadir código Swift a la función <code>acabarPartida()</code> de la clase <code>Juego</code> para que se envíe una notificación con el nombre y contenido que queráis (como contenido debería tener como mínimo una frase resumiendo el resultado del juego para que podáis mostrarlo).</li>
