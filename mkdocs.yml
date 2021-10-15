@@ -8,13 +8,13 @@ nav:
   - Recursos en aplicaciones iOS: 's2/recursos.md'
   - Ejercicios sobre aplicaciones iOS: 's2/ejercicios.md'
   - Más sobre Swift: 's3/intro_swift_2.md'
-  # - Concurrencia en iOS: 's3/concurrencia.md'
-  # - Comunicación entre componentes: 's4/comunicacion.md'
+  - Comunicación entre componentes: 's4/comunicacion.md'
   - Internacionalización de aplicaciones iOS: 's4/i18n.md'
   # - Ejercicio de i18n: 's4/ejercicio_i18n.md'
-  # - Miniproyecto. Juego de las siete y media: 'miniproyecto/proyecto.md'
-  - Apéndice 1. Control de versiones en Xcode: 'apendices/control_versiones.md'
-  # - Apéndice 2. Testing en Xcode: 's5/testing.md'
+  - Miniproyecto. Juego de las siete y media: 'miniproyecto/proyecto.md'
+  - Material complementario:
+      - Control de versiones en Xcode: 'apendices/control_versiones.md'
+      - Testing en Xcode: 's5/testing.md'
   
 
 theme:

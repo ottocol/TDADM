@@ -1,4 +1,4 @@
-# MiniProyecto de iOS (4 puntos)
+# MiniProyecto de iOS (6 puntos en total)
 # Juego de las siete y media 
 
 Se propone implementar el conocido juego de cartas de "[las 7 y media](https://es.wikipedia.org/wiki/Siete_y_media)". 
@@ -7,9 +7,9 @@ Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que h
 
 Para crear el proyecto, como siempre hacemos, elige la plantilla de `App`. En la segunda pantalla del asistente dale como nombre `SieteyMedia` y asegúrate que en el interface pone `Storyboard` (como todas las apps que hemos hecho hasta ahora lo usan ya debería salir por defecto).
 
-## Estructura de clases del modelo (1 punto) 
+## Estructura de clases del modelo (2 puntos)
 
-Necesitáis implementar primero **el enum `Palo` y las clases `Carta` y `Mano`**. Estos [se proponían como ejercicio](../s1/ejercicios.md) el primer día de clase, aunque es muy posible que no os haya dado tiempo a hacerlos, podéis hacerlos ahora. 
+Necesitáis implementar primero **el enum `Palo` y las clases `Carta` y `Mano`**. Estos [se proponían como ejercicio](../s1/ejercicios.md) el primer día de clase, aunque es posible que no os haya dado tiempo a hacerlos, podéis hacerlos ahora. 
 
 Además hay que añadir dos clases necesarias para poder jugar: la `Baraja` y el propio `Juego`
 
@@ -36,7 +36,10 @@ Todas las cartas de la baraja. Del 1 al 12 de los cuatro palos, menos 8 y 9
 
 ### Clase `Juego`
 
-Es la clase que implementa las reglas del juego de las siete y media. Os dejo aquí una implementación que podéis usar para no gastar demasiado tiempo haciendo la vuestra propia. No obstante, como veremos luego, tendréis que añadirle alguna cosa.
+Es la clase que implementa las reglas del juego de las siete y media. Os dejo aquí una implementación que podéis usar para no gastar demasiado tiempo haciendo la vuestra propia desde cero. No obstante no está completa, tenéis que implementar el método `acabarPartida()`.
+
+Para simplificar el juego, en esta implementación la máquina no saca cartas de verdad, una a una. Se genera una puntuación al azar entre 1 y 7.5 y se informa al usuario de la puntuación que ha sacado. Para que el juego así tenga sentido, primero juega el jugador humano y luego la máquina.
+
 
 ```swift
 //Esto de momento no se usa, pero luego sí, ya que necesitaremos notificaciones
@@ -94,56 +97,20 @@ class Juego {
     
     
     //Métodos para uso interno de la clase, no es necesario llamarlos desde fuera
+    //Calcula quién gana, cambia el estado del juego y lo muestra en la consola con print
     private func acabarPartida() {
-        let valorMano = sumarManoJugador()
-        var mensaje = ""
-        if (valorMano>7.5) {
-            mensaje = "Te has pasado!!!, la máquina tenía \(self.jugadaMaquina)"
-            self.estado = .pierdeJugador
-        }
-        else {
-            if (valorMano>jugadaMaquina) {
-                mensaje = "Ganas!!!, la máquina tiene \(self.jugadaMaquina)"
-                self.estado = .ganaJugador
-            }
-            else if (valorMano<jugadaMaquina) {
-                mensaje = "Pierdes!!!, la máquina tiene \(self.jugadaMaquina)"
-                self.estado = .pierdeJugador
-            }
-            else {
-                mensaje = "Empate!!!"
-                self.estado = .empate
-            }
-        }
-        print(mensaje)
+        //TODO: sumar el valor de las cartas del jugador
+        //TODO: calcular quién gana, en función de esta suma y la jugada de la máquina
+        //TODO: cambiar el estado del juego al valor apropiado e imprimir un mensaje 
         
-        //TO-DO: FALTA enviar notificación indicando que la partida ha terminado,
-        //para que el ViewController se entere y muestre el resultado gráficamente (con UIAlertController)
+        //TODO: en la interfaz completa, enviar notificación al ViewController indicando que la partida ha terminado,
+        //TODO: para que este habilite/deshabilite botones y muestre con un "alert" el resultado
     }
     
-    private func sumarManoJugador() -> Double {
-        var total = 0.0
-        for carta in self.manoJugador.cartas {
-            total += valor(de:carta)
-        }
-        return total
-    }
-    
-    private func valor(de carta:Carta) -> Double {
-        if (carta.valor>=10) {
-           return 0.5
-        }
-        else {
-           return Double(carta.valor)
-        }
-    }
 }
 ```
 
-Para simplificar el juego, en esta implementación la máquina no saca cartas de verdad, una a una. Se genera una puntuación al azar entre 1 y 7.5 y se informa al usuario de la puntuación que ha sacado. Para que el juego así tenga sentido, primero juega el jugador humano y luego la máquina.
-
-
-## Interfaz gráfico simplificado (1 punto) 
+## Interfaz simplificada (1 punto)
 
 El `ViewController` contendrá una instancia de la clase `Juego`.
 
@@ -151,7 +118,7 @@ El `ViewController` contendrá una instancia de la clase `Juego`.
 
 En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con `print`.
 
-##Completar la interfaz (1 punto) 
+## Interfaz completa (1.5 puntos)
 
 En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).
 
@@ -161,7 +128,7 @@ Descomprime el .zip de Moodle con las imágenes de las cartas en png, selecciona
 
 Por cada imagen en png creará un *image set* con el nombre del archivo ( al estilo `1oros`, `3copas`, ...). Por desgracia solo disponemos de las imágenes de las cartas en baja resolución (@1x).
 
-###Cómo dibujar las cartas
+### Cómo dibujar las cartas
 
 Cada vez que dibujemos en pantalla una carta estamos añadiendo a la pantalla actual un `UIImageView`. Tenemos que guardar referencias a todas las imágenes añadidas para poder borrarlas cuando acabe la partida. Definiremos esta propiedad en el *view controller* para guardarlas
 
@@ -216,7 +183,7 @@ for vistaCarta in self.vistasCartas {
 self.vistasCartas=[]
 ```
 
-### Adaptar los dibujos a la resolución de la pantalla (0,5 puntos ADICIONALES)
+### Adaptar los dibujos a la resolución de la pantalla (0.5 puntos ADICIONALES)
 
 OPCIONALMENTE, en lugar de dibujar las cartas con un tamaño y unas posiciones "fijas", puedes usar un porcentaje o fracción del ancho y alto total de la pantalla. Puedes obtener el ancho y alto de la pantalla del siguiente modo:
 
@@ -255,11 +222,6 @@ alert.addAction(action)
 self.present(alert, animated: true, completion: nil)
 ```
 
-##Posibles mejoras (hasta 1 punto) 
+## i18n (1.5 puntos)
 
-El proyecto está abierto a cualquier posible mejora o modificación que queráis hacer, por ejemplo:
-
-- Contabilizar y mostrar las partidas ganadas/perdidas (0,25)
-- Que se pueda apostar una cantidad y vaya contabilizando la cantidad  hasta el momento (0,5)
-- Que la máquina también vaya sacando cartas (1)
-- ...
+Internacionaliza la aplicación para que esté localizada al menos en dos idiomas, los que tú prefieras
