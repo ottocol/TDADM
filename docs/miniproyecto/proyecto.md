@@ -114,9 +114,19 @@ class Juego {
 
 El `ViewController` contendrá una instancia de la clase `Juego`.
 
-> Es normal que el `ViewController` tenga referencia del modelo. Pero no es aconsejable que también pase al revés. En el modelo no se debería guardar ninguna referencia al *controller*, para poder reutilizarlo independientemente de la interfaz gráfica. El *controller* puede enterarse de que ha pasado algo "interesante" (por ejemplo que se acaba el juego) a través de notificaciones.
+```swift
+class ViewController : UIViewController {
+    let juego = Juego()
+    ...
 
-En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con `print`.
+} 
+```
+
+En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con `print`. 
+
+Tendrás que conectar con *action* (gráficamente) los botones del juego con funciones del *view controller* que a su vez llamen a los métodos del objeto `juego`.
+
+> Aunque al principio solo debería poder pulsarse el botón "nueva partida" y una vez comenzada solo los otros dos, etc... de momento no nos preocuparemos de esto y dejaremos que se pueda pulsar cualquier botón, asumiendo que el usuario nunca pulsará un botón que no debería 🙄
 
 ## Interfaz completa (1.5 puntos)
 
