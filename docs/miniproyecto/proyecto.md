@@ -206,10 +206,7 @@ let altoPantalla = limitesPantalla.height
 ### Cómo manipular los botones
 
 - Podéis habilitar/deshabilitar los botones por código poniendo su propiedad `isEnabled` a `true` o `false` respectivamente.
-- Para que un botón aparezca inicialmente deshabilitado, en el "attributes inspector" de la parte derecha de Xcode desmarcar la casilla `enabled` dentro de `state` (está a mitad de panel)
-- Para que se vea gráficamente que un botón está deshabilitado podéis ponerle un color distinto según el estado. Teniendo seleccionado el botón, en el `Attributes inspector` de la parte derecha de la pantalla, seleccionar el estado que nos interese en el desplegable. Al elegir colores (*text*, *shadow*, ...) serán los fijados para ese estado. 
-
-![](images/estilos_boton.gif)
+- Para que un botón aparezca inicialmente deshabilitado, en el "attributes inspector" de la parte derecha de Xcode desmarcar la casilla `enabled` dentro de `state` (está a mitad de panel).
 
 Un problema es cómo enterarnos en el ViewController de que la partida ha acabado para habilitar y deshabilitar los correspondientes botones, y para mostrar el resultado con un cuadro de diálogo. Podemos hacerlo con notificaciones:
 
