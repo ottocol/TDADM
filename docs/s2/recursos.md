@@ -23,11 +23,15 @@ En las ["Human Interface Guidelines"](https://developer.apple.com/design/human-i
 
 ## Icono de la aplicación
 
-En el *asset catalog* hay un elemento denominado `appIcon` donde colocar el icono de la aplicación. Debido a la diferente resolución de los dispositivos iOS, como ya hemos visto, hay que proporcionar el icono en distintos tamaños, desde 120x120 para los iPhone a @2x hasta 180x180 a @3x. Por si fuera poco además hay otros tamaños que se usan cuando nuestra *app* sale en los resultados de *Spotlight* (la búsqueda integrada en el dispositivo) , si tiene su propio apartado de ajustes en los ajustes del sistema, cuando aparece en las notificaciones, etc. 
+En el *asset catalog* hay un elemento denominado `appIcon` donde colocar el icono de la aplicación. Debido a la diferente resolución de los dispositivos iOS, como ya hemos visto, los iconos vienen en distintos tamaños, desde 120x120 para los iPhone a @2x hasta 180x180 a @3x.  Otros tamaños adicionales se usan cuando nuestra *app* sale en los resultados de *Spotlight* (la búsqueda integrada en el dispositivo), si tiene su propio apartado de ajustes en los ajustes del sistema, cuando aparece en las notificaciones, etc. En total en la actualidad pueden hacer falta hasta 9 tamaños distintos de iconos.
 
-Si seleccionamos el `appIcon` veremos una plantilla donde "dejar caer" los iconos de cada tamaño necesario. Hay que tener en cuenta que deben estar en formato PNG sin transparencia. Para más información consultad el [apartado correspondiente](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/) de las Human Interface Guidelines.
+Afortunadamente desde la versión 14 de Xcode no es necesario que creemos nosotros todos los tamaños. Los proyectos están por defecto en modo "Single size", lo que quiere decir que si colocamos un icono a 1024x1024 Xcode generará todos los tamaños automáticamente. Si queremos crear los distintos tamaños de manera manual, en la parte derecha de la pantalla seleccionaríamos el modo "All sizes". En modo manual, si no disponemos de alguno de los tamaños Xcode lo generará escalando los que haya. 
 
-> Cuidado, el proyecto dará error de compilación si usamos iconos que no son del tamaño esperado. No obstante si no disponemos de alguno de los tamaños el sistema lo obtendrá escalando el que haya. 
+
+> Si tenemos un Xcode<14, o queremos desplegar en iOS<12 no podremos usar la opcíon de "Single size". Hay páginas web como [https://appicon.co/](https://appicon.co/) que pueden generar automáticamente todos los tamaños a partir de un icono dado.
+
+Si seleccionamos el `appIcon` veremos una plantilla donde "dejar caer" el icono 1024x1024 (en modo "Single size" o los iconos de cada tamaño necesario (en modo "All sizes"). Hay que tener en cuenta que deben estar en formato PNG sin transparencia. Para más información consultad el [apartado correspondiente](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/) de las Human Interface Guidelines.
+
 
 ## Imágenes
 
