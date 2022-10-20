@@ -504,7 +504,7 @@
         <span class="c1">//Obtenemos el centro de notificaciones por defecto</span>
         <span class="c1">//Las notificaciones tienen un nombre, un objeto que las envía (si lo ponemos a nil no queda constancia de quién) y datos adicionales, un diccionario con los datos que queramos</span>
         <span class="kd">let</span> <span class="nv">nc</span> <span class="p">=</span> <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span>
-        <span class="n">nc</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span> <span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;valor&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;mensaje&quot;</span><span class="p">:</span><span class="n">mensaje</span><span class="p">])</span>
+        <span class="n">nc</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">Notification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;valor&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;mensaje&quot;</span><span class="p">:</span><span class="n">mensaje</span><span class="p">])</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -515,7 +515,7 @@
         <span class="c1">//selector: al recibir la notificación se llama al método recibir</span>
         <span class="c1">//name: nombre de la notificación que nos interesa</span>
         <span class="c1">//object: objeto del que nos interesa recibir notificaciones. nil == cualquiera</span>
-        <span class="n">nc</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="k">#selector</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">recibir</span><span class="p">),</span> <span class="n">name</span><span class="p">:</span><span class="bp">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span><span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="n">nc</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span><span class="k">#selector</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">recibir</span><span class="p">),</span> <span class="n">name</span><span class="p">:</span><span class="n">Notification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="s">&quot;saludo&quot;</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 
     <span class="p">}</span>
 
@@ -532,6 +532,17 @@
 <span class="kd">var</span> <span class="nv">r</span> <span class="p">=</span> <span class="n">Receptor</span><span class="p">()</span>
 <span class="n">r</span><span class="p">.</span><span class="n">suscribirse</span><span class="p">()</span>
 <span class="n">e</span><span class="p">.</span><span class="n">enviar</span><span class="p">(</span><span class="n">mensaje</span><span class="p">:</span><span class="s">&quot;holaaaa&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>El nombre de la notificación no es exactamente un String, sino un <code>Notification.Name</code> construido a partir de un String. Para que el código sea más seguro y menos propenso a errores podemos extender esta clase con constantes y usar estas constantes en lugar de directamente los Strings. Siguiendo con el ejemplo, haríamos algo como:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//En el archivo que queramos</span>
+<span class="c1">//Alguna gente usa convenciones del tipo &quot;NotificationName+Extensions.swift&quot;</span>
+<span class="kd">extension</span> <span class="nc">Notification</span><span class="p">.</span><span class="n">Name</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">let</span> <span class="nv">saludo</span> <span class="p">=</span> <span class="n">Notification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="s">&quot;saludo&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>y ahora cuando queramos referenciar un <code>Notification.name</code> lo hacemos como <code>Notification.name.saludo</code> o mejor aún, simplemente <code>.saludo</code> como en los enumerados:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nc</span> <span class="p">=</span> <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span>
+<span class="n">nc</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="p">.</span><span class="n">saludo</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;valor&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;mensaje&quot;</span><span class="p">:</span><span class="s">&quot;hola&quot;</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="key-value-observing">Key-Value Observing<a class="headerlink" href="#key-value-observing" title="Permanent link">&para;</a></h2>
 <p>Gracias a Foundation, un objeto cualquiera puede <em>observar</em> cambios en las propiedades de otro. Especificamos un bloque de código (función o clausura) a ejecutar cuando se produzca este cambio. Esta funcionalidad se denomina <strong>Key-Value Observing</strong> o KVO.</p>
