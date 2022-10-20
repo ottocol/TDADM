@@ -1,4 +1,4 @@
-# Comunicación modelo-controlador 
+# Comunicación modelo-controlador
 
 Ya hemos visto cómo se comunican bidireccionalmente el controlador y la vista:
 
@@ -17,7 +17,7 @@ En Foundation hay dos formas básicas de conseguir que dos objetos se comuniquen
 
 - **Key-Value observing** o KVO: un objeto puede "vigilar" el cambio en el valor de las propiedades de otro. Cuando se produzca un cambio, se llamará a una función o clausura que actúa de *callback*. Podemos usar este mecanismo para hacer que el controlador observe las propiedades del modelo que nos interesa actualizar dinámicamente en la vista.
 
-## Notificaciones locales 
+## Notificaciones locales
 
 Son algo similar a lo que en aplicaciones *enterprise* se llaman *colas de mensajes*. Implementan el patrón de diseño publicar/suscribir.
 
@@ -33,7 +33,7 @@ class Emisor {
         //Obtenemos el centro de notificaciones por defecto
         //Las notificaciones tienen un nombre, un objeto que las envía (si lo ponemos a nil no queda constancia de quién) y datos adicionales, un diccionario con los datos que queramos
         let nc = NotificationCenter.default
-        nc.post(name: NSNotification.Name(rawValue: "saludo"), object: nil, userInfo: ["valor":1, "mensaje":mensaje])
+        nc.post(name: Notification.Name("saludo"), object: nil, userInfo: ["valor":1, "mensaje":mensaje])
     }
 }
 
@@ -44,7 +44,7 @@ class Receptor {
         //selector: al recibir la notificación se llama al método recibir
         //name: nombre de la notificación que nos interesa
         //object: objeto del que nos interesa recibir notificaciones. nil == cualquiera
-        nc.addObserver(self, selector:#selector(self.recibir), name:NSNotification.Name(rawValue:"saludo"), object: nil)
+        nc.addObserver(self, selector:#selector(self.recibir), name:Notification.Name("saludo"), object: nil)
         
     }
     
@@ -63,7 +63,24 @@ r.suscribirse()
 e.enviar(mensaje:"holaaaa")
 ```
 
-## Key-Value Observing 
+El nombre de la notificación no es exactamente un String, sino un `Notification.Name` construido a partir de un String. Para que el código sea más seguro y menos propenso a errores podemos extender esta clase con constantes y usar estas constantes en lugar de directamente los Strings. Siguiendo con el ejemplo, haríamos algo como:
+
+```swift
+//En el archivo que queramos
+//Alguna gente usa convenciones del tipo "NotificationName+Extensions.swift"
+extension Notification.Name {
+    static let saludo = Notification.Name("saludo")
+}
+```
+
+y ahora cuando queramos referenciar un `Notification.name` lo hacemos como `Notification.name.saludo` o mejor aún, simplemente `.saludo` como en los enumerados:
+
+```swift
+let nc = NotificationCenter.default
+nc.post(name: .saludo), object: nil, userInfo: ["valor":1, "mensaje":"hola"])
+```
+
+## Key-Value Observing
 
 Gracias a Foundation, un objeto cualquiera puede *observar* cambios en las propiedades de otro. Especificamos un bloque de código (función o clausura) a ejecutar cuando se produzca este cambio. Esta funcionalidad se denomina **Key-Value Observing** o KVO.
 
