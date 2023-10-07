@@ -326,82 +326,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../s3/intro_swift_2/" class="md-nav__link">
-        Más sobre Swift
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../s4/comunicacion/" class="md-nav__link">
-        Comunicación entre componentes
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../s4/i18n/" class="md-nav__link">
-        Internacionalización de aplicaciones iOS
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../miniproyecto/proyecto/" class="md-nav__link">
-        Miniproyecto. Juego de las siete y media
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_10">
+        <label class="md-nav__link" for="__nav_6">
           Material complementario
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Material complementario
         </label>
@@ -562,13 +502,13 @@
 <p>Si todo es correcto deberían aparecer en pantalla las tres cartas añadidas a la mano.</p>
 <h2 id="anexo-opciones-para-escribir-y-probar-el-codigo-de-este-ejercicio">Anexo: opciones para escribir y probar el código de este ejercicio<a class="headerlink" href="#anexo-opciones-para-escribir-y-probar-el-codigo-de-este-ejercicio" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Opción 1</strong>: en un <em>playground</em> de Xcode:<ul>
+<li><strong>Opción 1</strong> (Necesario tener un Mac con Xcode instalado, está disponible en la app Store de Mac): en un <em>playground</em> de Xcode:<ul>
 <li>Abre el programa Xcode, y crea un nuevo <em>playground</em> con <code>File &gt; New &gt;Playground</code>. Escribe aquí el código de todas las clases juntas, y también del programa principal. </li>
 <li>Como irás viendo, el <em>playground</em> se está compilando y ejecutando constantemente a medida que vas escribiendo código, pero si quieres forzar la ejecución puedes ir a <code>Editor &gt; Execute playground</code>. Lo puedes usar una vez terminado todo, para ejecutar varias veces el programa principal.</li>
 </ul>
 </li>
-<li><strong>Opción 2</strong>: en algún entorno <em>online</em> de programación en Swift, como por ejemplo en <a href="https://repl.it/languages/swift">Repl.it</a>. Esto te puede ser útil si no tienes un Mac disponible o no puedes instalar el compilador en línea de comandos en tu sistema. Eso sí, tendrás que escribir todo el código junto al igual que lo haces en un <em>playground</em>.</li>
-<li><strong>Opción 3</strong>: con el compilador de Swift en línea de comandos:<ul>
+<li><strong>Opción 2</strong> (desde cualquier plataforma, <em>online</em> sin instalar nada): en algún entorno <em>online</em> de programación en Swift, como por ejemplo en <a href="https://repl.it/languages/swift">Repl.it</a>, o el que usamos en el video de introducción, <a href="https://www.programiz.com/swift/online-compiler/">Programiz</a>. Esto te puede ser útil si no tienes un Mac disponible o no puedes instalar el compilador en línea de comandos en tu sistema.</li>
+<li><strong>Opción 3</strong> (desde cualquier plataforma, en local, instalando el compilador de Swift): Como el núcleo del lenguaje es <em>open source</em> el compilador/intérprete se puede instalar en muchas plataformas. Puedes bajar el de la tuya desde la <a href="https://www.swift.org/download/">página de descargas</a> de Swift, aunque probablemente no te merezca la pena si es solo para el curso, ya que solo lo podrás usar en unas pocas sesiones de esta asignatura:<ul>
 <li>Usando el editor de texto que prefieras, escribe el código del enumerado <code>Palo</code> las clases <code>Carta</code>, <code>Baraja</code> y <code>Mano</code> y la extensión de <code>Array</code>. Puedes guardar por ejemplo cada clase en un archivo <code>.swift</code> distinto, aunque en Swift no hay reglas sobre qué clases debe contener cada archivo.</li>
 <li>Guarda el programa principal en un archivo <code>main.swift</code></li>
 <li>Para compilar, abre una terminal, ve al directorio donde estén los archivos y escribe <code>swiftc *.swift</code>. Esto compilará todos los archivos Swift y generará un ejecutable <code>main</code></li>

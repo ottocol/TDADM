@@ -367,82 +367,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../s3/intro_swift_2/" class="md-nav__link">
-        Más sobre Swift
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../s4/comunicacion/" class="md-nav__link">
-        Comunicación entre componentes
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../s4/i18n/" class="md-nav__link">
-        Internacionalización de aplicaciones iOS
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../miniproyecto/proyecto/" class="md-nav__link">
-        Miniproyecto. Juego de las siete y media
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_10">
+        <label class="md-nav__link" for="__nav_6">
           Material complementario
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Material complementario
         </label>
@@ -670,11 +610,14 @@
 <p>La interfaz de la aplicación va a tener el siguiente aspecto, con un "cartel" explicando qué hace la <em>app</em>, un botón para solicitar la respuesta, y un campo en el que aparecerá dicha respuesta.</p>
 <p><img alt="" src="../imag/UAdivino.png" /></p>
 <p>Como hemos comentado, la interfaz está definida en el archivo <strong><code>Main.storyboard</code>. Ábrelo</strong> y verás que en el editor aparece una pantalla de iPhone vacía. La flecha que apunta desde la izquierda indica que es la pantalla inicial de la <em>app</em>. </p>
-<p>En la parte inferior del editor aparece un nombre de modelo de iPhone, que indica que estás viendo la pantalla como saldría en ese modelo. Pulsando sobre él puedes cambiar el dispositivo y/o la orientación. </p>
+<p>En la parte inferior del editor aparece un mensaje de <code>View as: iPhone ...</code> y el modelo que tengas seleccionado en ese momento. Pulsando sobre él puedes cambiar el dispositivo y/o la orientación. </p>
 <blockquote>
 <p>Debido a la distinta resolución de cada dispositivo, el diseño de pantalla que hagas aquí en principio <em>solo se va a ver bien en un dispositivo y una orientación concretas</em>. Para hacer interfaces que se adapten al dispositivo necesitas <em>autolayout</em> y <em>traits</em> que se verán con posterioridad en el curso.</p>
 </blockquote>
 <p>Vamos a añadir los componentes de la interfaz. En la parte superior derecha de la barra de botones  verás un botón con un símbolo de un '+'. Al pulsar en él se mostrará una ventana flotante con los componentes de interfaz de usuario.</p>
+<blockquote>
+<p>Este botón ha cambiado en las últimas versiones de Xcode. En la 10 tenía un símbolo de un cuadrado dentro de un círculo. En la 9 e inferiores no existía, el panel de componentes se veía en la parte inferior derecha de la ventana, sin necesidad de pulsar ningún botón.</p>
+</blockquote>
 <p>Primero vamos a hacer el "cartel" con el mensaje  de "Formula una pregunta en voz alta y UAdivino te dará la respuesta". En iOS este tipo de componente es un <strong><code>Label</code>. Búscalo en el panel de componentes y arrástralo a la pantalla</strong> que estamos diseñando. Una vez colocada puedes hacer las operaciones habituales: moverla con el ratón, cambiar su tamaño arrastrando los puntos de las esquinas o editar el contenido con doble clic. <strong>Cambia el texto del <code>Label</code></strong> por un mensaje como "Formula una pregunta en voz alta y UAdivino te dará la respuesta"</p>
 <p>Las propiedades de cualquier componente también se pueden cambiar en el panel de la derecha estando seleccionado el componente. Este panel está dividido en varias secciones, por las que se navega con los iconos de la parte superior. La que más nos interesa por el momento es la cuarta, denominada "property inspector". <strong>Cambia el número de líneas a 2</strong> para que el texto quepa en la pantalla. Cambia también la alineación del texto a centrado para que quede mejor. </p>
 <p><img alt="" src="../imag/propiedades_label.gif" /></p>
