@@ -399,7 +399,7 @@
 <li><strong>Añádele al proyecto las</strong> <a href="../imagenes_moneda.zip">imágenes de la cara y cruz</a> de la moneda. Crea un <em>image set</em> en la carpeta <code>Assets.xcassets</code> llamado <em>cara</em> y otro llamado <em>cruz</em> y deja allí las imágenes correspondientes. Verás que están a @2x y @3x. </li>
 <li>El <strong>modelo</strong>(0,5 puntos): Crea:<ul>
 <li>Un enumerado <code>Tirada</code> con los valores de <code>cara</code> y <code>cruz</code>  </li>
-<li>Una clase <code>Moneda</code> con un único método <code>lanzar()</code> que devuelva una <code>Tirada</code> al azar </li>
+<li>Una clase <code>Moneda</code> con un único método <code>lanzar()</code> que devuelva una <code>Tirada</code> al azar. Como solo hay dos valores posibles, con <code>Bool.random()</code> puedes generar un valor booleano al azar y dependiendo de si es <code>true</code> o <code>false</code> devolver <code>Tirada.cara</code> o <code>Tirada.cruz</code>. También puedes generar un entero aleatorio en el rango 0...1, o lo que se te ocurra.</li>
 </ul>
 </li>
 <li>El <strong>controlador</strong> (0,75 punto): <ul>
