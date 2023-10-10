@@ -1,6 +1,7 @@
-# Ejercicio de i18n (2 puntos)
+# Ejercicio de i18n (1 punto)
 
-Haz que la interfaz de la *app* `UAdivino` se vea correctamente en español e inglés.
+Haz que la interfaz de la *app* `iMoneda` se vea correctamente en español e inglés.
 
-- Como el idioma base de desarrollo debería ser el inglés primero tendrás que cambiar los textos de los componentes de la interfaz gráfica (el botón y el *label* con el texto estático) a este idioma.
-- Ten en cuenta que necesitarás también localizar los mensajes generados en el código. En el apartado "Localizar los mensajes en el código" tienes explicado cómo hacerlo
+Como el idioma base de desarrollo debería ser el inglés, antes de empezar el proceso tendrás que cambiar a inglés los textos de los componentes de la interfaz gráfica (aquí solo tenemos el texto del botón "lanzar moneda", así que es sencillo). 
+
+Ten en cuenta que el texto de "ha salido cara" o similar se genera desde código Swift, por lo que tendrás que internacionalizarlo con `NSLocalizedString`.
