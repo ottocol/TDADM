@@ -7,12 +7,12 @@ Pese a haber sido desarrollado con esta intención, el lenguaje en sí no está 
 Es un lenguaje bastante completo y con muchas funcionalidades, pero también pensado para que las funcionalidades básicas sean sencillas de usar. Como muchos lenguajes modernos incluye no solo elementos de programación orientada a objetos sino también de programación funcional.
 
 
-!!! info "Importante"
+!!! info "Ejercicios de Swift"
 
-    En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale **1 punto** de la nota total del módulo de iOS. Para escribir el código de estos ejercicios tienes dos opciones (escoge la que prefieras):
+    En estos apuntes de introducción a Swift verás ejercicios intercalados. La suma de todos ellos vale **1 punto** de la nota total del módulo de iOS. Para escribir el código de estos ejercicios tienes dos opciones:
 
-    - Lo más recomendable es usar un *playground* de Xcode (aqui tienes un [mini-tutorial](https://www.youtube.com/watch?v=bOXr2uEfRYw) de cómo abrirlo y usarlo). Luego tendrás que entregar el archivo `.playground` que hayas creado. 
-    - Otra opción es probar el código en un [compilador online](https://replit.com/languages/swift) y luego copiar y pegar el código en un archivo de texto para entregarlo.
+    - Si tienes un Mac, lo más recomendable es usar un *playground* de Xcode (aqui tienes un [mini-tutorial](https://www.youtube.com/watch?v=bOXr2uEfRYw) de cómo abrirlo y usarlo). Luego tendrás que entregar el archivo `.playground` que hayas creado. 
+    - Si no tienes Mac puedes probar el código en algún compilador online. Por ejemplo [https://www.programiz.com/swift/online-compiler/](https://www.programiz.com/swift/online-compiler/),  [https://swiftfiddle.com](https://swiftfiddle.com) o [https://replit.com/new/swift](https://replit.com/new/swift)
 
 ## Preliminares
 

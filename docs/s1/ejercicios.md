@@ -51,12 +51,12 @@ Si todo es correcto deberían aparecer en pantalla las tres cartas añadidas a l
 
 ## Anexo: opciones para escribir y probar el código de este ejercicio
 
-- **Opción 1**: en un *playground* de Xcode:
+- **Opción 1** (Necesario tener un Mac con Xcode instalado, está disponible en la app Store de Mac): en un *playground* de Xcode:
     + Abre el programa Xcode, y crea un nuevo *playground* con `File > New >Playground`. Escribe aquí el código de todas las clases juntas, y también del programa principal. 
     + Como irás viendo, el *playground* se está compilando y ejecutando constantemente a medida que vas escribiendo código, pero si quieres forzar la ejecución puedes ir a `Editor > Execute playground`. Lo puedes usar una vez terminado todo, para ejecutar varias veces el programa principal.
-- **Opción 2**: en algún entorno *online* de programación en Swift, como por ejemplo en [Repl.it](https://repl.it/languages/swift
-). Esto te puede ser útil si no tienes un Mac disponible o no puedes instalar el compilador en línea de comandos en tu sistema. Eso sí, tendrás que escribir todo el código junto al igual que lo haces en un *playground*.
-- **Opción 3**: con el compilador de Swift en línea de comandos:
+- **Opción 2** (desde cualquier plataforma, *online* sin instalar nada): en algún entorno *online* de programación en Swift, como por ejemplo en [Repl.it](https://repl.it/languages/swift
+), o el que usamos en el video de introducción, [Programiz](https://www.programiz.com/swift/online-compiler/). Esto te puede ser útil si no tienes un Mac disponible o no puedes instalar el compilador en línea de comandos en tu sistema.
+- **Opción 3** (desde cualquier plataforma, en local, instalando el compilador de Swift): Como el núcleo del lenguaje es *open source* el compilador/intérprete se puede instalar en muchas plataformas. Puedes bajar el de la tuya desde la [página de descargas](https://www.swift.org/download/) de Swift, aunque probablemente no te merezca la pena si es solo para el curso, ya que solo lo podrás usar en unas pocas sesiones de esta asignatura:
     + Usando el editor de texto que prefieras, escribe el código del enumerado `Palo` las clases `Carta`, `Baraja` y `Mano` y la extensión de `Array`. Puedes guardar por ejemplo cada clase en un archivo `.swift` distinto, aunque en Swift no hay reglas sobre qué clases debe contener cada archivo.
     + Guarda el programa principal en un archivo `main.swift`
     + Para compilar, abre una terminal, ve al directorio donde estén los archivos y escribe `swiftc *.swift`. Esto compilará todos los archivos Swift y generará un ejecutable `main`

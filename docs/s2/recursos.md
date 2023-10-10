@@ -17,7 +17,7 @@ Para simplificar el desarrollo, en iOS se consideran solo 3 resoluciones distint
 
 > Evidentemente no se trata de que cojamos la misma imagen de 100x100 y la escalemos al doble o triple, ya que se verían pixeladas, sino al contrario, que partamos de una imagen en alta resolución y vayamos generando versiones más pequeñas de la misma.
 
-En las ["Human Interface Guidelines"](https://developer.apple.com/design/human-interface-guidelines/) de Apple tenemos más información sobre la resolución de [imágenes e iconos](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/), además de consejos de diseño y usabilidad.
+En las ["Human Interface Guidelines"](https://developer.apple.com/design/human-interface-guidelines/) de Apple tenemos más información sobre la resolución de [imágenes](https://developer.apple.com/design/human-interface-guidelines/images) en *apps* de iOS, además de consejos de diseño y usabilidad.
 
 > En el mercado ya no quedan prácticamente dispositivos de resolución `@1x` y de hecho no la necesitaremos salvo que queramos hacer compatible nuestra app con iOS9 o inferior.
 
@@ -30,7 +30,7 @@ Afortunadamente desde la versión 14 de Xcode no es necesario que creemos nosotr
 
 > Si tenemos un Xcode<14, o queremos desplegar en iOS<12 no podremos usar la opcíon de "Single size". Hay páginas web como [https://appicon.co/](https://appicon.co/) que pueden generar automáticamente todos los tamaños a partir de un icono dado.
 
-Si seleccionamos el `appIcon` veremos una plantilla donde "dejar caer" el icono 1024x1024 (en modo "Single size" o los iconos de cada tamaño necesario (en modo "All sizes"). Hay que tener en cuenta que deben estar en formato PNG sin transparencia. Para más información consultad el [apartado correspondiente](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/) de las Human Interface Guidelines.
+Si seleccionamos el `appIcon` veremos una plantilla donde "dejar caer" el icono 1024x1024 (en modo "Single size" o los iconos de cada tamaño necesario (en modo "All sizes"). Hay que tener en cuenta que deben estar en formato PNG sin transparencia. Para más información consultad el [apartado correspondiente](https://developer.apple.com/design/human-interface-guidelines/app-icons#Specifications) de las Human Interface Guidelines.
 
 
 ## Imágenes
@@ -47,7 +47,7 @@ let imagenLibro = UIImage(named:"libro")
 
 ## Launch screen
 
-Es una pantalla que iOS mostrará al inicio de la carga de la *app*. En otros sistemas como Android o el mismo MacOS muchas aplicaciones tienen una *splash screen*, que aparece al comienzo con un logo, una imagen, los créditos de la *app*, etc. Sin embargo [según las Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/) de Apple una *launch screen* no es nada de eso, sino que debe ser *lo más parecida posible a la primera pantalla de la app* . De este modo se le dará la impresión al usuario de que la aplicación se carga rápidamente. 
+Es una pantalla que iOS mostrará al inicio de la carga de la *app*. En otros sistemas como Android o el mismo MacOS muchas aplicaciones tienen una *splash screen*, que aparece al comienzo con un logo, una imagen, los créditos de la *app*, etc. Sin embargo [según las Human Interface Guidelines](hthttps://developer.apple.com/design/human-interface-guidelines/launching#Launch-screens) de Apple una *launch screen* no es nada de eso, sino que debe ser *lo más parecida posible a la primera pantalla de la app* . De este modo se le dará la impresión al usuario de que la aplicación se carga rápidamente. 
 
 Es decir, la *launch screen* es una especie de versión "estática" o "de cartón piedra" (😉) de la primera pantalla de la *app*. Evidentemente si la *app* muestra contenido dinámico este contenido no puede formar parte de la *launch screen* pero sí podemos por ejemplo colocar ciertos elementos estáticos como botones, cuadros de búsqueda, *tab bars*, etc, como puede verse en este ejemplo incluido en la documentación de Apple:
 
