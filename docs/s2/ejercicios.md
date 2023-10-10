@@ -15,7 +15,7 @@ La interfaz de la *app* será muy sencilla y constará de:
 2. **Añádele al proyecto las** [imágenes de la cara y cruz](imagenes_moneda.zip) de la moneda. Crea un *image set* en la carpeta `Assets.xcassets` llamado *cara* y otro llamado *cruz* y deja allí las imágenes correspondientes. Verás que están a @2x y @3x. 
 3. El **modelo**(0,5 puntos): Crea:
     -  Un enumerado `Tirada` con los valores de `cara` y `cruz`  
-    -  Una clase `Moneda` con un único método `lanzar()` que devuelva una `Tirada` al azar 
+    -  Una clase `Moneda` con un único método `lanzar()` que devuelva una `Tirada` al azar. Como solo hay dos valores posibles, con `Bool.random()` puedes generar un valor booleano al azar y dependiendo de si es `true` o `false` devolver `Tirada.cara` o `Tirada.cruz`. También puedes generar un entero aleatorio en el rango 0...1, o lo que se te ocurra.
 4. El **controlador** (0,75 punto): 
     - Define en él una propiedad del tipo `Moneda`
     - Crea dos *outlet*, uno para acceder al componente `UIImageView` y otro para el `Label`
