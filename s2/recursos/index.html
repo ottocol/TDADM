@@ -319,22 +319,52 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../s4/i18n/" class="md-nav__link">
+        Internacionalización de aplicaciones iOS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s4/ejercicio_i18n/" class="md-nav__link">
+        Ejercicio de i18n
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_8">
           Material complementario
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Material complementario
         </label>
@@ -454,7 +484,7 @@
 <blockquote>
 <p>Evidentemente no se trata de que cojamos la misma imagen de 100x100 y la escalemos al doble o triple, ya que se verían pixeladas, sino al contrario, que partamos de una imagen en alta resolución y vayamos generando versiones más pequeñas de la misma.</p>
 </blockquote>
-<p>En las <a href="https://developer.apple.com/design/human-interface-guidelines/">"Human Interface Guidelines"</a> de Apple tenemos más información sobre la resolución de <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/">imágenes e iconos</a>, además de consejos de diseño y usabilidad.</p>
+<p>En las <a href="https://developer.apple.com/design/human-interface-guidelines/">"Human Interface Guidelines"</a> de Apple tenemos más información sobre la resolución de <a href="https://developer.apple.com/design/human-interface-guidelines/images">imágenes</a> en <em>apps</em> de iOS, además de consejos de diseño y usabilidad.</p>
 <blockquote>
 <p>En el mercado ya no quedan prácticamente dispositivos de resolución <code>@1x</code> y de hecho no la necesitaremos salvo que queramos hacer compatible nuestra app con iOS9 o inferior.</p>
 </blockquote>
@@ -464,7 +494,7 @@
 <blockquote>
 <p>Si tenemos un Xcode&lt;14, o queremos desplegar en iOS&lt;12 no podremos usar la opcíon de "Single size". Hay páginas web como <a href="https://appicon.co/">https://appicon.co/</a> que pueden generar automáticamente todos los tamaños a partir de un icono dado.</p>
 </blockquote>
-<p>Si seleccionamos el <code>appIcon</code> veremos una plantilla donde "dejar caer" el icono 1024x1024 (en modo "Single size" o los iconos de cada tamaño necesario (en modo "All sizes"). Hay que tener en cuenta que deben estar en formato PNG sin transparencia. Para más información consultad el <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/">apartado correspondiente</a> de las Human Interface Guidelines.</p>
+<p>Si seleccionamos el <code>appIcon</code> veremos una plantilla donde "dejar caer" el icono 1024x1024 (en modo "Single size" o los iconos de cada tamaño necesario (en modo "All sizes"). Hay que tener en cuenta que deben estar en formato PNG sin transparencia. Para más información consultad el <a href="https://developer.apple.com/design/human-interface-guidelines/app-icons#Specifications">apartado correspondiente</a> de las Human Interface Guidelines.</p>
 <h2 id="imagenes">Imágenes<a class="headerlink" href="#imagenes" title="Permanent link">&para;</a></h2>
 <p>Como cada imagen debería estar al menos en tamaño <code>@2x</code> y <code>@3x</code>, al añadir una imagen a los recursos en realidad estamos añadiendo un conjunto de imágenes o <em>image set</em>. Para crear un <em>image set</em> se puede pulsar el botón de <code>+</code> que aparece en la esquina inferior izquierda del editor del <em>asset catalog</em> y seleccionar <code>New Image set</code>. Por defecto se llamará simplemente <code>Image</code> pero podemos cambiarlo de nombre haciendo doble clic sobre el nombre actual.</p>
 <p>En el código de la <em>app</em> podemos usar el nombre dado en el <em>asset catalog</em> para cargar la imagen:</p>
@@ -474,7 +504,7 @@
 <p><strong>"Truco"</strong>: si las imágenes tienen un nombre que acaba en <code>@2x</code> o <code>@3x</code> (algo como <code>libro@2x.png</code>), xCode las usará automáticamente para la resolución deseada. Xcode tomará la de <code>@1x</code> simplemente como la que no tenga nada especial en el nombre. En el Finder (el <em>administrador de archivos</em>) podemos seleccionar entonces tres imágenes juntas (haciendo clic +  Cmd para que al seleccionar una no se pierda la anterior) y "dejarlas caer" juntas en el image set para que cada una se coloque en su hueco.</p>
 </blockquote>
 <h2 id="launch-screen">Launch screen<a class="headerlink" href="#launch-screen" title="Permanent link">&para;</a></h2>
-<p>Es una pantalla que iOS mostrará al inicio de la carga de la <em>app</em>. En otros sistemas como Android o el mismo MacOS muchas aplicaciones tienen una <em>splash screen</em>, que aparece al comienzo con un logo, una imagen, los créditos de la <em>app</em>, etc. Sin embargo <a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/">según las Human Interface Guidelines</a> de Apple una <em>launch screen</em> no es nada de eso, sino que debe ser <em>lo más parecida posible a la primera pantalla de la app</em> . De este modo se le dará la impresión al usuario de que la aplicación se carga rápidamente. </p>
+<p>Es una pantalla que iOS mostrará al inicio de la carga de la <em>app</em>. En otros sistemas como Android o el mismo MacOS muchas aplicaciones tienen una <em>splash screen</em>, que aparece al comienzo con un logo, una imagen, los créditos de la <em>app</em>, etc. Sin embargo <a href="hthttps://developer.apple.com/design/human-interface-guidelines/launching#Launch-screens">según las Human Interface Guidelines</a> de Apple una <em>launch screen</em> no es nada de eso, sino que debe ser <em>lo más parecida posible a la primera pantalla de la app</em> . De este modo se le dará la impresión al usuario de que la aplicación se carga rápidamente. </p>
 <p>Es decir, la <em>launch screen</em> es una especie de versión "estática" o "de cartón piedra" (😉) de la primera pantalla de la <em>app</em>. Evidentemente si la <em>app</em> muestra contenido dinámico este contenido no puede formar parte de la <em>launch screen</em> pero sí podemos por ejemplo colocar ciertos elementos estáticos como botones, cuadros de búsqueda, <em>tab bars</em>, etc, como puede verse en este ejemplo incluido en la documentación de Apple:</p>
 <p><img alt="Ejemplo de launch screen de las &quot;Human Interface Guidelines&quot;" src="../imag/launch_screen.png" /></p>
 <p>En xCode la <em>launch screen</em> se diseña como una pantalla más de la aplicación, en el <code>LaunchScreen.storyboard</code>, arrastrando componentes de interfaz como en cualquier otra pantalla, aunque los elementos que se incluyan no van a ser interactivos. No se recomienda incluir textos ya que no van a poder adaptarse al idioma del dispositivo.</p>
