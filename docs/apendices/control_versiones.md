@@ -11,9 +11,9 @@ Para **crear el repositorio git local una vez creado el proyecto**: en cualquier
 
 En los dos casos **Xcode hará automáticamente un *commit* inicial** del proyecto con el mensaje "initial commit" (recordad que cuando Xcode crea un proyecto iOS no está vacío sino que tiene algunos archivos, dependiendo de la plantilla elegida).
 
-Podemos ver más información sobre el repositorio git con el `Source Control Navigator`, que es el segundo icono del panel de la izquierda de Xcode.
+Podemos ver más información sobre el repositorio git y el estado actual de los ficheros con respecto al repositorio con el `Source Control Navigator`, que es el segundo icono del panel de la izquierda de Xcode.
 
-![](imag/s_c_nav.png)
+![](imag/source_control_navigator.png)
 
 ## Trabajar con un repositorio remoto
 
@@ -37,9 +37,11 @@ En la esquina inferior izquierda pulsamos sobre el `+` para añadir una cuenta y
 
 Si ya hemos creado el repositorio git remoto, solo necesitamos saber su URL. 
 
-En Xcode, vamos al `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos `Add Existing Remote...`
+En Xcode:
 
-![](imag/menu_add_remote.png)
+1. Vamos al `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), 
+2. De las dos opciones que hay, `changes` y `repositories` selecciona esta última
+3. Verás una especie de árbol con los datos del repositorio local, las ramas, commits, tags...., el último nodo representa los repositorios remotos asociados. Pulsa con el botón derecho del ratón y en el menú contextual seleccionamos `Add Existing Remote...`
 
 En el cuadro de diálogo que aparecerá colocamos la URL del repositorio remoto en el campo `Location`
 
@@ -47,9 +49,11 @@ En el cuadro de diálogo que aparecerá colocamos la URL del repositorio remoto 
 
 #### Crear el repositorio remoto desde Xcode
 
-> Esta opción solo está disponible desde la versión 10 de Xcode.
+Es muy parecido a lo anterior:
 
-En el `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), pulsamos con el botón derecho del ratón y en el menú contextual seleccionamos `Create` (*nombre del proyecto*) ` Remote...`. En el cuadro de diálogo que aparecerá podemos seleccionar la cuenta (en nuestro caso Github), el nombre que tendrá el repositorio, si va a ser público o privado, etc...
+1. Vamos al `Source Control Navigator`, (segundo icono del panel de la izquierda de Xcode), 
+2. De las dos opciones que hay, `changes` y `repositories` selecciona esta última
+3. Verás una especie de árbol con los datos del repositorio local, las ramas, commits, tags...., el último nodo representa los repositorios remotos asociados. Pulsa con el botón derecho del ratón y en el menú contextual seleccionamos `New <Nombre_de_tu_proyecto> Remote...`
 
 Xcode hará un *push* automáticamente tras crear el repositorio remoto
 
