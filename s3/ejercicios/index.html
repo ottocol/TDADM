@@ -13,7 +13,7 @@
     
     
       
-        <title>Intro - TPDAM-iOS</title>
+        <title>Ejercicios de introducción a Swift parte II - TPDAM-iOS</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ejercicios-de-swift-parte-ii-2-puntos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Intro
+              Ejercicios de introducción a Swift parte II
             
           </span>
         </div>
@@ -178,7 +183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../swift_basico/" class="md-nav__link">
+      <a href="../../s1/swift_basico/" class="md-nav__link">
         Introducción básica a Swift
       </a>
     </li>
@@ -193,7 +198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ejercicios/" class="md-nav__link">
+      <a href="../../s1/ejercicios/" class="md-nav__link">
         Ejercicios de Swift básico
       </a>
     </li>
@@ -253,7 +258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../s3/intro_swift_2/" class="md-nav__link">
+      <a href="../intro_swift_2/" class="md-nav__link">
         Introducción a Swift parte II
       </a>
     </li>
@@ -266,11 +271,72 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../s3/ejercicios/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Ejercicios de introducción a Swift parte II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Ejercicios de introducción a Swift parte II
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-errores-en-swift-1-punto" class="md-nav__link">
+    Gestión de errores en Swift (1 punto)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuacion-del-juego-de-cartas-1-punto" class="md-nav__link">
+    Continuación del juego de cartas (1 punto)
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuación del juego de cartas (1 punto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clase-baraja" class="md-nav__link">
+    Clase Baraja
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -384,6 +450,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-errores-en-swift-1-punto" class="md-nav__link">
+    Gestión de errores en Swift (1 punto)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuacion-del-juego-de-cartas-1-punto" class="md-nav__link">
+    Continuación del juego de cartas (1 punto)
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuación del juego de cartas (1 punto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clase-baraja" class="md-nav__link">
+    Clase Baraja
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -398,9 +501,45 @@
                   
 
 
-  <h1>Intro</h1>
-
-<p>En este capítulo vamos a ver una introducción a las características más básicas del lenguaje Swift.</p>
+<h1 id="ejercicios-de-swift-parte-ii-2-puntos">Ejercicios de Swift parte II (2 puntos)<a class="headerlink" href="#ejercicios-de-swift-parte-ii-2-puntos" title="Permanent link">&para;</a></h1>
+<h2 id="gestion-de-errores-en-swift-1-punto">Gestión de errores en Swift (1 punto)<a class="headerlink" href="#gestion-de-errores-en-swift-1-punto" title="Permanent link">&para;</a></h2>
+<p>Implementa una función <code>chequearPassword</code> que chequee si una cadena tiene las condiciones necesarias para ser una contraseña, en nuestro caso:</p>
+<ul>
+<li>Tiene una longitud mínima de 8 caracteres</li>
+<li>Contiene al menos un carácter en máyúscula y uno en minúscula</li>
+</ul>
+<p>Condiciones de implementación:</p>
+<ul>
+<li>Crea un tipo <code>ErrorPassword</code> para representar el error con sus dos casos, lo más sencillo es que sea un enumerado, recuerda que debe ser declarado conforme al protocolo Error (<code>: Error</code>)</li>
+<li>Implementa la función <code>chequearPassword(_ password:String)</code> que en caso de no cumplir alguna condición lance el error apropiado, en caso de cumplirlas todas devuelva <code>true</code> (evidentemente no puede lanzar los dos errores, que lance el primero que encuentre).</li>
+</ul>
+<p><strong>Pistas:</strong> puedes iterar por los caracteres de una cadena con un bucle <code>for caracter in cadena</code>. Si un carácter es mayúscula, su propiedad <code>isUppercase</code> será <code>true</code>, y si es minúscula, lo mismo con su propiedad  <code>isLowercase</code>.</p>
+<p>Prueba a llamar a la función <code>chequearPassword</code> con uno que no cumpla alguna o las dos condiciones. Asegúrate de capturar la excepción con un <code>do...catch</code> y imprimir un mensaje de error apropiado en cada caso.</p>
+<h2 id="continuacion-del-juego-de-cartas-1-punto">Continuación del juego de cartas (1 punto)<a class="headerlink" href="#continuacion-del-juego-de-cartas-1-punto" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Aclaración: las "Siete y media" es la versión española del conocido juego del "21" o Blackjack. Los jugadores por turno van pidiendo cartas y el objetivo es que sumen lo más cerca posible de 7.5 sin pasarse. Las cartas del 1 al 7 suman su valor mientras que las figuras (sota, caballo y rey) suman medio punto. En su turno un jugador irá pidiendo cartas hasta que se plante o se pase de 7.5.</p>
+</blockquote>
+<p>Para poder implementar el juego de las siete y media en la siguiente sesión presencial necesitamos, además de las clases que pedíamos en la primera sesión de Swift, la clase adicional <code>Baraja</code></p>
+<h3 id="clase-baraja">Clase <code>Baraja</code><a class="headerlink" href="#clase-baraja" title="Permanent link">&para;</a></h3>
+<p>Representa a todas las cartas de la baraja. Del 1 al 12 de los cuatro palos, menos 8 y 9.</p>
+<h4 id="propiedades">Propiedades<a class="headerlink" href="#propiedades" title="Permanent link">&para;</a></h4>
+<p><code>cartas</code>, un array de objetos <code>Carta</code></p>
+<h4 id="metodos">Métodos<a class="headerlink" href="#metodos" title="Permanent link">&para;</a></h4>
+<ul>
+<li>El <code>init()</code> debe rellenar el array de cartas con todas las cartas de la baraja. Podéis ir generando todos los números de todos los palos con un bucle doble de este estilo:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">palo</span> <span class="k">in</span> <span class="p">[</span><span class="n">Palo</span><span class="p">.</span><span class="n">bastos</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">espadas</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">copas</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">oros</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">valor</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">12</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">valor</span> <span class="o">!=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">valor</span> <span class="o">!=</span> <span class="mi">9</span> <span class="p">{</span>  <span class="c1">//El 8 y el 9 no se suelen usar</span>
+            <span class="c1">//Aquí crearíais la nueva carta y la añadiríais al array &quot;cartas&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>repartirCarta()</code>: devuelve la última carta de la baraja y la elimina de ella. Es lo que hace exactamente el método de la clase Array <a href="https://developer.apple.com/reference/swift/array/1539777-poplast"><code>popLast()</code></a>, devolver el último valor de un array y eliminarlo de él. </li>
+<li><code>barajar()</code>: debe cambiar al azar el orden de las cartas en el <code>Array</code>. Esto lo hace directamente el método <code>shuffle()</code> del <code>Array</code>.</li>
+</ul>
 
 
 
@@ -416,6 +555,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
+      
+        
+        <a href="../intro_swift_2/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Introducción a Swift parte II" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Introducción a Swift parte II
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../s4/i18n/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Internacionalización de aplicaciones iOS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Internacionalización de aplicaciones iOS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

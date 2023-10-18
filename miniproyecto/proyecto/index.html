@@ -258,6 +258,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../s3/intro_swift_2/" class="md-nav__link">
+        Introducción a Swift parte II
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s3/ejercicios/" class="md-nav__link">
+        Ejercicios de introducción a Swift parte II
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../s4/i18n/" class="md-nav__link">
         Internacionalización de aplicaciones iOS
       </a>
@@ -291,18 +321,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_8">
+        <label class="md-nav__link" for="__nav_10">
           Material complementario
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Material complementario
         </label>
@@ -380,102 +410,24 @@
 <p>Se propone implementar el conocido juego de cartas de "<a href="https://es.wikipedia.org/wiki/Siete_y_media">las 7 y media</a>". </p>
 <p>Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que hace de banca. El usuario va pidiendo cartas una a una hasta que se pasa de 7 y medio o decide plantarse. La máquina no va sacando cartas una a una sino que obtiene una puntuación generada al azar.</p>
 <p>Para crear el proyecto, como siempre hacemos, elige la plantilla de <code>App</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> y asegúrate que en el interface pone <code>Storyboard</code> (como todas las apps que hemos hecho hasta ahora lo usan ya debería salir por defecto).</p>
-<h2 id="estructura-de-clases-del-modelo-2-puntos">Estructura de clases del modelo (2 puntos)<a class="headerlink" href="#estructura-de-clases-del-modelo-2-puntos" title="Permanent link">&para;</a></h2>
-<p>Necesitáis implementar primero <strong>el enum <code>Palo</code> y las clases <code>Carta</code> y <code>Mano</code></strong>. Estos <a href="../../s1/ejercicios/">se proponían como ejercicio</a> el primer día de clase, aunque es posible que no os haya dado tiempo a hacerlos, podéis hacerlos ahora. </p>
-<p>Además hay que añadir dos clases necesarias para poder jugar: la <code>Baraja</code> y el propio <code>Juego</code></p>
-<h2 id="clase-baraja">Clase <code>Baraja</code><a class="headerlink" href="#clase-baraja" title="Permanent link">&para;</a></h2>
-<p>Todas las cartas de la baraja. Del 1 al 12 de los cuatro palos, menos 8 y 9</p>
+<h2 id="estructura-de-clases-del-modelo">Estructura de clases del modelo<a class="headerlink" href="#estructura-de-clases-del-modelo" title="Permanent link">&para;</a></h2>
+<p>Necesitáis tener implementadas todas las clases/enums que os hemos propuesto en las sesiones de Swift:</p>
 <ul>
-<li>Propiedades: <code>cartas</code>, un array de <code>Carta</code></li>
-<li>
-<p>Métodos:</p>
-<ul>
-<li>El <code>init()</code> debe rellenar el array de cartas con todas las cartas de la baraja. Podéis ir generando todos los números de todos los palos con un bucle doble de este estilo:</li>
+<li>enum <code>Palo</code></li>
+<li>clase <code>Carta</code></li>
+<li>clase <code>Mano</code></li>
+<li>clase <code>Baraja</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">palo</span> <span class="k">in</span> <span class="p">[</span><span class="n">Palo</span><span class="p">.</span><span class="n">bastos</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">espadas</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">copas</span><span class="p">,</span> <span class="n">Palo</span><span class="p">.</span><span class="n">oros</span><span class="p">]</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="n">valor</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">12</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="n">valor</span> <span class="o">!=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">valor</span> <span class="o">!=</span> <span class="mi">9</span> <span class="p">{</span>  <span class="c1">//El 8 y el 9 no se suelen usar</span>
-            <span class="c1">//Aquí crearíais la nueva carta y la añadiríais al array &quot;cartas&quot;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>Además se os proporciona la implementación de una versión simplificada del juego en la clase <code>Juego</code>. En esta versión simplificada la máquina no saca cartas de la baraja, sino que genera un número al azar entre 0 y 7.5, con lo que sabemos que nunca se va a pasar. En esta modalidad de juego, primero juega la máquina, aunque no aparecerá el resultado en pantalla, y luego el jugador irá pidiendo cartas hasta que decida plantarse o se pase de 7.5. Terminado el turno del jugador:</p>
 <ul>
-<li><code>repartirCarta()</code>: devuelve la última carta de la baraja y la elimina de ella. Es lo que hace exactamente el método de la clase Array <a href="https://developer.apple.com/reference/swift/array/1539777-poplast"><code>popLast()</code></a>, devolver el último valor de un array y eliminarlo de él. </li>
-<li><code>barajar()</code>: debe cambiar al azar el orden de las cartas en el <code>Array</code>. Esto lo hace directamente el método <code>shuffle()</code> del <code>Array</code>.</li>
+<li>Si el jugador se ha pasado, pierde</li>
+<li>Si el jugador no se ha pasado de 7.5<ul>
+<li>Si tiene más puntos que la máquina, gana el jugador</li>
+<li>Si tiene menos, gana la máquina</li>
+<li>Si tienen los mismos, empatan</li>
 </ul>
 </li>
 </ul>
-<h3 id="clase-juego">Clase <code>Juego</code><a class="headerlink" href="#clase-juego" title="Permanent link">&para;</a></h3>
-<p>Es la clase que implementa las reglas del juego de las siete y media. Os dejo aquí una implementación que podéis usar para no gastar demasiado tiempo haciendo la vuestra propia desde cero. No obstante no está completa, tenéis que implementar el método <code>acabarPartida()</code>.</p>
-<p>Para simplificar el juego, en esta implementación la máquina no saca cartas de verdad, una a una. Se genera una puntuación al azar entre 1 y 7.5 y se informa al usuario de la puntuación que ha sacado. Para que el juego así tenga sentido, primero juega el jugador humano y luego la máquina.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">//Esto de momento no se usa, pero luego sí, ya que necesitaremos notificaciones</span>
-<span class="kd">import</span> <span class="nc">Foundation</span>
-
-
-<span class="kd">enum</span> <span class="nc">EstadoJuego</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">turnoJugador</span><span class="p">,</span> <span class="n">ganaJugador</span><span class="p">,</span> <span class="n">pierdeJugador</span><span class="p">,</span> <span class="n">empate</span><span class="p">,</span> <span class="n">noIniciado</span>
-<span class="p">}</span>
-
-<span class="c1">//Versión simplificada de las 7 y media en la que la máquina no saca cartas una a una</span>
-<span class="c1">//sino que simula la jugada generando un valor al azar entre 1 y 7.5 (no se pasa nunca!)</span>
-<span class="kd">class</span> <span class="nc">Juego</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">baraja</span> <span class="p">:</span> <span class="n">Baraja</span><span class="p">!</span>
-    <span class="kd">var</span> <span class="nv">manoJugador</span> <span class="p">:</span> <span class="n">Mano</span><span class="p">!</span>
-    <span class="kd">var</span> <span class="nv">estado</span> <span class="p">:</span> <span class="n">EstadoJuego</span>
-    <span class="kd">var</span> <span class="nv">jugadaMaquina</span> <span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mf">0.0</span>
-
-    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">estado</span> <span class="p">=</span> <span class="n">EstadoJuego</span><span class="p">.</span><span class="n">noIniciado</span>
-    <span class="p">}</span>
-
-    <span class="c1">//LLamar a este método cuando se pulse el botón de &quot;comenzar partida&quot;</span>
-    <span class="kd">func</span> <span class="nf">comenzarPartida</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">baraja</span> <span class="p">=</span> <span class="n">Baraja</span><span class="p">()</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">baraja</span><span class="p">.</span><span class="n">barajar</span><span class="p">()</span>
-
-        <span class="kc">self</span><span class="p">.</span><span class="n">manoJugador</span> <span class="p">=</span> <span class="n">Mano</span><span class="p">()</span>
-        <span class="c1">//generamos un valor al azar entre 1 y 7.5. La máquina nunca se pasa</span>
-        <span class="c1">//primero generamos un valor entre 1 y 7</span>
-        <span class="n">jugadaMaquina</span> <span class="p">=</span> <span class="nb">Double</span><span class="p">(</span><span class="nb">Int</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">7</span><span class="p">))</span>
-        <span class="c1">//y luego el 50% de las veces le sumamos 0.5</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">Bool</span><span class="p">.</span><span class="n">random</span><span class="p">())</span> <span class="p">{</span>
-            <span class="n">jugadaMaquina</span> <span class="o">+=</span> <span class="mf">0.5</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="c1">//LLamar a este método cuando se pulse el botón de &quot;Pedir carta&quot;</span>
-    <span class="kd">func</span> <span class="nf">jugadorPideCarta</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="kd">let</span> <span class="nv">pedida</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">baraja</span><span class="p">.</span><span class="n">repartirCarta</span><span class="p">()</span> <span class="p">{</span>
-            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Sacas </span><span class="si">\(</span><span class="n">pedida</span><span class="p">.</span><span class="n">descripcion</span><span class="si">())</span><span class="s">&quot;</span><span class="p">)</span>
-            <span class="kc">self</span><span class="p">.</span><span class="n">manoJugador</span><span class="p">.</span><span class="n">addCarta</span><span class="p">(</span><span class="n">pedida</span><span class="p">)</span>
-            <span class="kd">let</span> <span class="nv">valorMano</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">sumarManoJugador</span><span class="p">()</span>
-            <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Llevas </span><span class="si">\(</span><span class="n">valorMano</span><span class="si">)</span><span class="s"> puntos&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">valorMano</span><span class="p">&gt;</span><span class="mf">7.5</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">acabarPartida</span><span class="p">()</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="c1">//LLamar a este método cuando se pulse el botón de &quot;Plantarse&quot;</span>
-    <span class="kd">func</span> <span class="nf">jugadorSePlanta</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">acabarPartida</span><span class="p">()</span>
-    <span class="p">}</span>
-
-
-    <span class="c1">//Métodos para uso interno de la clase, no es necesario llamarlos desde fuera</span>
-    <span class="c1">//Calcula quién gana, cambia el estado del juego y lo muestra en la consola con print</span>
-    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">acabarPartida</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> sumar el valor de las cartas del jugador</span>
-        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> calcular quién gana, en función de esta suma y la jugada de la máquina</span>
-        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> cambiar el estado del juego al valor apropiado e imprimir un mensaje </span>
-
-        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> en la interfaz completa, enviar notificación al ViewController indicando que la partida ha terminado,</span>
-        <span class="c1">//</span><span class="cs">TODO:</span><span class="c1"> para que este habilite/deshabilite botones y muestre con un &quot;alert&quot; el resultado</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-</code></pre></div>
 <h2 id="interfaz-simplificada-1-punto">Interfaz simplificada (1 punto)<a class="headerlink" href="#interfaz-simplificada-1-punto" title="Permanent link">&para;</a></h2>
 <p>El <code>ViewController</code> contendrá una instancia de la clase <code>Juego</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ViewController</span> <span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">{</span>
