@@ -13,7 +13,7 @@
     
     
       
-        <title>MiniProyecto de iOS (6 puntos en total) - TPDAM-iOS</title>
+        <title>Miniproyecto. Juego de las siete y media - TPDAM-iOS</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#miniproyecto-de-ios-6-puntos-en-total" class="md-skip">
+        <a href="#miniproyecto-de-ios-3-puntos-en-total" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MiniProyecto de iOS (6 puntos en total)
+              Miniproyecto. Juego de las siete y media
             
           </span>
         </div>
@@ -316,23 +316,48 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Miniproyecto. Juego de las siete y media
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_10">
+        <label class="md-nav__link" for="__nav_11">
           Material complementario
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material complementario" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+        <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           Material complementario
         </label>
@@ -405,10 +430,9 @@
                   
 
 
-<h1 id="miniproyecto-de-ios-6-puntos-en-total">MiniProyecto de iOS (6 puntos en total)<a class="headerlink" href="#miniproyecto-de-ios-6-puntos-en-total" title="Permanent link">&para;</a></h1>
+<h1 id="miniproyecto-de-ios-3-puntos-en-total">MiniProyecto de iOS (3 puntos en total)<a class="headerlink" href="#miniproyecto-de-ios-3-puntos-en-total" title="Permanent link">&para;</a></h1>
 <h1 id="juego-de-las-siete-y-media">Juego de las siete y media<a class="headerlink" href="#juego-de-las-siete-y-media" title="Permanent link">&para;</a></h1>
 <p>Se propone implementar el conocido juego de cartas de "<a href="https://es.wikipedia.org/wiki/Siete_y_media">las 7 y media</a>". </p>
-<p>Para simplificar, solo habrá dos jugadores: el usuario contra la máquina que hace de banca. El usuario va pidiendo cartas una a una hasta que se pasa de 7 y medio o decide plantarse. La máquina no va sacando cartas una a una sino que obtiene una puntuación generada al azar.</p>
 <p>Para crear el proyecto, como siempre hacemos, elige la plantilla de <code>App</code>. En la segunda pantalla del asistente dale como nombre <code>SieteyMedia</code> y asegúrate que en el interface pone <code>Storyboard</code> (como todas las apps que hemos hecho hasta ahora lo usan ya debería salir por defecto).</p>
 <h2 id="estructura-de-clases-del-modelo">Estructura de clases del modelo<a class="headerlink" href="#estructura-de-clases-del-modelo" title="Permanent link">&para;</a></h2>
 <p>Necesitáis tener implementadas todas las clases/enums que os hemos propuesto en las sesiones de Swift:</p>
@@ -418,7 +442,7 @@
 <li>clase <code>Mano</code></li>
 <li>clase <code>Baraja</code></li>
 </ul>
-<p>Además se os proporciona la implementación de una versión simplificada del juego en la clase <code>Juego</code>. En esta versión simplificada la máquina no saca cartas de la baraja, sino que genera un número al azar entre 0 y 7.5, con lo que sabemos que nunca se va a pasar. En esta modalidad de juego, primero juega la máquina, aunque no aparecerá el resultado en pantalla, y luego el jugador irá pidiendo cartas hasta que decida plantarse o se pase de 7.5. Terminado el turno del jugador:</p>
+<p>Además se os proporciona la implementación de una versión simplificada del juego en la clase <a href="../Juego.swift"><code>Juego</code></a> (el archivo contiene también el enumerado <code>EstadoJuego)</code>. En esta versión simplificada el usuario juega contra la máquina. La máquina no saca cartas de la baraja, sino que genera un número al azar entre 0 y 7.5, con lo que sabemos que nunca se va a pasar. En esta modalidad de juego, primero juega la máquina, aunque no aparecerá el resultado en pantalla, y luego el jugador irá pidiendo cartas hasta que decida plantarse o se pase de 7.5. Terminado el turno del jugador:</p>
 <ul>
 <li>Si el jugador se ha pasado, pierde</li>
 <li>Si el jugador no se ha pasado de 7.5<ul>
@@ -428,20 +452,35 @@
 </ul>
 </li>
 </ul>
+<p>Para copiar el código de todas las clases al proyecto:</p>
+<ol>
+<li><strong>Crea un "grupo"</strong>, que es como una subcarpeta del proyecto en la que puedes organizar los archivos. En Xcode, clic derecho sobre la carpeta del proyecto <code>SieteYMedia</code>, en el menú contextual, selecciona <code>New Group</code> y llámalo <code>modelo</code> (si seleccionas <code>New Group without folder</code> la carpeta aparecerá igualmente en Xcode pero no será una carpeta "física" del sistema de archivos).</li>
+<li><strong>Añadir las clases/enums al proyecto</strong>: Hay dos posibilidades:<ul>
+<li>Si tienes las clases en uno o varios archivos, puedes arrastrarlo(s) al grupo <code>modelo</code>. En el cuadro de diálogo que aparecerá asegúrate de que está marcada la casilla <code>Copy items if needed</code>, si no se incluiría una referencia al archivo original, de modo que si borras o mueves el original, se perdería la referencia.</li>
+<li>Si quieres puedes ir creando los archivos dentro del grupo <code>modelo</code> con clic derecho y <code>New File</code></li>
+</ul>
+</li>
+</ol>
 <h2 id="interfaz-simplificada-1-punto">Interfaz simplificada (1 punto)<a class="headerlink" href="#interfaz-simplificada-1-punto" title="Permanent link">&para;</a></h2>
-<p>El <code>ViewController</code> contendrá una instancia de la clase <code>Juego</code>.</p>
+<p>El <code>ViewController</code> debería contener una instancia de la clase <code>Juego</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ViewController</span> <span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">juego</span> <span class="p">=</span> <span class="n">Juego</span><span class="p">()</span>
+    <span class="kd">var</span> <span class="nv">juego</span> <span class="p">:</span> <span class="n">Juego</span><span class="p">!</span>
     <span class="p">...</span>
 
 <span class="p">}</span> 
 </code></pre></div>
-<p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code>. </p>
+<p>En esta versión muy simplificada de la interfaz solo aparecen en pantalla tres botones: "pedir carta", "plantarse" y "nueva partida", pero no se ven las cartas gráficamente. Eso sí, el juego debería funcionar correctamente, imprimiendo los mensajes con <code>print</code> en la consola</p>
 <p>Tendrás que conectar con <em>action</em> (gráficamente) los botones del juego con funciones del <em>view controller</em> que a su vez llamen a los métodos del objeto <code>juego</code>.</p>
+<ul>
+<li>"nueva partida" debe inicializar la variable <code>juego</code> y llamar al método <code>turnoMaquina</code></li>
+<li>"pedir carta" al método <code>jugadorPideCarta</code></li>
+<li>"plantarse" al método <code>jugadorSePlanta</code></li>
+</ul>
 <blockquote>
-<p>Aunque al principio solo debería poder pulsarse el botón "nueva partida" y una vez comenzada solo los otros dos, etc... de momento no nos preocuparemos de esto y dejaremos que se pueda pulsar cualquier botón, asumiendo que el usuario nunca pulsará un botón que no debería 🙄</p>
+<p>Aunque al principio solo debería poder pulsarse el botón "nueva partida" y una vez comenzada solo los otros dos, etc... de momento no nos preocuparemos de esto y dejaremos que se pueda pulsar cualquier botón, asumiendo que el usuario nunca pulsará un botón que no debería 🙄, ya que si no el resultado podria ser catastrófico.</p>
 </blockquote>
-<h2 id="interfaz-completa-15-puntos">Interfaz completa (1.5 puntos)<a class="headerlink" href="#interfaz-completa-15-puntos" title="Permanent link">&para;</a></h2>
+<p>Se sabe que el juego ha terminado cuando el estado devuelto por <code>jugadorPideCarta</code> o <code>jugadorSePlanta</code> es distinto de <code>.turnoJugador</code>. Cuando suceda esto debes imprimir el resultado del juego en la consola, dependiendo del estado puedes saber quién ha ganado.</p>
+<h2 id="interfaz-completa-2-puntos">Interfaz completa (2 puntos)<a class="headerlink" href="#interfaz-completa-2-puntos" title="Permanent link">&para;</a></h2>
 <p>En la interfaz completa deberían aparecer pintadas las cartas en pantalla conforme se van repartiendo. Además los botones se deberían habilitar/deshabilitar adecuadamente (por ejemplo si la partida se ha terminado no se puede pedir carta).</p>
 <h3 id="anadir-las-imagenes-de-las-cartas-al-proyecto">Añadir las imágenes de las cartas al proyecto<a class="headerlink" href="#anadir-las-imagenes-de-las-cartas-al-proyecto" title="Permanent link">&para;</a></h3>
 <p>Descomprime el .zip de Moodle con las imágenes de las cartas en png, selecciona todos los archivos y "déjalos caer" dentro de la carpeta de recursos (<code>Assets.xcassets</code>). </p>
@@ -449,64 +488,31 @@
 <h3 id="como-dibujar-las-cartas">Cómo dibujar las cartas<a class="headerlink" href="#como-dibujar-las-cartas" title="Permanent link">&para;</a></h3>
 <p>Cada vez que dibujemos en pantalla una carta estamos añadiendo a la pantalla actual un <code>UIImageView</code>. Tenemos que guardar referencias a todas las imágenes añadidas para poder borrarlas cuando acabe la partida. Definiremos esta propiedad en el <em>view controller</em> para guardarlas</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//propiedad de ViewController.swift</span>
-<span class="kd">var</span> <span class="nv">vistasCartas</span> <span class="p">:</span> <span class="p">[</span><span class="bp">UIImageView</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span> 
+<span class="kd">var</span> <span class="nv">viewsCartas</span> <span class="p">:</span> <span class="p">[</span><span class="bp">UIImageView</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span> 
 </code></pre></div>
-<p>En lugar de dibujar las cartas directamente en su posición final, podemos hacerlo fuera de la pantalla (es decir, con el origen del <em>frame</em> en coordenadas negativas) y luego hacer una animación hasta su posición definitiva. La siguiente función <code>dibujarCarta(carta: Carta, posicion : Int)</code> dibuja una carta con el efecto descrito. La <code>posicion</code> es el orden de la carta, para que se vayan colocando una al lado de la otra: 1, 2...</p>
-<blockquote>
-<p>En el código de ejemplo usamos un tamaño de carta fijo de 70x100 puntos, en el apartado siguiente se te propone adaptarlo al tamaño real de la pantalla. Nótese que hablamos de puntos y no de pixeles ya que en código no se usa la resolución física sino una resolución "lógica". Hay dispositivos que tienen distinta resolución física pero usan la misma resolución lógica, lo que simplifica el desarrollo. Podéis ver una tabla con resoluciones físicas y lógicas de distintos dispositivos iOS en <a href="https://www.ios-resolution.com/">https://www.ios-resolution.com/</a> 
-IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerado <code>Palo</code> debe tener un valor "interno" de tipo <code>String</code>. Esto lo puedes conseguir simplemente poniendo <code>enum Palo : String</code> en la definición del tipo.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">dibujarCarta</span><span class="p">(</span><span class="n">carta</span><span class="p">:</span> <span class="n">Carta</span><span class="p">,</span> <span class="n">posicion</span> <span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">nombreImagen</span> <span class="p">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">valor</span><span class="p">)</span><span class="o">+</span><span class="nb">String</span><span class="p">(</span><span class="n">carta</span><span class="p">.</span><span class="n">palo</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span>
-    <span class="c1">//creamos un objeto imagen</span>
-    <span class="kd">let</span> <span class="nv">imagenCarta</span> <span class="p">=</span> <span class="bp">UIImage</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="n">nombreImagen</span><span class="p">)</span>
-    <span class="c1">//para que la imagen sea un componente más del UI,</span>
-    <span class="c1">//la encapsulamos en un UIImageView</span>
-    <span class="kd">let</span> <span class="nv">cartaView</span> <span class="p">=</span> <span class="bp">UIImageView</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">imagenCarta</span><span class="p">)</span>
-    <span class="c1">//Inicialmente la colocamos fuera de la pantalla y más grande</span>
-    <span class="c1">//para que parezca más cercana</span>
-    <span class="c1">//&quot;frame&quot; son los límites de la vista, definen pos y tamaño</span>
-    <span class="n">cartaView</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">300</span><span class="p">)</span>
-    <span class="c1">//La rotamos, para que al &quot;repartirla&quot; haga un efecto de giro</span>
-    <span class="n">cartaView</span><span class="p">.</span><span class="n">transform</span> <span class="p">=</span> <span class="bp">CGAffineTransform</span><span class="p">(</span><span class="n">rotationAngle</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">(</span><span class="nb">Double</span><span class="p">.</span><span class="n">pi</span><span class="p">));</span>
-    <span class="c1">//La añadimos a la vista principal, si no no sería visible</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">cartaView</span><span class="p">)</span>
-    <span class="c1">//guardamos la vista en el array, para luego poder eliminarla</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">vistasCartas</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cartaView</span><span class="p">)</span>
-    <span class="c1">//Animación de repartir carta</span>
-    <span class="bp">UIView</span><span class="p">.</span><span class="n">animate</span><span class="p">(</span><span class="n">withDuration</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">){</span>
-        <span class="c1">//&quot;efecto caida&quot;: la llevamos a la posición final</span>
-        <span class="n">cartaView</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="mi">50</span><span class="o">+</span><span class="mi">70</span><span class="o">*</span><span class="p">(</span><span class="n">posicion</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="mi">100</span><span class="p">);</span>
-        <span class="c1">//0 como ángulo &quot;destino&quot;, para que rote mientras &quot;cae&quot;</span>
-        <span class="n">cartaView</span><span class="p">.</span><span class="n">transform</span> <span class="p">=</span> <span class="bp">CGAffineTransform</span><span class="p">(</span><span class="n">rotationAngle</span><span class="p">:</span><span class="mi">0</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><strong>Para dibujar las cartas puedes adaptar el código de ejemplo que hemos visto esta tarde en clase</strong>, recuerda cómo funciona: en lugar de dibujar las cartas directamente en su posición final, se hace fuera de la pantalla (es decir, con el origen del <em>frame</em> en coordenadas negativas) y luego se realiza una animación hasta su posición definitiva. </p>
+<p>Recuerda que las coordenadas usadas en las "views" de iOS no son pixeles físicos sino lógicos. Tienes una tabla con las resoluciones físicas y lógicas de todos los dispositivos móviles de Apple en <a href="https://www.ios-resolution.com">https://www.ios-resolution.com</a>. El origen de coordenadas está en la esquina superior izquierda, la coordenada <code>x</code> va hacia la derecha y la coordenada <code>y</code> hacia abajo.</p>
+<p>Ten en cuenta que cada carta deberías dibujarla un poco más a la derecha que la anterior, para que queden en la "mesa" una al lado de la otra y no justo "encima".</p>
 <h3 id="eliminar-las-cartas-de-la-pantalla">Eliminar las cartas de la pantalla<a class="headerlink" href="#eliminar-las-cartas-de-la-pantalla" title="Permanent link">&para;</a></h3>
-<p>Una vez ha terminado la partida, o justo cuando comienza la siguiente, hay que borrar todas las cartas de la pantalla. Vamos recorriendo el array <code>self.vistasCartas</code> del <em>view controller</em> y vamos eliminando las cartas de la pantalla:</p>
+<p>Una vez ha terminado la partida, o justo cuando comienza la siguiente, también tendrás que borrar todas las cartas de la pantalla. Vamos recorriendo el array <code>self.viewsCartas</code> del <em>view controller</em> y vamos eliminando las cartas de la pantalla:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//Quitamos las cartas de la pantalla</span>
-<span class="k">for</span> <span class="n">vistaCarta</span> <span class="k">in</span> <span class="kc">self</span><span class="p">.</span><span class="n">vistasCartas</span> <span class="p">{</span>
-    <span class="n">vistaCarta</span><span class="p">.</span><span class="n">removeFromSuperview</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v</span> <span class="k">in</span> <span class="kc">self</span><span class="p">.</span><span class="n">viewsCartas</span> <span class="p">{</span>
+    <span class="n">v</span><span class="p">.</span><span class="n">removeFromSuperview</span><span class="p">()</span>
 <span class="p">}</span>
 <span class="c1">//ya no tenemos imágenes de cartas en pantalla, ponemos el array a vacío</span>
-<span class="kc">self</span><span class="p">.</span><span class="n">vistasCartas</span><span class="p">=[]</span>
+<span class="kc">self</span><span class="p">.</span><span class="n">viewsCartas</span><span class="p">=[]</span>
 </code></pre></div>
-<h3 id="adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-05-puntos-adicionales">Adaptar los dibujos a la resolución de la pantalla (0.5 puntos ADICIONALES)<a class="headerlink" href="#adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-05-puntos-adicionales" title="Permanent link">&para;</a></h3>
+<h3 id="adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-025-puntos-adicionales">Adaptar los dibujos a la resolución de la pantalla (0.25 puntos ADICIONALES)<a class="headerlink" href="#adaptar-los-dibujos-a-la-resolucion-de-la-pantalla-025-puntos-adicionales" title="Permanent link">&para;</a></h3>
 <p>OPCIONALMENTE, en lugar de dibujar las cartas con un tamaño y unas posiciones "fijas", puedes usar un porcentaje o fracción del ancho y alto total de la pantalla. Puedes obtener el ancho y alto de la pantalla del siguiente modo:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">limitesPantalla</span> <span class="p">=</span> <span class="bp">UIScreen</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">bounds</span>
 <span class="kd">let</span> <span class="nv">anchoPantalla</span> <span class="p">=</span> <span class="n">limitesPantalla</span><span class="p">.</span><span class="n">width</span>
 <span class="kd">let</span> <span class="nv">altoPantalla</span> <span class="p">=</span> <span class="n">limitesPantalla</span><span class="p">.</span><span class="n">height</span>
 </code></pre></div>
-<h3 id="como-manipular-los-botones">Cómo manipular los botones<a class="headerlink" href="#como-manipular-los-botones" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Podéis habilitar/deshabilitar los botones por código poniendo su propiedad <code>isEnabled</code> a <code>true</code> o <code>false</code> respectivamente.</li>
-<li>Para que un botón aparezca inicialmente deshabilitado, en el "attributes inspector" de la parte derecha de Xcode desmarcar la casilla <code>enabled</code> dentro de <code>state</code> (está a mitad de panel).</li>
-</ul>
-<p>Un problema es cómo enterarnos en el ViewController de que la partida ha acabado para habilitar y deshabilitar los correspondientes botones, y para mostrar el resultado con un cuadro de diálogo. Podemos hacerlo con notificaciones:</p>
-<ul>
-<li>Añadir código Swift a la función <code>acabarPartida()</code> de la clase <code>Juego</code> para que se envíe una notificación con el nombre y contenido que queráis (como contenido debería tener como mínimo una frase resumiendo el resultado del juego para que podáis mostrarlo).</li>
-<li>Añadir código Swift al <code>ViewController</code> para que si se recibe la notificación se ejecute un método de éste que habilite/deshabilite botones y muestre el resultado</li>
-</ul>
+<h3 id="como-habilitardeshabilitar-los-botones">Cómo habilitar/deshabilitar los botones<a class="headerlink" href="#como-habilitardeshabilitar-los-botones" title="Permanent link">&para;</a></h3>
+<p><strong>Cuando arranca la app, los botones de pedir carta y plantarse deberían aparecer deshabilitados, y solo habilitado el de comenzar partida.</strong></p>
+<p>Para que un botón aparezca inicialmente deshabilitado, en Xcode, en el "attributes inspector" de la parte derecha de la pantalla, desmarcar la casilla <code>enabled</code> dentro de <code>state</code> (está a mitad de panel).</p>
+<p><strong>Una vez comenzada la partida se deberían habilitar los botones de pedir carta y plantarse. Cuando termine se deben deshabilitar otra vez.</strong></p>
+<p>Podéis habilitar/deshabilitar los botones por código poniendo su propiedad <code>isEnabled</code> a <code>true</code> o <code>false</code> respectivamente.</p>
 <h3 id="como-mostrar-mensajes-al-usuario">Cómo mostrar mensajes al usuario<a class="headerlink" href="#como-mostrar-mensajes-al-usuario" title="Permanent link">&para;</a></h3>
 <p>Podéis mostrar el resultado del juego ("has ganado", "te has pasado",...) con un <code>UIAlertController</code>, que hará aparecer el típico cuadro de diálogo modal. El siguiente código muestra un cuadro que pone "¡¡Has perdido!!", con el título "Fin del juego", y con un único botón de "OK" que no hace nada especial, más que quitar el cuadro de diálogo. </p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">alert</span> <span class="p">=</span> <span class="bp">UIAlertController</span><span class="p">(</span>
@@ -519,8 +525,6 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
 <span class="n">alert</span><span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
 <span class="kc">self</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">alert</span><span class="p">,</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="n">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="i18n-15-puntos">i18n (1.5 puntos)<a class="headerlink" href="#i18n-15-puntos" title="Permanent link">&para;</a></h2>
-<p>Internacionaliza la aplicación para que esté localizada al menos en dos idiomas, los que tú prefieras</p>
 
 
 
@@ -536,6 +540,42 @@ IMPORTANTE: para que la segunda línea de este código funcione tu tipo enumerad
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pie" >
+      
+        
+        <a href="../../s4/ejercicio_i18n/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Ejercicio de i18n" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Ejercicio de i18n
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../apendices/control_versiones/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Control de versiones en Xcode" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Control de versiones en Xcode
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
