@@ -545,16 +545,16 @@
 <p>Cada API usa internamente los otros de más bajo nivel. Es decir, GCD usa internamente <em>threads</em> y las colas de operaciones usan internamente GCD.</p>
 <h3 id="colas-de-operaciones">Colas de operaciones<a class="headerlink" href="#colas-de-operaciones" title="Permanent link">&para;</a></h3>
 <p>En una <em>cola de operaciones</em> podemos añadir trabajos concurrentes. Manejarlas a nivel básico es muy sencillo. Son instancias de <code>OperationQueue</code> y para añadir un trabajo a una solo hay que llamar a <code>addOperation()</code>. Hay diversas formas de pasar el código a ejecutar. La más cómoda es en forma de <em>clausura</em>. Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">cola</span> <span class="p">=</span> <span class="n">OperationQueue</span><span class="p">();</span>
-<span class="n">cola</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;comienza operación 1...&quot;</span><span class="p">);</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;...hecho 1&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">cola</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">OperationQueue</span><span class="p">();</span>
+<span class="n">cola</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;comienza operación 1...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;...hecho 1&quot;</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="n">cola</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;comienza operacion 2...&quot;</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;...hecho 2&quot;</span><span class="p">);</span>
+<span class="n">cola</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;comienza operacion 2...&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;...hecho 2&quot;</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
 <blockquote>
@@ -565,15 +565,15 @@
 <p>En aplicaciones iOS está predefinida lo que se llama la "cola de operaciones principal", que es la que ejecuta el código que actualiza la interfaz de usuario. Podemos acceder a ella con <code>OperationQueue.main</code>. Esta cola de operaciones no puede ejecutar operaciones concurrentes para evitar inconsistencias, que se podrían dar si dos tareas estuvieran modificando simultáneamente el mismo elemento de la interfaz. Podemos comprobar esto imprimiendo el valor de <code>OperationQueue.main.maxConcurrentOperationCount</code>, que veremos que vale 1, es decir, no hay operaciones concurrentes en esta cola.</p>
 <p>Cuando necesitamos ejecutar una operación especialmente costosa en tiempo no es recomendable bloquear la interfaz de usuario, por lo que se suele crear una cola de operaciones aparte de la principal y ejecutar la operación en esta.  </p>
 <p>Un problema adicional es que normalmente esta operación costosa debe actualizar la interfaz de usuario al finalizar, pero ningún hilo de ejecución que no sea el principal debe actualizar la interfaz de usuario, ya que lo contrario podría producir resultados inconsistentes. Esto lo podemos resolver accediendo a la cola de operaciones principal con <code>OperationQueue.main</code>. Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">background</span> <span class="p">=</span> <span class="n">OperationQueue</span><span class="p">();</span>
-<span class="n">background</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Comienzo mi duro trabajo...&quot;</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;...terminado!&quot;</span><span class="p">)</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;pero yo NO DEBO tocar la interfaz&quot;</span><span class="p">)</span>
-    <span class="n">OperationQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Soy main. Desde aquí sí se puede actualizar la interfaz&quot;</span><span class="p">)</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">background</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">OperationQueue</span><span class="p">();</span>
+<span class="n">background</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Comienzo mi duro trabajo...&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;...terminado!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;pero yo NO DEBO tocar la interfaz&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">OperationQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">addOperation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Soy main. Desde aquí sí se puede actualizar la interfaz&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 

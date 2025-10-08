@@ -813,18 +813,18 @@
 <h2 id="implementacion-del-modelo">Implementación del modelo<a class="headerlink" href="#implementacion-del-modelo" title="Permanent link">&para;</a></h2>
 <p>En esta <em>app</em> el modelo lo único que debe hacer es generar respuestas al azar a demanda. Lo podemos implementar en una clase <code>Adivino</code> que tenga un método <code>obtenerRespuesta</code></p>
 <p>Para colocar el código de la clase debemos crear un archivo Swift: en Xcode, <code>File &gt; New &gt; File...</code> y en el asistente seleccionamos la plantilla "Swift File". Lo guardamos en la misma carpeta <code>UAdivino</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Adivino</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">obtenerRespuesta</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">respuestas</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Si&quot;</span><span class="p">,</span> <span class="s">&quot;No&quot;</span><span class="p">,</span> <span class="s">&quot;Ni de casualidad&quot;</span><span class="p">,</span> <span class="s">&quot;¡Por supuesto!&quot;</span><span class="p">]</span>
-        <span class="kd">let</span> <span class="nv">indice</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">respuestas</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">respuestas</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Adivino</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">obtenerRespuesta</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">respuestas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Si&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;No&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ni de casualidad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;¡Por supuesto!&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">indice</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">Int</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="k">in</span><span class="p">:</span><span class="w"> </span><span class="mf">0.</span><span class="p">.&lt;</span><span class="n">respuestas</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">respuestas</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Podemos comprobar provisionalmente que el modelo funciona instanciando un <code>Adivino</code> cuando la <em>app</em> arranque y generando varias respuestas. Algo como:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">adivino</span> <span class="p">=</span> <span class="n">Adivino</span><span class="p">()</span>
-<span class="k">for</span> <span class="kc">_</span> <span class="k">in</span> <span class="mf">1.</span><span class="p">..</span><span class="mi">5</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="n">adivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">adivino</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Adivino</span><span class="p">()</span>
+<span class="k">for</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">1.</span><span class="p">..</span><span class="mi">5</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="n">adivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">())</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Podemos <strong>insertar el código anterior en la clase <code>AppDelegate</code>, dentro del primero de sus métodos</strong>: <code>application(_ application:, didFinishLaunchingWithOptions:)</code>, que es el que se ejecuta al terminar de arrancar la aplicación. </p>
@@ -850,15 +850,15 @@
 <p>Ahora en el método del <em>action</em> <code>botonPulsado</code> tenemos que llamar al modelo. En nuestro caso es tan simple como llamar a <code>obtenerRespuesta()</code> pero para eso necesitamos declarar una instancia del modelo en el controlador. Por ello le añadimos una nueva propiedad:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//En el ViewController.swift</span>
 
-<span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">{</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">ViewController</span><span class="p">:</span><span class="w"> </span><span class="bp">UIViewController</span><span class="w"> </span><span class="p">{</span>
 
-   <span class="kd">let</span> <span class="nv">miAdivino</span> <span class="p">=</span> <span class="n">Adivino</span><span class="p">()</span>
+<span class="w">   </span><span class="kd">let</span><span class="w"> </span><span class="nv">miAdivino</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Adivino</span><span class="p">()</span>
 
-   <span class="p">...</span>
+<span class="w">   </span><span class="p">...</span>
 </code></pre></div>
 <p>Ahora tenemos que obtener una respuesta cuando se pulse el botón:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">botonPulsado</span><span class="p">(</span><span class="kc">_</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">respuesta</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">miAdivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kr">@IBAction</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">botonPulsado</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="nb">AnyObject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">respuesta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">self</span><span class="p">.</span><span class="n">miAdivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>pero todavía nos falta mostrarla en la interfaz. Para eso necesitamos conectar el <em>controller</em> con la vista</p>
@@ -870,9 +870,9 @@
 <li>Arrastramos con <code>Ctrl</code> + clic desde el botón al código del <em>controller</em> pero ahora cuando soltemos el botón del ratón y nos pregunte el tipo de conexión dejamos <code>Outlet</code>. Escribimos un nombre apropiado para la variable (por ejemplo <code>labelRespuesta</code>) y pulsamos sobre <code>Connect</code>.</li>
 </ol>
 <p>Vemos que la variable recién creada es del tipo <code>UILabel</code> y lleva la anotación <code>@IBOutlet</code> para indicar que es un <em>outlet</em>. Si miramos la documentación de iOS veremos que a través de la propiedad <code>text</code> tenemos acceso al texto del componente. Por lo que finalmente el método del <em>action</em> que hemos hecho antes quedará:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">botonPulsado</span><span class="p">(</span><span class="kc">_</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">respuesta</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">miAdivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">()</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">labelRespuesta</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">respuesta</span>
+<div class="highlight"><pre><span></span><code><span class="kr">@IBAction</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">botonPulsado</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="nb">AnyObject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">respuesta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">self</span><span class="p">.</span><span class="n">miAdivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">()</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">labelRespuesta</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">respuesta</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Ya debería funcionar todo correctamente, así que ya podemos probar la <em>app</em>.</p>

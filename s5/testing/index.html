@@ -672,28 +672,28 @@
 <h3 id="un-ejemplo">Un ejemplo<a class="headerlink" href="#un-ejemplo" title="Permanent link">&para;</a></h3>
 <p><code>XCTest</code> es muy similar a otros <em>frameworks</em> de pruebas unitarias como <code>JUnit</code>, así que es sencillo de usar para alguien que ya haya usado este último</p>
 <p>Por ejemplo, supongamos que tenemos un juego de tres en raya y aquí tenemos parte del modelo (se omite el código interno de los métodos, para mayor brevedad)</p>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">Casilla</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">vacia</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">O</span>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">Casilla</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">vacia</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">O</span>
 <span class="p">}</span>
 
-<span class="kd">enum</span> <span class="nc">ErrorJuego</span> <span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">casillaNoExiste</span>
+<span class="kd">enum</span><span class="w"> </span><span class="nc">ErrorJuego</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">casillaNoExiste</span>
 <span class="p">}</span>
 
-<span class="kd">class</span> <span class="nc">Juego</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">tablero</span> <span class="p">:</span> <span class="p">[[</span><span class="n">Casilla</span><span class="p">]]</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Juego</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">tablero</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="n">Casilla</span><span class="p">]]</span>
 
-    <span class="kd">func</span> <span class="nf">getCasilla</span><span class="p">(</span><span class="n">fila</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="n">Casilla</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">getCasilla</span><span class="p">(</span><span class="n">fila</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="kr">throws</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Casilla</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">func</span> <span class="nf">setCasilla</span><span class="p">(</span><span class="n">fila</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">valor</span><span class="p">:</span> <span class="n">Casilla</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">setCasilla</span><span class="p">(</span><span class="n">fila</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">:</span><span class="w"> </span><span class="n">Casilla</span><span class="p">)</span><span class="w"> </span><span class="kr">throws</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kd">init</span><span class="p">(</span><span class="n">filas</span><span class="p">:</span><span class="nb">Int</span><span class="p">,</span> <span class="n">cols</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>   
+<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">filas</span><span class="p">:</span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">    </span><span class="p">}</span><span class="w">   </span>
 <span class="p">}</span>
 </code></pre></div>
 <p>¿Cómo estar razonablemente seguros de que el código de los métodos es correcto?. Podemos comprobar varias cosas, por ejemplo</p>
@@ -705,20 +705,20 @@
 <p>Vamos a ver cómo podemos automatizar todas estas comprobaciones en una <em>suite</em> de pruebas.</p>
 <h3 id="estructura-de-una-suite-de-pruebas">Estructura de una <em>suite</em> de pruebas<a class="headerlink" href="#estructura-de-una-suite-de-pruebas" title="Permanent link">&para;</a></h3>
 <p>Podemos ver la estructura que tiene un conjunto o <em>suite</em> de pruebas en la plantilla de <em>tests</em> que crea Xcode. En el caso de nuestro ejemplo podría ser algo como lo siguiente (suponiendo que el proyecto se llama <code>TresEnRaya</code>)</p>
-<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">XCTest</span>
-<span class="p">@</span><span class="n">testable</span> <span class="kd">import</span> <span class="nc">TresEnRaya</span>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span><span class="w"> </span><span class="nc">XCTest</span>
+<span class="p">@</span><span class="n">testable</span><span class="w"> </span><span class="kd">import</span><span class="w"> </span><span class="nc">TresEnRaya</span>
 
-<span class="kd">class</span> <span class="nc">TresEnRayaTests</span><span class="p">:</span> <span class="n">XCTestCase</span> <span class="p">{</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TresEnRayaTests</span><span class="p">:</span><span class="w"> </span><span class="n">XCTestCase</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">setUp</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kc">super</span><span class="p">.</span><span class="n">setUp</span><span class="p">()</span>
-        <span class="c1">// Put setup code here. This method is called before the invocation of each test method in the class.</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kr">override</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">setUp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kc">super</span><span class="p">.</span><span class="n">setUp</span><span class="p">()</span>
+<span class="w">        </span><span class="c1">// Put setup code here. This method is called before the invocation of each test method in the class.</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">tearDown</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// Put teardown code here. This method is called after the invocation of each test method in the class.</span>
-        <span class="kc">super</span><span class="p">.</span><span class="n">tearDown</span><span class="p">()</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kr">override</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Put teardown code here. This method is called after the invocation of each test method in the class.</span>
+<span class="w">        </span><span class="kc">super</span><span class="p">.</span><span class="n">tearDown</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>donde hay que destacar:</p>
 <ul>
@@ -738,7 +738,7 @@
 </ul>
 <p>Esto son algunas variantes de <code>XCTAssert</code> aplicables a nuestro ejemplo, pero hay bastantes más (comprobar que algo es menor, mayor que algo, o que una operación no lanza un error, o que algo es <code>nil</code>,...).</p>
 <p>En todas las aserciones podemos poner como parámetro final un mensaje (Un <code>String</code>) que aparecerá si falla el test</p>
-<div class="highlight"><pre><span></span><code><span class="n">XCTAssertTrue</span><span class="p">(</span><span class="mi">3</span><span class="p">&gt;</span><span class="mi">5</span><span class="p">,</span> <span class="s">&quot;Esta prueba va a fallar seguro&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">XCTAssertTrue</span><span class="p">(</span><span class="mi">3</span><span class="p">&gt;</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Esta prueba va a fallar seguro&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>Para más detalles sobre los distintos tipos de aserciones se recomienda consultar el apartado "Test Assertions" de la documentación de <a href="https://developer.apple.com/documentation/xctest"><code>XCTest</code></a></p>
 <h3 id="ejecutar-las-pruebas-y-ver-el-resultado">Ejecutar las pruebas y ver el resultado<a class="headerlink" href="#ejecutar-las-pruebas-y-ver-el-resultado" title="Permanent link">&para;</a></h3>

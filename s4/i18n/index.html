@@ -679,7 +679,7 @@
 <p>Si hemos añadido idiomas adicionales veremos que en el <em>project navigator</em> los iconos de <em>storyboard</em> aparecen con una flecha a la izquierda indicando que en realidad son varios archivos. Al desplegarlo veremos que es el <em>storyboard</em> en sí más un archivo <code>.strings</code> por cada idioma añadido.</p>
 <p><img alt="" src="../images/storyboard.gif" /></p>
 <p>Al abrir este archivo <code>.strings</code> veremos que es un archivo de texto en el que por cada componente de usuario que contenga texto hay una línea en el formato</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;identificador-del-componente&quot;</span> <span class="p">=</span> <span class="s">&quot;Texto mostrado&quot;</span> 
+<div class="highlight"><pre><span></span><code><span class="s">&quot;identificador-del-componente&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Texto mostrado&quot;</span><span class="w"> </span>
 </code></pre></div>
 <p>Lo único que tenemos que hacer es <em>cambiar el texto al idioma correspondiente</em>. El identificador del componente es un tanto críptico ya que es autogenerado por Xcode,y se corresponde con el <code>Object Id</code> que podemos ver en el <code>Identity inspector</code>, aunque casi siempre es fácil saber de qué componente se trata simplemente por el texto mostrado.</p>
 <h3 id="probar-la-interfaz">Probar la interfaz<a class="headerlink" href="#probar-la-interfaz" title="Permanent link">&para;</a></h3>
@@ -703,20 +703,20 @@
 <p>Hay mensajes que no están fijos en la interfaz, sino que se generan desde el código. Por ejemplo recordemos la <em>app</em> <code>UAdivino</code> que hicimos en el tema de "Introducción a las aplicaciones iOS".</p>
 <p>Lo que tenemos que hacer para internacionalizar este tipo de mensajes es usar <em>localized strings</em>. Este tipo de <em>strings</em> no se toman de manera literal sino <em>que se consideran claves en un archivo <code>.Strings</code></em>. El sistema sustituirá la clave por el valor asociado en el idioma actual.</p>
 <p>La representación interna de los mensajes en el código sería parecida, aunque puede ser más breve, ya que no es el mensaje que va a ser el usuario final.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">Foundation</span>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span><span class="w"> </span><span class="nc">Foundation</span>
 
-<span class="kd">class</span> <span class="nc">Adivino</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">obtenerRespuesta</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">respuestas</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;si&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;ni_casualidad&quot;</span><span class="p">,</span> <span class="s">&quot;claro&quot;</span><span class="p">]</span>
-        <span class="kd">let</span> <span class="nv">indice</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">arc4random_uniform</span><span class="p">(</span><span class="nb">UInt32</span><span class="p">(</span><span class="n">respuestas</span><span class="p">.</span><span class="bp">count</span><span class="p">)))</span>
-        <span class="k">return</span> <span class="n">respuestas</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
-    <span class="p">}</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Adivino</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">obtenerRespuesta</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">respuestas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;si&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;no&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ni_casualidad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;claro&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">indice</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">Int</span><span class="p">(</span><span class="n">arc4random_uniform</span><span class="p">(</span><span class="nb">UInt32</span><span class="p">(</span><span class="n">respuestas</span><span class="p">.</span><span class="bp">count</span><span class="p">)))</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">respuestas</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>En el momento en que queremos asignar el mensaje a un elemento de usuario podemos usar la <em>macro</em> <code>NSLocalizedString</code>, que obtiene el mensaje asociado a la clave</p>
-<div class="highlight"><pre><span></span><code><span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">botonPulsado</span><span class="p">(</span><span class="kc">_</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">respuesta</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">miAdivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">()</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">labelRespuesta</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">NSLocalizedString</span><span class="p">(</span><span class="n">respuesta</span><span class="p">,</span> <span class="n">comment</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kr">@IBAction</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">botonPulsado</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="nb">AnyObject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">respuesta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">self</span><span class="p">.</span><span class="n">miAdivino</span><span class="p">.</span><span class="n">obtenerRespuesta</span><span class="p">()</span>
+<span class="w">    </span><span class="kc">self</span><span class="p">.</span><span class="n">labelRespuesta</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NSLocalizedString</span><span class="p">(</span><span class="n">respuesta</span><span class="p">,</span><span class="w"> </span><span class="n">comment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>El segundo parámetro de <code>NSLocalizedString</code> es un comentario que pueda ayudar a un traductor de la <em>app</em> a entender el contexto del mensaje. En este caso no tiene sentido y lo dejamos vacío.</p>
@@ -729,21 +729,21 @@
 <p><img alt="" src="../images/localization_strings.png" /></p>
 <p>Esto habrá creado dos archivos distintos para <code>Localizable.strings</code>, uno para inglés y otro para español. Ahora solo tenemos que editar las claves y los valores de cada uno de ellos.</p>
 <p>Para la versión inglesa sería algo como:</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;si&quot;</span> <span class="p">=</span> <span class="s">&quot;Yes!&quot;</span><span class="p">;</span>
-<span class="s">&quot;no&quot;</span> <span class="p">=</span> <span class="s">&quot;No!&quot;</span><span class="p">;</span>
-<span class="s">&quot;ni_casualidad&quot;</span> <span class="p">=</span> <span class="s">&quot;No way!&quot;</span><span class="p">;</span>
-<span class="s">&quot;claro&quot;</span> <span class="p">=</span> <span class="s">&quot;Sure!&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="s">&quot;si&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Yes!&quot;</span><span class="p">;</span>
+<span class="s">&quot;no&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;No!&quot;</span><span class="p">;</span>
+<span class="s">&quot;ni_casualidad&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;No way!&quot;</span><span class="p">;</span>
+<span class="s">&quot;claro&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Sure!&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>Y para la española:</p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;si&quot;</span> <span class="p">=</span> <span class="s">&quot;¡Si!&quot;</span><span class="p">;</span>
-<span class="s">&quot;no&quot;</span> <span class="p">=</span> <span class="s">&quot;¡No!&quot;</span><span class="p">;</span>
-<span class="s">&quot;ni_casualidad&quot;</span> <span class="p">=</span> <span class="s">&quot;¡Ni de casualidad!&quot;</span><span class="p">;</span>
-<span class="s">&quot;claro&quot;</span> <span class="p">=</span> <span class="s">&quot;¡Claro que sí!&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="s">&quot;si&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;¡Si!&quot;</span><span class="p">;</span>
+<span class="s">&quot;no&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;¡No!&quot;</span><span class="p">;</span>
+<span class="s">&quot;ni_casualidad&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;¡Ni de casualidad!&quot;</span><span class="p">;</span>
+<span class="s">&quot;claro&quot;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;¡Claro que sí!&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>Para probar esta funcionalidad tendremos que ejecutar la <em>app</em> en el simulador y cambiar el idioma desde la aplicación de <em>settings/configuración</em>.</p>
 <p>Es posible que en algunos casos tengamos mensajes con una parte fija y una variable. Por ejemplo un saludo en el que queremos incluir el nombre del usuario. Por desgracia, en la versión actual de iOS la interpolación de cadenas de Swift todavía no funciona para los mensajes internacionalizados. Tenemos que usar <em>placeholders</em> en el mensaje, que son caracteres que funcionan de modo similar a como lo hacen los caracteres de formato en el <code>printf</code> de C:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/* .strings en versión inglés */</span>
-<span class="n">saludo</span> <span class="p">=</span> <span class="s">&quot;Welcome %@&quot;</span><span class="p">;</span>
+<span class="n">saludo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Welcome %@&quot;</span><span class="p">;</span>
 <span class="p">...</span>
 </code></pre></div>
 <p>En este caso, para "montar" el mensaje final tenemos que usar un inicializador de <code>String</code> que acepte cadenas de formato:</p>

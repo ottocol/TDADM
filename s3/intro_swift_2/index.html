@@ -792,19 +792,19 @@
 <p>Una clausura es un bloque de <strong>código</strong> que puede ser tratado como un <strong>objeto</strong>. Es algo así como una <em>función anónima</em> con una sintaxis simplificada.</p>
 <p>A muchos métodos de las bibliotecas del sistema se les pasa una función para hacer su tarea. En lugar de eso se puede usar una clausura, lo que simplifica la sintaxis. Veamos un ejemplo.</p>
 <p>El método <code>sorted</code> ordena un array. Debemos pasarle una función que, dados dos datos, devuelva <code>true</code> si están ya "en el orden correcto". Podemos hacerlo así:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nf">ascendente</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">String</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">String</span><span class="p">)-&gt;</span><span class="nb">Bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">ascendente</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="nb">String</span><span class="p">)-&gt;</span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nv">nombres</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;James&quot;</span><span class="p">,</span><span class="s">&quot;Billy&quot;</span><span class="p">,</span><span class="s">&quot;D&#39;Arcy&quot;</span><span class="p">,</span><span class="s">&quot;Jimmy&quot;</span><span class="p">]</span>
-<span class="kd">let</span> <span class="nv">ord</span> <span class="p">=</span> <span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="n">ascendente</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">nombres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;James&quot;</span><span class="p">,</span><span class="s">&quot;Billy&quot;</span><span class="p">,</span><span class="s">&quot;D&#39;Arcy&quot;</span><span class="p">,</span><span class="s">&quot;Jimmy&quot;</span><span class="p">]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">ord</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="n">ascendente</span><span class="p">)</span>
 </code></pre></div>
 <p>La función <code>ascendente</code> se puede definir en forma de clausura como:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{(</span><span class="n">a</span><span class="p">:</span><span class="nb">String</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">String</span><span class="p">)-&gt;</span><span class="nb">Bool</span> <span class="k">in</span> <span class="k">return</span> <span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{(</span><span class="n">a</span><span class="p">:</span><span class="nb">String</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">String</span><span class="p">)-&gt;</span><span class="nb">Bool</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">}</span>
 </code></pre></div>
 <p>Con clausuras definimos el código <em>donde lo necesitamos</em>, no aparte, quedando más legible</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nombres</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;James&quot;</span><span class="p">,</span> <span class="s">&quot;Billy&quot;</span><span class="p">,</span> <span class="s">&quot;D&#39;Arcy&quot;</span><span class="p">,</span> <span class="s">&quot;Jimmy&quot;</span> <span class="p">]</span>
-<span class="kd">let</span> <span class="nv">ord</span> <span class="p">=</span> <span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{(</span><span class="n">a</span><span class="p">:</span><span class="nb">String</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">String</span><span class="p">)-&gt;</span><span class="nb">Bool</span> <span class="k">in</span> <span class="k">return</span> <span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;James&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Billy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;D&#39;Arcy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jimmy&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">ord</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="w"> </span><span class="p">{(</span><span class="n">a</span><span class="p">:</span><span class="nb">String</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">String</span><span class="p">)-&gt;</span><span class="nb">Bool</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">})</span>
 <span class="n">ord</span>
 </code></pre></div>
 <h3 id="simplificando-la-definicion">Simplificando la definición<a class="headerlink" href="#simplificando-la-definicion" title="Permanent link">&para;</a></h3>
@@ -812,26 +812,26 @@
 <ul>
 <li><em>Inferencia de tipos</em>: en ocasiones el compilador puede inferir la signatura (tipos de parámetros y tipo de retorno), como en nuestro ejemplo, ya que a <code>sorted</code> se le debe pasar una función con dos parámetros <code>String</code> y que debe devolver un <code>Bool</code>. También podemos omitir los paréntesis y la flecha</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nombres</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span> <span class="s">&quot;Eva&quot;</span><span class="p">,</span> <span class="s">&quot;Luis&quot;</span><span class="p">]</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="k">in</span> <span class="k">return</span> <span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">}))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Eva&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luis&quot;</span><span class="p">]</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">}))</span>
 </code></pre></div>
 <ul>
 <li><em><code>return</code> implícito</em>: si la clausura solo contiene una expresión se asume que devuelve su resultado</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nombres</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span> <span class="s">&quot;Eva&quot;</span><span class="p">,</span> <span class="s">&quot;Luis&quot;</span><span class="p">]</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="k">in</span> <span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">}))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Eva&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luis&quot;</span><span class="p">]</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="p">&lt;</span><span class="n">b</span><span class="p">}))</span>
 </code></pre></div>
 <ul>
 <li><strong>Parámetros por defecto</strong> por defecto los parámetros reciben como nombre <code>$i</code> donde <code>i</code> es el número (empieza en 0)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nombres</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span> <span class="s">&quot;Eva&quot;</span><span class="p">,</span> <span class="s">&quot;Luis&quot;</span><span class="p">]</span>
-<span class="kd">let</span> <span class="nv">ord</span> <span class="p">=</span> <span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="p">{</span><span class="nv">$0</span><span class="o">&lt;</span><span class="nv">$1</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Eva&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luis&quot;</span><span class="p">]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">ord</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nv">$0</span><span class="o">&lt;</span><span class="nv">$1</span><span class="p">})</span>
 </code></pre></div>
 <p><strong>Trailing closures</strong>: si una clausura es el último parámetro de un método, se puede omitir su nombre y poner fuera de los paréntesis. Esto de por sí no acorta la sintaxis, pero facilita la legibilidad si el código de la clausura ocupa varias líneas</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nombres</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span> <span class="s">&quot;Eva&quot;</span><span class="p">,</span> <span class="s">&quot;Luis&quot;</span><span class="p">]</span>
-<span class="kd">let</span> <span class="nv">ord</span> <span class="p">=</span> <span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="k">in</span>
-    <span class="k">return</span> <span class="n">a</span><span class="p">&lt;</span><span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Eva&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luis&quot;</span><span class="p">]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">ord</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombres</span><span class="p">.</span><span class="bp">sorted</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">&lt;</span><span class="n">b</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="estructuras">Estructuras<a class="headerlink" href="#estructuras" title="Permanent link">&para;</a></h2>
@@ -843,14 +843,14 @@
 <li>Se instancian de forma muy parecida</li>
 <li>Se pueden definir como <strong>conformes a protocolos</strong> (parecidos a <em>interfaces</em> de Java)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Punto2D</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="nb">Double</span>
-    <span class="kd">var</span> <span class="nv">descripcion</span> <span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">,</span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Punto2D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="p">,</span><span class="n">y</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">descripcion</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">,</span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nv">p1</span> <span class="p">=</span> <span class="n">Punto2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">p1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Punto2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
 <span class="bp">print</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">descripcion</span><span class="p">)</span>
 </code></pre></div>
 <p>Como vemos, en el código anterior no hemos definido ningún inicializador y sin embargo lo hemos llamado para construir un <code>Libro</code>. En <em>structs</em> el compilador define automáticamente un inicializador (llamado <em>memberwise initializer</em>) que acepta las variables miembro como parámetros. </p>
@@ -863,36 +863,36 @@
 <h3 id="valor-vs-referencia">Valor vs. referencia<a class="headerlink" href="#valor-vs-referencia" title="Permanent link">&para;</a></h3>
 <p>Las estructuras se pasan por valor y los objetos por referencia. Eso quiere decir que si asignamos una estructura a otra variable o la pasamos como parámetro de una función estamos <em>haciendo una copia</em>, pero si asignamos objetos, son punteros que apuntan en realidad <em>al mismo objeto</em>.</p>
 <p>Por ejemplo con estructuras</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">Punto2D</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="nb">Double</span>
-    <span class="kd">var</span> <span class="nv">descripcion</span> <span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">,</span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Punto2D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="p">,</span><span class="n">y</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">descripcion</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">,</span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nv">p1</span> <span class="p">=</span> <span class="n">Punto2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">)</span>
-<span class="kd">var</span> <span class="nv">p2</span> <span class="p">=</span> <span class="n">p1</span>
-<span class="n">p1</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">descripcion</span><span class="p">)</span>  <span class="c1">//cambiar p1 no cambia el valor de p2</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">p1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Punto2D</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">p2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">p1</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">descripcion</span><span class="p">)</span><span class="w">  </span><span class="c1">//cambiar p1 no cambia el valor de p2</span>
 </code></pre></div>
 <p>Si  <code>Punto2D</code> pasara de ser una estructura a una clase, pasarían dos cosas:</p>
 <ul>
 <li>Ya no tendríamos automáticamente definido el <em>memberwise initializer</em></li>
 <li>Al asignar o pasar como parámetro estaríamos referenciando <em>la misma instancia</em>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Punto2D</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="nb">Double</span>
-    <span class="kd">var</span> <span class="nv">descripcion</span> <span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">,</span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Punto2D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="p">,</span><span class="n">y</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">descripcion</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;(</span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">,</span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">)&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nv">p1</span> <span class="p">=</span> <span class="n">Punto2D</span><span class="p">()</span>
-<span class="n">p1</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="mi">1</span>
-<span class="n">p1</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="mi">0</span>
-<span class="kd">var</span> <span class="nv">p2</span> <span class="p">=</span> <span class="n">p1</span>            <span class="c1">//ahora p1 y p2 apuntan A LA MISMA INSTANCIA</span>
-<span class="n">p1</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">descripcion</span><span class="p">)</span>  <span class="c1">//(-1.0, 0.0) </span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">p1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Punto2D</span><span class="p">()</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">p2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">p1</span><span class="w">            </span><span class="c1">//ahora p1 y p2 apuntan A LA MISMA INSTANCIA</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">descripcion</span><span class="p">)</span><span class="w">  </span><span class="c1">//(-1.0, 0.0) </span>
 </code></pre></div>
 <h3 id="escoger-estructuras-vs-clases">Escoger estructuras vs. clases<a class="headerlink" href="#escoger-estructuras-vs-clases" title="Permanent link">&para;</a></h3>
 <p>Se recomienda usar estructuras cuando se cumplan estas condiciones:</p>
@@ -905,15 +905,15 @@
 <p>En Swift, <strong>muchos tipos de la librería estándar como los <code>String</code>, los <em>arrays</em> y los <em>diccionarios</em> se implementan como estructuras</strong>, de modo que se pasan por valor y no por referencia. </p>
 <h2 id="gestion-de-errores">Gestión de errores<a class="headerlink" href="#gestion-de-errores" title="Permanent link">&para;</a></h2>
 <p>En Swift representamos un error con cualquier elemento que sea conforme al protocolo <code>Error</code>. Los <code>enums</code> son especialmente apropiados para representar errores</p>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">ErrorImpresora</span> <span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">sinPapel</span>
-    <span class="k">case</span> <span class="n">sinTinta</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
-    <span class="k">case</span> <span class="n">enLLamas</span>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">ErrorImpresora</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">sinPapel</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">sinTinta</span><span class="p">(</span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">enLLamas</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>NOTA: ya veremos qué son los protocolos, por el momento basta con saber que son como los <em>interfaces</em> en Java</p>
 <p>Para señalar que se ha producido un error, lo lanzamos con <code>throw</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">throw</span> <span class="n">ErrorImpresora</span><span class="p">.</span><span class="n">sinTinta</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="s">&quot;Rojo&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">throw</span><span class="w"> </span><span class="n">ErrorImpresora</span><span class="p">.</span><span class="n">sinTinta</span><span class="p">(</span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Rojo&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Ante un error tenemos cuatro opciones:</p>
 <ul>
@@ -926,49 +926,49 @@
 <p>Podemos indicar que una función/método lanza errores marcándola con <code>throws</code>. El error llegará a la función/método que haya llamado a esta, que a su vez podría propagarlo hacia arriba.</p>
 <p>Nótese que si llamamos a un método marcado con <code>throws</code> debemos preceder la llamada de la palabra clave <code>try</code></p>
 <p>Veamos un ejemplo, suponiendo el <code>enum ErrorImpresora</code> definido antes</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Impresora</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">temperatura</span><span class="p">=</span><span class="mf">0.0</span>
-    <span class="c1">//Marcado con &quot;throws&quot; porque lanza un error &quot;hacia arriba&quot;</span>
-    <span class="kd">func</span> <span class="nf">verificarEstado</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="kc">self</span><span class="p">.</span><span class="n">temperatura</span><span class="p">&gt;</span><span class="mi">80</span> <span class="p">{</span>
-           <span class="k">throw</span> <span class="n">ErrorImpresora</span><span class="p">.</span><span class="n">enLlamas</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-           <span class="k">return</span> <span class="s">&quot;OK&quot;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Impresora</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">temperatura</span><span class="p">=</span><span class="mf">0.0</span>
+<span class="w">    </span><span class="c1">//Marcado con &quot;throws&quot; porque lanza un error &quot;hacia arriba&quot;</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">verificarEstado</span><span class="p">()</span><span class="w"> </span><span class="kr">throws</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="kc">self</span><span class="p">.</span><span class="n">temperatura</span><span class="p">&gt;</span><span class="mi">80</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="k">throw</span><span class="w"> </span><span class="n">ErrorImpresora</span><span class="p">.</span><span class="n">enLlamas</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;OK&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">//Lanza un error &quot;hacia arriba&quot;</span>
-<span class="kd">func</span> <span class="nf">miFuncion</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nv">miImpresora</span> <span class="p">=</span> <span class="n">Impresora</span><span class="p">()</span>
-  <span class="n">miImpresora</span><span class="p">.</span><span class="n">temperatura</span> <span class="p">=</span> <span class="mi">100</span>
-  <span class="c1">//Para llamar a un método marcado con &quot;throws&quot; tenemos que usar &quot;try&quot;</span>
-  <span class="k">try</span> <span class="n">miImpresora</span><span class="p">.</span><span class="n">verificarEstado</span><span class="p">()</span>
+<span class="kd">func</span><span class="w"> </span><span class="nf">miFuncion</span><span class="p">()</span><span class="w"> </span><span class="kr">throws</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">miImpresora</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Impresora</span><span class="p">()</span>
+<span class="w">  </span><span class="n">miImpresora</span><span class="p">.</span><span class="n">temperatura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="c1">//Para llamar a un método marcado con &quot;throws&quot; tenemos que usar &quot;try&quot;</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="n">miImpresora</span><span class="p">.</span><span class="n">verificarEstado</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">try</span> <span class="n">miFuncion</span><span class="p">()</span>
+<span class="k">try</span><span class="w"> </span><span class="n">miFuncion</span><span class="p">()</span>
 </code></pre></div>
 <p>En el ejemplo anterior, el error acaba subiendo hasta el nivel superior y el programa abortaría.</p>
 <h3 id="capturar-errores">Capturar errores<a class="headerlink" href="#capturar-errores" title="Permanent link">&para;</a></h3>
 <p>Podemos capturar un error envolviendo la llamada a los métodos que los lanzan en un bloque <code>do...catch</code>, que es muy similar al <code>try...catch</code> de Java o de otros lenguajes</p>
-<div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">miImpresora</span> <span class="p">=</span> <span class="n">Impresora</span><span class="p">()</span>
-    <span class="n">miImpresora</span><span class="p">.</span><span class="n">temperatura</span> <span class="p">=</span> <span class="mi">100</span>
-    <span class="k">try</span> <span class="n">miImpresora</span><span class="p">.</span><span class="n">verificarEstado</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">miImpresora</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Impresora</span><span class="p">()</span>
+<span class="w">    </span><span class="n">miImpresora</span><span class="p">.</span><span class="n">temperatura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="n">miImpresora</span><span class="p">.</span><span class="n">verificarEstado</span><span class="p">()</span>
 <span class="p">}</span>
-<span class="k">catch</span> <span class="n">ErrorImpresora</span><span class="p">.</span><span class="n">enLlamas</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;SOCORROOOOOOOO!!!&quot;</span><span class="p">)</span>
+<span class="k">catch</span><span class="w"> </span><span class="n">ErrorImpresora</span><span class="p">.</span><span class="n">enLlamas</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;SOCORROOOOOOOO!!!&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="manejar-un-error-como-opcional">Manejar un error como opcional<a class="headerlink" href="#manejar-un-error-como-opcional" title="Permanent link">&para;</a></h3>
 <p>En lugar de usar <code>try</code> en la llamada a un método que puede generar un error podemos emplear la "variante" <code>try?</code>. Lo que hace esta forma es capturar el error y transformar el resultado del método en un opcional, que podemos tratar con el patrón habitual <code>if let ...</code>. Si ha habido un error el método nos devolverá <code>nil</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nv">miImpresora</span> <span class="p">=</span> <span class="n">Impresora</span><span class="p">()</span>
-<span class="n">miImpresora</span><span class="p">.</span><span class="n">temperatura</span> <span class="p">=</span> <span class="mi">100</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">estado</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">miImpresora</span><span class="p">.</span><span class="n">verificarEstado</span><span class="p">()</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Perfecto. El estado es </span><span class="si">\(</span><span class="n">estado</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">miImpresora</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Impresora</span><span class="p">()</span>
+<span class="n">miImpresora</span><span class="p">.</span><span class="n">temperatura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">estado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">try</span><span class="p">?</span><span class="w"> </span><span class="n">miImpresora</span><span class="p">.</span><span class="n">verificarEstado</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Perfecto. El estado es </span><span class="si">\(</span><span class="n">estado</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-   <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Ha habido un error&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Ha habido un error&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="ignorar-los-errores">Ignorar los errores<a class="headerlink" href="#ignorar-los-errores" title="Permanent link">&para;</a></h3>
@@ -981,32 +981,32 @@
   - Como el tipo de una constante, variable o propiedad.
   - Como el tipo de los ítems de un array, diccionario u otros contenedores.</p>
 <p>Los protocolos se declaran con la palabra clave <code>protocol</code>. Dentro del protocolo especificamos las signaturas de los métodos y si las propiedades computadas son de lectura y/o escritura. Si un método modifica alguna propiedad del objeto debemos indicarlo con <code>mutating</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span> <span class="nc">ProtocoloEjemplo</span> <span class="p">{</span>
-    <span class="kd">func</span> <span class="nf">saludar</span><span class="p">()-&gt;</span><span class="nb">String</span>
-    <span class="c1">//Propiedad calculada: debemos decir si es gettable y/o settable</span>
-    <span class="kd">var</span> <span class="nv">descripcion</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span><span class="kr">get</span> <span class="kr">set</span><span class="p">}</span>
-    <span class="c1">//si la función muta algún dato, debemos especificarlo</span>
-    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">reggaetonizar</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">ProtocoloEjemplo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">saludar</span><span class="p">()-&gt;</span><span class="nb">String</span>
+<span class="w">    </span><span class="c1">//Propiedad calculada: debemos decir si es gettable y/o settable</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">descripcion</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span><span class="kr">get</span><span class="w"> </span><span class="kr">set</span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//si la función muta algún dato, debemos especificarlo</span>
+<span class="w">    </span><span class="kr">mutating</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">reggaetonizar</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Para indicar que una clase adopta un protocolo usamos la misma notación que con la herencia</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MiClase</span> <span class="p">:</span> <span class="n">ProtocoloEjemplo</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">descripcion</span> <span class="p">=</span> <span class="s">&quot;Mi Clase&quot;</span>
-    <span class="kd">func</span> <span class="nf">saludar</span><span class="p">()-&gt;</span><span class="nb">String</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;Hola soy &quot;</span> <span class="o">+</span> <span class="kc">self</span><span class="p">.</span><span class="n">descripcion</span>
-    <span class="p">}</span>
-    <span class="kd">func</span> <span class="nf">reggaetonizar</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kc">self</span><span class="p">.</span><span class="n">descripcion</span> <span class="o">+=</span> <span class="s">&quot; ya tú sabes&quot;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MiClase</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ProtocoloEjemplo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">descripcion</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Mi Clase&quot;</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">saludar</span><span class="p">()-&gt;</span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hola soy &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kc">self</span><span class="p">.</span><span class="n">descripcion</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">reggaetonizar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">descripcion</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot; ya tú sabes&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nv">mc</span> <span class="p">=</span> <span class="n">MiClase</span><span class="p">()</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">mc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">MiClase</span><span class="p">()</span>
 <span class="n">mc</span><span class="p">.</span><span class="n">reggaetonizar</span><span class="p">()</span>
-<span class="n">mc</span><span class="p">.</span><span class="n">saludar</span><span class="p">()</span>   <span class="c1">//Hola, soy Mi Clase ya tú sabes</span>
+<span class="n">mc</span><span class="p">.</span><span class="n">saludar</span><span class="p">()</span><span class="w">   </span><span class="c1">//Hola, soy Mi Clase ya tú sabes</span>
 </code></pre></div>
 <p>Al igual que en Java una clase solo puede heredar de una superclase, pero puede implementar uno o varios protocolos. En la primera línea de la clase, donde indicamos herencia-protocolos, hay que poner la superclase antes que los protocolos para evitar ambigüedades</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MiOtraClase</span><span class="p">:</span> <span class="n">Superclase</span><span class="p">,</span> <span class="n">ProtocoloUno</span><span class="p">,</span> <span class="n">ProtocoloDos</span> <span class="p">{</span>
-   <span class="c1">//Definición de la clase</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MiOtraClase</span><span class="p">:</span><span class="w"> </span><span class="n">Superclase</span><span class="p">,</span><span class="w"> </span><span class="n">ProtocoloUno</span><span class="p">,</span><span class="w"> </span><span class="n">ProtocoloDos</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="c1">//Definición de la clase</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="el-patron-de-diseno-delegacion">El patrón de diseño "delegación"<a class="headerlink" href="#el-patron-de-diseno-delegacion" title="Permanent link">&para;</a></h2>
